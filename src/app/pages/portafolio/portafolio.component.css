@@ -1,0 +1,129 @@
+/*portafolio*/
+
+.carrousel {
+  padding-top: 40px;
+}
+
+.carrousel ul li {
+  cursor: pointer;
+}
+
+.carrousel ul li:hover {
+  color: #6ec3e2;
+}
+
+.portafolio-texto {
+  margin: 100px 0 50px;
+  ;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.logoe-2 {
+  position: relative;
+  top: 10px;
+  left: 60px;
+}
+
+.menu-carrousel {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.carrousel ul {
+  list-style: none;
+  text-align: right;
+  font-size: 1.1em;
+  line-height: 2.2;
+}
+
+.card{
+  border: none;
+}
+
+.card-columns {
+  margin-bottom: 100px;
+}
+
+.card img {
+  cursor: pointer;
+}
+
+.card img:before {
+  background: rgba(0, 119, 221, 0.57);
+}
+
+    .leftRs {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+        border-radius: 999px;
+        left: 0;
+    }
+
+    .rightRs {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+        border-radius: 999px;
+        right: 0;
+    }
+
+.container-2{
+  max-width: 1400px;
+    margin: 0 auto;
+}
+
+    .tile{
+      min-height: 200px;
+    background-color: #ccc;
+    background-size: cover !important;
+    }
+
+    h4 {
+    margin: 0;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.carrousel{
+  display:flex;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+}
+
+li{
+  margin: 0 10px;
+
+}
+
+.tile{
+  transition: all 0.3s;
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+
+}
+
+
+@media (max-width: 576px) {
+  ul{
+    padding: 0;
+    font-size: .5em!important;
+  }
+
+}

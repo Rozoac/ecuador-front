@@ -1,0 +1,93 @@
+.container-fluid {
+  padding: 0;
+  position: relative;
+}
+
+.cuadrado {
+  position: absolute;
+  z-index: 2;
+  max-width: 635px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 38px 50px 47px;
+  text-align: center;
+  ;
+  top: 13%;
+  left: 7%;
+  height: 74%;
+  width: 47%;
+}
+
+.cuadrado::before {
+  content: '\275E';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 64px;
+  color: #34ccff;
+  margin: 0 0 5px;
+}
+
+.item {
+  background: blue;
+  width: 100vw;
+  height: 500px;
+}
+
+.testimonio-1 {
+  background: url("/assets/imgs/testimonio1.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.testimonio-2 {
+  background: url("/assets/imgs/testimonio2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.testimonio-3 {
+  background: url("/assets/imgs/testimonio3.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+svg {
+  color: #34cdff;
+}
+
+.empresa {
+  display: block;
+  font-size: 0.7em;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.nombre {
+  font-size: 0.7em;
+  font-weight: lighter;
+}
+
+@media (max-width: 576px) {
+  .cuadrado {
+    padding: 0;
+    width: 87%!important;
+  }
+  .owl-dots {
+    position: absolute;
+    top: 74%;
+    left: 40.5%;
+    z-index: 3;
+  }
+}

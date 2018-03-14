@@ -1,0 +1,29 @@
+
+
+<div id="2" class="carrousel hidden-sm-down">
+  <ul>
+    <li (click)="tipo = null">Todos</li>
+    <li (click)="tipo = 'sala de venta'">Salas de ventas</li>
+    <li (click)="tipo = 'oficina'">Oficinas</li>
+    <li (click)="tipo = 'refrigerado'">Refrigerado</li>
+    <li (click)="tipo = 'bodega'">Bodegas</li>
+    <li (click)="tipo = 'arquitectonico'">Proy. Arquitectónicos</li>
+  </ul>
+</div>
+
+<div class="container-2">
+
+  <ngx-carousel [inputs]="carouselOne" >
+
+    <ngx-tile NgxCarouselItem  *ngFor="let contenedor of contenedores; let i = index" [ngStyle]= "{display: (contenedor.tipo == tipo || tipo == null) ? 'inline-block' : 'none' }">
+      <div class="wBg"  >
+        <div  (click)="verContenedor(i)" class="tile" [style.background]="'url(' + contenedor.img + ')'">
+
+        </div>
+        <h4>{{contenedor.nombre}}</h4>
+      </div>
+    </ngx-tile>
+    <button NgxCarouselPrev class='leftRs'>&lt;</button>
+    <button NgxCarouselNext class='rightRs'>&gt;</button>
+  </ngx-carousel>
+</div>

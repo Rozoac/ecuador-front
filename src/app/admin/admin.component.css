@@ -1,0 +1,19 @@
+@import "~/assets/css/backend/style.css";
+@import "~/assets/css/backend/colors/default-dark.css";
+@import "~/assets/css/backend/plugins/bootstrap/css/bootstrap.min.css";
+.dash-principal{
+  background: #fff;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  color: #67757c;
+  font-weight: 300;
+}
+
+.econtainers-logo{
+  width: 40px;
+}
+.econtainers-texto{
+  padding-left: 5px;
+      width: 140px;
+}

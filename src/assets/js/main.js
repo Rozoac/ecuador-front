@@ -1,0 +1,4 @@
+
+(function(){
+  transformicons.add(".tcon");
+})()

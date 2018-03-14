@@ -1,0 +1,99 @@
+
+
+<div id="9" class="compromiso-p">
+    <div class="row centrar">
+      <div class="col-md-6 com1 ">
+        <h3>COMPROMISO EMPRESARIAL</h3>
+        <p>Tu aliado estratégico para alquiler, compra y adecuación de contenedores marítimos de acero nuevos y usados</p>
+        <div class="container-fluid iconos">
+          <div class="row compromiso">
+            <div class="col-md-6">
+              <i class="fas fa-truck fa-3x"></i>
+              <h2>SOLUCIONES MOVILES</h2>
+            </div>
+            <div class="col-md-6">
+              <i class="fas fa-tasks fa-3x"></i>
+              <h2>CALIDAD GARANTIZADA</h2>
+            </div>
+            <div class="col-md-6">
+              <i class="fas fa-leaf fa-3x"></i>
+              <h2>ECO AMIGABLE</h2>
+            </div>
+            <div class="col-md-6">
+              <i class="fas fa-chart-line fa-3x"></i>
+              <h2>MEJORA CONTINUA</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6 right">
+        <h3>CONTÁCTENOS</h3>
+        <form  [formGroup]="forma" (submit)="sendEmail(message)">
+          <div class="form-group" [ngClass]="{'has-danger': (!forma.get('nombre').valid)&& forma.get('nombre').touched}">
+            <div class="row">
+              <div class=" col-sm-12 col-lg-6">
+                <input type="text" class="form-control" name="name" formControlName="nombre" required placeholder="Nombre y Apellido" [(ngModel)]="message.name">
+                <div *ngIf="(forma.controls['nombre'].errors?.required)&& forma.get('nombre').touched" class="form-control-feedback">
+                  El nombre es obligatorio
+                </div>
+              </div>
+              <div class=" col-lg-6">
+                <select type="text" name="ciudad" formControlName="ciudad" class="form-control" [(ngModel)]="message.ciudad">
+                <option>¿Cual es tu ciudad mas cercana?</option>
+                <option>Barranquilla</option>
+                <option>Bogotá</option>
+                <option>Bucaramanga</option>
+                <option>Cali</option>
+                <option>Cartagena</option>
+                <option>Medellin</option>
+                <option>Otros</option>
+                <option>Santa Marta</option>
+                <option>Villavicencio</option>
+              </select>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <input type="text" name="celular" formControlName="cel" class="form-control" required placeholder="Celular" [(ngModel)]="message.celular">
+                <div *ngIf="(forma.controls['cel'].errors?.required)&& forma.get('cel').touched" class="form-control-feedback">
+                El numero celular es obligatorio
+              </div>
+              </div>
+              <div class="col-lg-6">
+                <select class="form-control" name="tipo" formControlName="interes" [(ngModel)]="message.tipo">
+                <option>¿En que estas interesado?</option>
+                <option>Oficinas</option>
+                <option>Salas de Ventas</option>
+                <option>Bodegas</option>
+                <option>Proyectos Especiales o Arquitectonicos</option>
+                <option>Contenedores Refrigerados</option>
+              </select>
+              </div>
+              <div class=" col-lg-6">
+                <input type="email" class="form-control" name="email" formControlName="email" placeholder="Correo Electronico" [(ngModel)]="message.email">
+                <div class="form-control-feedback">
+                </div>
+                <select class="form-control" name="para" formControlName="para" [(ngModel)]="message.para">
+                  <option>¿Lo quieres para?</option>
+                  <option>Compra</option>
+                  <option>Alquiler</option>
+                </select>
+              </div>
+
+              <div class="col-lg-6">
+                  <textarea class="form-control" rows="3" placeholder="Mensaje" name="message" formControlName="mensaje" [(ngModel)]="message.message"></textarea>
+
+                </div>
+                <div class="col-lg-12 form-check">
+                  <input type="checkbox" class="form-check-input" required formControlName="autorizo">
+                <a href="https://econtainerscolombia.com/politicas.pdf" target="_blank">  <label class="form-check-label"  for="exampleCheck1"><a class="autorizo" href="https://econtainerscolombia.com/autorizacion.pdf" target="_blank">Aviso de autorización:</a> Autorizo el tratamiento de mis datos personales</label></a>
+                </div>
+                <div class="col align-self-center">
+                  <button [disabled]="!forma.valid"  type="submit" class="btn btn-primary submit-1 ">ENVIAR<i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+              </div>
+        </form>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,154 @@
+/* seccion 2 ⁄ */
+
+.texto-light-s3 {
+  font-weight: lighter;
+}
+
+.section-2 {
+  z-index: 5;
+  /*background: url("/assets/imgs/seccion-2.png");*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-3 {
+  position: relative;
+  top: 680px;
+  height: 90vh;
+  z-index: 5;
+  background: url("/assets/imgs/seccion-3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-slide {
+  position: relative;
+  top: 680px;
+  height: 90vh;
+  z-index: 5;
+  background: url("/assets/imgs/seccion-5.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-4 {
+  min-height: 829px;
+  padding-top: 40px;
+  position: relative;
+  top: 680px;
+  z-index: 5;
+}
+
+.section-5 {
+  position: relative;
+  top: 680px;
+  z-index: 5;
+  height: 500px;
+  background: url("/assets/imgs/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.section-6 {
+  position: relative;
+  top: 680px;
+  z-index: 5;
+}
+
+.section-7 {
+  position: relative;
+  top: 680px;
+  z-index: 5;
+  background: #1677dd;
+}
+
+.section-8 {
+  position: relative;
+  top: 680px;
+  z-index: 5;
+  background: #eff4f5;
+}
+
+.section-9 {
+  position: relative;
+  top: 680px;
+  z-index: 5;
+  background: #1677dd;
+}
+
+.section-10 {
+  position: relative;
+  top: 680px;
+  z-index: 5;
+}
+
+.section-11 {
+  position: relative;
+  top: 680px;
+  height: 10%;
+  z-index: 5;
+  background: #21232f;
+}
+
+.azul-1 {
+  background: #0197f8;
+}
+
+.blanco {
+  background: white;
+}
+
+.cuadros-container {
+  padding: 35px 10px;
+  margin: 0 0 35px;
+  border: 3px solid #efefef;
+  height: 300px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+
+
+
+
+.fondo{
+  background: url("/assets/imgs/empleado.jpg");
+background-size: cover;
+-webkit-box-shadow: -13px 17px 15px -2px rgba(124,124,124,1);
+-moz-box-shadow: -13px 17px 15px -2px rgba(124,124,124,1);
+box-shadow: -13px 17px 15px -2px rgba(124,124,124,1);
+}
+
+.margin-top-70 {
+  padding-top: 80px;
+}
+
+.margin-top-50 {
+      padding-top: 90px;
+}
+
+.parrafo-seccion-2 {
+  margin-top: 30px;
+  font-size: 1.07em;
+  line-height: 35px
+}
+
+
+
+.subtitulo {
+  margin-top: 30px;
+  color: #31a1ff;
+}
+
+.texto-seccion-1 {
+  font-size: .9em;
+  font-weight: lighter;
+}
+
+h3{
+  font-size: 1.5em;
+}

@@ -1,0 +1,223 @@
+/* .section-9 {
+
+  z-index: 5;
+  background: #1677dd;
+}
+
+.h2-s9 {
+  padding: 0 20px;
+}
+
+.p-s9 {
+  color: white;
+  padding: 0 20px 30px;
+}
+
+.submit-1 {
+  background-color: white;
+  color: #1677dd;
+}
+
+.submit-s9 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: .5rem;
+}
+
+button {
+  margin: 40px 10px 0 0;
+  padding: 10px 30px;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 30px 30px;
+}
+
+.margin-top-50 {
+      padding-top: 90px;
+}
+
+select {
+    margin-bottom: 10px;
+  }
+
+   */
+   @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
+
+
+.vimeo {
+  width: 100%;
+}
+
+.principal {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.isla-morada {
+  position: relative;
+}
+
+.isla-morada::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin: -43px 0 0 -43px;
+  width: 86px;
+  height: 86px;
+  background: #34ccff;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.isla-morada:hover:before {
+  background: #1576dd;
+}
+
+.isla-morada::after {
+  content: '\25B6';
+  position: absolute;
+  left: 50%;
+  margin: -12px 0 0 -7px;
+  top: 50%;
+  font-family: 'stm';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 24px;
+  color: #fff;
+  z-index: 20;
+}
+
+a:active {
+  color: #34ccff;
+  outline: none !important;
+}
+
+h3::before {
+  content: "";
+  border-bottom: 3px solid #34cdff;
+  width: 50px;
+  display: block;
+  border-radius: 2px;
+  margin-bottom: 35px;
+}
+
+h3 {
+  margin-bottom: 35px;
+  margin-top: 50px;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+.compromiso div {
+  display: flex;
+  margin: 0 0 40px;
+}
+
+.com1 p{
+  font-family: 'Oswald';
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.compromiso-p {
+  background: #f7f7f7;
+}
+
+.centrar {
+  margin: 0 70px;
+}
+
+.iconos {
+  background: transparent;
+}
+
+.right {
+  background: #183650;
+  margin-bottom: 50px;
+}
+
+.right h3 {
+  color: white;
+  margin-left: 17px;
+}
+
+svg {
+  margin-right: 20px;
+  color: #34cdff;
+}
+
+form {
+  margin: 17px;
+}
+
+
+.form-check {
+    margin: .5rem 0 .5rem 1.3rem;
+    color: #2898c1;
+}
+
+input, select, textarea, option {
+  border-radius: 0;
+}
+
+input, textarea {
+  margin-bottom: 15px;
+}
+
+button, .btn-primary.disabled, .btn-primary:disabled {
+  width: 100%;
+  border: 3px solid #34cdff;
+  background: transparent;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+button:hover {
+  background: #34cdff;
+}
+
+button svg {
+  margin-left: 7px;
+  color: white;
+}
+
+@media (max-width: 576px) {
+  .centrar {
+    margin: 0;
+  }
+  .com1 {
+    margin: 0 35px;
+  }
+
+  .right{
+    margin-bottom: 0;
+}
+select{
+      margin-bottom: 15px;
+}
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    max-width: none!important;
+  }
+}

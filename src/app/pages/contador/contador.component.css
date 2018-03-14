@@ -1,0 +1,39 @@
+.contenedor-principal{
+  background-color: #34cdff;
+}
+
+h4{
+  font-size: .9em;
+  font-weight: 300;
+  color: #183650;
+
+}
+
+i{
+  color: white!important;
+  font-size: 3.2em;
+}
+
+.row .col-sm-12{
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 ;
+}
+
+.contenedor-contador{
+  margin-left: 10px;
+}
+
+.counter, .counter-2, .counter-3, .counter-4{
+  margin-bottom:5px;
+  font-size: 2.2em;
+  color: #183650;
+}
+
+.background-azul{
+  background: #34cdff;
+}
+
+.fa-4x{
+  color: white;
+}

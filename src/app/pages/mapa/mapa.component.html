@@ -1,0 +1,208 @@
+<div id="2">
+  <div class="container-fluid">
+    <div class="mapa">
+      <div class="container-fluid contacto">
+        <div class="container">
+          <div class="owl-carousel asd owl-theme owl-loaded">
+            <div class="item">
+              <span class="ciudad">BOGOTÁ</span>
+              <div class="direccion">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Calle 114A #47A-21 Bogotá DC</span>
+              </div>
+              <div class="telefono">
+                <i class="fas fa-mobile"></i>
+                <span><a href="tel:+7462065">(1) 7462065</a></span>
+              </div>
+              <div class="correo">
+                <i class="far fa-envelope"></i>
+                <a>info@econtainerscolombia.com</a>
+              </div>
+            </div>
+            <div class="item">
+              <span class="ciudad">MEDELLÍN</span>
+              <div class="direccion">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Cra 34 #7 - 90, Medellín</span>
+              </div>
+              <div class="telefono">
+                <i class="fas fa-mobile"></i>
+                <span><a href="tel:+6049441">(4) 6049441 </a></span>
+              </div>
+              <div class="correo">
+                <i class="far fa-envelope"></i>
+                <a>info@econtainerscolombia.com</a>
+              </div>
+            </div>
+            <div class="item">
+              <span class="ciudad">MANIZALES</span>
+              <div class="direccion">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Calle 21 # 21-43, Manizales</span>
+              </div>
+              <div class="telefono">
+                <i class="fas fa-mobile"></i>
+                <span> <a href="tel:+8918650">(6)8918650 </a></span>
+              </div>
+              <div class="correo">
+                <i class="far fa-envelope"></i>
+                <a>info@econtainerscolombia.com</a>
+              </div>
+            </div>
+            <div class="item">
+              <span class="ciudad">CALI</span>
+              <div class="direccion">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Cra 23 #13 -250, Cali</span>
+              </div>
+              <div class="telefono">
+                <i class="fas fa-mobile"></i>
+                <span> <a href="tel:+4850401">(2)4850401</a></span>
+              </div>
+              <div class="correo">
+                <i class="far fa-envelope"></i>
+                <a>info@econtainerscolombia.com</a>
+              </div>
+            </div>
+            <div class="item">
+              <span class="ciudad">CARTAGENA</span>
+              <div class="direccion">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Km. 3 Via Mamonal, Cartagena</span>
+              </div>
+              <div class="telefono">
+                <i class="fas fa-mobile"></i>
+                <span> <a href="tel:+6939833">(5)6939833 </a></span>
+              </div>
+              <div class="correo">
+                <i class="far fa-envelope"></i>
+                <a>info@econtainerscolombia.com</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <agm-map [scrollwheel]="scrollwheel"  [zoom]="zoom" [zoomControlOptions]="zoomControlOptions" [latitude]="latBogota" [longitude]="lngBogota">
+        <agm-marker [latitude]="latBogota" [longitude]="lngBogota">
+          <agm-info-window [isOpen]="isOpen">
+            <div class="marcador-info">
+              <div class="logo-mapa">
+                <img src="assets/imgs/logo-info.png" alt="">
+                <span>Bogotá</span>
+              </div>
+              <div class="info-mapa">
+                <strong>Telefóno</strong>
+                <p> <a href="tel:+7462065">(1) 7462065 </a></p>
+                <strong>Dirección</strong>
+                <p>Calle 114A #47A-21</p>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="latMedellin" [longitude]="lngMedellin">
+          <agm-info-window>
+            <div class="marcador-info">
+              <div class="logo-mapa">
+                <img src="assets/imgs/logo-info.png" alt="">
+                <span>Medellin</span>
+              </div>
+              <div class="info-mapa">
+                <strong>Telefóno</strong>
+                <p><a href="tel:+6049441">(4)6049441 </a></p>
+                <strong>Dirección</strong>
+                <p>Cra 34 #7 - 90</p>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+        <agm-marker  [latitude]="latManizales" [longitude]="lngManizales">
+          <agm-info-window>
+            <div class="marcador-info">
+              <div class="logo-mapa">
+                <img src="assets/imgs/logo-info.png" alt="">
+                <span>Manizales</span>
+              </div>
+              <div class="info-mapa">
+                <strong>Telefóno</strong>
+                <p><a href="tel:+8918650">(6)8918650 </a></p>
+                <strong>Dirección</strong>
+                <p>Calle 21 # 21-43</p>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+
+        <agm-marker  [latitude]="latCali" [longitude]="lngCali">
+          <agm-info-window>
+            <div class="marcador-info">
+              <div class="logo-mapa">
+                <img src="assets/imgs/logo-info.png" alt="">
+                <span>Cali</span>
+              </div>
+              <div class="info-mapa">
+                <strong>Telefóno</strong>
+                <p><a href="tel:+4850401">(2)4850401 </a></p>
+                <strong>Dirección</strong>
+                <p>Cra 23 #13 - 250</p>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+        <agm-marker  [latitude]="latCartagena" [longitude]="lngCartagena">
+          <agm-info-window>
+            <div class="marcador-info">
+              <div class="logo-mapa">
+                <img src="assets/imgs/logo-info.png" alt="">
+                <span>Cartagena</span>
+              </div>
+              <div class="info-mapa">
+                <strong>Telefóno</strong>
+                <p><a href="tel:+6939833">(5)6939833</a></p>
+                <strong>Dirección</strong>
+                <p>Km. 3 Via Mamonal</p>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+      <!-- <div class="col-sm-6 seccion-2 container">
+        <div class="cuadro">
+          <div class="whatsapp"><img src="/assets/imgs/whatsapp-01.png" alt=""></div>
+          <a class="whatsapp-link btn btn-success" href="https://api.whatsapp.com/send?phone=573116394356">Escribe a Whatsapp</a><span class="numero-w">311-6394356</span>
+           <span></span>
+        </div>
+        <div class="cuadro">
+          <div class="telefono"><img src="/assets/imgs/telefono-01.png" alt=""></div>
+          <span class="uno">Bogotá (1) 7462065<br>
+                Cali (2) 4850401<br>
+                Medellín (4) 6049441<br>
+          </span>
+          <span>
+            Cartagena (5) 6939833<br>
+            Manizales (6) 8918650
+          </span>
+        </div>
+        <div class="cuadro">
+          <div class="correo"><img src="/assets/imgs/correo-01.png" alt=""></div>
+          <span>info@econtainerscolombia.com</span>
+        </div>
+        <div class="cuadro">
+          <div class="direccion"><img src="/assets/imgs/ubicacion-01.png" alt=""></div>
+          <span class="dos">Calle 114A #47A-21,Bogotá D.C<br>
+            Km. 3 Via Mamonal, Cartagena<br>
+            Cra 34 #7 - 90, Medellín<br>
+        </span>
+        <span>
+          Cra 23 #13 - 250, Cali<br>
+          Calle 21 # 21-43, Manizales
+        </span>
+          <span></span>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div class="container-fluid mensaje">
+  <h3>DISTRIBUCIÓN A NIVEL NACIONAL</h3>
+</div>

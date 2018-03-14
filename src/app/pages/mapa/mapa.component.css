@@ -1,0 +1,253 @@
+*{
+  font-family: roboto;
+}
+
+.section-10 {
+  z-index: 5;
+}
+
+.container-fluid{
+  padding: 0;
+}
+
+agm-map {
+  height: 600px;
+  width: 100%;
+}
+
+.logo-mapa {
+  background: rgba(0, 168, 255, 1);
+  background: -moz-linear-gradient(top, rgba(0, 168, 255, 1) 26%, rgba(0, 168, 255, 1) 27%, rgba(0, 110, 231, 1) 66%);
+  background: -webkit-gradient(left top, left bottom, color-stop(26%, rgba(0, 168, 255, 1)), color-stop(27%, rgba(0, 168, 255, 1)), color-stop(66%, rgba(0, 110, 231, 1)));
+  background: -webkit-linear-gradient(top, rgba(0, 168, 255, 1) 26%, rgba(0, 168, 255, 1) 27%, rgba(0, 110, 231, 1) 66%);
+  background: -o-linear-gradient(top, rgba(0, 168, 255, 1) 26%, rgba(0, 168, 255, 1) 27%, rgba(0, 110, 231, 1) 66%);
+  background: -ms-linear-gradient(top, rgba(0, 168, 255, 1) 26%, rgba(0, 168, 255, 1) 27%, rgba(0, 110, 231, 1) 66%);
+  background: linear-gradient(to bottom, rgba(0, 168, 255, 1) 26%, rgba(0, 168, 255, 1) 27%, rgba(0, 110, 231, 1) 66%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a8ff', endColorstr='#006ee7', GradientType=0);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.marcador-info {
+  display: flex;
+  height: 88px;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+}
+
+.info-mapa {
+  display: flex;
+  padding-left: 8px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.mapa-completo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.direcciones{
+  background: #212330;
+  height: 100%;
+
+}
+.col-lg-4{
+  display: flex;
+  align-items: center;
+}
+.col-lg-6{
+  padding: 0;
+
+}
+.borde{
+  padding: 20px;
+  border: solid white 3px;
+
+}
+.datos-11 {
+  flex-direction: column;
+}
+
+.datos div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+}
+
+.datos-11 {
+  flex-direction: column;
+}
+
+.h3-s11 {
+  color: #0178de;
+}
+
+.section-11 {
+  height: 100%;
+  z-index: 5;
+  background: #21232f;
+}
+
+h3{
+  font-size: 1.5em;
+}
+
+.p-s7 {
+    font-size: .8em;
+}
+.seccion-2{
+  background: #212330;
+  color: white;
+    padding: 30px!important;
+
+}
+
+.primera .col-sm-6 {
+  padding: 0;
+}
+
+.cuadro{
+  height: 85px;
+  display: flex;
+  align-items: center;
+
+
+}
+/* .cuadro div{
+  display: inline-block;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .whatsapp{
+    background: #4e6ab6;
+
+  }
+
+  .whatsapp img{
+    width: 80%;
+  }
+  .telefono img{
+    width: 40%;
+  }
+  .correo img{
+    width: 80%;
+  }
+  .direccion img{
+    width: 50%;
+  }
+
+  .telefono{
+    background: #4c8acf;
+  }
+
+  .correo{
+    background: #4e6ab6;
+  }
+  .direccion{
+    background: #4c8acf;
+  }
+
+  span{
+    font-size: .8em;
+    margin: 0 10px;
+  }
+
+  .uno , .dos{
+    border-right: 1px solid white;
+    padding-right: 10px;
+  }
+
+  .numero-w{
+    margin-left: 10px;
+  }
+
+  .whatsapp-link{
+  margin-left: 10px;
+}
+*/
+.mensaje{
+  background: #34cdff;
+    height: 80px;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/*
+
+.btn{
+  background: #3fd452;
+}
+.btn:hover{
+  background: #55b03d!important;
+} */
+
+
+
+.mapa{
+  position: relative;
+}
+
+.contacto{
+  position: absolute;
+  width: 100%;
+  height: 35%;
+  background: rgba(24, 54, 80, 0.9);;
+  z-index: 2;
+  bottom: 0;
+}
+
+
+span{
+  color: #b5bfc8!important;
+
+}
+
+svg{
+  color: white;
+  margin-right: 5px;
+}
+.item{
+  margin-top: 40px;
+  border-right: 1px solid #b5bfc8;
+
+}
+
+.direccion, .telefono, .correo{
+  margin: 10px 0;
+  font-size: 13px!important;
+line-height: 20px;
+}
+
+a{
+  color: #34ccff!important;
+  outline: none !important;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.prueba{
+  background: #34cdff;
+  height: 10px;
+  width: 10px;
+  margin-top: 10px;
+  position: absolute;
+  top: 74%;
+  left: 27.5%;
+  z-index: 3;
+}
+
+.ciudad{
+  color: white!important;
+}

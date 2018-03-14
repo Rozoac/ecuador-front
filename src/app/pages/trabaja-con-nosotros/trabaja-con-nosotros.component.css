@@ -1,0 +1,135 @@
+.img-principal {
+  background: url("/assets/imgs/banner-trabaje.jpg");
+  height: 300px;
+  background-position: right;
+  background-size: cover;
+}
+
+.trabaja {
+  padding-top: 70px;
+}
+
+.texto-principal {
+  color: white!important;
+  position: relative;
+  top: 150px;
+}
+
+.texto-1 {
+  font-size: 3em;
+  color: white!important;
+}
+
+.texto-2 {
+  font-size: 1.3em;
+  font-weight: lighter;
+  line-height: 1.4;
+  color: white!important;
+}
+
+
+/*seccion 2*/
+
+.seccion-2 {
+  padding-top: 50px;
+}
+
+.seccion-2 span {
+  font-size: 2.5em;
+  color: #3f3d3f;
+}
+
+.seccion-2 .row {
+  padding-top: 50px;
+}
+.footer {
+  position: relative;
+  z-index: 5;
+  height: 30vh;
+}
+
+@media (min-width: 1200px) {
+  .containerf {
+    padding-left: 220px;
+    padding-right: 220px;
+  }
+}
+
+span {
+  font-size: .7em;
+}
+
+.padding-40 {
+  padding-top: 40px!important;
+}
+
+.margin-0{
+  margin:0!important;
+
+}
+
+i {}
+
+.redes-footer {
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%!important;
+
+}
+
+.sgs{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+
+/* formulario */
+
+.section-9 {
+
+  z-index: 5;
+  background: #f7f7f9;
+}
+
+.h2-s9 {
+  padding: 0 20px;
+}
+
+.p-s9 {
+  color: white;
+  padding: 0 20px 30px;
+}
+
+.submit-1 {
+  background-color: white;
+  color: black;
+}
+
+.submit-s9 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: .5rem;
+}
+
+button {
+  margin: 40px 10px 0 0;
+  padding: 10px 30px;
+  background: transparent;
+  color: black;
+  border: 2px solid black;
+  border-radius: 30px 30px;
+}
+
+.margin-top-50 {
+      padding-top: 90px;
+}
+
+h2, p{
+  color: black!important;
+}

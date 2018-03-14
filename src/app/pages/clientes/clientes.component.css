@@ -1,0 +1,61 @@
+.section-8 {
+  padding-top: 20px;
+  z-index: 5;
+  background: #eff4f5;
+  max-height: 600px;
+  height: 600px;
+}
+
+.logo-s8 img {
+  margin: 0 30px;
+}
+
+.logos-s8 {
+  padding: 0 130px 0;
+}
+
+.asd {
+  width: 100px;
+  filter: grayscale(100%);
+  transition: .2s;
+  margin-bottom: 100px!important;
+}
+
+.asd-1 {
+  width: 100px;
+  margin-bottom: 80px!important;
+  filter: grayscale(100%);
+  transition: .2s;
+}
+
+.asd:hover {
+  filter: grayscale(0%);
+}
+
+.asd-1:hover {
+  filter: grayscale(0%);
+}
+
+.linea {}
+
+.h2-s7 {
+  margin-bottom: 50px;
+  font-size: 1.5em;
+}
+
+.margin-top-50 {
+  padding-top: 90px;
+}
+
+.carousel-item {
+  padding: 0 100px;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  color: black;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}

@@ -1,0 +1,40 @@
+<div class="contenedor contenedor-img">
+  <div class="container-fluid img-principal colorear wow fadeIn" [style.background-image]="'url(' + contenedor.img_0 + ')'">
+    <div class="texto-principal container">
+      <h2 class="texto-1 wow bounce"> {{contenedor.nombre}} </h2>
+      <h2 class="texto-2 wow pulse">{{contenedor.bio_1}}  </h2>
+      <a href="https://econtainersreefer.com" class="vinculo wow pulse">{{contenedor.vinculo}}  </a>
+      <a pageScroll [routerLink]="['/home']" href="#2">Volver</a>
+    </div>
+  </div>
+  <div class="container">
+    <h3 class="nombre_container wow fadeInLeft">{{contenedor.nombre}}</h3>
+    <div class="row imagenes-portafolio">
+      <div class="col-md-4">
+        <img class="wow flipInX" src="{{contenedor.img_1}}" alt="">
+      </div>
+      <div class="col-md-4">
+        <img class="wow flipInX" src="{{contenedor.img_2}}" alt="">
+      </div>
+      <div class="col-md-4">
+        <img class="wow flipInX" src="{{contenedor.img_3}}" alt="">
+      </div>
+    </div>
+    <div class="cuadro-azul wow fadeInRight"></div>
+  </div>
+  <div class="info2 container">
+    <p class="wow fadeInLeft">{{contenedor.bio_2}}</p>
+  </div>
+
+  <div [ngStyle]="{'max-height': '800px'}">
+    <div class="container imagen-portafolio-b">
+      <img class=" wow fadeIn" src="{{contenedor.img_4}}" alt="">
+      <div class="container wow fadeInLeft" [ngStyle]="{'margin-top': '20px'}">
+      <p>
+         {{contenedor.bio_3}}
+      </p>
+      </div>
+    </div>
+    <div class="cuadro-azul2 wow fadeInLeft"></div>
+  </div>
+</div>

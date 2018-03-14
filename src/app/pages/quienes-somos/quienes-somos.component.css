@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
+
+p, li{
+  color: BLACK;
+  font-family: 'Oswald';
+}
+
+.contenedor {
+  padding-top: 70px;
+  background: #eeeeee;
+}
+
+.img-principal {
+  position: relative;
+  background-image: url("/assets/imgs/banner-barco.jpg");
+  height: 300px;
+  width: 100vw;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.barco {
+  position: absolute;
+  left: 51%;
+  top: 11%;
+  width: 550px;
+  z-index: 3;
+}
+
+.texto-principal {
+  padding: 80px 0 20px 70px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.texto-1 {
+
+  color: white;
+  font-size: 3em;
+}
+
+.texto-2 {
+  color: #00a5ff;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.designe-1{
+  border-top: 3px solid white;
+  position: relative;
+background: #021e29;
+height: 500px;
+}
+
+
+.designe-1 img{
+  position: absolute;
+  width: 296px;
+  bottom: 0;
+  background-size: cover;
+  left: 20%;
+  z-index: 2;
+}
+
+.designe-1 .borde{
+  position: relative;
+  border: 4px solid #23a5ff;
+  height: 72%;
+    margin: 80px 200px;
+  z-index: 2;
+}
+.designe-1 .borde::after{
+  content:url('/assets/imgs/trabaja/logo-gris.png');
+  position:absolute;
+  bottom: 0;
+  right: 0;
+}
+.designe-1 .borde .text{
+  color: white;
+  font-family: 'Oswald';
+  margin-left: 40%;
+  margin-top: 30px;
+    width: 488px;
+      text-align: center;
+}
+
+.designe-1 .mision{
+  position: absolute;
+      color: grey;
+      font-size: 5em;
+      bottom: 0;
+      left: 36%;
+      z-index: 4;
+      letter-spacing: 37px;
+      margin-bottom: 5rem;
+}
+.designe-2{
+position: relative;
+background: url('/assets/imgs/trabaja/seccion-5.jpg');
+background-size: cover;
+background-attachment: fixed;
+height: 600px;
+}
+
+
+.designe-2 img{
+  position: absolute;
+  width: 600px;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.designe-2 .borde{
+    padding: 80px 620px 80px 200px;
+  }
+
+.designe-2 .borde span{
+  color: white;
+  font-family: 'Oswald';
+  width: 488px;
+  text-align: center;
+  font-size: 5em;
+
+}
+
+.designe-2 .text-1{
+  font-family: 'Oswald';
+      color: #e5e2ed;
+      font-size: 2em;
+      z-index: 4;
+}
+.designe-2 .text-2{
+  font-family: 'Oswald';
+      color: #e5e2ed;
+      font-size: 1em;
+      z-index: 4;
+}
+
+.designe-3{
+position: relative;
+background: url('/assets/imgs/trabaja/work.jpg');
+background-size: cover;
+height: 600px;
+}
+
+.designe-3 .square-1{
+  border-radius: 2% 2% 0 2% ;
+  position: absolute;
+  height: 450px;
+  width: 40%;
+
+  background: url('/assets/imgs/trabaja/container.png'),#ed5d82;
+  background-size: cover;
+  /* background: #ec5c83; */
+  bottom: -30%;
+  left: 10%;
+}
+
+.square-1 span{
+  position: absolute;
+  color: white;
+  top: 5%;
+  left: 22%;
+  font-size: 5em;
+}
+.square-1 ul{
+  position: absolute;
+  top: 35%;
+  left: 22%;
+  font-size: 1em;
+}
+
+.square-1 li{
+  color: white;
+}
+.square-1 hr{
+  position: absolute;
+  width: 150px;
+    top: 72%;
+    left: 83%;
+    z-index: 99;
+    border-top: 3px solid white;
+}
+.designe-3 .square-2{
+  border-radius: 0 2% 2% 2%;
+
+  position: absolute;
+  height: 450px;
+  width: 40%;
+  bottom: -50%;
+  left: 50%;
+  background: url('/assets/imgs/trabaja/container-2.png'),#676cbe;
+  background-size: cover;
+
+}
+
+.designe-3 .square-2 span{
+  position: absolute;
+  color: white;
+  top: 5%;
+  left: 22%;
+  font-size: 5em;
+}
+.designe-3 .square-2 p{
+  position: absolute;
+  color: white;
+  top: 35%;
+  left: 22%;
+  font-size: 1em;
+}
+.designe-4{
+  background: #eeeeee;
+  height: 400px;
+  width: 100vw;
+}
+
+.imagen-3 {
+  background: url("/assets/imgs/seccion-6c.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+}
+
+@media screen and (max-width: 576px)  {
+  .barco {
+      left: 64%;
+      top: 47%;
+      margin-left: -125px;
+          width: 250px;
+  }
+
+  .texto-principal {
+    padding: 34px 50px 20px 50px;
+    width: 100%;
+}
+
+.texto-1 {
+    font-size: 2em;
+}
+
+.texto-2 {
+    font-size: 2em;
+}
+
+
+.designe-1 {
+    height: 577px;
+}
+
+.designe-1 .borde {
+    height: 57%;
+    margin: 20px 23px;
+}
+
+.designe-1 .borde .text {
+    font-size: .9em;
+    margin-left: 26px;
+    margin-top: 8px;
+    width: 262px;
+}
+
+.designe-1 .mision {
+    font-size: 3em;
+    letter-spacing: 26px;
+    bottom: 0;
+    left: 23%;
+    margin-bottom: 4rem;
+}
+
+.designe-1 img {
+    width: 197px;
+    bottom: 0;
+    left: 0;
+}
+
+.designe-2 .borde {
+    padding: 10px 0 20px 10px;
+}
+
+.designe-2 .borde span {
+    color: white;
+    width: 488px;
+}
+
+.designe-2 .text-1 {
+    margin-top: 113px;
+    margin-right: 115px;
+    font-size: 1.3em;
+    color: white;
+}
+
+.designe-2 .text-2 {
+    font-size: 1.4em;
+}
+
+.designe-2 img {
+    width: 262px;
+    bottom: 260px;
+    right: 0;
+}
+
+.designe-3 {
+    background-position: top;
+    height: 602px;
+}
+
+.designe-3 .square-1 {
+    height: 300px;
+    width: 80%;
+    bottom: -36%;
+    left: 10%;
+    top: 0;
+}
+.square-1 span{
+    top: 3%;
+    left: 14%;
+    font-size: 4em;
+}
+
+.square-1 ul {
+    position: absolute;
+    top: 35%;
+    left: 4%;
+}
+
+.designe-3 .square-2{
+    height: 480px;
+    width: 80%;
+    bottom: -36%;
+    left: 10%;
+}
+
+.designe-3 .square-2 span {
+    top: 5%;
+    left: 15%;
+    font-size: 4em;
+}
+
+.designe-3 .square-2 p {
+
+    text-align: justify;
+    top: 24%;
+    margin: 20px;
+    left: 4%;
+    font-size: 1em;
+}
+
+}
+
+
+@media screen and (max-width: 768px) and (min-width:577px){
+
+ }
+
+@media screen and (max-width: 992px)  and (min-width:769px){
+
+
+ }
+
+ @media (min-width: 1200px) {
+
+}
+
+
+ @media (min-width: 1600px) {
+
+	}
