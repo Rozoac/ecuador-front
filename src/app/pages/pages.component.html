@@ -1,172 +1,193 @@
-<a class="whatsapp-circle" href="https://api.whatsapp.com/send?phone=573116394356&text=Hola%20E-Containers%20tengo%20una%20idea%20genial%20y%20quiero%20hacerla%20realidad!" target="_blank">
-  <ul class="redes social-icons icon-circle icon-rotate list-unstyled list-inline">
-    <li> <i class=" facebook fab fa-whatsapp fa-4x"></i>
-    </li>
+<a class="whatsapp-circle" href="https://api.whatsapp.com/send?phone=573116394356&text=Hola%20E-Containers%20tengo%20una%20idea%20genial%20y%20quiero%20hacerla%20realidad!"
+    target="_blank">
+    <ul class="redes social-icons icon-circle icon-rotate list-unstyled list-inline">
+        <li>
+            <i class=" facebook fab fa-whatsapp fa-4x"></i>
+        </li>
 
-  </ul>
+    </ul>
 </a>
 
 <div class="overflow-control">
-  <div class="main-container">
-    <div class="lateral-menu">
-      <div class="titulo-menu">
+    <div class="main-container">
+        <div class="lateral-menu">
+            <div class="titulo-menu">
 
-      </div>
+            </div>
 
-      <div class="opciones">
-        <div class="titulo-menu">
-          <span>MENÚ</span>
-          <hr>
-          <ul class="redes social-icons icon-circle icon-rotate list-unstyled list-inline">
-            <li>
-              <a   href="https://www.facebook.com/econtainerscolombia/" target="_blank">
-                <i class="facebook fab fa-facebook-f fa-lg" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li> <a   href="https://twitter.com/econtainerscol?lang=es" target="_blank"><i class="facebook fab fa-twitter fa-lg" aria-hidden="true"></i></a>
-              </li>
-              <li><a   href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ" target="_blank"> <i class="facebook fab fa-youtube fa-lg" aria-hidden="true"></i></a>
-              </li>
-              <li>  <a   href="https://www.instagram.com/econtainers/?hl=es-la" target="_blank"> <i class="facebook fab fa-instagram fa-lg" aria-hidden="true"></i></a>
-              </li>
-          </ul>
+            <div class="opciones">
+                <div class="titulo-menu">
+                    <span>MENÚ</span>
+                    <hr>
+                    <ul class="redes social-icons icon-circle icon-rotate list-unstyled list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/EContainers/" target="_blank">
+                                <i class="facebook fab fa-facebook-f fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/econtainerscol?lang=es" target="_blank">
+                                <i class="facebook fab fa-twitter fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ" target="_blank">
+                                <i class="facebook fab fa-youtube fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/econtainers/?hl=es-la" target="_blank">
+                                <i class="facebook fab fa-instagram fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                    <li>
+                        <a class="cerrar" [routerLink]="['/quienes-somos']">
+                            <div class="nosotros">
+                                <div class="menu-li menu-nosotros" (mouseenter)='overdiv("nosotros")' (mouseleave)='leavediv("nosotros")'>
+                                </div>
+                                <h3 translate (mouseenter)='overh3("nosotros")' (mouseleave)='leaveh3("nosotros")'>
+                                    Nosotros
+                                </h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="cerrar" [routerLink]="['/trabaja']">
+                            <div class="trabaja">
+                                <div class="menu-li menu-trabaja" (mouseenter)='overdiv("trabaja")' (mouseleave)='leavediv("trabaja")'>
+                                </div>
+                                <h3 translate (mouseenter)='overh3("trabaja")' (mouseleave)='leaveh3("trabaja")'>
+                                    Trabaja Con Nosotros
+                                </h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="cerrar" [routerLink]="['/compromiso-empresarial']">
+                            <div class="compromiso">
+                                <div class="menu-li menu-compromiso" (mouseenter)='overdiv("compromiso")' (mouseleave)='leavediv("compromiso")'>
+                                </div>
+                                <h3 translate (mouseenter)='overh3("compromiso")' (mouseleave)='leaveh3("compromiso")'>
+                                    Compromiso Empresarial
+                                </h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="cerrar" target="_blank" href="https://blog.econtainerscolombia.com">
+                            <div class="blog">
+                                <div class="menu-li menu-blog" (mouseenter)='overdiv("blog")' (mouseleave)='leavediv("blog")'>
+                                </div>
+                                <h3 (mouseenter)='overh3("blog")' (mouseleave)='leaveh3("blog")'>
+                                    BLOG
+                                </h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="cerrar" [routerLink]="['/pqrs']">
+                            <div class="pqrs">
+                                <div class="menu-li menu-pqrs" (mouseenter)='overdiv("pqrs")' (mouseleave)='leavediv("pqrs")'>
+                                </div>
+                                <h3 translate (mouseenter)='overh3("pqrs")' (mouseleave)='leaveh3("pqrs")'>
+                                    PQRS
+                                </h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-        <ul>
-          <li>
-            <a class="cerrar" [routerLink]="['/quienes-somos']">
-              <div class="nosotros">
-                <div class="menu-li menu-nosotros" (mouseenter)='overdiv("nosotros")' (mouseleave)='leavediv("nosotros")'>
+        <div class="content">
+            <nav class="nav navbar-light bg-faded sombra ">
+                <div class="container nav-principal">
+
+                    <div class="izquierda">
+                        <div id="nav-icon3" class="toggle-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <a class="d-none d-lg-block" href="https://api.whatsapp.com/send?phone=573116394356&text=Hola%20E-Containers%20tengo%20una%20idea%20genial%20y%20quiero%20hacerla%20realidad!"
+                            target="_blank">
+                            <ul class="redes social-icons icon-circle icon-rotate list-unstyled list-inline">
+                                <li>
+                                    <i class=" facebook fab fa-whatsapp fa-4x"></i>
+                                </li>
+
+                            </ul>
+                        </a>
+                        <div ngbDropdown class="d-none d-lg-block">
+                            <button class=" transparente pbx idioma-b btn dropdown-toggle"  id="dropdownBasic1" ngbDropdownToggle>
+                                PBX:
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <a class="dropdown-item" href="tel:+7462065">BOGOTÁ: (1) 7462065</a>
+                                <a class="dropdown-item" href="tel:+6049441">MEDELLÍN: (4) 6049441</a>
+                                <a class="dropdown-item" href="tel:+8918650">MANIZALES: (6) 8918650</a>
+                                <a class="dropdown-item" href="tel:+4850401">CALI: (2) 4850401</a>
+                                <a class="dropdown-item" href="tel:+6939833">CARTAGENA: (5) 6939833</a>
+                                <a class="dropdown-item" href="tel:+3852330">BARRANQUILLA: 3852330</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="centro">
+                        <a class="logo" [routerLink]="['/home']">
+                            <img class="logo" src="assets/imgs/logo.png" alt="">
+                        </a>
+                    </div>
+
+                    <div class="derecha ">
+                        <div ngbDropdown class="dropdown d-md-none d-lg-none d-xl-none">
+                            <button class=" transparente pbx idioma-b btn dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>
+                                PBX:
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <a class="dropdown-item" href="tel:+7462065">BOGOTÁ: (1) 7462065</a>
+                                <a class="dropdown-item" href="tel:+6049441">MEDELLÍN: (4) 6049441</a>
+                                <a class="dropdown-item" href="tel:+8918650">MANIZALES: (6) 8918650</a>
+                                <a class="dropdown-item" href="tel:+4850401">CALI: (2) 4850401</a>
+                                <a class="dropdown-item" href="tel:+6939833">CARTAGENA: (5) 6939833</a>
+                                <a class="dropdown-item" href="tel:+3852330">BARRANQUILLA: 3852330</a>
+
+                            </div>
+                        </div>
+                        <div class="dropdown ">
+
+                            <button translate class="transparente idioma-b btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Idioma
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item">
+                                    <span class="hidden-sm-down">Español</span>
+                                    <img class="bandera" src="assets/imgs/colombia.png" alt="">
+                                </a>
+                                <a  class="dropdown-item">
+                                    <span class="hidden-sm-down">English</span>
+                                    <img class="bandera2" src="assets/imgs/united-states.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <a  pageScroll [routerLink]="['/home']" href="#2" class="portafolio-a btn d-none d-lg-block">
+                            Portafolio
+                        </a>
+                        <a  pageScroll [pageScrollDuration]="1000" [routerLink]="['/home']" href="#9" class="idioma-a btn  d-none d-lg-block"
+                            id="dropdownMenuButton">
+                            Contacto
+                        </a>
+                    </div>
                 </div>
-                <h3 translate (mouseenter)='overh3("nosotros")' (mouseleave)='leaveh3("nosotros")'>
-                  Nosotros
-                </h3>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="cerrar" [routerLink]="['/trabaja']">
-              <div class="trabaja">
-                <div class="menu-li menu-trabaja" (mouseenter)='overdiv("trabaja")' (mouseleave)='leavediv("trabaja")'>
-                </div>
-                <h3 translate (mouseenter)='overh3("trabaja")' (mouseleave)='leaveh3("trabaja")'>
-                  TrabajaConNosotros
-                </h3>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="cerrar" [routerLink]="['/compromiso-empresarial']">
-              <div class="compromiso">
-                <div class="menu-li menu-compromiso" (mouseenter)='overdiv("compromiso")' (mouseleave)='leavediv("compromiso")'>
-                </div>
-                <h3 translate (mouseenter)='overh3("compromiso")' (mouseleave)='leaveh3("compromiso")'>
-                  CompromisoEmpresarial
-                </h3>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="cerrar" target="_blank" href="https://blog.econtainerscolombia.com">
-              <div class="blog">
-                <div class="menu-li menu-blog" (mouseenter)='overdiv("blog")' (mouseleave)='leavediv("blog")'>
-                </div>
-                <h3 (mouseenter)='overh3("blog")' (mouseleave)='leaveh3("blog")'>
-                  BLOG
-                </h3>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="cerrar" [routerLink]="['/pqrs']">
-              <div class="pqrs">
-                <div class="menu-li menu-pqrs" (mouseenter)='overdiv("pqrs")' (mouseleave)='leavediv("pqrs")'>
-                </div>
-                <h3 translate (mouseenter)='overh3("pqrs")' (mouseleave)='leaveh3("pqrs")'>
-                  PQRS
-                </h3>
-              </div>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-    <div class="content">
-      <nav class="nav navbar-light bg-faded sombra ">
-        <div class="container nav-principal">
-
-          <div class="izquierda">
-            <div id="nav-icon3" class="toggle-menu">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-
-            <a class="hidden-sm-down" href="https://api.whatsapp.com/send?phone=573116394356&text=Hola%20E-Containers%20tengo%20una%20idea%20genial%20y%20quiero%20hacerla%20realidad!" target="_blank">
-              <ul class="redes social-icons icon-circle icon-rotate list-unstyled list-inline">
-                <li> <i class=" facebook fab fa-whatsapp fa-4x"></i>
-                </li>
-
-              </ul>
-            </a>
-            <div class="dropdown hidden-sm-down ">
-              <button class=" pbx idioma-b btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                PBX:
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="tel:+7462065">BOGOTÁ: (1) 7462065</a>
-                <a class="dropdown-item" href="tel:+6049441">MEDELLÍN: (4) 6049441</a>
-                <a class="dropdown-item" href="tel:+8918650">MANIZALES: (6) 8918650</a>
-                <a class="dropdown-item" href="tel:+4850401">CALI: (2) 4850401</a>
-                <a class="dropdown-item" href="tel:+6939833">CARTAGENA: (5) 6939833</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="centro">
-            <a class="logo" [routerLink]="['/home']">
-                  <img class="logo" src="assets/imgs/logo.png" alt="">
-              </a>
-          </div>
-
-          <div class="derecha ">
-            <div class="dropdown hidden-md-up">
-              <button class=" pbx idioma-b btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                PBX:
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="tel:+7462065">BOGOTÁ: (1) 7462065</a>
-                <a class="dropdown-item" href="tel:+6049441">MEDELLÍN: (4) 6049441</a>
-                <a class="dropdown-item" href="tel:+8918650">MANIZALES: (6) 8918650</a>
-                <a class="dropdown-item" href="tel:+4850401">CALI: (2) 4850401</a>
-                <a class="dropdown-item" href="tel:+6939833">CARTAGENA: (5) 6939833</a>
-              </div>
-            </div>
-            <div class="dropdown ">
-
-              <button translate class="idioma-b btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Idioma
-                    </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a (click)="switchLanguage('es')" class="dropdown-item" ><span  class="hidden-sm-down">Español</span> <img class="bandera" src="assets/imgs/colombia.png" alt=""></a>
-                <a (click)="switchLanguage('en')" class="dropdown-item" ><span class="hidden-sm-down">English</span> <img class="bandera2" src="assets/imgs/united-states.png" alt=""></a>
-              </div>
-            </div>
-            <a translate pageScroll [routerLink]="['/home']" href="#2" class="portafolio-a btn btn-secondary hidden-sm-down" >
-                    Portafolio
-                 </a>
-            <a translate pageScroll [pageScrollDuration]="1000" [routerLink]="['/home']" href="#9" class="idioma-a btn btn-secondary hidden-sm-down" id="dropdownMenuButton" >
-                    Contacto
-                 </a>
-          </div>
-
-
-
+            </nav>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
         </div>
-      </nav>
-      <router-outlet (deactivate)="onDeactivate()"></router-outlet>
-      <app-footer></app-footer>
     </div>
-  </div>
 </div>

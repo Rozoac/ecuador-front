@@ -1,0 +1,25 @@
+.principal{
+    background: #1062aa;
+        display: flex;
+    justify-content: center;
+
+    
+
+}
+
+.principal .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal .container img{
+        height: 100vh; 
+        cursor: pointer;
+        
+}
+
+canvas{
+    position: absolute;
+    height: 80vh;
+}

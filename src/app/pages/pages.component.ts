@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Router, NavigationEnd } from '@angular/router';
+
 declare var jQuery: any;
 declare var $: any;
 
@@ -13,15 +14,7 @@ declare var $: any;
 export class PagesComponent implements OnInit {
 
 
-  constructor(private translate: TranslateService){
-    translate.setDefaultLang('es');
-
-  }
-
-  switchLanguage(language: string){
-    this.translate.use(language);
-  }
-
+  constructor(private router: Router) {}
 
   overh3(div: string) {
     let ruta: string = `.${div}`
@@ -86,11 +79,14 @@ export class PagesComponent implements OnInit {
 
 
 
-  onDeactivate() {
-    document.body.scrollTop = 0;
-  }
-  ngOnInit() {
 
+  ngOnInit() {
+  this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo( 0, 0 );
+        });
 
 
     // scroll

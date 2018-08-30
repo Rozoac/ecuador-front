@@ -1,68 +1,64 @@
-@font-face{
-  font-family: 'bebas-bold';
-  src: url('/assets/fonts/bebas_neue/BebasNeueBold.otf');
+@font-face {
+    font-family: 'bebas-bold';
+    src: url('/assets/fonts/bebas_neue/BebasNeueBold.otf');
 }
 
-:host app-footer + * {
-        display: block;
-        border: 10px solid black;
-        background: blue;
-    }
+:host app-footer+* {
+    display: block;
+    border: 10px solid black;
+    background: blue;
+}
 
-body{
+body {
     /* cursor: url("http://i2.cdn.cnn.com/cnnnext/dam/assets/160927210830-tk-ah0927-exlarge-169.jpg"); */
 }
 
-a{
-  text-decoration:none;
-  color: black;
+a {
+    text-decoration: none;
+    color: black;
 }
 
-
-
-.hide{
-  display: none;
+.hide {
+    display: none;
 }
 
-button, a{
-  font-family: 'bebas-bold';
+button,
+a {
+    font-family: 'bebas-bold';
 }
-
-
 
 .nav {
-  width: 100%;
-  display: flex;
-  position: fixed!important;
-  height: 70px;
-  z-index: 99;
-  background: white;
+    width: 100%;
+    display: flex;
+    position: fixed!important;
+    height: 70px;
+    z-index: 99;
+    background: white;
 }
 
 .nav-principal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.izquierda{
-  display: flex;
-  align-items: center;
-
+.izquierda {
+    display: flex;
+    align-items: center;
 }
 
-.derecha{
-  display: flex;
+.derecha {
+    display: flex;
 }
 
-.logo{
-  width: 250px;
-max-width: 250px;
+.logo {
+    width: 210px;
+    max-width: 250px;
 }
 
-.bandera{
-  margin-left: 20px;
-width: 25px;
+.bandera {
+    margin-left: 20px;
+    width: 25px;
 }
 
 .bandera2 {
@@ -73,82 +69,88 @@ width: 25px;
 .btn-secondary {
     border-color: transparent;
 }
+
 .sombra {
-  -webkit-box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
 }
 
-.main-container{
-  white-space: nowrap;
-  position: relative;
-  left: -300px;
-  transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+.transparente{
+    background: transparent;
 }
-.main-container.open{
-left: 0px;
+
+.main-container {
+    white-space: nowrap;
+    position: relative;
+    left: -300px;
+    transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.main-container.open {
+    left: 0px;
 }
 
 .main-container * {
-white-space: normal;
+    white-space: normal;
 }
 
-.main-container .content, .main-container .lateral-menu{
-  display: inline-block;
-  margin-right:-5px;
-  vertical-align: top;
-  /* height: 100vh; */
+.main-container .content,
+.main-container .lateral-menu {
+    display: inline-block;
+    vertical-align: top;
+    /* height: 100vh; */
 }
 
-
-.overflow-control{
-  overflow-x: hidden;
+.overflow-control {
+    /* overflow-x: hidden; */
 }
 
-.opciones{
-position: fixed;
-width: 300px;
-height: 100vh;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.16);
+.opciones {
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.16);
 }
 
-.main-container .content{
-  width: 100%;
-
+.main-container .content {
+    width: 100%;
 }
 
-.main-container .lateral-menu{
-  width: 300px;
-  /* background: rgba(21, 118, 221, 1.000); */
-}
-ul{
-  padding: 0;
-}
-li{
-  list-style: none;
+.main-container .lateral-menu {
+    width: 300px;
+    /* background: rgba(21, 118, 221, 1.000); */
 }
 
-.menu-nombre{
-  font-size: 1em;
-  text-align: center;
+ul {
+    padding: 0;
 }
 
-.titulo-menu{
-  text-align: center;
-width: 100%;
-font-size: 2em;
-margin-top: 3px;
+li {
+    list-style: none;
 }
 
-.redes{
-  font-size: .7em;
-  display: flex;
+.menu-nombre {
+    font-size: 1em;
+    text-align: center;
+}
+
+.titulo-menu {
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+    margin-top: 3px;
+}
+
+.redes {
+    font-size: .7em;
+    display: flex;
     justify-content: center;
 }
 
-svg{
-padding: 10px;
-margin-right: 5px;
+svg {
+    padding: 10px;
+    margin-right: 5px;
 }
 
 .menu-li {
@@ -159,189 +161,196 @@ margin-right: 5px;
     align-items: center;
 }
 
-h3{
-  font-size: 1.2em;
-  opacity: 1!important;
+h3 {
+    font-size: 1.2em;
+    opacity: 1!important;
 }
 
-.menu-li h3{
-  opacity: 1!important;
+.menu-li h3 {
+    opacity: 1!important;
 }
 
-
-.nosotros h3{
-  position: absolute;
-  bottom: 25%;
-  /* right: 50%; */
-  margin-left: -30px;
-  left: 50%;
-  /* height: 20px; */
-  width: 60px;
-
-}
-.blog h3, .pqrs h3{
-  position: absolute;
-bottom: 25%;
-margin-left: -15px;
-margin-left: -15px;
-left: 50%;
-
-}
-.trabaja h3{
-  position: absolute;
-      bottom: 25%;
-      left: 50%;
-      margin-left: -70px;
-
+.nosotros h3 {
+    position: absolute;
+    bottom: 25%;
+    /* right: 50%; */
+    margin-left: -30px;
+    left: 50%;
+    /* height: 20px; */
+    width: 60px;
 }
 
-.compromiso h3{
-  position: absolute;
-      bottom: 25%;
-      left: 50%;
-      margin-left: -80px;
+.blog h3,
+.pqrs h3 {
+    position: absolute;
+    bottom: 25%;
+    margin-left: -15px;
+    margin-left: -15px;
+    left: 50%;
 }
 
-.nosotros{
-  position: relative;
-}
-.trabaja{
-  position: relative;
-
-}
-.compromiso{
-  position: relative;
-
-}
-.blog{
-  position: relative;
-
-}
-.pqrs{
-  position: relative;
-
+.trabaja h3 {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    margin-left: -70px;
 }
 
-
-.menu-nosotros{
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-  background-image: url('/assets/imgs/menu/nosotros.jpg');
-  background-size: cover;
+.compromiso h3 {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    margin-left: -80px;
 }
 
-.menu-nosotros:hover{
-  opacity: 1;
-  color: white;
-
+.nosotros {
+    position: relative;
 }
 
-.menu-trabaja{
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-  background: url('/assets/imgs/menu/trabaja.jpg');
-  background-size: cover;
-}
-.menu-trabaja:hover{
-  opacity: 1;
-  color: white;
-
-}
-.menu-compromiso{
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-  background: url("/assets/imgs/compromiso-empresarial/2.jpg");
-  background-size: cover;
-}
-.menu-compromiso:hover{
-  opacity: 1;
-  color: white;
-
-
-}
-.menu-blog{
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-  background: url('https://blog.econtainerscolombia.com/wp-content/uploads/2016/11/blog.jpg');
-  background-size: cover;
-}
-.menu-blog:hover{
-  opacity: 1;
-  color: white;
-}
-.menu-pqrs{
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-  background-image: url('/assets/imgs/banner-barco.jpg');
-  background-size: cover;
-}
-.menu-pqrs:hover{
-  opacity: 1;
-  color: white;
+.trabaja {
+    position: relative;
 }
 
-.whatsapp{
-  color: rgba(49, 194, 28, 1.000);
+.compromiso {
+    position: relative;
 }
+
+.blog {
+    position: relative;
+}
+
+.pqrs {
+    position: relative;
+}
+
+.menu-nosotros {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background-image: url('/assets/imgs/menu/nosotros.jpg');
+    background-size: cover;
+}
+
+.menu-nosotros:hover {
+    opacity: 1;
+    color: white;
+}
+
+.menu-trabaja {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background: url('/assets/imgs/menu/trabaja.jpg');
+    background-size: cover;
+}
+
+.menu-trabaja:hover {
+    opacity: 1;
+    color: white;
+}
+
+.menu-compromiso {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background: url("/assets/imgs/compromiso-empresarial/2.jpg");
+    background-size: cover;
+}
+
+.menu-compromiso:hover {
+    opacity: 1;
+    color: white;
+}
+
+.menu-blog {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background: url('https://blog.econtainerscolombia.com/wp-content/uploads/2016/11/blog.jpg');
+    background-size: cover;
+}
+
+.menu-blog:hover {
+    opacity: 1;
+    color: white;
+}
+
+.menu-pqrs {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background-image: url('/assets/imgs/banner-barco.jpg');
+    background-size: cover;
+}
+
+.menu-pqrs:hover {
+    opacity: 1;
+    color: white;
+}
+
+.whatsapp {
+    color: rgba(49, 194, 28, 1.000);
+}
+
 
 /*----- Genral Classes start ------*/
 
 
 /*---- Genral classes end -------*/
 
+
 /*Change icons size here*/
 
+
 /*Change icons circle size and color here*/
+
 .social-icons svg {
-	width: 40px;
-	height: 40px;
-	line-height: 50px;
-	text-align: center;
-	color: #FFF;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-ms-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+    width: 40px;
+    height: 40px;
+    line-height: 50px;
+    text-align: center;
+    color: #FFF;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-.social-icons.icon-circle svg{
-	border-radius: 50%;
+.social-icons.icon-circle svg {
+    border-radius: 50%;
 }
 
-.redes{
-  margin-bottom: 0;
-  margin-left: 10px;
+.redes {
+    margin-bottom: 0;
+    margin-left: 10px;
 }
 
-.social-icons svg:hover, .social-icons svg:active {
-	color: #FFF;
-	-webkit-box-shadow: 1px 1px 3px #333;
-	-moz-box-shadow: 1px 1px 3px #333;
-	box-shadow: 1px 1px 3px #333;
+.social-icons svg:hover,
+.social-icons svg:active {
+    color: #FFF;
+    -webkit-box-shadow: 1px 1px 3px #333;
+    -moz-box-shadow: 1px 1px 3px #333;
+    box-shadow: 1px 1px 3px #333;
 }
 
-.social-icons.icon-rotate svg:hover, .social-icons.icon-rotate svg:active {
-	-webkit-transform: scale(1.1) rotate(360deg);
-	-moz-transform: scale(1.1) rotate(360deg);
-	-ms-transform: scale(1.1) rotate(360deg);
-	-o-transform: scale(1.1) rotate(360deg);
-	transform: scale(1.1) rotate(360deg);
+.social-icons.icon-rotate svg:hover,
+.social-icons.icon-rotate svg:active {
+    -webkit-transform: scale(1.1) rotate(360deg);
+    -moz-transform: scale(1.1) rotate(360deg);
+    -ms-transform: scale(1.1) rotate(360deg);
+    -o-transform: scale(1.1) rotate(360deg);
+    transform: scale(1.1) rotate(360deg);
 }
 
 .whatsapp-circle {
     position: fixed;
-bottom: 35px;
+    bottom: 35px;
     right: 12px;
     z-index: 6;
 }
@@ -350,78 +359,180 @@ bottom: 35px;
     width: 60px;
     height: 60px;
 }
-.social-icons .fa-apple{background-color:#aeb5c5;}
-.social-icons .fa-whatsapp{background-color:rgba(49, 194, 25, 1.000);}
-.social-icons .fa-android{background-color:#A5C63B;}
-.social-icons .fa-bitbucket,.social-icons .fa-bitbucket-square{background-color:#003366;}
-.social-icons .fa-bitcoin,.social-icons .fa-btc{background-color:#F7931A;}
-.social-icons .fa-css3{background-color:#1572B7;}
-.social-icons .fa-dribbble{background-color:#F46899;}
-.social-icons .fa-dropbox{background-color:#018BD3;}
-.social-icons .fa-facebook-f,.social-icons .fa-facebook-square{background-color:#3C599F;}
-.social-icons .fa-flickr{background-color:#FF0084;}
-.social-icons .fa-foursquare{background-color:#0086BE;}
-.social-icons .fa-github,.social-icons .fa-github-alt,.social-icons .fa-github-square{background-color:#070709;}
-.social-icons .fa-google-plus,.social-icons .fa-google-plus-square{background-color:#CF3D2E;}
-.social-icons .fa-html5{background-color:#E54D26;}
-.social-icons .fa-instagram{background-color:#A1755C;}
-.social-icons .fa-linkedin,.social-icons .fa-linkedin-square{background-color:#0085AE;}
-.social-icons .fa-linux{background-color:#FBC002;color:#333;}
-.social-icons .fa-maxcdn{background-color:#F6AE1C;}
-.social-icons .fa-pagelines{background-color:#241E20;color:#3984EA;}
-.social-icons .fa-pinterest,.social-icons .fa-pinterest-square{background-color:#CC2127;}
-.social-icons .fa-renren{background-color:#025DAC;}
-.social-icons .fa-skype{background-color:#01AEF2;}
-.social-icons .fa-stack-exchange{background-color:#245590;}
-.social-icons .fa-stack-overflow{background-color:#FF7300;}
-.social-icons .fa-trello{background-color:#265A7F;}
-.social-icons .fa-tumblr,.social-icons .fa-tumblr-square{background-color:#314E6C;}
-.social-icons .fa-twitter,.social-icons .fa-twitter-square{background-color:#32CCFE;}
-.social-icons .fa-vimeo-square{background-color:#229ACC;}
-.social-icons .fa-vk{background-color:#375474;}
-.social-icons .fa-weibo{background-color:#D72B2B;}
-.social-icons .fa-windows{background-color:#12B6F3;}
-.social-icons .fa-xing,.social-icons .fa-xing-square{background-color:#00555C;}
-.social-icons .fa-youtube,.social-icons .fa-youtube-play,.social-icons .fa-youtube-square{background-color:#C52F30;}
 
-
-@media screen and (max-width: 576px)  {
-
-  .derecha .btn {
-
-
-    border: 1px solid transparent;
-    padding: 0.2rem .5rem;
-    font-size: .8rem;
-
+.social-icons .fa-apple {
+    background-color: #aeb5c5;
 }
 
-.dropdown-menu {
-
-    min-width: 10rem;
-    padding: .5rem 0.5rem;
-    margin: .125rem 0 0;
-    font-size: .8rem;
-}
-.logo {
-    width: 250px;
-    max-width: 160px;
+.social-icons .fa-whatsapp {
+    background-color: rgba(49, 194, 25, 1.000);
 }
 
-.dropdown-menu {
-
-    min-width: 5rem;
+.social-icons .fa-android {
+    background-color: #A5C63B;
 }
 
-.nav-principal {
+.social-icons .fa-bitbucket,
+.social-icons .fa-bitbucket-square {
+    background-color: #003366;
+}
 
-    justify-content: space-around;
+.social-icons .fa-bitcoin,
+.social-icons .fa-btc {
+    background-color: #F7931A;
+}
+
+.social-icons .fa-css3 {
+    background-color: #1572B7;
+}
+
+.social-icons .fa-dribbble {
+    background-color: #F46899;
+}
+
+.social-icons .fa-dropbox {
+    background-color: #018BD3;
+}
+
+.social-icons .fa-facebook-f,
+.social-icons .fa-facebook-square {
+    background-color: #3C599F;
+}
+
+.social-icons .fa-flickr {
+    background-color: #FF0084;
+}
+
+.social-icons .fa-foursquare {
+    background-color: #0086BE;
+}
+
+.social-icons .fa-github,
+.social-icons .fa-github-alt,
+.social-icons .fa-github-square {
+    background-color: #070709;
+}
+
+.social-icons .fa-google-plus,
+.social-icons .fa-google-plus-square {
+    background-color: #CF3D2E;
+}
+
+.social-icons .fa-html5 {
+    background-color: #E54D26;
+}
+
+.social-icons .fa-instagram {
+    background-color: #A1755C;
+}
+
+.social-icons .fa-linkedin,
+.social-icons .fa-linkedin-square {
+    background-color: #0085AE;
+}
+
+.social-icons .fa-linux {
+    background-color: #FBC002;
+    color: #333;
+}
+
+.social-icons .fa-maxcdn {
+    background-color: #F6AE1C;
+}
+
+.social-icons .fa-pagelines {
+    background-color: #241E20;
+    color: #3984EA;
+}
+
+.social-icons .fa-pinterest,
+.social-icons .fa-pinterest-square {
+    background-color: #CC2127;
+}
+
+.social-icons .fa-renren {
+    background-color: #025DAC;
+}
+
+.social-icons .fa-skype {
+    background-color: #01AEF2;
+}
+
+.social-icons .fa-stack-exchange {
+    background-color: #245590;
+}
+
+.social-icons .fa-stack-overflow {
+    background-color: #FF7300;
+}
+
+.social-icons .fa-trello {
+    background-color: #265A7F;
+}
+
+.social-icons .fa-tumblr,
+.social-icons .fa-tumblr-square {
+    background-color: #314E6C;
+}
+
+.social-icons .fa-twitter,
+.social-icons .fa-twitter-square {
+    background-color: #32CCFE;
+}
+
+.social-icons .fa-vimeo-square {
+    background-color: #229ACC;
+}
+
+.social-icons .fa-vk {
+    background-color: #375474;
+}
+
+.social-icons .fa-weibo {
+    background-color: #D72B2B;
+}
+
+.social-icons .fa-windows {
+    background-color: #12B6F3;
+}
+
+.social-icons .fa-xing,
+.social-icons .fa-xing-square {
+    background-color: #00555C;
+}
+
+.social-icons .fa-youtube,
+.social-icons .fa-youtube-play,
+.social-icons .fa-youtube-square {
+    background-color: #C52F30;
+}
+
+@media screen and (max-width: 576px) {
+    .derecha .btn {
+        border: 1px solid transparent;
+        padding: 0.2rem .5rem;
+        font-size: .8rem;
+    }
+    .dropdown-menu {
+        min-width: 10rem;
+        padding: .5rem 0.5rem;
+        margin: .125rem 0 0;
+        font-size: .8rem;
+    }
+    .logo {
+        width: 250px;
+        max-width: 160px;
+    }
+    .dropdown-menu {
+        min-width: 5rem;
+    }
+    .nav-principal {
+        justify-content: space-around;
         width: 100%;
-}
-
-.dropdown-item {
-    display: block;
-    width: 100%;
-    padding: 0;
-}
+    }
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
 }

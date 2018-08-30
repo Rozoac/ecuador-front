@@ -1,0 +1,46 @@
+<div class="principal">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <ul id="texto-principal" class=" animated zoomInLeft delay-5s slow ">
+          <li><span class="text-principal">TRANSFORMAMOS</span></li>
+          <li><span class="text-principal">TUS SUEÑOS</span></li>
+          <li><span class="text-principal">EN REALIDADES</span></li>
+          <li><span class="mr-2 ml-2 rotate ultimo-texto">¿En qué estas pensando?</span></li>
+        </ul>
+
+      </div>
+      <div class="col-md-5">
+        <div>
+          <img src="assets/imgs/info/derecha.png" class="imagen-derecha" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="row seccion-2">
+      <div class="col-md-10 carrusel">
+        <ngu-carousel [inputs]="carrusel" *ngIf="loading">
+
+          <h1 *ngIf="loading">CARGANDO!!!</h1>
+  
+          <ngu-item NguCarouselItem *ngFor="let contenedor of contenedores">
+             <div class="card hvr-grow-shadow" style="">
+              <div class="imagen-contenedor mt-4">
+                <img class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{contenedor.img}}" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">{{contenedor.nombre}}</h2>
+                <p class="card-text">{{contenedor.descripcion}}</p>
+                  <span routerLink="/cotizacion/{{contenedor.nombre}}" class="cotiza">Cotiza ahora<i class="fas fa-angle-right"></i></span>
+              </div>
+            </div>
+          </ngu-item>
+          
+          <button NguCarouselPrev class='leftRs'><i class="fas fa-angle-left"></i></button>
+          <button NguCarouselNext class='rightRs'><i class="fas fa-angle-right"></i></button>
+        </ngu-carousel>
+      </div>
+
+    </div>
+
+  </div>
+</div>

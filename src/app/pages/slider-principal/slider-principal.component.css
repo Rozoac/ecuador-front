@@ -9,18 +9,18 @@ cursor: pointer;
 }
 
 h3 {
-  font-size: 1.2em;
-  font-weight: lighter;
+  font-size: 1.2em!important;
+  font-weight: lighter!important;
 }
 
 .texto-seccion-1 {
-  font-size: .9em;
-  font-weight: lighter;
+  font-size: .9em!important;
+  font-weight: lighter!important;
 }
 
 .subtitulo {
-  margin-top: 30px;
-  font-weight: 500;
+  margin-top: 30px!important;
+  font-weight: 500!important;
 }
 
 button {
@@ -687,18 +687,18 @@ section::after {
 
 @media (min-width: 1600px) {
   .text--big {
-      font-size: 5.5rem;
+      font-size: 5.5rem!important;
   }
 
   .text--normal {
-    font-size: 4.2em;
+    font-size: 4.2em!important;
 }
 
 a{
-  font-size: 2em;
+  font-size: 2em!important;
 }
 .text--normal {
-    font-size: 4.2em;
+    font-size: 4.2em!important;
 }
 
 }

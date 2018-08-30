@@ -1,0 +1,178 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+
+<div class="row wow fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <!-- .left-right-aside-column-->
+            <div class="contact-page-aside">
+                <!-- .left-aside-column-->
+                <div class="left-aside bg-light-part">
+                    <ul class="list-style-none">
+                        <div class="centrar mb-4">
+                            <img [src]="imagenComercial(data.comercial)" class="img-circle" width="150" *ngIf="data" />
+                            <div class="alert text-center " *ngIf="!data">
+                                <strong>Cargando</strong>
+                                <br>
+                                <i class="fa fa-sync fa-spin fa-2x "></i>
+                                <br>
+                                <span>Espere por favor</span>
+                            </div>
+                            <h4 class="card-title m-t-10">{{data?.comercial | comercial}}</h4>
+                            <p class="card-subtitle pointer regresar" [routerLink]="['/admin/comerciales']">Regresar</p>
+
+
+                        </div>
+                        <li class="box-label">
+                            <a>Total Leads
+                                <span>{{data?.total.total}}</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a>Bodegas:
+                                <span>{{data?.segmento.Bodegas}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>Oficinas:
+                                <span>{{data?.segmento.Oficinas}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>Salas de Venta:
+                                <span>{{data?.segmento.salas}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>Proyectos Arq:
+                                <span>{{data?.segmento.proyectos}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>Refrigerados:
+                                <span>{{data?.segmento.refrigerados}}</span>
+                            </a>
+                        </li>
+                        <li class="box-label">
+                            <button (click)="cargarLeads('true')" class="btn color-azul text-white"><div *ngIf="!cargaReporte" class="text-center ">
+                                <span>Generando reporte</span>
+                                <br>
+                                <i class="fa fa-sync fa-spin fa-lg "></i>
+                                <br>
+                            </div><span *ngIf="cargaReporte">Generar Reporte</span></button>
+                        </li>
+
+                        <ng-template #content let-c="close" let-d="dismiss">
+                            <div class="modal-header">
+                                <h4 class="modal-title">{{data2?.nombre | nombre}}</h4>
+                                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <!-- Column -->
+                                    <div class="col-lg-12 col-xlg-12 col-md-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="centrar">
+                                                    <img [src]="avatar(data2?.segmento)" class="img-circle" width="150" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <hr>
+                                            </div>
+                                            <div class="card-body">
+                                                <small class="text-muted">Tipo de cliente </small>
+                                                <p>{{data2?.tipo_cliente}}</p>
+                                                <small class="text-muted">Correo Electronico </small>
+                                                <p>{{data2?.correo}}</p>
+                                                <small class="text-muted db">Celular</small>
+                                                <p>{{data2?.celular}}</p>
+                                                <small class="text-muted db">Ciudad</small>
+                                                <p>{{data2?.pais}} - {{data2?.ciudad | ciudad}}</p>
+                                                <small class="text-muted db">Fecha y Hora</small>
+                                                <p>{{data2?.freg | date}} a las {{data2?.hreg}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" (click)="c('Close click')">Cerrar</button>
+                            </div>
+                        </ng-template>
+
+                    </ul>
+                </div>
+                <!-- /.left-aside-column-->
+                <div class="right-aside ">
+                    <div class="right-page-header">
+                        <div class="d-flex">
+                            <div class="align-self-center">
+                                <h4 class="card-title m-t-10">Lista de Leads
+                                </h4>
+                                <p *ngIf="inicio !== fin" class="card-subtitle">({{inicio | date}}) al ({{fin | date}})</p>
+                                <p *ngIf="inicio === fin" class="card-subtitle">({{inicio | date}})
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+
+                        <input #input (keyup)="busqueda(input.value, resultado) " type="text" class="form-control" placeholder="Buscar por nombre...">
+
+                    </div>
+                    <div class="table-responsive">
+                        <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nombre</th>
+                                    <th>Modalidad</th>
+                                    <th>Segmento</th>
+                                    <th>Ciudad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let lead of data?.total.data" data-toggle="modal" data-target="#myModal" class="pointer">
+                                    <td (click)="buscarLead(lead.id, content)">{{lead.id}}</td>
+                                    <td (click)="buscarLead(lead.id, content)">
+                                        <a>
+                                            <img [src]="avatar(lead?.segmento)" alt="user" class="img-circle circle-size" /> {{lead.nombre | nombre}}</a>
+                                    </td>
+                                    <td (click)="buscarLead(lead.id, content)">{{lead.modalidad}}</td>
+                                    <td (click)="buscarLead(lead.id, content)">{{lead.segmento}}</td>
+                                    <td (click)="buscarLead(lead.id, content)">
+                                        <span class="label label-danger">{{lead.ciudad | ciudad}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">
+                                        <button (click)="cambiarDesde(-1) " class="btn btn-secondary " [disabled]="pagina <=1 ">
+                                            Anteriores
+                                        </button>
+                                        <button (click)="cambiarDesde(1) " [disabled]="pagina>= ultimaPagina" class="btn btn-secondary"> Siguientes
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- .left-aside-column-->
+                </div>
+                <!-- /.left-right-aside-column-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->

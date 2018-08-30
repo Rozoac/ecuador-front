@@ -166,12 +166,14 @@
 
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
 
-.container-fluid{
+
+.parallax{
   background: url("/assets/imgs/seccion-2.png");
-  background-position: bottom;
-  background-repeat: no-repeat;
+  /* background-position: bottom; */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed */
   background-size: cover;
-  background-attachment: fixed;
+  
 }
 
 p{

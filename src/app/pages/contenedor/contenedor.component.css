@@ -15,6 +15,7 @@ a{
 }
 
 .img-principal {
+  position: relative;
   display: flex;
 
   height: 500px;
@@ -32,18 +33,12 @@ a{
   display: flex;
   justify-content: center;
   color: white;
+  z-index: 10;
 }
 
 
-/*filtros colores*/
 
-.colorear {
-
-
-
-}
-
-.colorear:before {
+.img-principal:before {
   content: "";
   display: block;
   position: absolute;

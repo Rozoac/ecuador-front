@@ -1,0 +1,22 @@
+td{
+    font-size: .7em!important;
+}
+
+.fa-whatsapp{
+    color:white;
+
+}
+.fa-facebook{
+    color:rgb(66, 102, 178);
+
+}
+
+.table-verde{
+    background:rgb(73, 198, 88)!important;
+}
+.table-roja{
+    background: rgb(202, 40, 79)!important;
+}
+.table-amarilla{
+    background: rgb(255, 241, 88)!important;
+}

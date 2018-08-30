@@ -1,65 +1,88 @@
 <div class="container principal animated fadeIn fast">
 
-  <h3>PQRS</h3>
-  <span>Diligenciamiento de peticiones, quejas y reclamos</span>
-  <hr>
+    <h3>PQRS</h3>
+    <span>Diligenciamiento de peticiones, quejas y reclamos</span>
+    <hr>
 
-  <form [formGroup]="forma" (submit)="sendEmail(message)">
-    <div class="form-group">
-      <label for="exampleSelect1">Asunto</label>
-      <select name="asunto" formControlName="asunto" required class="form-control" id="exampleSelect1" [(ngModel)]="message.asunto">
-        <option>Seleccione</option>
+    <form [formGroup]="forma" (submit)="sendEmail(message)">
+        <div class="form-group">
+            <label for="exampleSelect1">Asunto</label>
+            <select name="asunto" formControlName="asunto" required class="form-control" id="exampleSelect1" [(ngModel)]="message.asunto">
+        <option disabled="disabled">Seleccione</option>
         <option>Petición</option>
         <option>Queja</option>
         <option>Reclamos</option>
         <option>Felicitaciones</option>
         <option>Garantias</option>
       </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Nombre</label>
-      <input name="nombre" formControlName="nombre" type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="message.nombre">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Telefono Contacto</label>
-      <input name="telefono" formControlName="telefono" type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="message.telefono">
-    </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Nombre</label>
+            <input name="nombre" formControlName="nombre" type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="message.nombre">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Telefono Contacto</label>
+            <input name="telefono" formControlName="telefono" type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="message.telefono">
+        </div>
 
-    <div class="form-group">
-      <label for="exampleSelect1">Tipo de Identificación</label>
-      <select name="tipo" formControlName="tipo" class="form-control" id="exampleSelect1" [(ngModel)]="message.tipo">
-        <option>Seleccione</option>
+        <div class="form-group">
+            <label for="exampleSelect1">Tipo de Identificación</label>
+            <select name="tipo" formControlName="tipo" class="form-control" id="exampleSelect1" [(ngModel)]="message.tipo">
+        <option disabled="disabled ">Seleccione</option>
         <option>Cédula</option>
         <option>Nit/Rut</option>
         <option>C/Extranjera</option>
 
       </select>
-    </div>
+        </div>
 
-    <div class="form-group">
-      <label for="exampleInputPassword1">Identificación</label>
-      <input name="id" formControlName="id" type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="message.id">
-    </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo Electronico</label>
-    <input name="correo" formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@hotmail.com" [(ngModel)]="message.correo">
-    <small id="emailHelp" class="form-text text-muted">Correo personal.</small>
-  </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Identificación</label>
+            <input name="id" formControlName="id" type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="message.id">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Correo Electronico</label>
+            <input name="correo" formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@hotmail.com" [(ngModel)]="message.correo">
+            <small id="emailHelp" class="form-text text-muted">Correo personal.</small>
+        </div>
 
-  <div class="form-group">
-    <label for="exampleTextarea">Motivo</label>
-    <textarea  name="motivo" formControlName="motivo" class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="message.motivo"></textarea>
-  </div>
+        <div class="form-group">
+            <label for="exampleSelect1">Que productos adquirio con nosotros</label>
+            <select name="producto" formControlName="producto" class="form-control" id="exampleSelect1" [(ngModel)]="message.producto">
+        <option disabled="disabled">Seleccione</option>
+        <option>Oficinas</option>
+                <option>Salas de Ventas</option>
+                <option>Bodegas</option>
+                <option>Proyectos Especiales o Arquitectonicos</option>
+                <option>Contenedores Refrigerados</option>
+
+      </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleSelect1">Alquiler/Venta</label>
+            <select name="alquileroventa" formControlName="alquileroventa" class="form-control" id="exampleSelect1" [(ngModel)]="message.alquileroventa">
+        <option disabled="disabled" >Seleccione</option>
+        <option>Alquiler</option>
+        <option>Venta</option>
+
+      </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleTextarea"> Descripcion</label>
+            <textarea name="motivo" formControlName="motivo" class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="message.motivo" placeholder="Cuentanos que sucedio"></textarea>
+        </div>
 
 
-  <div class="form-check">
-    <label class="form-check-label">
+        <div class="form-check">
+            <label class="form-check-label">
       <input type="checkbox" required class="form-check-input">
 Autorizo el uso de la información de acuerdo al Aviso de Privacidad
     </label>
-  </div>
-  <button [disabled]="!forma.valid" type="submit" class="btn btn-primary">Enviar</button>
-</form>
+        </div>
+        <button [disabled]="!forma.valid" type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 
 
 </div>

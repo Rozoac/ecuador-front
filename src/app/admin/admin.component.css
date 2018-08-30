@@ -1,19 +1,128 @@
-@import "~/assets/css/backend/style.css";
-@import "~/assets/css/backend/colors/default-dark.css";
-@import "~/assets/css/backend/plugins/bootstrap/css/bootstrap.min.css";
-.dash-principal{
-  background: #fff;
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  overflow-x: hidden;
-  color: #67757c;
-  font-weight: 300;
+.card{
+    border: none;
 }
 
-.econtainers-logo{
-  width: 40px;
+
+
+h1,h2,h3,h4,h6,p,span,label,a,button,td,th,small {
+    font-family: 'Oswald'!important;
 }
-.econtainers-texto{
-  padding-left: 5px;
-      width: 140px;
+
+label, h3, td{
+    color: #67757c;
 }
+
+td{
+    font-weight: 100;
+
+}
+
+.bg-verde {
+    background: #33d79b;
+}
+
+.bg-morado {
+    background: #7359f2;
+}
+
+.bg-rojo {
+    background: #ef534f;
+}
+
+.bg-azul {
+    background: #2dc4e4;
+}
+
+.econtainers-logo {
+    width: 40px;
+}
+
+.econtainers-texto {
+    padding-left: 5px;
+    width: 140px;
+}
+
+.color-azul {
+    background-color: #398bf7!important;
+    color: #ffffff!important;
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.padding-top-0 {
+    padding-top: 0;
+}
+
+.segmento {
+    background: #398af7!important;
+    color: white!important;
+    border: none!important;
+    font-weight: 500;
+}
+
+.boton-consulta {
+    margin-bottom: 8px;
+    align-items: flex-end;
+    display: flex;
+}
+
+.centrar {
+    text-align: center;
+}
+
+.img-modalidad {
+    border: 3px solid #31c7e6;
+    width: 100%;
+}
+
+.regresar:hover {
+    color: #398bf7;
+}
+
+.contact-page-aside {
+    position: relative;
+}
+
+.right-aside {
+    padding: 20px;
+    margin-left: 250px;
+}
+
+.left-aside {
+    position: absolute;
+    border-right: 1px solid rgba(120, 130, 140, 0.13);
+    padding: 20px;
+    width: 250px;
+    height: 100%;
+}
+
+.list-style-none li.divider {
+    margin: 10px 0;
+    height: 1px;
+    background: rgba(120, 130, 140, 0.13);
+}
+
+.circle-size {
+    width: 30px;
+}
+
+
+.main-container{
+    margin-top: 60px;
+    margin-left: 235px;
+    padding: 15px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    overflow: hidden;
+
+}
+@media screen and (max-width: 992px) {
+    .main-container {
+        margin-left: 0px !important;
+    }
+}
+

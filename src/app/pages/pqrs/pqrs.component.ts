@@ -15,7 +15,9 @@ import 'rxjs/Rx';
 export class PqrsComponent implements OnInit {
   message: IMessageP = {
     asunto:"Seleccione",
-    tipo: "Seleccione"
+    tipo: "Seleccione",
+    alquileroventa: "Seleccione",
+    producto: "Seleccione"
   };
 
   forma:FormGroup;
@@ -30,7 +32,9 @@ export class PqrsComponent implements OnInit {
       'tipo': new FormControl('Seleccione', Validators.required),
       'id': new FormControl('', Validators.required),
       'correo': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
-      'motivo': new FormControl('', Validators.required)
+      'motivo': new FormControl('', Validators.required),
+      'alquileroventa': new FormControl('', Validators.required),
+      'producto': new FormControl('', Validators.required)
     });
 
   }
@@ -51,7 +55,9 @@ export class PqrsComponent implements OnInit {
         tipo:"Seleccione",
         id:"",
         correo:"",
-        motivo:""
+        motivo:"",
+        alquileroventa:"Seleccione",
+        producto:"Seleccione"
       })
     }, error => {
       console.log('AppComponent Error', error);

@@ -7,7 +7,7 @@
       <a pageScroll [routerLink]="['/home']" href="#2">Volver</a>
     </div>
   </div>
-  <div class="container">
+  <div class="container" style="position: relative;">
     <h3 class="nombre_container wow fadeInLeft">{{contenedor.nombre}}</h3>
     <div class="row imagenes-portafolio">
       <div class="col-md-4">
@@ -27,7 +27,7 @@
   </div>
 
   <div [ngStyle]="{'max-height': '800px'}">
-    <div class="container imagen-portafolio-b">
+    <div class="container imagen-portafolio-b " style="position: relative;">
       <img class=" wow fadeIn" src="{{contenedor.img_4}}" alt="">
       <div class="container wow fadeInLeft" [ngStyle]="{'margin-top': '20px'}">
       <p>

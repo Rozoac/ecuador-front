@@ -1,10 +1,10 @@
 <div class="contenedor trabaja animated fadeIn fast">
   <!-- Seccion principal -->
-  <div class="container-fluid img-principal">
+  <div class="img-principal">
 
     <div class="texto-principal container">
-      <h2 translate class="texto-1">TrabajaConNosotros</h2>
-      <h2 class="texto-2 hidden-sm-down">En E-Containers Colombia buscamos personas que se esfuerzan por lograr sus metas, de manera responsable y ética. Queremos su compromiso y creatividad para que juntos, podamos transformar la sociedad de una manera positiva. </h2>
+      <h2 translate class="texto-1">Trabaja Con Nosotros</h2>
+      <h2 class="texto-2 d-none d-lg-block">En E-Containers Colombia buscamos personas que se esfuerzan por lograr sus metas, de manera responsable y ética. Queremos su compromiso y creatividad para que juntos, podamos transformar la sociedad de una manera positiva. </h2>
     </div>
   </div>
 
@@ -13,10 +13,9 @@
     <span>¿Dónde te gustaría trabajar?</span>
 
     <div class="row">
-      <div class="col-12">
-        <div class="card-columns">
-          <div class="card wow flipInX" *ngFor="let trabajo of trabajos">
-            <div class="card-block ">
+      <div class="col-md-4" *ngFor="let trabajo of trabajos">
+          <div class="card wow flipInX mt-2 mb-2" >
+            <div class="card-body ">
               <h4 class="card-title">{{trabajo.nombre}}</h4>
               <p class="card-text">{{trabajo.bio}}</p>
             </div>
@@ -24,7 +23,6 @@
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

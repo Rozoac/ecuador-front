@@ -1,0 +1,290 @@
+.principal {
+  width: 100vw;
+  height: 100vh;
+  background: url("assets/imgs/info/background.jpg");
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.seccion-2 {
+  margin-bottom: 10px !important;
+}
+
+ul {
+  display: inline-block;
+}
+
+ul li {
+  list-style: none;
+  display: inline-block;
+  margin-top: 12px;
+  max-height: 65px;
+  background: rgba(7, 67, 140, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(7, 67, 140, 1) 0%,
+    rgba(60, 196, 220, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(7, 67, 140, 1)),
+    color-stop(100%, rgba(60, 196, 220, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(7, 67, 140, 1) 0%,
+    rgba(60, 196, 220, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(7, 67, 140, 1) 0%,
+    rgba(60, 196, 220, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(7, 67, 140, 1) 0%,
+    rgba(60, 196, 220, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(7, 67, 140, 1) 0%,
+    rgba(60, 196, 220, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07438c', endColorstr='#3cc4dc', GradientType=1 );
+}
+
+ul li:last-child {
+  position: relative;
+  left: 50px;
+  top: -11px;
+  background: black;
+  transform: rotateZ(-3deg);
+}
+.rotate {
+  font-size: 1.3em;
+  font-family: "CenturyGothic";
+  color: #ffff;
+  font-weight: bold;
+  font-style: italic;
+}
+
+ul li .text-principal {
+  font-size: 3.2em;
+  font-family: "brandon";
+  letter-spacing: 2px;
+  font-style: italic;
+  color: #ffff;
+  margin: 0 15px;
+}
+
+.mensaje-principal .text-font {
+  margin-top: 15px;
+}
+
+.card {
+  /* position: absolute; */
+  /* transition: ease; */
+  top: 22px;
+  border-radius: 5%;
+  background: #f7f7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0px 2px 10px rgba(0, 0, 0, 0.12);
+  max-height: 340px !important;
+  min-height: 340px !important;
+  width: 92%;
+}
+
+.card:hover {
+  background: rgba(76, 195, 211, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(76, 195, 211, 1) 0%,
+    rgba(8, 67, 129, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(76, 195, 211, 1)),
+    color-stop(100%, rgba(8, 67, 129, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(76, 195, 211, 1) 0%,
+    rgba(8, 67, 129, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(76, 195, 211, 1) 0%,
+    rgba(8, 67, 129, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(76, 195, 211, 1) 0%,
+    rgba(8, 67, 129, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(76, 195, 211, 1) 0%,
+    rgba(8, 67, 129, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cc3d3', endColorstr='#084381', GradientType=0 );
+  color: white;
+  transition-duration: 0.6s;
+}
+
+.card-title {
+  font-family: "CenturyGothic-bold" !important;
+  border-top: 1px solid black;
+  font-size: 0.8rem;
+  padding-top: 10px;
+  text-align: center;
+}
+.card-text {
+  font-family: "CenturyGothic";
+  text-align: center;
+  font-weight: normal;
+  font-size: 0.7em;
+}
+
+.imagen-contenedor {
+  margin: 0 auto;
+  width: 35%;
+  margin-bottom: 25px;
+}
+
+.imagen-contenedor img {
+  border-radius: 50%;
+}
+
+.cotiza {
+  /* margin-top: 70px; */
+  cursor:pointer;
+  text-align: center;
+  color: #abddec;
+  font-size: 1.5em;
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cotiza svg {
+  margin-left: 10px;
+}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  color: #9a9a9c;
+  font-size: 5em;
+  bottom: 0;
+  background: transparent;
+  border: none;
+  left: -100px;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  color: #9a9a9c;
+  font-size: 5em;
+  bottom: 0;
+  background: transparent;
+  border: none;
+  /* width: 20px; */
+  /* height: 50px; */
+  /* box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3); */
+  /* border-radius: 999px; */
+  right: -74px;
+}
+
+.imagen-derecha {
+  width: 100%;
+  position: absolute;
+}
+
+.carrusel {
+  margin: 0 auto;
+}
+
+::ng-deep .ngucarousel-items {
+  position: relative;
+  height: 380px;
+}
+
+::ng-deep .item:first-child {
+  margin-left: 10px;
+}
+/* RESPONSIVE */
+/* CELULARES */
+@media screen and (max-width: 576px) {
+  .principal {
+    background-position-x: -370px;
+  }
+  #texto-principal {
+    font-size: 0.7em;
+    padding-left: 0;
+  }
+
+  .card{
+    width: 71%!important;
+    margin-left: 12%;
+  }
+
+  .leftRs {
+    left: 0px;
+  }
+  .rightRs {
+    right: 0px;
+  }
+
+  .imagen-derecha {
+    width: 83%;
+    position: relative;
+    left: 10%;
+    bottom: 0;
+    top: 0;
+}
+}
+/* //PANTALLAS GRANDES */
+@media (min-width: 1300px) {
+  .container {
+    max-width: 1500px !important;
+  }
+  .card {
+    max-height: 410px !important;
+    min-height: 410px !important;
+  }
+  ::ng-deep .ngucarousel-items {
+    height: 450px;
+  }
+  .card-text {
+    font-size: 0.9em;
+  }
+
+  .card-title[_ngcontent-c1] {
+    font-size: 1rem;
+  }
+  .container {
+    justify-content: space-around;
+  }
+
+  ul li {
+    max-height: 82px;
+  }
+
+  ul {
+    font-size: 1.3em !important;
+  }
+}

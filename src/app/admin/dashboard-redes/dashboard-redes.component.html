@@ -1,0 +1,250 @@
+<div class="row">
+
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Referidos Redes Sociales</h4>
+                <h5 class="card-subtitle">Formulario</h5>
+
+
+                <form [formGroup]="forma" (submit)="sendEmail(message)" class="form p-t-20">
+                    <div class="form-group ">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="exampleInputuname3" name="name" formControlName="nombre" placeholder="Nombre"
+                                    [(ngModel)]="message.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail3" class="col-sm-12 control-label">Correo Electronico</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-email"></i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Correo electronico" name="email" formControlName="email"
+                                    [(ngModel)]="message.email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="web" class="col-sm-3 control-label">Celular</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-mobile"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="web" placeholder="Celular" name="celular" formControlName="cel" required [(ngModel)]="message.celular">
+                                <input type="text" class="form-control" id="web" placeholder="Celular 2" name="celular2" formControlName="cel2" required
+                                    [(ngModel)]="message.celular2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="web" class="col-sm-12 control-label">Tipo cliente</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-briefcase"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control custom-select" name="cliente" formControlName="cliente" [(ngModel)]="message.cliente" tabindex="1">
+                                    <option *ngFor="let tipo of tipoCliente" [value]="tipo.name">{{tipo.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="message.cliente == 'Empresa'" class="form-group ">
+                        <label for="web" class="col-sm-12 control-label">Empresa</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="exampleInputuname3" name="name" formControlName="empresa" placeholder="Nombre Empresa"
+                                    [(ngModel)]="message.empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="web" class="col-sm-12 control-label">Modalidad</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-bag"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control custom-select" name="para" formControlName="para" [(ngModel)]="message.para" tabindex="1">
+                                    <option>¿Lo quieres para?</option>
+                                    <option disabled *ngIf="message.cliente == 'Tipo de cliente' ">*Selecciona un tipo de cliente</option>
+                                    <option *ngIf="message.cliente == 'Natural' || message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'">Compra</option>
+                                    <option *ngIf="message.cliente != 'Tipo de cliente' && message.cliente != 'Natural'">Alquiler</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="web" class="col-sm-3 control-label">Segmento</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-world"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control custom-select" name="tipo" formControlName="interes" [(ngModel)]="message.tipo" tabindex="1">
+                                    <option>¿En que estas interesado?</option>
+                                    <option>Oficinas</option>
+                                    <option>Salas de Ventas</option>
+                                    <option>Bodegas</option>
+                                    <option>Proyectos Especiales o Arquitectonicos</option>
+                                    <option>Contenedores Refrigerados</option>
+                                    <option>Contenedores en condiciones originales</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <label for="web" class="col-sm-3 control-label">Ciudad</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-direction-alt"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control custom-select" name="ciudad" formControlName="ciudad" tabindex="1" [(ngModel)]="message.ciudad">
+                                    <option>Ciudad</option>
+                                    <option>Armenia</option>
+                                    <option>Barranca</option>
+                                    <option>Barranquilla</option>
+                                    <option>Bogotá</option>
+                                    <option>Bucaramanga</option>
+                                    <option>Buenaventura</option>
+                                    <option>Cali</option>
+                                    <option>Cartagena</option>
+                                    <option>Ibagué</option>
+                                    <option>Maicao</option>
+                                    <option>Manizales</option>
+                                    <option>Medellín</option>
+                                    <option>Otros</option>
+                                    <option>Pereira</option>
+                                    <option>Riohacha</option>
+                                    <option>Santa Marta</option>
+                                    <option>Valledupar</option>
+                                    <option>Villavicencio</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="web" class="col-sm-3 control-label">Referido</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-rss-alt"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control custom-select" name="referido" formControlName="referido" [(ngModel)]="message.referido" tabindex="1">
+                                    <option>Referido</option>
+                                    <option>Facebook</option>
+                                    <option>instagram</option>
+                                    <option>Whatsapp</option>
+                                    <option>Twitter</option>
+                                    <option>Mercado Libre</option>
+                                    <option>Publicar</option>
+                                </select>
+                                <div class="custom-control custom-checkbox ml-2">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" formControlName="referido2" [(ngModel)]="message.referido2">
+                                    <label class="custom-control-label" for="customCheck1">24-7</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group  m-b-0">
+                        <div class="offset-sm-3 col-sm-12">
+                            <button type="submit" class="btn btn-success m-r-10">Guardar</button>
+                            <button type="submit" class="btn btn-dark">Cancel</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="card">
+            <button [disabled]="cargaReporte" (click)="generarReporte()" class="btn btn-success">
+                <div *ngIf="cargaReporte" class="text-center ">
+                    <span>Generando reporte</span>
+                    <br>
+                    <i class="fa fa-sync fa-spin fa-lg "></i>
+                    <br>
+                </div>
+                <span *ngIf="!cargaReporte">
+                    <i class="fas fa-file-pdf fa-lg "></i> Generar Reporte</span>
+            </button>
+            <div class="card-body">
+
+                <h4 class="card-title">Listado</h4>
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Comercial</th>
+                            <th>Referido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let referido of referidos?.leads" [ngClass]="{
+                                                                        'table-verde':referido.referido === 'Whatsapp',
+                                                                        'table-info':referido.referido === 'Facebook',
+                                                                        'table-amarilla':referido.referido === 'Mercado Libre',
+                                                                        'table-roja':referido.referido === 'instagram'
+                                                                        }">
+                            <td>{{referido.nombre}}</td>
+                            <td>{{referido.comercial}}</td>
+                            <td>
+                                <img width="22px" *ngIf="referido.referido == 'Mercado Libre'" src="assets/imgs/images/mercado-libre.png"
+                                    alt="">
+                                <i *ngIf="referido.referido != 'Mercado Libre'" class="fa-2x facebook fab" [ngClass]="{
+                                                                        'fa-whatsapp':referido.referido === 'Whatsapp',
+                                                                        'fa-facebook':referido.referido === 'Facebook',
+                                                                        'fa-instagram':referido.referido === 'instagram'
+                                                                        }"></i>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

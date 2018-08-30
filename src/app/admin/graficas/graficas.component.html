@@ -1,3 +1,455 @@
-<p>
-  graficas works!
-</p>
+<!-- ============================================================== -->
+<!-- Projects of the month -->
+<!-- ============================================================== -->
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title">
+                            <span class="lstick"></span>Leads por Comerciales</h4>
+                    </div>
+                </div>
+                <form ngNativeValidate #myForm="ngForm" (ngSubmit)="getLeads( myForm )" class="d-flex">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Fecha inicial</label>
+                            <my-date-picker ngModel [placeholder]="placeholder" [locale]="locale" name="start" [options]="startDate" (dateChanged)="onStartDateChanged($event)"
+                                required></my-date-picker>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Fecha final</label>
+                            <my-date-picker ngModel name="end" [locale]="locale" [placeholder]="placeholder" [options]="endDate" (dateChanged)="onEndDateChanged($event)"
+                                required></my-date-picker>
+                        </div>
+                        <div class="col-md-3 boton-consulta">
+                            <button type="submit" class="btn color-azul ">Consultar</button>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <button class="mr-3 btn color-azul" (click)="getLeadsHoy()">Fecha de hoy ({{date | date}})</button>
+                    <button class="btn color-azul" (click)="getLeadsMes()">Ultimos 30 dias ({{mesInicio | date}} - {{mesFin | date}})</button>
+                </div>
+            </div>
+
+
+
+
+           
+            
+                            <!-- Nav tabs -->
+                            <!-- <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+                                        <span class="hidden-sm-up">
+                                            <i class="ti-home"></i>
+                                        </span>
+                                        <span class="hidden-xs-down">Colombia
+                                            <span class="flag-icon flag-icon-co"></span>
+                                        </span>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                                        <span class="hidden-sm-up">
+                                            <i class="ti-user"></i>
+                                        </span>
+                                        <span class="hidden-xs-down">Ecuador
+                                            <span class="flag-icon flag-icon-ec"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul> -->
+                            <!-- Tab panes -->
+                            <div class="container">
+                                <ngb-tabset>
+                                     <ngb-tab title="COLOMBIA">
+                                    <ng-template ngbTabContent>
+    
+                                        <div class="table-responsive m-t-0 no-wrap" *ngIf="comerciales">
+                                            <table class="table vm no-th-brd pro-of-month table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Nombre</th>
+                                                        <th>Bodegas</th>
+                                                        <th>Oficinas</th>
+                                                        <th>Salas de venta</th>
+                                                        <th>Proyectos Arq</th>
+                                                        <th>Refrigerados</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="pointer">
+                                                    <tr (click)="comercialInfo('fcastrodelrio',comerciales.inicio ,comerciales.fin )">
+                                                        <td style="width:50px;">
+                                                            <img src="./assets/css/backend/images/users/ivan.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Ivan Castro del Rio</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.icastro.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.icastro.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.icastro.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.icastro.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.icastro.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.icastro.total}}</span>
+                                                        </td>
+    
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('pvalencia',comerciales.inicio ,comerciales.fin )">
+                                                        <td style="width:50px;">
+                                                            <img src="./assets/css/backend/images/users/paula.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Paula Valencia</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.pvalencia.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.pvalencia.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.pvalencia.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.pvalencia.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.pvalencia.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.pvalencia.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('fvargas',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/frank.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Frank Vargas</h6>
+                                                            <small class="text-muted">Comercial </small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.fvargas.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.fvargas.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.fvargas.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.fvargas.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.fvargas.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.fvargas.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('lmahecha',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/leonardo.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Leonardo Mahecha</h6>
+                                                            <small class="text-muted">Comercial </small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lmahecha.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lmahecha.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lmahecha.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lmahecha.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lmahecha.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.lmahecha.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('avila',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/vila.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Alejandra Vila</h6>
+                                                            <small class="text-muted">Ejecutivo Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.avila.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.avila.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.avila.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.avila.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.avila.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.avila.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('cortega',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/carlos.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Carlos Ortega</h6>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cortega.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cortega.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cortega.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cortega.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cortega.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.cortega.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('cfiallo',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/carolina.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Carolina Fiallo</h6>
+                                                            <small class="text-muted">Ejecutivo Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cfiallo.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cfiallo.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cfiallo.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cfiallo.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.cfiallo.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.cfiallo.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('lvargas',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/luisa.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Luisa Vargas</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lvargas.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lvargas.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lvargas.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lvargas.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.lvargas.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.lvargas.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('arodriguez',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <img src="./assets/css/backend/images/users/andrea.png" alt="user" class="img-circle" style="width: 100%" />
+                                                        </td>
+                                                        <td>
+                                                            <h6>Andrea Rodriguez</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.arodriguez.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.arodriguez.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.arodriguez.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.arodriguez.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.arodriguez.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.arodriguez.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('agonzales',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <span class="round round-primary">AG</span>
+                                                        </td>
+                                                        <td>
+                                                            <h6>Arelys María González</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agonzales.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agonzales.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agonzales.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agonzales.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agonzales.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.agonzales.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr (click)="comercialInfo('kalfaro',comerciales.inicio ,comerciales.fin )">
+                                                        <td>
+                                                            <span class="round round-primary">KA</span>
+                                                        </td>
+                                                        <td>
+                                                            <h6>Kerly Alfaro</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agutierrez.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agutierrez.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agutierrez.salas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agutierrez.proyectos }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agutierrez.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.agutierrez.total}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>TOTAL: </td>
+                                                        <td>{{comerciales.totalBodegas}}</td>
+                                                        <td>{{comerciales.totalOficinas}}</td>
+                                                        <td>{{comerciales.totalSalas}}</td>
+                                                        <td>{{comerciales.totalProyectos}}</td>
+                                                        <td>{{comerciales.totalRefrigerados}}</td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.totalGeneral}}</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </ng-template >
+    
+                                    </ngb-tab>
+    
+    
+                                    <ngb-tab title="ECUADOR">
+                                    <ng-template ngbTabContent>
+                                        <div class="table-responsive m-t-0 no-wrap" *ngIf="comerciales">
+                                            <table class="table vm no-th-brd pro-of-month table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Nombre</th>
+                                                        <th>Bodegas</th>
+                                                        <th>Oficinas</th>
+                                                        <th>Refrigerados</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="pointer">
+                                                    <tr (click)="comercialInfo('agarzon',comerciales.inicio ,comerciales.fin )">
+                                                        <td style="width:50px;">
+                                                            <span class="round">AG</span>
+                                                        </td>
+                                                        <td>
+                                                            <h6>Andres Garzon</h6>
+                                                            <small class="text-muted">Comercial</small>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agarzon.bodegas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agarzon.oficinas }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{comerciales.agarzon.refrigerados }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-success label-rounded">{{comerciales.agarzon.total}}</span>
+                                                        </td>
+    
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </ng-template>
+                                    </ngb-tab>
+                            
+                            </ngb-tabset>
+                      
+                            </div>
+              
+           
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Activity widget find scss into widget folder-->
+<!-- ============================================================== -->

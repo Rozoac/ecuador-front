@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import {Subscription} from "rxjs";
-declare var jQuery: any;
 declare var $: any;
 
 @Component({

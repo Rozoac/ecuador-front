@@ -1,37 +1,78 @@
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
-@font-face{
-  font-family: 'bebas-bold';
-  src: url('assets/fonts/bebas_neue/BebasNeueBold.otf');
-}
-@font-face{
-  font-family: 'bebas-regular';
-  src: url('assets/fonts/bebas_neue/BebasNeueRegular.otf');
-}
-@font-face{
-  font-family: 'bebas-book';
-  src: url('assets/fonts/bebas_neue/BebasNeueBook.otf');
-}
-@font-face{
-  font-family: 'bebas-light';
-  src: url('assets/fonts/bebas_neue/BebasNeueLight.otf');
+
+@font-face {
+    font-family: 'bebas-bold';
+    src: url('assets/fonts/bebas_neue/BebasNeueBold.otf');
 }
 
-
-
-h1,h2, h3, h4, h5, h6 {
-  font-family: 'bebas-bold'!important;
+@font-face {
+    font-family: 'bebas-regular';
+    src: url('assets/fonts/bebas_neue/BebasNeueRegular.otf');
 }
-p{
-  font-family: 'bebas-regular';
 
+@font-face {
+    font-family: 'bebas-book';
+    src: url('assets/fonts/bebas_neue/BebasNeueBook.otf');
+}
+
+@font-face {
+    font-family: 'bebas-light';
+    src: url('assets/fonts/bebas_neue/BebasNeueLight.otf');
+}
+@font-face {
+    font-family: 'brandon';
+    src: url('assets/fonts/brandon/brandon-italic.otf');
+}
+@font-face {
+    font-family: 'CenturyGothic';
+    src: url('assets/fonts/century-gothic/CenturyGothic.ttf');
+}
+@font-face {
+    font-family: 'CenturyGothic-bold';
+    src: url('assets/fonts/century-gothic/bold.ttf');
+}
+                .ps .ps__scrollbar-y-rail {
+                    left: 3px;
+                    right: auto;
+                }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'bebas-bold'!important;
+}
+
+.font-bebas{
+    font-family: 'bebas-bold'!important;
+}
+.font-bebas-bold{
+    font-family: 'bebas-bold'!important;
+}
+
+input,label,select{
+    font-family: 'Oswald'!important;
+}
+
+p {
+    /* font-family: 'bebas-regular'; */
 }
 
 .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
+
+.bandera {
+    margin-left: 20px;
+    width: 25px;
+}
+
 
 /* .fast {
   -webkit-animation-duration: 0.4s;
@@ -41,90 +82,94 @@ p{
 } */
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-
+.pointer {
+    cursor: pointer;
+}
 
 .fadeIn {
-  animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 
 .text__background {
-  position: absolute;
-  left: 72px;
-  bottom: -55px;
-  color: #00cdfb;
-  font-size: 80px;
-  font-weight: 700;
+    position: absolute;
+    left: 72px;
+    bottom: -55px;
+    color: #00cdfb;
+    font-size: 80px;
+    font-weight: 700;
 }
+
 
 /*movil*/
 
 .text__background-movil {
-  position: absolute;
-  left: 35px;
-  bottom: -32px;
-  color: #76a1e7;
-  font-size: 2.8em;
-  font-weight: 700;
+    position: absolute;
+    left: 35px;
+    bottom: -32px;
+    color: #76a1e7;
+    font-size: 2.8em;
+    font-weight: 700;
 }
 
-span, input, textarea, select{
-  font-family: 'Oswald'!important;
+span,
+input,
+textarea,
+select {
+    font-family: 'Oswald';
 }
 
-a, label , button, li{
-  font-family: 'bebas-regular', sans-serif;
-  font-weight: lighter;
+a,
+label,
+button,
+li {
+    font-family: 'bebas-regular', sans-serif;
+    font-weight: lighter;
 }
 
 .animatedd {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 .fast {
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .fadeIn {
-  animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 
 .owl-dots {
-  position: absolute;
-  top: 74%;
-  left: 27.5%;
-  z-index: 3;
+    position: absolute;
+    top: 74%;
+    left: 27.5%;
+    z-index: 3;
 }
 
 @media (max-width: 576px) {
-
-  .owl-dots {
-
-    left: 40.5%;
-
-}
-
+    .owl-dots {
+        left: 40.5%;
+    }
 }

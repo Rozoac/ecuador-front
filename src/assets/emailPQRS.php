@@ -16,11 +16,13 @@ $errors = '';
 	$from_id = $request->id;
 	$from_correo = $request->correo;
 	$from_motivo = $request->motivo;
+	$from_alquileroventa = $request->alquileroventa;
+	$from_producto = $request->producto;
 
 
 
     $email_from = "pqrs@econtainerscolombia.com";
-		$email_to = "pqrs@econtainerscolombia.com";
+		$email_to = "pqrs@econtainerscolombia.com,". "adelgado@econtainerscolombia.com";
 		$email_subject = "Nuevo mensaje PQRS (Página Web) ";
 
 
@@ -31,7 +33,9 @@ $errors = '';
 		$email_message .= "Telefono: " . $from_telefono . "\n\n";
     $email_message .= "Correo: " . $from_correo . "\n\n";
 		$email_message .= "Identificacion: " . $from_tipo .": " . $from_id . " \n\n";
-		$email_message .= "Mensaje: " . $from_motivo . "\n\n";
+		$email_message .= "Alquiler/Venta: " . $from_alquileroventa ." \n\n";
+		$email_message .= "Que adquirio con nosotros: " . $from_producto ." \n\n";
+		$email_message .= "Mensaje: " . $from_alquileroventa . "\n\n";
 
 
 

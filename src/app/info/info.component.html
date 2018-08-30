@@ -1,0 +1,288 @@
+<div class="contenido">
+    <div class="sec-1">
+
+        <nav class="container center">
+            <ul class="redes d-none d-sm-flex">
+                
+
+                <li>
+                    <a href="https://www.facebook.com/EContainers/" target="_blank">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/econtainers/" target="_blank">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/econtainerscol?lang=es" target="_blank">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+            <img class="logo" src="/assets/imgs/info/logo.png">
+
+            <span class="d-none d-sm-flex">Contáctanos</span>
+
+        </nav>
+        <div class="texto">
+            <h1> Tenemos todas
+                <br>las soluciones de construcción modular
+
+            </h1>
+            <h2>y contenedores marítimos,
+                <br>tanto en venta como en alquiler.</h2>
+
+        </div>
+
+        <div class="carrusel">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="/assets/imgs/info/contenedor-1.png">
+                </div>
+                <div class="item">
+                    <img src="/assets/imgs/info/contenedor-2.png">
+                </div>
+                <div class="item">
+                    <img src="/assets/imgs/info/contenedor-3.png">
+                </div>
+                <div class="item">
+                    <img src="/assets/imgs/info/contenedor-4.png">
+                </div>
+                <div class="item">
+                    <img src="/assets/imgs/info/contenedor-5.png">
+                </div>
+                <div class="item">
+                    <img src="/assets/imgs/info/contenedor-6.png">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cuadro ">
+            <div class="row ">
+                <div class=" formulario col-md-8 col-sm-12">
+                    <div class="row mr-2 ml-2 mt-4">
+                        <div class="col-md-6 ">
+                            <span>Dejanos tus datos.</span>
+
+                        </div>
+                        <div class="col-md-6 mensaje ">
+                            <i class="far fa-envelope fa-2x"></i>
+                        </div>
+                    </div>
+                    <form [formGroup]="forma" (submit)="sendEmail(message)" class="m-4">
+                        <div class="form-group">
+                            <div class="row">
+                                <!-- ============================================================== -->
+                                <!-- NOMBRE
+                                <!-- ============================================================== -->
+                                <div class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nombre').valid)&& forma.get('nombre').touched}">
+                                    <input [ngClass]="{'margin-bottom-cero': (!forma.get('nombre').valid)&& forma.get('nombre').touched}" type="text" class="form-control"
+                                        name="name" formControlName="nombre" required placeholder="Nombre y Apellido" [(ngModel)]="message.name">
+                                    <div *ngIf="(forma.controls['nombre'].errors?.required)&& forma.get('nombre').touched" class="form-control-feedback">
+                                        Escribe tu nombre
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- CIUDAD
+                                <!-- ============================================================== -->
+                                <div class=" col-lg-6" [ngClass]="{'has-danger': ((forma.get('ciudad').value) == '¿Cual es tu ciudad mas cercana?') && forma.get('ciudad').touched}">
+                                    <select type="text" name="ciudad" formControlName="ciudad" class="form-control" [(ngModel)]="message.ciudad">
+                                        <option>¿Cual es tu ciudad mas cercana?</option>
+                                        <option>Armenia</option>
+                                        <option>Barranca</option>
+                                        <option>Barranquilla</option>
+                                        <option>Bogotá</option>
+                                        <option>Bucaramanga</option>
+                                        <option>Cali</option>
+                                        <option>Ibagué</option>
+                                        <option>Maicao</option>
+                                        <option>Manizales</option>
+                                        <option>Medellín</option>
+                                        <option>Otros</option>
+                                        <option>Pereira</option>
+                                        <option>Riohacha</option>
+                                        <option>Santa Marta</option>
+                                        <option>Valledupar</option>
+                                        <option>Villavicencio</option>
+                                    </select>
+                                    <div *ngIf="((forma.get('ciudad').value) == '¿Cual es tu ciudad mas cercana?') && forma.get('ciudad').touched" class="form-control-feedback">
+                                        Elige una opción
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- CELULAR
+                                <!-- ============================================================== -->
+                                <div class="col-sm-12 col-lg-6" [ngClass]="{'has-danger': (!forma.get('cel').valid)&& forma.get('cel').touched}">
+                                    <input [ngClass]="{'margin-bottom-cero': (!forma.get('cel').valid)&& forma.get('cel').touched}" type="number" name="celular"
+                                        formControlName="cel" class="form-control" required placeholder="Celular" [(ngModel)]="message.celular">
+                                    <div *ngIf="(forma.controls['cel'].errors?.required) && forma.get('cel').touched" class="form-control-feedback">
+                                        Escribe tu celular
+                                    </div>
+                                    <div *ngIf="(!forma.get('cel').valid) && (forma.get('cel').touched) && forma.get('cel').dirty" class="form-control-feedback">
+                                        Número incorrecto
+                                    </div>
+                                </div>
+
+                                <!-- ============================================================== -->
+                                <!-- En que esta interesado?
+                                <!-- ============================================================== -->
+                                <div class="col-lg-6" [ngClass]="{'has-danger': ((forma.get('interes').value) == '¿En que estas interesado?') && forma.get('interes').touched}">
+                                    <select class="form-control" name="tipo" formControlName="interes" [(ngModel)]="message.tipo">
+                                        <option>¿En que estas interesado?</option>
+                                        <option>Oficinas</option>
+                                        <option>Salas de Ventas</option>
+                                        <option>Bodegas</option>
+                                        <option>Proyectos Especiales o Arquitectonicos</option>
+                                        <option>Contenedores Refrigerados</option>
+                                        <option>Productos Estándar</option>
+                                    </select>
+                                    <div *ngIf="((forma.get('interes').value) == '¿En que estas interesado?') && forma.get('interes').touched" class="form-control-feedback">
+                                        Elige una opción.
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- En que esta interesado?
+                                <!-- ============================================================== -->
+                                <div class="col-lg-6" [ngClass]="{'has-danger': ((forma.get('interes').value) == '¿En que estas interesado?') && forma.get('interes').touched}">
+                                    <select class="form-control" name="tipo" formControlName="interes" [(ngModel)]="message.tipo">
+                                        <option>¿En que estas interesado?</option>
+                                        <option>Oficinas</option>
+                                        <option>Salas de Ventas</option>
+                                        <option>Bodegas</option>
+                                        <option>Proyectos Especiales o Arquitectonicos</option>
+                                        <option>Contenedores Refrigerados</option>
+                                        <option>Productos Estándar</option>
+                                    </select>
+                                    <div *ngIf="((forma.get('interes').value) == '¿En que estas interesado?') && forma.get('interes').touched" class="form-control-feedback">
+                                        Elige una opción.
+                                    </div>
+                                </div>
+
+                                <!-- ============================================================== -->
+                                <!-- EMAIL
+                                <!-- ============================================================== -->
+                                <div class=" col-lg-6" [ngClass]="{'has-danger': (!forma.get('email').valid)&& forma.get('email').touched}">
+                                    <input [ngClass]="{'margin-bottom-cero': (!forma.get('email').valid) && (forma.get('email').touched) }" type="email" class="form-control"
+                                        name="email" formControlName="email" placeholder="Correo Electronico" [(ngModel)]="message.email">
+                                    <div *ngIf="(forma.controls['email'].errors?.required)&& forma.get('email').touched" class="form-control-feedback">
+                                        Escribe tu correo electronico
+                                    </div>
+                                    <div *ngIf="(!forma.get('email').valid) && (forma.get('email').touched) && forma.get('email').dirty" class="form-control-feedback">
+                                        Correo electronico incorrecto
+                                    </div>
+                                </div>
+
+                                <!--==============================================================- -->
+                                <!-- TIPO DE CLIENTE
+                                <!-- ============================================================== -->
+                                <div class=" col-lg-6" [ngClass]="{'has-danger': ((forma.get('cliente').value) == 'Tipo de cliente') && forma.get('cliente').touched}">
+                                    <select class="form-control" name="cliente" formControlName="cliente" [(ngModel)]="message.cliente">
+                                        <option *ngFor="let tipo of tipoCliente" [value]="tipo.name">{{tipo.name}}</option>
+                                    </select>
+                                    <div *ngIf="((forma.get('cliente').value) == 'Tipo de cliente') && forma.get('cliente').touched" class="form-control-feedback">
+                                        Elige una opción.
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- CEDULA O NIT *CAMPO OPCIONAL
+                                <!-- ============================================================== -->
+                                <div *ngIf="message.cliente == 'Natural'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('cedula').valid)&& forma.get('cedula').touched}">
+                                    <input [ngClass]="{'margin-bottom-cero': (!forma.get('cedula').valid)&& forma.get('cedula').touched}" type="number" class="form-control"
+                                        name="cedula" formControlName="cedula" required placeholder="Numero de cedula" [(ngModel)]="message.cedula">
+                                    <div *ngIf="(forma.controls['cedula'].errors?.required)&& forma.get('cedula').touched" class="form-control-feedback">
+                                        Escribe tu numero de cedula
+                                    </div>
+                                </div>
+                                <div *ngIf="message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nit').valid)&& forma.get('nit').touched}">
+                                    <input [ngClass]="{'margin-bottom-cero': (!forma.get('nit').valid)&& forma.get('nit').touched}" type="number" class="form-control"
+                                        name="nit" formControlName="nit" required placeholder="Numero de NIT" [(ngModel)]="message.nit">
+                                    <div *ngIf="(forma.controls['nit'].errors?.required)&& forma.get('nit').touched" class="form-control-feedback">
+                                        Escribe tu numero de NIT
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- LO QUIERES PARA
+                                <!-- ============================================================== -->
+                                <div class=" col-lg-6" [ngClass]="{'has-danger': ((forma.get('para').value) == '¿Lo quieres para?') && forma.get('para').touched}">
+                                    <select class="form-control" name="para" formControlName="para" [(ngModel)]="message.para">
+                                        <option>¿Lo quieres para?</option>
+                                        <option disabled *ngIf="message.cliente == 'Tipo de cliente' ">*Selecciona un tipo de cliente</option>
+                                        <option *ngIf="message.cliente == 'Natural' || message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'">Compra</option>
+                                        <option *ngIf="message.cliente != 'Tipo de cliente' && message.cliente != 'Natural'">Alquiler</option>
+                                    </select>
+                                    <div *ngIf="((forma.get('para').value) == '¿Lo quieres para?') && forma.get('para').touched" class="form-control-feedback">
+                                        Elige una opción.
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 mt-3">
+                                    <textarea class="form-control" rows="3" placeholder="Mensaje" name="message" formControlName="mensaje" [(ngModel)]="message.message"></textarea>
+
+                                </div>
+                                <div class="col-lg-8 form-check m-3">
+                                    <input type="checkbox" class="form-check-input" required formControlName="autorizo">
+                                    <a href="https://econtainerscolombia.com/politicas.pdf" target="_blank">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <a class="autorizo" href="https://econtainerscolombia.com/autorizacion.pdf" target="_blank">Aviso de autorización:</a> Autorizo el tratamiento de mis datos personales</label>
+                                    </a>
+                                </div>
+                                <div class="col m-3">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="contact col-md-4 col-sm-12">
+
+                    <h3 class="mt-4">Siguenos en nuestras redes sociales</h3>
+
+                    <ul class="d-md-block d-lg-flex">
+                        <li>
+                            <a href="https://www.facebook.com/EContainers/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/econtainerscol?lang=es" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/econtainers/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <img class="casa" src="/assets/imgs/info/casa.png">
+
+                    <img src="/assets/imgs/info/logo-gris.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec-2">
+        <div class="imagen">
+            <div class="overlay"></div>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <svg id="curva" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 156.5">
+        <path class="cls-2" d="M.5,72.5c708,223.37,1400-1.5,1400-1.5V227.5H.5Z" transform="translate(-0.5 -71)" />
+    </svg>
+    <span>E-Containers Colombia - Copyright © 2018</span>
+
+</footer>

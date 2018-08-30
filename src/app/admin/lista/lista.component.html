@@ -1,0 +1,141 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="col-md-12">
+
+    <div class="card">
+        <div class="card-body">
+            <form ngNativeValidate #myForm="ngForm" class="d-flex" (ngSubmit)="fechalista( myForm )">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Fecha inicial</label>
+                        <my-date-picker ngModel [placeholder]="placeholder" [locale]="locale" name="start" [options]="startDate"
+                            (dateChanged)="onStartDateChanged($event)" required></my-date-picker>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Fecha final</label>
+                        <my-date-picker ngModel name="end" [locale]="locale" [placeholder]="placeholder" [options]="endDate" (dateChanged)="onEndDateChanged($event)"
+                            required></my-date-picker>
+                    </div>
+                    <div class="col-md-3 boton-consulta">
+                        <button type="submit" class="btn color-azul ">Consultar</button>
+                    </div>
+                </div>
+            </form>
+                    <div class="col-md-3">
+                        <button  [disabled]="cargaReporte" (click)="cargarPDF(fechaEnviar)" class="btn color-azul text-white">
+                            <div *ngIf="cargaReporte" class="text-center ">
+                                <span>Generando reporte</span>
+                                <br>
+                                <i class="fa fa-sync fa-spin fa-lg "></i>
+                                <br>
+                            </div>
+                            <span *ngIf="!cargaReporte" ><i class="fas fa-file-pdf fa-lg "></i> Generar Reporte</span>
+                        </button>
+                    </div>
+
+            <!-- <div>
+                    <button class="btn color-azul" (click)="getLeadsHoy()">Fecha de hoy ({{date | date}})</button>
+                    <button class="btn color-azul" (click)="getLeadsMes()">Ultimos 30 dias ({{mesInicio | date}} - {{mesFin | date}})</button>
+                </div> -->
+        </div>
+
+    </div>
+</div>
+
+<div class=" row wow fadeIn">
+    <div class="col-12 ">
+        <div class="card ">
+            <div class="card-body ">
+
+                <div class="table-responsive ">
+                    <div class="row ">
+                        <div class="col-md-6 d-flex align-items-center ">
+                            <h3 class="card-title margin-0 ">Leads Registrados (<small>{{total}}</small>) </h3>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="card margin-0 ">
+                                <div class="card-body padding-top-0 ">
+                                    <input #input (keyup)="buscarLead(input.value) " type="text " class="form-control " placeholder="Buscar Lead ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="myTable " class="table table-bordered table-hover ">
+                        <thead class="color-azul ">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Modalidad</th>
+                                <th>
+                                    <select class="segmento" name="segmento" (change)="cargarLeads($event.target.value, 1, fechaEnviar)">
+
+                                                <option disabled>Segmento</option>
+                                                <option value="">Todos</option>
+                                                <option value="Bodegas" >Bodegas</option>
+                                                <option value="Contenedores Refrigerados" (ngModel)="pagina = 1">Contenedores Refrigerados</option>
+                                                <option value="Oficinas">Oficinas</option>
+                                                <option value="Proyectos Especiales o Arquitectonicos">Proyectos Arquitectonicos</option>
+                                                <option value="Salas de Ventas">Salas de Ventas</option>
+                                                
+                                                
+                                          
+                                              </select>
+                                </th>
+                                <th>Ciudad</th>
+                                <th>
+                                    <select class="segmento" name="comercial" (change)="cargarLeads(segmento, 1 , fechaEnviar, $event.target.value)">
+                                
+                                        <option disabled>Comercial</option>
+                                        <option value="">Todos</option>
+                                        <option value="fcastrodelrio@econtainerscolombia.com">Ivan Castro del Rio</option>
+                                        <option value="pvalencia@econtainerscolombia.com" (ngModel)="pagina = 1">Paula Valencia</option>
+                                        <option value="fvargas@econtainerscolombia.com">Frank Vargas</option>
+                                        <option value="lmahecha@econtainerscolombia.com">Leonardo Mahecha</option>
+                                        <option value="avila@econtainerscolombia.com">Alejandra Vila</option>
+                                        <option value="cortega@econtainerscolombia.com">Carlos Ortega</option>
+                                        <option value="cfiallo@econtainerscolombia.com">Carolina Fiallo</option>
+                                        <option value="lvargas@econtainerscolombia.com">Luisa Vargas</option>
+                                        <option value="arodriguez@econtainerscolombia.com">Andrea Rodriguez</option>
+                                        <option value="kalfaro@econtainerscolombia.com">Kerly Alfaro</option>
+                                
+                                
+                                
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let lead of leads">
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.nombre | nombre }}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.modalidad}}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.segmento}}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.ciudad | ciudad}}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.comercial}}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.fecha}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row " *ngIf="!leads ">
+                        <div class="col-sm-12 ">
+                            <div class="alert alert-warning text-center ">
+                                <strong>Cargando</strong>
+                                <br>
+                                <i class="fa fa-sync fa-spin fa-2x "></i>
+                                <br>
+                                <span>Espere por favor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button (click)="cambiarDesde(-1) " class="btn btn-secondary " [disabled]="pagina <=1 ">
+                        Anteriores
+                    </button>
+                    <button (click)="cambiarDesde(1) " [disabled]="pagina>= ultimaPagina" class="btn btn-secondary"> Siguientes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
