@@ -137,10 +137,10 @@ export class ComercialComponent implements OnInit {
     if (segmento === "Oficinas") {
       img = "/assets/css/backend/images/users/user-4.jpg";
     }
-    if (segmento === "Proyectos Especiales o Arquitectonicos") {
+    if (segmento === "Productos Especiales") {
       img = "/assets/css/backend/images/users/user-3.jpg";
     }
-    if (segmento === "Bodegas") {
+    if (segmento === "Contenedores Maritimos") {
       img = "/assets/css/backend/images/users/user-2.jpg";
     }
     if (segmento === "Contenedores Refrigerados") {

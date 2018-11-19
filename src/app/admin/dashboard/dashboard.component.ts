@@ -150,6 +150,7 @@ export class DashboardComponent implements OnInit {
     if (fechas === null) {
       const f = new Fechas("2018-01-01", "2018-12-31");
       this._grafica.getGrafica(f).subscribe((resp: any) => {
+        console.log(resp);
         this.graficas = resp;
       });
     } else {

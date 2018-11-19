@@ -27,7 +27,7 @@ export class LeadComponent {
     if (modalidad === "Salas de Ventas") {
       ruta = "assets/imgs/contenedores/renault-0.jpg";
     }
-    if (modalidad === "Proyectos Especiales o Arquitectonicos") {
+    if (modalidad === "Productos Especiales") {
       ruta = "assets/imgs/contenedores/biblioteca-0.jpg";
     }
     if (modalidad === "Contenedores Refrigerados") {
@@ -36,7 +36,7 @@ export class LeadComponent {
     if (modalidad === "Oficinas") {
       ruta = "assets/css/backend/images/background/login-register.jpg";
     }
-    if (modalidad === "Bodegas") {
+    if (modalidad === "Contenedores Maritimos") {
       ruta = "assets/imgs/contenedores/dussan-0.jpg";
     }
 
@@ -50,10 +50,10 @@ export class LeadComponent {
     if (segmento === "Oficinas") {
       img = "/assets/css/backend/images/users/user-4.jpg";
     }
-    if (segmento === "Proyectos Especiales o Arquitectonicos") {
+    if (segmento === "Productos Especiales") {
       img = "/assets/css/backend/images/users/user-3.jpg";
     }
-    if (segmento === "Bodegas") {
+    if (segmento === "Contenedores Maritimos") {
       img = "/assets/css/backend/images/users/user-2.jpg";
     }
     if (segmento === "Contenedores Refrigerados") {

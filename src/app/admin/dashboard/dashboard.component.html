@@ -9,19 +9,19 @@
 
         <div class="card">
             <div class="card-body">
-                <form ngNativeValidate #myForm="ngForm" (ngSubmit)="getGrafica( myForm )" class="d-flex">
+                <form ngNativeValidate #myForm="ngForm" (ngSubmit)="getGrafica( myForm )" >
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <label>Fecha inicial</label>
                             <my-date-picker  ngModel on-click="toast()"  [placeholder]="placeholder" [locale]="locale" name="start" [options]="startDate" (dateChanged)="onStartDateChanged($event)"
                                 required></my-date-picker>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <label>Fecha final</label>
                             <my-date-picker ngModel name="end" [locale]="locale" [placeholder]="placeholder" [options]="endDate" (dateChanged)="onEndDateChanged($event)"
                                 required></my-date-picker>
                         </div>
-                        <div class="col-md-3 boton-consulta">
+                        <div class="col-md-2 boton-consulta">
                             <button type="submit" class="btn color-azul " (click)="toast2(false)" >Consultar</button>
                         </div>
                     </div>

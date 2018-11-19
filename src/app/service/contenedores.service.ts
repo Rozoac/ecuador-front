@@ -153,7 +153,9 @@ export class ContenedoresService {
 
 
 
-  constructor() { }
+  constructor() { 
+    console.log(this.contenedores);
+  }
 
   getContenedores(){
     return this.contenedores;

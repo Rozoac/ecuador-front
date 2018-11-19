@@ -1,5 +1,11 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
+
+@font-face {
+    font-family: 'calibri-bold';
+    src: url('assets/fonts/calibri/CALIBRIB.ttf');
+}
 
 @font-face {
     font-family: 'bebas-bold';
@@ -44,6 +50,10 @@ h4,
 h5,
 h6 {
     font-family: 'bebas-bold'!important;
+}
+
+.texto-principal{
+    text-align: center;
 }
 
 .font-bebas{

@@ -20,6 +20,9 @@ export interface IMessage {
   referido2?: number;
   cedula?: number;
   nit?: number;
+  halloween?: string;
+  tipo_estandar?: string;
+  tipo_casa?: string;
 }
 export interface IMessageR {
   name?: string;
@@ -60,6 +63,7 @@ export class CorreoService {
   constructor(private http: HttpClient) {}
   // CONTACTANOS
   sendEmail(message: IMessage): Observable<IMessage> | any {
+    console.log(message);
     return this.http.post(this.emailUrl, message).pipe(
       map(response => {
         console.log("Sending email was successfull", response);

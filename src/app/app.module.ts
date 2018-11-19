@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from "@angular/common";
 import localeEs from "@angular/common/locales/es";
+import { TypingAnimationDirective } from 'angular-typing-animation'
 registerLocaleData(localeEs);
 
 import {APP_ROUTING} from './app.routes';
@@ -55,6 +56,25 @@ import { ContadorService } from './service/contador.service';
 import { GraficaService } from './service/grafica.service';
 
 
+// Angular Material
+import {
+  MatAutocompleteModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatStepperModule,
+  MatCardModule,
+  MatButtonModule,
+  MatProgressSpinnerModule,
+  MatButtonToggleModule,
+  MatTableModule,
+  MatRadioModule
+} from "@angular/material";
+
+
+
+
 // guardias
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
@@ -76,6 +96,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+
 // pipes
 import { NombrePipe } from './pipes/nombre.pipe';
 import { CiudadPipe } from './pipes/ciudad.pipe';
@@ -85,6 +106,13 @@ import { GraciasComponent } from './info/gracias/gracias.component';
 import { AniversarioComponent } from './aniversario/aniversario.component';
 import { LandingComponent } from './landing/landing/landing.component';
 import { CotizacionComponent } from './landing/cotizacion.component';
+import { RmEtiquetasPipe } from './pipes/rm-etiquetas.pipe';
+import { PayuComponent } from './landing/payu.component';
+import { PayuResponseComponent } from './landing/payu-response.component';
+import { RefrigeradosComponent } from './landing/landing/refrigerados.component';
+import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arquitectonicos.component';
+import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
+import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -100,6 +128,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
+    // TypingAnimationDirective,
     HomepageComponent,
     FooterComponent,
     QuienesSomosComponent,
@@ -141,11 +170,30 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AniversarioComponent,
     LandingComponent,
     CotizacionComponent,
+    RmEtiquetasPipe,
+    PayuComponent,
+    PayuResponseComponent,
+    RefrigeradosComponent,
+    ArquitectonicosComponent,
+    ProductosArquitectonicosComponent,
+    PagosOnlineComponent,
   ],
   imports: [
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatCardModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
     BrowserModule,
     HttpClientModule,
+    MatAutocompleteModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     FormsModule,

@@ -1,0 +1,95 @@
+<header class="hero-image" parallax config="{axis: x, speed: -.2}">
+  <div class="container">
+    <div class="menu">
+      <figure>
+          <img src="assets/imgs/logo-nuevo.png" [routerLink]="['/home']" class="logo" alt="logo">    
+      </figure>
+      <div class="redes">
+          <a target="_blank" href="https://co.pinterest.com/econtainers0135/"><i class="fab fa-facebook-square"></i></a>
+          <a target="_blank" href="https://co.pinterest.com/econtainers0135/"><i class="fab fa-instagram"></i></a>
+          <a target="_blank" href="https://co.pinterest.com/econtainers0135/"><i class="fab fa-youtube"></i> </a>
+          <a target="_blank" href="https://co.pinterest.com/econtainers0135/"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </div>
+    <div class="col-md-6 texto-principal">
+      <h1 >Construimos Espacios Únicos en Diseño y Confort.</h1>
+      <!-- <h1 typingAnimation [typeSpeed]="50" [startDelay]="1000">Arquitectura modular que reduce el impacto ambiental.</h1> -->
+      <!-- <h1 typingAnimation [typeSpeed]="50" [startDelay]="1000">Arquitectura 100% Ecoamigable.</h1> -->
+      <!-- <h1 typingAnimation [typeSpeed]="50" [startDelay]="1000">Construimos sueños en realidades.</h1> -->
+      <div class="fondo-degrade">
+        <p class="subtitulo">Conectamos tus ideas con la realidad reduciendo su impacto ambiental.</p>
+      </div>
+    </div>
+  </div>
+  <div class="buscador">
+    <div class="container">
+          <form action="">
+              <div class="form-group">
+               <label for="segmento">Producto</label>
+                <select name="segmento" id="">
+                  <option value=""></option>
+                  <option value="">Casas en contenedores</option>
+                  <option value="">Unidades Comerciales</option>
+                </select>
+              </div>
+              <div class="form-group">
+               <label for="segmento">Ubicación</label>
+                <select name="segmento" id="">
+                  <option value=""></option>
+                  <option value="">Bogota</option>
+                  <option value="">Medellin</option>
+                </select>
+              </div>
+              <div class="form-group">
+               <label for="segmento">Presupuesto</label>
+                <select name="segmento" id="">
+                  <option value=""></option>
+                  <option value="">$1.200.000</option>
+                  <option value="">$1.500.000</option>
+                </select>
+              </div>
+              <div class="form-group">
+               
+                <button class="btn btn-success bg-beige">Buscar</button>
+              </div>
+ 
+          </form>
+        </div>
+      </div>
+</header>
+
+<div class="seccion-2">
+  <div class="container">
+    <div class="tarjetas row">
+      <h2  class="mb-3" style="font-size: 3rem;    padding-left: 13px;">Innovación Arquitectónica</h2>
+      <p style="padding-left: 0;     font-size: 1.2em; padding-left: 13px;" class="texto-1 col-md-12" >Elige el espacio de tus sueños y empieza a construirlo de inmediato.  </p>
+      <div class="tarjeta col-md-3 wow fadeIn" data-wow-duration="2s" *ngFor="let arquitectonico of arquitectonicos">
+          <div class="grid">
+          <figure class="effect-lily">
+              <img [src]="arquitectonico.imgs.img_1" alt="img12"/>
+              <figcaption>
+                <div>
+                  <h2>{{arquitectonico.nombre}}</h2>
+                  <p>{{arquitectonico.descripcion_corta}}</p>
+                </div>
+                <a (click)="verArquitectonico(arquitectonico.id)" >View more</a>
+              </figcaption>			
+            </figure>
+          </div>
+          <div class="datos">
+            <p class="precio">
+                <b>Desde {{arquitectonico.precio.desde}}</b>
+            </p>  
+              <span class="descripcion">
+                <p>{{(arquitectonico.caracteristicas == true) ? 'Cocina |' : '' }} 2 Cuartos | Baño | 2300 sqlt</p>
+            </span>  
+          </div>
+      </div>
+     
+      
+    
+    </div>
+    </div>
+</div>
+  
+

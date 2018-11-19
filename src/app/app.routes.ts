@@ -14,12 +14,17 @@ import { LoginGuardGuard } from './services/guards/login-guard.guard';
 import { LeadComponent } from './admin/lead/lead.component';
 import { ComercialComponent } from './admin/comercial/comercial.component';
 import { ListaComponent } from './admin/lista/lista.component';
-import { InfoComponent } from './info/info.component';
 import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
 import { GraciasComponent } from './info/gracias/gracias.component';
 import { AniversarioComponent } from './aniversario/aniversario.component';
 import { LandingComponent } from './landing/landing/landing.component';
 import { CotizacionComponent } from './landing/cotizacion.component';
+import { PayuComponent } from './landing/payu.component';
+import { PayuResponseComponent } from './landing/payu-response.component';
+import { RefrigeradosComponent } from './landing/landing/refrigerados.component';
+import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arquitectonicos.component';
+import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
+import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -37,6 +42,12 @@ const APP_ROUTES: Routes = [
 
           { path: 'aniversario', component: AniversarioComponent },
           { path: 'landing', component: LandingComponent },
+          { path: 'arquitectonicos', component: ArquitectonicosComponent },
+          { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
+          { path: 'refrigerados', component: RefrigeradosComponent },
+          { path: 'payu', component: PayuComponent },
+          { path: 'pagos-online', component: PagosOnlineComponent },
+          { path: 'payu-response', component: PayuResponseComponent },
           { path: 'cotizacion/:nombre', component: CotizacionComponent },
           { path: 'gracias', component: GraciasComponent },
 
@@ -53,7 +64,6 @@ const APP_ROUTES: Routes = [
             { path: 'comercial/:id/:inicio/:fin', component: ComercialComponent },
             { path: '', redirectTo: 'dashboard' , pathMatch: 'full' }
           ] },
-          
           { path: 'login', component: LoginComponent }
 
 ];

@@ -181,12 +181,21 @@ h3 {
 }
 
 .blog h3,
-.pqrs h3 {
+.pqrs h3
+{
     position: absolute;
     bottom: 25%;
     margin-left: -15px;
     margin-left: -15px;
     left: 50%;
+}
+
+.tickets h3{
+    position: absolute;
+    bottom: 25%;
+    margin-left: -15px;
+    margin-left: -15px;
+    left: 47%;
 }
 
 .trabaja h3 {
@@ -221,6 +230,11 @@ h3 {
 
 .pqrs {
     position: relative;
+}
+
+.tickets{
+    position: relative;
+
 }
 
 .menu-nosotros {
@@ -293,6 +307,20 @@ h3 {
     color: white;
 }
 
+
+.menu-tickets {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background-image: url('/assets/imgs/menu/tickets.jpg');
+    background-size: cover;
+}
+
+.menu-tickets:hover {
+    opacity: 1;
+    color: white;
+}
 .whatsapp {
     color: rgba(49, 194, 28, 1.000);
 }

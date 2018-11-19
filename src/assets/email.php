@@ -17,7 +17,7 @@ if(empty($errors))
 	$from_cliente = $request->cliente;
 	$from_tipo = $request->tipo;
 	$from_para = $request->para;
-	$from_message = $request->message;
+	
     $f_reg = date("Y-m-d");
     $h_reg = date("H:i");
 
@@ -29,11 +29,19 @@ if(empty($errors))
 	if($from_tipo == 'Contenedores Refrigerados'){
 	    if($from_cliente == 'Natural' || $from_cliente == 'Empresa' || $from_cliente == 'Contratación estatal'){
 
-    	$comercial = 'fvargas@econtainerscolombia.com';
-    	$nom_comercial = 'Frank Vargas';
-    	$foto_comercial = 'https://www.econtainerscolombia.com/info/jpg/comerciales-03.jpg';
-	    }
-        
+			$aleatorio = rand ( 1 , 2);
+
+		if($aleatorio==1){
+			$comercial = 'fvargas@econtainerscolombia.com';
+			$nom_comercial = 'Frank Vargas';
+			$foto_comercial = 'https://www.econtainerscolombia.com/info/jpg/comerciales-03.jpg';
+		}
+		if($aleatorio==2){
+			$comercial = 'ltorres@econtainers.co';
+			$nom_comercial = 'Laura Torres';
+			$foto_comercial = 'https://www.econtainerscolombia.com/info/jpg/comerciales-02.jpg';
+		}
+	 }  
     }
     
     if($from_cliente == 'Contratación estatal'){

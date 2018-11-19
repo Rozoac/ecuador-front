@@ -24,13 +24,13 @@ export class LeadService {
       .set("Content-Type", "application/x-www-form-urlencoded")
       .set("Segmento", segmento)
       .set("Comercial", comercial)
-      .set("Archivo", pdf)
-      .set("Fecha", JSON.stringify(fecha));
+      .set('Archivo', pdf)
+      .set('Fecha', JSON.stringify(fecha));
 
     const url = URL_SERVICIOS + `leads?page=${pagina}`;
     const urlPDF = URL_SERVICIOS + `leads`;
-    if (pdf === "true") {
-      return this.http.get(urlPDF, { responseType: "blob", headers });
+    if (pdf === 'true') {
+      return this.http.get(urlPDF, { responseType: 'blob', headers });
     } else {
       return this.http.get(url, { headers: headers });    }
 
@@ -40,36 +40,36 @@ export class LeadService {
   ) {
     const json = JSON.stringify(fecha);
     let headers = new HttpHeaders()
-      .set("Content-Type", "application/x-www-form-urlencoded");
-    const params = "json=" + json;
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+    const params = 'json=' + json;
 
     const url = URL_SERVICIOS + `pdf`;
     
-      return this.http.post(url,params ,{ responseType: "blob", headers });
+      return this.http.post(url,params ,{ responseType: 'blob', headers });
 
   }
 
   getReferidosPDF(){
     let headers = new HttpHeaders()
-      .set("Content-Type", "application/x-www-form-urlencoded");
+      .set('Content-Type', 'application/x-www-form-urlencoded');
 
     const url = URL_SERVICIOS + `pdfReferidos`;
 
-    return this.http.get(url, { responseType: "blob", headers });
+    return this.http.get(url, { responseType: 'blob', headers });
   }
 
   getComercial(fecha: any, pagina: any, pdf: string) {
     const json = JSON.stringify(fecha);
     console.log(json);
-    const params = "json=" + json;
+    const params = 'json=' + json;
     const headers = new HttpHeaders().set(
-      "Content-Type",
-      "application/x-www-form-urlencoded"
+      'Content-Type',
+      'application/x-www-form-urlencoded'
     );
     const url = URL_SERVICIOS + `leadFecha?page=${pagina}`;
 
-    if (pdf === "true") {
-      return this.http.post(url, params, { responseType: "blob", headers });
+    if (pdf === 'true') {
+      return this.http.post(url, params, { responseType: 'blob', headers });
     } else {
       return this.http.post(url, params, { headers });
     }
@@ -78,10 +78,10 @@ export class LeadService {
   buscarLeadFecha(termino: string, comercial: Comercial) {
     let json = JSON.stringify(comercial);
     console.log(json);
-    let params = "json=" + json;
+    let params = 'json=' + json;
     let headers = new HttpHeaders().set(
-      "Content-Type",
-      "application/x-www-form-urlencoded"
+      'Content-Type',
+      'application/x-www-form-urlencoded'
     );
 
     const url = URL_SERVICIOS + `busquedaFecha/${termino}`;
@@ -104,12 +104,12 @@ export class LeadService {
 
   getLeadsComercial(fecha: any) {
     let json = JSON.stringify(fecha);
-    let params = "json=" + json;
+    let params = 'json=' + json;
     let headers = new HttpHeaders().set(
-      "Content-Type",
-      "application/x-www-form-urlencoded"
+      'Content-Type',
+      'application/x-www-form-urlencoded'
     );
-    const url = URL_SERVICIOS + "leadFechaC";
+    const url = URL_SERVICIOS + 'leadFechaC';
 
     return this.http.post(url, params, { headers }).map(resp => {
       this.leads = resp;
@@ -118,23 +118,23 @@ export class LeadService {
   }
 
   getLeadsComercialActual() {
-    const url = URL_SERVICIOS + "leadFechaCA";
+    const url = URL_SERVICIOS + 'leadFechaCA';
     return this.http.get(url);
   }
   // ultimos 30 dias
   getLeadsComercialMes() {
-    const url = URL_SERVICIOS + "leadFechaCT";
+    const url = URL_SERVICIOS + 'leadFechaCT';
     return this.http.get(url);
   }
 
 
   getReferidos() {
-    const url = URL_SERVICIOS + "referidos";
+    const url = URL_SERVICIOS + 'referidos';
     return this.http.get(url);
   }
   
   ultimo(){
-    const url = URL_SERVICIOS + "ultimo";
+    const url = URL_SERVICIOS + 'ultimo';
     return this.http.get(url);
   }
 }

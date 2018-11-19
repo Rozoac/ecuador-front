@@ -1,4 +1,218 @@
+.principal {
+  background: url("assets/imgs/info/background.jpg");
+  background-size: cover;
+}
+
+.logo {
+  padding: 0px 0 0 5%;
+  display: inline-block;
+}
+
+.gracias {
+  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px;
+    background: rgba(8, 66, 129, 1);
+    color: white;
+    margin-top: 20px;
+}
+
+.img-logo {
+  width: 20%;
+}
+
+h2,
+h1 {
+  text-align: left;
+  font-family: "CenturyGothic" !important;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+.lista {
+  display: inline-block !important;
+}
+
+.nav {
+  display: block;
+}
+
+.imagen {
+  max-width: 200px;
+    max-height: 100px;
+    margin-right: 10px;
+}
+
 .comercial-img{
-    width: 400px;
+      border-radius: 50%;
+    border: 3px solid #084281;
+}
+
+.blog-section {
+  display: flex;
+  background: #ffffff4a;
+  align-items: center;
+  justify-content: left;
+}
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo {
+  font-family: "CenturyGothic-bold" !important;
+  font-size: 0.8em;
+}
+
+.subtitulo {
+  font-family: "CenturyGothic" !important;
+  font-size: 12px;
+}
+
+.alert-primary {
+  color: white;
+  background-color: #1e92df;
+  border-color: #1e92df;
+}
+
+.list-group {
+  margin-top: 40px;
+}
+
+.list-group-item {
+  background-color: #ffffff4a;
+}
+.redes li a {
+    color: white;
+}
+
+.datos{
 
 }
+
+.datos-comerciales{
+  display: inline-block;
+  font-size: 1.3em;
+}
+
+
+@media screen and (max-width: 375px) {
+
+.gracias-1{
+  font-size: .6em;
+}
+.proyectos-seccion{
+  height: 220px;
+}
+
+iframe{
+      width: 100%!important;
+    position: relative;
+    bottom: 80px;
+}
+
+.vimeo{
+      width: 100%;
+    position: relative;
+    margin-top: 0px;
+}
+
+}
+
+	@media screen and (max-width: 380px){
+      .principal{
+      height: 100%;
+    }
+.gracias-1{
+  font-size: .6em;
+}
+.proyectos-seccion{
+  height: 220px;
+}
+
+iframe{
+      width: 100%!important;
+    position: relative;
+    bottom: 80px;
+}
+
+.vimeo{
+      width: 100%;
+    position: relative;
+    margin-top: 0px;
+}
+	}
+
+
+	@media screen and (max-width: 480px){
+      .principal{
+      height: 100%;
+    }
+    .gracias-1{
+  font-size: .6em;
+}
+.proyectos-seccion{
+  height: 220px;
+}
+
+iframe{
+      width: 100%!important;
+    position: relative;
+    bottom: 80px;
+}
+
+.vimeo{
+      width: 100%;
+    position: relative;
+    margin-top: 0px;
+}
+	}
+
+
+	@media screen and (max-width: 768px){
+
+    .principal{
+      height: 100%;
+    }
+
+    iframe{
+      width: 100%!important;
+    position: relative;
+    bottom: 80px;
+}
+
+.vimeo{
+      width: 100%;
+    position: relative;
+    margin-top: 0px;
+}
+	}
+
+
+	@media screen and (max-width: 1024px){
+	}
+
+
+	@media screen and (min-width: 1900px) and (max-width: 4000px){
+.principal{
+  height: 100vh;
+}
+
+    iframe{
+      width: 100%!important;
+    bottom: 80px;
+}
+
+.vimeo p {
+      text-align: center;
+    margin-left: -280px;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 0;
+}
+	}

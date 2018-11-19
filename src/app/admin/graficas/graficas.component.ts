@@ -83,6 +83,7 @@ export class GraficasComponent implements OnInit {
   getLeadsHoy() {
     this._leadService.getLeadsComercialActual()
                      .subscribe( (resp: any) => {
+                       console.log(resp);
                         this.comerciales = resp;
                   });
   }

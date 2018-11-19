@@ -1,3 +1,467 @@
-<p>
-  cotizacion works!
-</p>
+<div class="main animated fadeIn">
+  <div class="row principal">
+
+    <!-- <div class="popup" [ngClass]="{active: active == true}">
+      <img src="assets/imgs/popup-2.jpg" alt="" class="animated zoomInLeft">
+      <div class="botonera">
+        <button class="btn mr-4" (click)="botonHallowen('truco')">Truco</button>
+        <button class="btn" (click)="botonHallowen('trato')">Trato</button>
+      </div>
+    </div> -->
+
+    <section class="container-fluid hero">
+      <div class="logo">
+        <img src="assets/imgs/logo-nuevo.png" [routerLink]="['/home']" class="img-logo" alt="logo">
+
+      </div>
+
+      <div class="row" *ngIf="!maritimo && !estandar && !casa && !tailor">
+        <div class="col-md-6">
+          <div class="left">
+            <span class="titulo animated fadeIn">{{(contenedor?.tipo == "Contenedores Maritimos") ? contenedor_maritimo : contenedor?.tipo | uppercase}}</span>
+            <span class="texto-1 animated fadeIn">{{contenedor?.subtitulo | uppercase}}</span>
+            <span class="texto-2 animated fadeIn">
+              {{contenedor?.descripcion}}
+            </span>
+            <div class="mt-4" *ngIf="contenedor.tipo == 'Contenedores Maritimos'">
+              <button (click)="pagosOnline()" class="btn">Pagar con <img src="assets/imgs/images/payu.png" class="imagen-s" alt="" ></button>
+              <span style="display: block; font-family: 'CenturyGothic' !important; color: white; ">Obten tu contenedor a tan solo un click</span>
+             
+            </div>
+          </div>
+         
+        </div>
+        <div class="col-md-6">
+          <img [src]="imagenContenedor(contenedor.tipo)" class="contenedor animated fadeIn" *ngIf="!carga" alt="contenedor">
+          <mat-spinner *ngIf="carga"></mat-spinner>
+         
+        </div>
+       
+       
+      </div>
+
+
+
+
+      <!-- ---------------------- -->
+      <!-- TAYLOR MADE            -->
+      <!-- ---------------------- -->
+
+      <div class="row" *ngIf="tailor">
+        <div class="col-md-7 m-t-30">
+
+          <div class="card w-100">
+            <div class="card-body">
+              <h3 class="card-title">DETALLES DE FACTURACIÓN</h3>
+              <hr>
+              <span>Cantidad de contenedores de interes:</span>
+              <form [formGroup]="payuFormGroup">
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- ============================================================== -->
+                    <!-- SELECCION
+                    <!-- ============================================================== -->
+                    <mat-radio-group [(ngModel)]="payuMessage.amount" formControlName="seleccion_payu">
+                      <mat-radio-button (click)="signature(season)" class="example-radio-button mt-4 mr-4 mb-4" *ngFor="let season of seasons"
+                        [value]="season.valor">
+                        {{season.nombre}}
+                      </mat-radio-button>
+                    </mat-radio-group>
+                    <!-- ============================================================== -->
+                    <!-- NOMBRE
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Nombre y Apellido</mat-label>
+                      <input matInput placeholder="" required formControlName="nombre_payu" [(ngModel)]="payuMessage.buyerFullName">
+                      <mat-error *ngIf="payuFormGroup.get('nombre_payu').invalid">{{getErrorMessage("nombre")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CELULAR
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Celular</mat-label>
+                      <input matInput placeholder="" type="number" #input required maxlength="10" [(ngModel)]="payuMessage.telephone"
+                        formControlName="celular_payu">
+                      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                      <mat-error *ngIf="firstFormGroup.get('celular').invalid">{{getErrorMessage("celular")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CORREO
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Correo Electronico</mat-label>
+                      <input matInput placeholder="" required formControlName="email_payu" [(ngModel)]="payuMessage.buyerEmail">
+                      <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CIUDAD
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Ciudad</mat-label>
+                      <mat-select placeholder="Select" formControlName="ciudad_payu" [(ngModel)]="payuMessage.shippingCity">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- DIRECCIÓN
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Direccion</mat-label>
+                      <input matInput placeholder="" required formControlName="direccion_payu" [(ngModel)]="payuMessage.shippingAddress">
+
+                      <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 m-t-30">
+          <div class="card w-100">
+            <div class="card-body">
+              <h3 class="card-title">TU PEDIDO</h3>
+              <div style="display: flex; justify-content: space-between">
+                <span>Producto</span>
+                <span>Total</span>
+              </div>
+              <hr>
+              <div style="display: flex; justify-content: space-between">
+                  <p *ngIf="payuMessage.amount">{{nombre_producto}} Contenedores</p>
+                <span *ngIf="!payuMessage.amount">$ 0</span>
+                <span *ngIf="payuMessage.amount"><b>$ {{payuMessage.amount | currency:'COP'}}</b></span>
+              </div>
+              <p class="card-text"></p>
+              <form #form method="post" [action]="prueba">
+                <input name="merchantId" type="hidden" [(ngModel)]="payuMessage.merchantId">
+                <input name="referenceCode" type="hidden" [(ngModel)]="payuMessage.referenceCode">
+                <input name="description" type="hidden" [(ngModel)]="payuMessage.description">
+                <input name="amount" type="hidden" [(ngModel)]="payuMessage.amount">
+                <input name="tax" type="hidden" [(ngModel)]="payuMessage.tax">
+                <input name="taxReturnBase" type="hidden" [(ngModel)]="payuMessage.taxReturnBase">
+                <input name="signature" type="hidden" [(ngModel)]="payuMessage.signature">
+                <input name="accountId" type="hidden" [(ngModel)]="payuMessage.accountId">
+                <input name="currency" type="hidden" [(ngModel)]="payuMessage.currency">
+                <input name="buyerFullName" type="hidden" [(ngModel)]="payuMessage.buyerFullName">
+                <input name="buyerEmail" type="hidden" [(ngModel)]="payuMessage.buyerEmail">
+                <input name="shippingAddress" type="hidden" [(ngModel)]="payuMessage.shippingAddress">
+                <input name="shippingCity" type="hidden" [(ngModel)]="payuMessage.shippingCity">
+                <input name="shippingCountry" type="hidden" [(ngModel)]="payuMessage.shippingCountry">
+                <input name="telephone" type="hidden" [(ngModel)]="payuMessage.telephone">
+                <input name="test" type="hidden" [(ngModel)]="payuMessage.test">
+                <input name="responseUrl" type="hidden" value="http://localhost:4200/payu-response">
+                <input name="confirmationUrl" type="hidden" value="http://localhost:4200/payu-response">
+                <input [disabled]="!payuFormGroup.valid" class="btn btn-primary" (click)="enviarPago(form)" name="Submit"
+                  type="submit" value="Pagar con Payu">
+              </form>
+              <!-- {{payuMessage | json}} -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ---------------------- -->
+      <!-- TALOR MADE FIN         -->
+      <!-- ---------------------- -->
+
+
+
+      <!-- ---------------------- -->
+      <!-- CONTENEDORES MARITIMOS -->
+      <!-- ---------------------- -->
+      <!-- <div class="row" *ngIf="maritimo">
+        <div class="col-md-12" style="display: flex; align-items: center;flex-direction: column">
+          <span class="titulo">{{contenedor?.tipo | uppercase}}</span>
+          <span class="texto-1">¿En que estas interesado?</span>
+
+          <div class="grid">
+            <figure class="effect-apollo">
+              <img src="assets/imgs/contenedores/oficina.png" alt="img22" />
+              <figcaption>
+                <h2>OFICINAS</h2>
+                <p style="margin-right: 12px;
+    margin-bottom: 12px;">Soluciónes modulares para todo tipo de industria</p>
+                <a (click)="tipoContenedor('Oficinas')"></a>
+              </figcaption>
+            </figure>
+            <figure class="effect-apollo">
+              <img src="assets/imgs/contenedores/bodega.png" alt="img18" />
+              <figcaption>
+                <h2>BODEGAS</h2>
+                <p style=" margin-right: 12px;
+                margin-bottom: 12px;">ALMACENAMIENTO DE CARGA,
+                  MERCANCÍAS, HERRAMIENTAS.</p>
+                <a (click)="tipoContenedor('Bodegas')"></a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div> -->
+      <!-- ---------------------- -->
+      <!-- FIN CONTENEDORES MARITIMOS -->
+      <!-- ---------------------- -->
+
+      <!-- ---------------------- -->
+      <!-- PROYECTOS ESPECIALES     -->
+      <!-- ---------------------- -->
+      <div class="row" *ngIf="estandar">
+        <div class="col-md-12">
+          <p class="titulo" style="text-align: center;">{{contenedor?.tipo | uppercase}}</p>
+          <div style="text-align: center;">
+            <div style="display: inline;cursor: pointer" [routerLink]="['/landing']">
+              <i class="fas fa-arrow-circle-left" style="color: white;
+                                                          text-align: left!important;
+                                                          position: relative;
+                                                          right: 5%;
+                                                          font-size: 28px;">
+              </i>
+            </div>
+            <p class="texto-1 animated fadeIn" style="display: inline-block">¿En que estas interesado? </p>
+          </div>
+        </div>
+        <div class="grid" style="margin: 0 20px;">
+          <div class="row">
+            <div class="col-md-4">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;">
+                <img src="assets/imgs/contenedores/casa-1.jpg" alt="img22" />
+                <figcaption>
+                  <h2>VIVIENDA CONTAINER</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="tipoContenedorVivienda()"></a>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-md-4">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;">
+                <img src="assets/imgs/contenedores/piscina.jpg" alt="img22" />
+                <figcaption>
+                  <h2>PISCINA CONTAINER</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="seleccionEstandar('Piscina container')"></a>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-md-4">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;">
+                <img src="assets/imgs/contenedores/render.jpg" alt="img22" />
+                <figcaption>
+                  <h2>UNIDADES COMERCIALES</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="seleccionEstandar('Unidades comerciales')"></a>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <!-- ---------------------- -->
+      <!-- FIN PROYECTOS ESTANDAR -->
+      <!-- ---------------------- -->
+      <!-- ---------------------- -->
+      <!--         CASA           -->
+      <!-- ---------------------- -->
+      <div class="row" *ngIf="casa">
+        <div class="col-md-12">
+          <p class="titulo" style="text-align: center;">{{contenedor?.tipo | uppercase}}</p>
+          <div style="text-align: center;">
+            <div style="display: inline;cursor: pointer" (click)="volver('estandar')">
+              <i class="fas fa-arrow-circle-left" style="color: white;
+                                                          text-align: left!important;
+                                                          position: relative;
+                                                          right: 5%;
+                                                          font-size: 28px;">
+              </i>
+            </div>
+            <p class="texto-1 animated fadeIn" style="display: inline-block">Elige el tipo de casa </p>
+          </div>
+        </div>
+        <div class="grid" style="margin: 0 20px;">
+          <div class="row">
+            <div class="col-md-6">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;    min-width: 285px;">
+                <img src="assets/imgs/contenedores/casa-1.jpg" alt="img22" />
+                <figcaption>
+                  <h2>CASA 1</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="seleccionVivienda(1)"></a>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-md-6">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;    min-width: 285px;">
+                <img src="assets/imgs/contenedores/casa-2.jpg" alt="img22" />
+                <figcaption>
+                  <h2>CASA 2</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="seleccionVivienda(2)"></a>
+                </figcaption>
+              </figure>
+            </div> 
+            <!-- <div class="col-md-3">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;    min-width: 285px;">
+                <img src="assets/imgs/contenedores/oficina.png" alt="img22" />
+                <figcaption>
+                  <h2>CASA 3</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="seleccionVivienda(3)"></a>
+                </figcaption>
+              </figure>
+            </div> -->
+            <!-- <div class="col-md-3">
+              <figure class="effect-apollo" style="margin: 0!important;width: 100%!important;    min-width: 285px;">
+                <img src="assets/imgs/contenedores/oficina.png" alt="img22" />
+                <figcaption>
+                  <h2>CASA 4</h2>
+                  <p style="margin-right: 12px;
+      margin-bottom: 12px;">Solución a la medida, Diseño e innovación</p>
+                  <a (click)="seleccionVivienda(4)"></a>
+                </figcaption>
+              </figure>
+            </div>  -->
+          </div>
+        </div>
+      </div>
+      <!-- ---------------------- -->
+      <!--       FIN CASA -->
+      <!-- ---------------------- -->
+
+
+
+    </section>
+    <!-- ---------------------- -->
+    <!--       FORMULARIO -->
+    <!-- ---------------------- -->
+    <section class="col-md-12 seccion-1" *ngIf="!maritimo && !estandar && !casa && !tailor" id="formulario">
+      <div class="container animated fadeInUp">
+        <mat-card>
+          <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Datos Personales</ng-template>
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- ============================================================== -->
+                    <!-- NOMBRE
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Nombre y Apellido</mat-label>
+                      <input matInput placeholder="" required formControlName="nombre" [(ngModel)]="message.name">
+                      <mat-error *ngIf="firstFormGroup.get('nombre').invalid">{{getErrorMessage("nombre")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CELULAR
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Celular</mat-label>
+                      <input matInput placeholder="" type="number" #input required maxlength="10" [(ngModel)]="message.celular"
+                        formControlName="celular">
+                      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                      <mat-error *ngIf="firstFormGroup.get('celular').invalid">{{getErrorMessage("celular")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CORREO
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Correo Electronico</mat-label>
+                      <input matInput placeholder="" required formControlName="email" [(ngModel)]="message.email">
+                      <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CIUDAD
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Ciudad</mat-label>
+                      <mat-select placeholder="Select" formControlName="ciudad" [(ngModel)]="message.ciudad">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div>
+                  <button (click)="activarModal()" mat-raised-button color="primary" matStepperNext>Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
+
+
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>¿Que estas buscando?</ng-template>
+                <!-- ============================================================== -->
+                <!-- TIPO DE CLIENTE
+                <!-- ============================================================== -->
+                <mat-form-field class="mr-5" appearance="outline" >
+                  <mat-label>Tipo de cliente</mat-label>
+                  <mat-select placeholder="Tipo de cliente" formControlName="cliente" [(ngModel)]="message.cliente">
+                    <mat-option *ngFor="let tipo_cliente of interes" [value]="tipo_cliente" >
+                      {{tipo_cliente}}
+                    </mat-option>
+                  </mat-select>
+                 
+                  <mat-error *ngIf="secondFormGroup.get('cliente').invalid">{{getErrorMessage2("cliente")}}</mat-error>
+                </mat-form-field>
+
+                
+
+                <mat-form-field *ngIf="message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'" class="mr-4"
+                  appearance="outline">
+                  <mat-label>Nit</mat-label>
+
+                  <input matInput placeholder="" type="number" required formControlName="nit" [(ngModel)]="message.nit">
+                  <mat-error *ngIf="secondFormGroup.get('nit').invalid">{{getErrorMessage2("nit")}}</mat-error>
+
+                </mat-form-field>
+                <mat-form-field *ngIf="message.cliente == 'Natural'" class="mr-4" appearance="outline">
+                  <mat-label>Cedula</mat-label>
+
+                  <input matInput placeholder="" type="number" required formControlName="cedula" [(ngModel)]="message.cedula">
+                  <mat-error *ngIf="secondFormGroup.get('cedula').invalid">{{getErrorMessage2("cedula")}}</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class="mr-5" appearance="outline">
+                  <mat-label>¿Lo quieres para?</mat-label>
+
+                  <mat-select placeholder="¿Lo quieres para?" formControlName="interes" [(ngModel)]="message.para">
+                    <mat-option value="Compra" *ngIf="message.cliente == 'Natural' || message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'">Compra</mat-option>
+                    <mat-option value="Alquiler" *ngIf="message.cliente != 'Tipo de cliente' && message.cliente != 'Natural'">Alquiler</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="secondFormGroup.get('interes').invalid">{{getErrorMessage2("interes")}}</mat-error>
+                </mat-form-field>
+
+
+
+                <div>
+                  <button mat-raised-button color="warn" class="mr-3" matStepperPrevious>Atras</button>
+                  <button [disabled]="!secondFormGroup.valid" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
+                </div>
+              </form>
+            </mat-step>
+
+
+          </mat-horizontal-stepper>
+        </mat-card>
+      </div>
+    </section>
+  </div>
+  <!-- ---------------------- -->
+  <!--       FIN   FORMULARIO -->
+  <!-- ---------------------- -->
+
+
+</div>
