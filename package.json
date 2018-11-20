@@ -53,6 +53,7 @@
     "mydatepicker": "^2.6.3",
     "ng2-charts": "^1.6.0",
     "ng2-parallaxscroll": "^1.1.2",
+    "ngx-image-zoom": "^0.3.3",
     "ngx-page-scroll": "5.0.0",
     "ngx-parallax": "^4.0.0",
     "ngx-perfect-scrollbar": "^6.2.0",

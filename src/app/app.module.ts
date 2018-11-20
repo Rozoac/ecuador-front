@@ -54,6 +54,7 @@ import { UsuarioService } from './service/usuario/usuario.service';
 import { LeadService } from './service/lead/lead.service';
 import { ContadorService } from './service/contador.service';
 import { GraficaService } from './service/grafica.service';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 
 // Angular Material
@@ -191,6 +192,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatFormFieldModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    NgxImageZoomModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     MatAutocompleteModule,
