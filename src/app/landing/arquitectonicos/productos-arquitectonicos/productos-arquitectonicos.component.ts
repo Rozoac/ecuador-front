@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArquitectonicosService } from '../../../service/arquitectonicos.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-productos-arquitectonicos',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosArquitectonicosComponent implements OnInit {
 
-  constructor() { }
+  public contenedor;
+
+  constructor(public _arquitectonicosService: ArquitectonicosService, public router: ActivatedRoute) { }
 
   ngOnInit() {
+    this.router.params.subscribe(params =>{
+      this.contenedor = this._arquitectonicosService.getArquitectonico(params['id']);
+      console.log(this.contenedor);
+   })
+
   }
 
 }

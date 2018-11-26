@@ -114,6 +114,7 @@ import { RefrigeradosComponent } from './landing/landing/refrigerados.component'
 import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arquitectonicos.component';
 import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
 import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
+import { NotFoundComponent } from './pages/shared/not-found/not-found.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -178,6 +179,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ArquitectonicosComponent,
     ProductosArquitectonicosComponent,
     PagosOnlineComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserAnimationsModule,

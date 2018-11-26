@@ -1,3 +1,24 @@
-<p>
-  productos-arquitectonicos works!
-</p>
+<div class="principal wow fadeIn">
+  
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-md-5 iz p-5">
+        <h2>{{contenedor.nombre}}</h2>
+    <p>{{contenedor.descripcion_corta}}</p>
+      </div>
+      <div class="col-md-7 de" [style.background-image]="'url(' + contenedor.imgs.img_2 + ')'">
+        <!-- <img [src]="contenedor.imgs.img_2" alt=""> -->
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+      </div>
+      <div class="col-md-6">
+
+      </div>
+    </div>
+  </div>
+</div>

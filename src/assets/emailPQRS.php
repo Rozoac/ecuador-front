@@ -22,7 +22,7 @@ $errors = '';
 
 
     $email_from = "pqrs@econtainerscolombia.com";
-		$email_to = "pqrs@econtainerscolombia.com,". "adelgado@econtainerscolombia.com";
+		$email_to = "jrozo@econtainers.co,". "adelgado@econtainers.co";
 		$email_subject = "Nuevo mensaje PQRS (Página Web) ";
 
 

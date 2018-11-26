@@ -328,9 +328,15 @@ export class CotizacionComponent implements OnInit {
   }
 
   seleccionVivienda(tipo) {
-    this.contenedor.tipo = tipo;
-    this.tipo_vivienda = tipo;
-    this.casa = false;
+    if(tipo === 1 ){
+      this.contenedor.tipo = 'Casa 1';
+      this.tipo_vivienda = tipo;
+      this.casa = false;
+    }else {
+      this.contenedor.tipo = 'Casa 2';
+      this.tipo_vivienda = tipo;
+      this.casa = false;
+    }
   }
   seleccionEstandar(tipo) {
     this.contenedor.tipo = tipo;

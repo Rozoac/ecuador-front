@@ -25,6 +25,7 @@ import { RefrigeradosComponent } from './landing/landing/refrigerados.component'
 import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arquitectonicos.component';
 import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
 import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
+import { NotFoundComponent } from './pages/shared/not-found/not-found.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -33,23 +34,27 @@ const APP_ROUTES: Routes = [
           children: [
             { path: 'home', component: HomepageComponent },
             { path: 'quienes-somos', component: QuienesSomosComponent },
+            { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
             { path: 'compromiso-empresarial', component: CompromisoEmpresarialPComponent },
             { path: 'trabaja', component: TrabajaConNosotrosComponent },
             { path: 'pqrs', component: PqrsComponent },
             { path: 'contenedor/:id', component: ContenedorComponent },
-            { path: '', redirectTo: 'home' , pathMatch: 'full' }
+            { path: 'arquitectonicos', component: ArquitectonicosComponent },
+            { path: '', redirectTo: 'home' , pathMatch: 'full' },
+            // { path: '**',  component: NotFoundComponent }
           ] },
 
           { path: 'aniversario', component: AniversarioComponent },
-          { path: 'landing', component: LandingComponent },
-          { path: 'arquitectonicos', component: ArquitectonicosComponent },
-          { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
+          { path: 'landing', component: LandingComponent },   
           { path: 'refrigerados', component: RefrigeradosComponent },
           { path: 'payu', component: PayuComponent },
           { path: 'pagos-online', component: PagosOnlineComponent },
           { path: 'payu-response', component: PayuResponseComponent },
           { path: 'cotizacion/:nombre', component: CotizacionComponent },
           { path: 'gracias', component: GraciasComponent },
+          { path: 'login', component: LoginComponent },
+          // { path: '**',  component: NotFoundComponent },
+          
 
   {
           path: 'admin',
@@ -62,10 +67,10 @@ const APP_ROUTES: Routes = [
             { path: 'lista', component: ListaComponent },
             { path: 'lead/:id', component: LeadComponent },
             { path: 'comercial/:id/:inicio/:fin', component: ComercialComponent },
-            { path: '', redirectTo: 'dashboard' , pathMatch: 'full' }
-          ] },
-          { path: 'login', component: LoginComponent }
-
+            { path: '', redirectTo: 'dashboard' , pathMatch: 'full' },
+            // { path: '**',  component: NotFoundComponent },
+          ] }
+          
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

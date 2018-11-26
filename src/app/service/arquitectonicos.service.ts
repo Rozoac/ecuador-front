@@ -10,7 +10,6 @@ export class ArquitectonicosService {
   public arquitectonicos:any =
   [
     {
-      id: 1,
       nombre: "Casa tipo 1",
       descripcion_corta: "Innovación y confort. Adquiere un espacio adaptado a tus necesidades, elaborado mediante un sistema constructivo modular y transportable. ",
       precio: {
@@ -25,13 +24,12 @@ export class ArquitectonicosService {
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-1.jpg',
-        img_2: 'asd',
+        img_2: 'assets/imgs/arquitectonicos/casa2-1.jpg',
         img_3: 'asd'
       },
       estado: true
     },
     {
-      id: 2,
       nombre: "Casa tipo 2",
       descripcion_corta: "Comodidad, estética, movilidad. Obtén una vivienda versátil e innovadora acondicionada con insumos móviles y de alta calidad. ",
       precio: {
@@ -52,7 +50,6 @@ export class ArquitectonicosService {
       estado: true
     },
     {
-      id: 3,
       nombre: "Unidades Comerciales",
       descripcion_corta: "Aumenta el flujo de clientes y optimiza tus ventas con un diseño atractivo, versátil e innovador.",
       precio: {
@@ -67,14 +64,14 @@ export class ArquitectonicosService {
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-3.jpg',
-        img_2: 'asd',
+        img_2: 'assets/imgs/arquitectonicos/comercial2-1.jpg',
         img_3: 'asd'
       },
       estado: true
     },
+
     {
-      id: 4,
-      nombre: "Piscina",
+      nombre: "Piscina Container",
       descripcion_corta: "Innovación y confort. Adquiere un espacio adaptado a tus necesidades, elaborado mediante un sistema constructivo modular y transportable. ",
       precio: {
         desde: '5.000.000' ,
@@ -88,7 +85,7 @@ export class ArquitectonicosService {
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-4.jpg',
-        img_2: 'asd',
+        img_2: 'assets/imgs/arquitectonicos/4-principal.jpg',
         img_3: 'asd'
       },
       estado: true
@@ -98,6 +95,9 @@ export class ArquitectonicosService {
   constructor() {}
 
 
+  getArquitectonico(idx: string) {
+    return this.arquitectonicos[idx];
+  }
 
   cargarArquitectonicos(){
     return this.arquitectonicos;

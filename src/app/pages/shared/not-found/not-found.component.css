@@ -1,0 +1,22 @@
+h4, .h4 {
+    font-size: 5.5rem;
+}
+
+.principal{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 414px)   {
+        .principal img{
+            width: 100%;
+    }
+
+    h4 {
+        font-size: 4rem;
+    }
+
+}
