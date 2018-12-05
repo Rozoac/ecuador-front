@@ -2,23 +2,141 @@
   
   <div class="container-fluid ">
     <div class="row">
-      <div class="col-md-5 iz p-5">
-        <h2>{{contenedor.nombre}}</h2>
-    <p>{{contenedor.descripcion_corta}}</p>
+      <div class="col-md-4 iz">
+        <div class="iz-section p-5">
+          <h2>{{contenedor.nombre}}</h2>
+          <p>{{contenedor.descripcion_corta}}</p>
+          <p><b>{{contenedor.contenedores}}</b></p>
+          <hr>
+          <div class="icons">
+            <ul>
+              <li *ngIf="contenedor.caracteristicas[0].a.cocina">
+                <img  src="assets/imgs/arquitectonicos/cocina-icon.png" alt=""><h4>{{contenedor.caracteristicas[0].a.cocina}}</h4>
+              </li>
+              <li *ngIf="contenedor.caracteristicas[0].a.banio">
+                <img  src="assets/imgs/arquitectonicos/toilet.png" alt=""> <h4>{{contenedor.caracteristicas[0].a.banio}}</h4>
+              </li>
+              <li *ngIf="contenedor.caracteristicas[0].a.medida">
+                <img   src="assets/imgs/arquitectonicos/regla-icon.png" alt=""> <h4>{{contenedor.caracteristicas[0].a.medida}} <sup>2</sup>.</h4>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="col-md-7 de" [style.background-image]="'url(' + contenedor.imgs.img_2 + ')'">
-        <!-- <img [src]="contenedor.imgs.img_2" alt=""> -->
+      <div class="col-md-8 de" [style.background-image]="'url(' + contenedor.imgs.img_2 + ')'">
       </div>
-    </div>
-  </div>
-  <div class="container">
+    </div> 
+  <div class="">
     <div class="row">
-      <div class="col-md-6">
-        
+    
+      <div class="col-md-12 mt-5">
+       <div class="formulario">
+         <h4 class="text-center">Obten tu cotización</h4>
+             <!-- ---------------------- -->
+    <!--       FORMULARIO -->
+    <!-- ---------------------- -->
+    <section class="col-md-12 seccion-1"  id="formulario">
+        <div class=" animated fadeInUp">
+          <mat-card>
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+              <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup">
+                  <ng-template matStepLabel>Datos Personales</ng-template>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!-- ============================================================== -->
+                      <!-- NOMBRE
+                      <!-- ============================================================== -->
+                      <mat-form-field class="mr-4" appearance="outline">
+                        <mat-label>Nombre y Apellido</mat-label>
+                        <input matInput placeholder="" required formControlName="nombre" [(ngModel)]="message.name">
+                        <mat-error *ngIf="firstFormGroup.get('nombre').invalid">{{getErrorMessage("nombre")}}</mat-error>
+                      </mat-form-field>
+                      <!-- ============================================================== -->
+                      <!-- CELULAR
+                      <!-- ============================================================== -->
+                      <mat-form-field class="mr-4" appearance="outline">
+                        <mat-label>Celular</mat-label>
+                        <input matInput placeholder="" type="number" #input required maxlength="10" [(ngModel)]="message.celular"
+                          formControlName="celular">
+                        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                        <mat-error *ngIf="firstFormGroup.get('celular').invalid">{{getErrorMessage("celular")}}</mat-error>
+                      </mat-form-field>
+                      <!-- ============================================================== -->
+                      <!-- CORREO
+                      <!-- ============================================================== -->
+                      <mat-form-field class="mr-4" appearance="outline">
+                        <mat-label>Correo Electronico</mat-label>
+                        <input matInput placeholder="" required formControlName="email" [(ngModel)]="message.email">
+                        <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+                      </mat-form-field>
+                      <!-- ============================================================== -->
+                      <!-- CIUDAD
+                      <!-- ============================================================== -->
+                      <mat-form-field class="mr-4" appearance="outline">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-select placeholder="Select" formControlName="ciudad" [(ngModel)]="message.ciudad">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
+                      </mat-form-field>
+                       <!-- ============================================================== -->
+                      <!-- TIPO DE CLIENTE
+                      <!-- ============================================================== -->
+                      <mat-form-field class="mr-5" appearance="outline" >
+                          <mat-label>Tipo de cliente</mat-label>
+                          <mat-select placeholder="Tipo de cliente" formControlName="cliente" [(ngModel)]="message.cliente">
+                            <mat-option *ngFor="let tipo_cliente of interes" [value]="tipo_cliente" >
+                              {{tipo_cliente}}
+                            </mat-option>
+                          </mat-select>
+                         
+                          <mat-error *ngIf="firstFormGroup.get('cliente').invalid">{{getErrorMessage("cliente")}}</mat-error>
+                     </mat-form-field>
+                     <mat-form-field *ngIf="message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'" class="mr-4"
+                     appearance="outline">
+                     <mat-label>Nit</mat-label>
+   
+                     <input matInput placeholder="" type="number" required formControlName="nit" [(ngModel)]="message.nit">
+                     <mat-error *ngIf="firstFormGroup.get('nit').invalid">{{getErrorMessage("nit")}}</mat-error>
+   
+                   </mat-form-field>
+                   <mat-form-field *ngIf="message.cliente == 'Natural'" class="mr-4" appearance="outline">
+                     <mat-label>Cedula</mat-label>
+   
+                     <input matInput placeholder="" type="number" required formControlName="cedula" [(ngModel)]="message.cedula">
+                     <mat-error *ngIf="firstFormGroup.get('cedula').invalid">{{getErrorMessage("cedula")}}</mat-error>
+   
+                   </mat-form-field>
+ 
+                    </div>
+                  </div>
+                  <div>
+                      <button [disabled]="!firstFormGroup.valid" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
+                  </div>
+                </form>
+              </mat-step>
+  
+  
+    
+                   
+          
+  
+  
+            </mat-horizontal-stepper>
+          </mat-card>
+        </div>
+      </section>
+    </div>
+    <!-- ---------------------- -->
+    <!--       FIN   FORMULARIO -->
+    <!-- ---------------------- -->
+            <hr>
+       </div>
       </div>
-      <div class="col-md-6">
-
-      </div>
+     
     </div>
   </div>
 </div>

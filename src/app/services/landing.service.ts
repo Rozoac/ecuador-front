@@ -19,7 +19,7 @@ export class LandingService {
   }
 
   getPostBlog() {
-    const url = 'https://public-api.wordpress.com/rest/v1.1/sites/blog.econtainerscolombia.com/posts?number=3'
+    const url = 'https://public-api.wordpress.com/rest/v1.1/sites/noticias.econtainerscolombia.com/posts?number=3'
     return this.http.get(url);
   }
 }

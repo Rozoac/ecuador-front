@@ -12,15 +12,29 @@ export class ArquitectonicosService {
     {
       nombre: "Casa tipo 1",
       descripcion_corta: "Innovación y confort. Adquiere un espacio adaptado a tus necesidades, elaborado mediante un sistema constructivo modular y transportable. ",
+      contenedores: "2 Contenedores de 20FT ",
       precio: {
-        desde: '5.000.000' ,
-        hasta: '5.000.000'
+        desde: '61.490.000' ,
+        hasta: '85.000.000'
       },
-      caracteristicas: {
-        cocina: '1',
-        banio: '1',
-        area: '2400'
-      },
+      caracteristicas: [
+        { 
+          a:{
+            medida: '30m',
+            cocina: '1',
+            banio: '1',
+            alcoba: 1
+          }
+       },
+       {
+          b:{ 
+            medida: '30m',
+            cocina: '1',
+            banio: '1',
+            area: '2400'
+            }
+       }
+      ],
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-1.jpg',
@@ -32,19 +46,34 @@ export class ArquitectonicosService {
     {
       nombre: "Casa tipo 2",
       descripcion_corta: "Comodidad, estética, movilidad. Obtén una vivienda versátil e innovadora acondicionada con insumos móviles y de alta calidad. ",
+      contenedores: "2 Contenedores de 40FT ",
       precio: {
-        desde: '5.000.000' ,
-        hasta: '5.000.000'
+        desde: '95.000.000' ,
+        hasta: '122.390.000'
       },
-      caracteristicas: {
-        cocina: true,
-        banio: '1',
-        area: '2400'
-      },
+      caracteristicas: [
+        { 
+          a:{
+            medida: '60m',
+            cocina: '1',
+            banio: '1',
+            alcoba: 2
+
+          }
+       },
+       {
+          b:{ 
+            medida: '30m',
+            cocina: '1',
+            banio: '1',
+            area: '2400'
+            }
+       }
+      ],
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-2.jpg',
-        img_2: 'asd',
+        img_2: 'assets/imgs/arquitectonicos/casa1-1.jpg',
         img_3: 'asd'
       },
       estado: true
@@ -52,15 +81,31 @@ export class ArquitectonicosService {
     {
       nombre: "Unidades Comerciales",
       descripcion_corta: "Aumenta el flujo de clientes y optimiza tus ventas con un diseño atractivo, versátil e innovador.",
+      contenedores: "1 Contenedor de 10FT ",
+
       precio: {
-        desde: '5.000.000' ,
+        desde: '15.490.000' ,
         hasta: '5.000.000'
       },
-      caracteristicas: {
-        cocina: '1',
-        banio: '1',
-        area: '2400'
-      },
+      caracteristicas: [
+        { 
+          a:{
+            medida: '15m',
+            cocina: null,
+            banio: null,
+            alcoba: 0
+
+          }
+       },
+       {
+          b:{ 
+            medida: '30m',
+            cocina: '1',
+            banio: '1',
+            area: '2400'
+            }
+       }
+      ],
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-3.jpg',
@@ -73,19 +118,34 @@ export class ArquitectonicosService {
     {
       nombre: "Piscina Container",
       descripcion_corta: "Innovación y confort. Adquiere un espacio adaptado a tus necesidades, elaborado mediante un sistema constructivo modular y transportable. ",
+      contenedores: "1 Contenedor de 20FT ",
       precio: {
-        desde: '5.000.000' ,
+        desde: '36.690.000' ,
         hasta: '5.000.000'
       },
-      caracteristicas: {
-        cocina: '1',
-        banio: '1',
-        area: '2400'
-      },
+      caracteristicas: [
+        { 
+          a:{
+            medida: '30m',
+            cocina: null,
+            banio: null,
+            alcoba: 0
+
+          }
+       },
+       {
+          b:{ 
+            medida: '30m',
+            cocina: null,
+            banio: null,
+            area: '2400'
+            }
+       }
+      ],
       imgs : {
         plano: 'asd',
         img_1: 'assets/imgs/arquitectonicos/card-4.jpg',
-        img_2: 'assets/imgs/arquitectonicos/4-principal.jpg',
+        img_2: 'assets/imgs/arquitectonicos/piscina-contenedor.png',
         img_3: 'asd'
       },
       estado: true

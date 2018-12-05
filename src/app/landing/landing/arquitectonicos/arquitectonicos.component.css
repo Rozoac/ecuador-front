@@ -3,8 +3,36 @@ a{
     color: white;
 }
 
+.hero{
+   /* margin-top: 10%; */
+}
+
 .subtitulo{
     font-size: 1.5em;
+}
+
+.tailor-made{
+    position: absolute;
+    bottom: 70%;
+    color: white;
+    left: 6%;
+}
+
+.tailor-made-section{
+    margin-top: 130px;
+}
+
+
+.header{
+    /* margin-top: 15%; */
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.header ul{
+    list-style: none;
+    font-size: 1.2em;
 }
 
 form{
@@ -63,7 +91,8 @@ h1,p{
 }
 
 .logo{
-    width: 40%;
+    margin-top: 20px;
+    width: 27%;
 }
 
 .texto-tarjeta{
@@ -94,9 +123,10 @@ h1,p{
 }
 
 
+
 .hero-image {
     height: 80vh;
-    background: url('assets/imgs/arquitectonicos/background-2.jpg');
+    background: url('/../assets/imgs/arquitectonicos/background-2.jpg');
     background-size: cover;
     background-position: center;
     text-shadow: 0 0 4px #000;
@@ -140,7 +170,7 @@ figcaption div p{
 
 .tarjeta{
     /* border: 2px solid black; */
-    padding-right: 5px;
+    /* padding-right: 5px; */
     background: white;
     height: 400px;
     /* margin-top: 10%; */
@@ -171,6 +201,18 @@ figcaption div p{
     max-height: 446px!important;
 	max-height: 360px;
 	width: 48%;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+}
+.grid2 figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	/* min-width: 320px; */
+    max-height: 446px!important;
+	/* max-height: 360px; */
+	width: 100%;
 	background: #3085a3;
 	text-align: center;
 	cursor: pointer;
@@ -232,6 +274,10 @@ figcaption div p{
 	letter-spacing: 1px;
     text-align: left;
     font-size: .6em;
+}
+
+.col-md-3 {
+    padding-left: 28px;
 }
 
 
@@ -414,11 +460,74 @@ figure.effect-lily:hover p {
       .custom-option.selection {
         background: #f9f9f9;
       }
+      
 
 /* RESPONSIVE */
+
+
 
 @media (min-width: 1200px) {
     .container {
       max-width: 1400px;
     }
+}
+
+/* RESPONSIVE */
+/* CELULARES */
+@media screen and (max-width: 576px) {
+
+    .logo {
+        width: 60%;
+    }
+            .hero {
+                margin-top: 32%;
+                
+            }
+
+            .hero-image {
+                height: 50vh;
+             }
+
+            .hero-image h1{
+                font-size: 2em;
+                line-height: 36px;
+            
+            }
+
+            .subtitulo {
+                font-size: 1.2em;
+            }
+            
+            .seccion-2{
+                margin-top: 50px;
+            }
+            .tarjeta{
+               
+                height: inherit;
+            }
+            .tailor-made-section{
+                margin-top: 0;
+            }
+            .tailor-made{
+                left: 0%;
+            }
+
+            .texto-1{
+                text-align: center;
+            }
+            .header ul {
+                list-style: none;
+                font-size: .8em;
+            }
+ }
+@media (min-width: 1300px) {
+
+  }
+  
+  @media (min-width: 1600px) {
+  
+  }
+  
+  @media (min-width: 1600px) {
+
   }

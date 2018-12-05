@@ -34,16 +34,16 @@ const APP_ROUTES: Routes = [
           children: [
             { path: 'home', component: HomepageComponent },
             { path: 'quienes-somos', component: QuienesSomosComponent },
-            { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
             { path: 'compromiso-empresarial', component: CompromisoEmpresarialPComponent },
             { path: 'trabaja', component: TrabajaConNosotrosComponent },
             { path: 'pqrs', component: PqrsComponent },
             { path: 'contenedor/:id', component: ContenedorComponent },
-            { path: 'arquitectonicos', component: ArquitectonicosComponent },
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
-
+          
+          { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
+          { path: 'arquitectonicos', component: ArquitectonicosComponent },
           { path: 'aniversario', component: AniversarioComponent },
           { path: 'landing', component: LandingComponent },   
           { path: 'refrigerados', component: RefrigeradosComponent },

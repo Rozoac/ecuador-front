@@ -32,6 +32,18 @@ export class ArquitectonicosComponent implements OnInit {
     // return this.arquitectonicos[id];
   }
 
+  alcobas(cantidad) {
+    if (cantidad <= 0 ){
+      return
+    }
+    if(cantidad > 0 && cantidad <= 1){
+      return `${cantidad} Alcoba |`
+    }
+    if(cantidad > 0 && cantidad > 1){
+      return `${cantidad} Alcobas |`
+    }
+  }
+
   cargarArquitectonicos() {
     this.arquitectonicos = this._arquitectonicosService.cargarArquitectonicos(); 
   }

@@ -1,5 +1,14 @@
-<header class="hero-image" parallax config="{axis: x, speed: -.2}">
-  <div class="container" style="margin-top: 15%;">
+<header class="hero-image">
+  <div class="header container">
+    <img class="logo" src="assets/imgs/logo-nuevo.png"/>
+    <ul>
+      <li><i class="fab fa-facebook"></i></li>
+      <li><i class="fab fa-instagram"></i></li>
+      <li><i class="fab fa-youtube"></i></li>
+      <li><i class="fab fa-linkedin"></i></li>
+    </ul>
+  </div>
+  <div class="container hero" >
     
     <div class="col-md-6 texto-principal">
       <h1 >Construimos Espacios Únicos en Diseño y Confort.</h1>
@@ -11,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="buscador">
+  <div class="buscador d-none .d-lg-*">
     <div class="container">
           <form action="">
               <div class="form-group">
@@ -71,15 +80,40 @@
                 <b>Desde {{arquitectonico.precio.desde}}</b>
             </p>  
               <span class="descripcion">
-                <p>{{(arquitectonico.caracteristicas == true) ? 'Cocina |' : '' }} 2 Cuartos | Baño | 2300 sqlt</p>
+                <p>{{(arquitectonico.caracteristicas[0].a.cocina == null) ? '' : 'Cocina |'}}  {{alcobas(arquitectonico.caracteristicas[0].a.alcoba)}}  {{(arquitectonico.caracteristicas[0].a.banio == null) ? '' : 'Baño |'}}  {{arquitectonico.caracteristicas[0].a.medida}} <sup>2</sup> </p>
             </span>  
           </div>
       </div>
+      <div [routerLink]="['/cotizacion/5bd8fa35b71ca700131decb0']" class=" col-md-12 wow fadeIn tailor-made-section" style="" data-wow-duration="2s">
+          <div class="grid2">
+          <figure class="effect-lily">
+              <img src="assets/imgs/arquitectonicos/tailor-made.jpg" style="background-size: cover !important;
+              background-position: 50% 60% !important;
+              background-repeat: no-repeat !important;" alt="img12"/>
+              <figcaption>
+                <div>              
+                  <h2 class="tailor-made">TAILOR MADE / PROYECTOS A TU MEDIDA</h2>
+                </div>
+                <a ></a>
+              </figcaption>			
+            </figure>
+          </div>
+          <div class="datos">
+            <p class="precio">
+                <b>Proyectos personalizados </b>
+            </p>  
+              <span class="descripcion">
+                <p> Si quieres personalizar tu proyecto y realizarlo a tu medida. </p>
+            </span>  
+          </div>
+      </div>
+    
      
       
     
     </div>
     </div>
 </div>
+
   
 
