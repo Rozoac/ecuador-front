@@ -49,6 +49,11 @@ export class LeadService {
 
   }
 
+  borrarLead(id){
+      const url = `https://api.econtainerscolombia.com/public/api/leads/${id}`;
+      return this.http.delete(url);
+  }
+
   getReferidosPDF(){
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');

@@ -149,8 +149,10 @@ export class ListaComponent implements OnInit {
       this.cargarLeads("");
       return;
     }
-    this._lead.buscarLeads(termino).subscribe((leads: Lead[]) => {
-      this.leads = leads;
+    this._lead.buscarLeads(termino).subscribe((leads) => {
+      console.log(termino);
+      console.log(leads);
+      this.leads = leads.data;
     });
   }
 

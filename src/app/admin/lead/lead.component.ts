@@ -1,7 +1,10 @@
 import { LeadService } from '../../service/lead/lead.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { Lead } from '../../models/lead.model';
+import { ToastrService, ToastContainerDirective } from "ngx-toastr";
+import swal from "sweetalert2";
+
 
 @Component({
   selector: "app-lead",
@@ -13,7 +16,9 @@ export class LeadComponent {
 
   constructor(
     public _leadService: LeadService,
-    public routerA: ActivatedRoute
+    public router: Router,
+    public routerA: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     this.routerA.params.subscribe(params => {
       this._leadService.buscarLead(params["id"]).subscribe((res: any) => {
@@ -21,6 +26,28 @@ export class LeadComponent {
       });
     });
   }
+
+  borrarLead(id){
+    
+    this._leadService.borrarLead(id).subscribe((res:any) => {
+    console.log(res);
+      if (res.status === 'success'){
+        this.toastr.info(`El lead con id ${res.lead.id} a sido eliminado`, "Success", {
+          progressBar: true   
+      });
+      this.router.navigate(['admin/lista']);
+    }
+
+    else{
+      this.toastr.error(`El lead con id ${res.lead.id} no a sido eliminado`, "Success", {
+        progressBar: true   
+    });
+    }
+    })
+  }
+
+
+  
 
   imgModalidad(modalidad) {
     let ruta;

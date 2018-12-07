@@ -96,6 +96,7 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 
 // pipes
@@ -186,6 +187,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatButtonModule,
     MatButtonToggleModule,
     MatSelectModule,
+    SweetAlert2Module.forRoot(),
     MatStepperModule,
     MatCheckboxModule,
     MatInputModule,

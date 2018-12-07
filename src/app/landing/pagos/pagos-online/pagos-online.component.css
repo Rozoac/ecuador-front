@@ -37,6 +37,10 @@ height: 100%;
 
 }
 
+.container-fluid{
+    padding: 10px!important;
+}
+
 .header{
     position: absolute;
     display: flex;
@@ -125,7 +129,7 @@ height: 100%;
 }
 
 .img-producto{
-    width: 90%;
+    width: 70%;
     position: absolute;
     z-index: 2;
 }
@@ -218,7 +222,7 @@ height: 100%;
 .btn-comprar{
     background: #457ad1;
     color: white;
-    padding: 33px 50px;
+    padding: 15px 45px;
 }
 
 

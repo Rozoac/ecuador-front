@@ -15,6 +15,12 @@
                 <h6>{{lead.correo}}</h6> <small class="text-muted p-t-30 db">Celular</small>
                 <h6>{{lead.celular}}</h6> <small class="text-muted p-t-30 db">Ciudad</small>
                 <h6>Colombia - {{lead.ciudad}}</h6>
+      
+                <button  class="btn color-azul"  [swal]="{ title: '¿Estas seguro de eliminar el lead',  type: 'warning', showCancelButton: true, confirmButtonText: 'Si! borralo!', cancelButtonText: 'cancelar'}"
+                (confirm)="borrarLead(lead.id)">
+                  Eliminar Lead
+                  </button>
+                <!-- <button class="btn color-azul" (click)="borrarLead(lead.id)">Eliminar Lead</button> -->
             </div>
         </div>
     </div>
