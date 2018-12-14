@@ -154,8 +154,8 @@ export class ComercialComponent implements OnInit {
     if (comercial === "pvalencia") {
       foto = "/assets/css/backend/images/users/paula.png";
     }
-    if (comercial === "dmendez") {
-      foto = "/assets/css/backend/images/users/mendez.png";
+    if (comercial === "ppatino") {
+      foto = "/assets/css/backend/images/users/ppatino.png";
     }
     if (comercial === "avila") {
       foto = "/assets/css/backend/images/users/vila.png";
@@ -169,21 +169,22 @@ export class ComercialComponent implements OnInit {
     if (comercial === "lmahecha") {
       foto = "/assets/css/backend/images/users/leonardo.png";
     }
-    if (comercial === "cortega") {
-      foto = "/assets/css/backend/images/users/carlos.png";
+    if (comercial === "lrios") {
+      foto = "/assets/css/backend/images/users/laura.png";
     }
-    if (comercial === "cfiallo") {
-      foto = "/assets/css/backend/images/users/carolina.png";
+    if (comercial === "mmancipe") {
+      foto = "/assets/css/backend/images/users/mancipe.png";
     }
     if (comercial === "lvargas") {
       foto = "/assets/css/backend/images/users/luisa.png";
     }
-    if (comercial === "arodriguez") {
-      foto = "/assets/css/backend/images/users/andrea.png";
+    if (comercial === "moviedo") {
+      foto = "/assets/css/backend/images/users/maxi.png";
     }
-    if (comercial === "agutierrez") {
-      foto = "/assets/css/backend/images/users/alejandragutierrez.png";
+    if (comercial === "darango") {
+      foto = "/assets/css/backend/images/users/diego.png";
     }
+   
     return foto;
   }
 

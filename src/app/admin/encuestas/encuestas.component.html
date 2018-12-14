@@ -1,0 +1,55 @@
+<div class=" row wow fadeIn">
+  <div class="col-12 ">
+      <div class="card ">
+          <div class="card-body ">
+
+              <div class="table-responsive ">
+                  <div class="row mb-2">
+                      <div class="col-md-6 d-flex align-items-center ">
+                          <h3 class="card-title margin-0 ">Total de respuestas (<small>{{total}}</small>) </h3>
+                      </div>
+                      <div class="col-md-6 ">
+                        
+                          
+                                <input #input (keyup)="busqueda(input.value) " type="text " class="form-control " placeholder="Busqueda por correo ">
+                          
+                       
+                    </div>
+                  </div>
+                  <table id="myTable " class="table table-bordered table-hover ">
+                      <thead class="color-azul ">
+                          <tr>
+                              <th>¿ Por que medio o canal digital nos encontraste ?.</th>
+                              <th>¿ Encontraste la información que buscabas ?.</th>
+                              <th>¿ Que tan agradable fue tu interacción con la pagína ?.</th>
+                              <th>Si no encontraste nada de lo que necesitabas, comunicanos qué tipo de información estabas buscando.</th>
+                              <th>¿ Segun tu opinion que crees que podria mejorar en la pagína que visitaste ?</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let encuesta of encuestas">
+                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p1}}</td>
+                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p2}}</td>
+                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p3}}</td>
+                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p4}}</td>
+                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p5}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <div class="row " *ngIf="!encuestas ">
+                      <div class="col-sm-12 ">
+                          <div class="alert alert-warning text-center ">
+                              <strong>Cargando</strong>
+                              <br>
+                              <i class="fa fa-sync fa-spin fa-2x "></i>
+                              <br>
+                              <span>Espere por favor</span>
+                          </div>
+                      </div>
+                  </div>
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -102,6 +102,8 @@
                                 
                                     </select>
                                 </th>
+                                <th>Fecha</th>
+                                <th>Fuente</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,7 +113,8 @@
                                 <td class="pointer" (click)="leadInfo(lead.id)">{{lead.segmento}}</td>
                                 <td class="pointer" (click)="leadInfo(lead.id)">{{lead.ciudad | ciudad}}</td>
                                 <td class="pointer" (click)="leadInfo(lead.id)">{{lead.comercial}}</td>
-                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.fecha}}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{lead.freg}}</td>
+                                <td class="pointer" (click)="leadInfo(lead.id)">{{(!lead.referido)? 'landing' : lead.referido}}</td>
                             </tr>
                         </tbody>
                     </table>

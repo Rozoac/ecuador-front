@@ -26,6 +26,10 @@ import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arqu
 import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
 import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
 import { NotFoundComponent } from './pages/shared/not-found/not-found.component';
+import { TailorMadeComponent } from './landing/arquitectonicos/tailor-made/tailor-made.component';
+import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/encuesta-satisfaccion.component';
+import { EncuestasComponent } from './admin/encuestas/encuestas.component';
+import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -37,11 +41,13 @@ const APP_ROUTES: Routes = [
             { path: 'compromiso-empresarial', component: CompromisoEmpresarialPComponent },
             { path: 'trabaja', component: TrabajaConNosotrosComponent },
             { path: 'pqrs', component: PqrsComponent },
+            { path: 'encuesta-satisfaccion/:id', component: EncuestaSatisfaccionComponent },
             { path: 'contenedor/:id', component: ContenedorComponent },
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
           
+          { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
           { path: 'aniversario', component: AniversarioComponent },
@@ -64,6 +70,8 @@ const APP_ROUTES: Routes = [
             { path: 'comerciales', component: GraficasComponent, data: { titulo: 'Leads'} },
             { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard'} },
             { path: 'redes-sociales', component: DashboardRedesComponent, data: { titulo: 'Redes-Sociales'} },
+            { path: 'encuestas', component: EncuestasComponent, data: { titulo: 'Encuestas'} },
+            { path: 'encuestas/id', component: RespuestaComponent, data: { titulo: 'Clientes'} },
             { path: 'lista', component: ListaComponent },
             { path: 'lead/:id', component: LeadComponent },
             { path: 'comercial/:id/:inicio/:fin', component: ComercialComponent },
@@ -73,4 +81,4 @@ const APP_ROUTES: Routes = [
           
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: false});

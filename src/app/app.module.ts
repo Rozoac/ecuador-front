@@ -116,6 +116,10 @@ import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arqu
 import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
 import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
 import { NotFoundComponent } from './pages/shared/not-found/not-found.component';
+import { TailorMadeComponent } from './landing/arquitectonicos/tailor-made/tailor-made.component';
+import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/encuesta-satisfaccion.component';
+import { EncuestasComponent } from './admin/encuestas/encuestas.component';
+import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -181,6 +185,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ProductosArquitectonicosComponent,
     PagosOnlineComponent,
     NotFoundComponent,
+    TailorMadeComponent,
+    EncuestaSatisfaccionComponent,
+    EncuestasComponent,
+    RespuestaComponent,
   ],
   imports: [
     BrowserAnimationsModule,

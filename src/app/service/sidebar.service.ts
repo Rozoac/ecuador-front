@@ -22,6 +22,12 @@ export class SidebarService {
       url : 'lista'
 
     },
+    {
+      titulo: 'Encuestas',
+      icono: 'mdi mdi-image-filter-none',
+      url : 'encuestas'
+
+    },
   ];
 
   menu2 = [

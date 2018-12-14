@@ -1,0 +1,167 @@
+<div class="principal wow fadeIn">
+  
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-4 iz">
+          <div class="iz-section p-5">
+        
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Taylor-Made</h3>
+                    <p class="">Aquí te ayudamos a hacer realidad tus sueños,a poyamos tus ideas paso a paso, para esto ten en cuenta las medidas de los contenedores que implementaremos en tu proyecto</p>
+                    <ngb-tabset>
+                      <ngb-tab title="20 Pies">
+                        <ng-template ngbTabContent>
+                          <p class="p-t-20">Medidas: 6 metros de largo, 2,44 metros de ancho y 2,44 metros de alto. Área: 14,4 metros cuadrados. Carga útil: 27 toneladas.</p>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle><b>40 Pies</b></ng-template>
+                        <ng-template ngbTabContent>
+                          <p class="p-t-20">Medidas: 12 metros de largo, 2,44 metros de ancho y 2,44 metros de alto. Área: 28,8 metros cuadrados. Carga útil: 27 toneladas.</p>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+            </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="col-md-8 de" style="background:  url('assets/imgs/arquitectonicos/tailor-made.jpg')  ; background-size: cover;
+        background-position: center;  height: 500px; ">
+        </div>
+      </div> 
+    <div class="container-fluid">
+      <div class="row">
+      
+        <div class="col-md-6 mt-5">
+         <div class="formulario">
+            <form [formGroup]="payuFormGroup">
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- ============================================================== -->
+                    <!-- SELECCION
+                    <!-- ============================================================== -->
+                    <label>Selecciona la cantidad de contenedores</label>
+                    <mat-radio-group [(ngModel)]="payuMessage.amount" formControlName="seleccion_payu">
+                      <mat-radio-button (click)="signature(season)" class="example-radio-button mt-4 mr-4 mb-4" *ngFor="let season of seasons"
+                        [value]="season.valor">
+                        {{season.nombre}}
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                    <!-- ============================================================== -->
+                    <!-- NOMBRE
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Nombre y Apellido</mat-label>
+                      <input matInput placeholder="" required formControlName="nombre_payu" [(ngModel)]="payuMessage.buyerFullName">
+                      <!-- <mat-error *ngIf="payuFormGroup.get('nombre_payu').invalid">{{getErrorMessage("nombre")}}</mat-error> -->
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CELULAR
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Celular</mat-label>
+                      <input matInput placeholder="" type="number" #input required maxlength="10" [(ngModel)]="payuMessage.telephone"
+                        formControlName="celular_payu">
+                      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                      <!-- <mat-error *ngIf="firstFormGroup.get('celular').invalid">{{getErrorMessage("celular")}}</mat-error> -->
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CORREO
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Correo Electronico</mat-label>
+                      <input matInput placeholder="" required formControlName="email_payu" [(ngModel)]="payuMessage.buyerEmail">
+                      <!-- <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error> -->
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CIUDAD
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Ciudad</mat-label>
+                      <mat-select placeholder="Select" formControlName="ciudad_payu" [(ngModel)]="payuMessage.shippingCity">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-select>
+                      <!-- <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error> -->
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- DIRECCIÓN
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                      <mat-label>Direccion</mat-label>
+                      <input matInput placeholder="" required formControlName="direccion_payu" [(ngModel)]="payuMessage.shippingAddress">
+    
+                      <!-- <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error> -->
+                    </mat-form-field>
+                 
+                </div>
+              </form>
+      </div>
+      <!-- ---------------------- -->
+      <!--       FIN   FORMULARIO -->
+      <!-- ---------------------- -->
+              <hr>
+         </div>
+          <div class="col-md-6 m-t-30">
+      <div class="card w-100">
+        <div class="card-body">
+          <h3 class="card-title">TU PEDIDO</h3>
+          <div style="display: flex; justify-content: space-between">
+            <span>Producto</span>
+            <span>Total</span>
+          </div>
+          <hr>
+          <div style="display: flex; justify-content: space-between">
+              <p *ngIf="payuMessage.amount">{{nombre_producto}} Contenedores</p>
+            <span *ngIf="!payuMessage.amount">$ 0</span>
+            <span *ngIf="payuMessage.amount"><b>$ {{payuMessage.amount | currency:'COP'}}</b></span>
+          </div>
+          <p class="card-text"></p>
+          <form #form method="post" [action]="prueba">
+              <input name="merchantId" type="hidden" [(ngModel)]="payuMessage.merchantId">
+              <input name="referenceCode" type="hidden" [(ngModel)]="payuMessage.referenceCode">
+              <input name="description" type="hidden" [(ngModel)]="payuMessage.description">
+              <input name="amount" type="hidden" [(ngModel)]="payuMessage.amount">
+              <input name="tax" type="hidden" [(ngModel)]="payuMessage.tax">
+              <input name="taxReturnBase" type="hidden" [(ngModel)]="payuMessage.taxReturnBase">
+              <input name="signature" type="hidden" [(ngModel)]="payuMessage.signature">
+              <input name="accountId" type="hidden" [(ngModel)]="payuMessage.accountId">
+              <input name="currency" type="hidden" [(ngModel)]="payuMessage.currency">
+              <input name="buyerFullName" type="hidden" [(ngModel)]="payuMessage.buyerFullName">
+              <input name="buyerEmail" type="hidden" [(ngModel)]="payuMessage.buyerEmail">
+              <input name="shippingAddress" type="hidden" [(ngModel)]="payuMessage.shippingAddress">
+              <input name="shippingCity" type="hidden" [(ngModel)]="payuMessage.shippingCity">
+              <input name="shippingCountry" type="hidden" [(ngModel)]="payuMessage.shippingCountry">
+              <input name="telephone" type="hidden" [(ngModel)]="payuMessage.telephone">
+              <input name="test" type="hidden" [(ngModel)]="payuMessage.test">
+              <input name="responseUrl" type="hidden" value="http://localhost:4200/payu-response">
+              <input name="confirmationUrl" type="hidden" value="http://localhost:4200/payu-response">
+              <input [disabled]="!payuFormGroup.valid" class="btn btn-primary" (click)="enviarPago(form)" name="Submit"
+                type="submit" value="Pagar con Payu">
+            </form>
+          <!-- {{payuMessage | json}} -->
+        </div>
+      </div>
+    </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

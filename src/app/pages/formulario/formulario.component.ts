@@ -15,14 +15,13 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 export class FormularioComponent implements OnInit {
   tipoId = 1;
   tipoCliente: TipoCliente[];
+  forma: FormGroup;
   message: IMessage = {
     ciudad: "¿Cual es tu ciudad mas cercana?",
     tipo: "¿En que estas interesado?",
     para: "¿Lo quieres para?",
     cliente: "Tipo de cliente"
   };
-
-  forma: FormGroup;
 
   constructor(private appService: CorreoService, public router: Router) {
     this.forma = new FormGroup(
