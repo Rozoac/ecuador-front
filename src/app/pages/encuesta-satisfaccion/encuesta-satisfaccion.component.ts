@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Encuesta } from '../../models/encuesta.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import swal from "sweetalert2";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LeadService } from '../../service/lead/lead.service';
 import { EncuestaService } from '../../service/encuesta.service';
 
@@ -15,6 +15,7 @@ import { EncuestaService } from '../../service/encuesta.service';
 })
 export class EncuestaSatisfaccionComponent implements OnInit {
 public otro = false;
+
   encuesta:Encuesta= {
     p1: "",
     p2: "",
@@ -23,10 +24,10 @@ public otro = false;
     p5: "",
     id_lead: null
   };
-
+ 
   forma:FormGroup;
 
-  constructor(public route: ActivatedRoute, public _encuestaService: EncuestaService) { 
+  constructor(public route: ActivatedRoute, public _encuestaService: EncuestaService, private router: Router,) { 
     
     this.forma = new FormGroup(
       {
@@ -60,18 +61,39 @@ public otro = false;
   }
 
   guardar(message:Encuesta) {
-    console.log(message);
+    var that = this;
+
     if(this.forma.valid){  
     this._encuestaService.guardar(message).subscribe((res)=>{
       console.log(res);
+      let timerInterval;
       swal({
         type: "success",
         title: `Gracias!`,
+        timer: 2000,
+        onBeforeOpen: () => {
+          swal.showLoading()
+          timerInterval = setInterval(() => {
+          
+          }, 100)
+        },
+        onClose: () => {
+          clearInterval(timerInterval)
+        },
         showConfirmButton: false
       });
+      localStorage.setItem('encuesta', 'true');
+      setTimeout(function(){
+        that.router.navigateByUrl("/gracias");
+      }, 1500);
+      
     });
   } else {
-    console.log("campos por llenar");
+    swal({
+      type: "error",
+      title: `Campos por llenar!`,
+      showConfirmButton: false
+    });
   }
  }
 

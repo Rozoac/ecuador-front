@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <ul id="texto-principal" class=" animated zoomInLeft delay-5s slow ">
+        <ul id="texto-principal" class=" animated zoomInLeft ">
           <li><span class="text-principal">TRANSFORMAMOS</span></li>
           <li><span class="text-principal">TUS SUEÑOS</span></li>
           <li><span class="text-principal">EN REALIDADES</span></li>
@@ -21,21 +21,22 @@
         <div class="carga" *ngIf="!loading">
           <mat-spinner ></mat-spinner>
         </div>    
-        <ngu-carousel [inputs]="carrusel" *ngIf="loading">
 
-  
-          <ngu-item NguCarouselItem *ngFor="let contenedor of contenedores">
-             <div class="card hvr-grow-shadow" style="">
-              <div class="imagen-contenedor mt-4">
-                <img class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{contenedor.img}}" alt="Card image cap">
-              </div>
-              <div class="card-body">
-                <h2 class="card-title">{{contenedor.nombre}}</h2>
-                <p class="card-text">{{contenedor.descripcion}}</p>
-                  <span routerLink="/cotizacion/{{contenedor._id}}" class="cotiza">Cotiza ahora<i class="fas fa-angle-right"></i></span>
-              </div>
-            </div>
-          </ngu-item>
+        <ngu-carousel #myCarousel [inputs]="carouselConfig" *ngIf="loading" [dataSource]="contenedores">
+
+  <div *nguCarouselDef="let item;" class="item"> 
+      <div class="card hvr-grow-shadow" style="">
+          <div class="imagen-contenedor mt-4">
+            <img class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{item.img}}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">{{item.nombre}}</h2>
+            <p class="card-text">{{item.descripcion}}</p>
+              <span routerLink="/cotizacion/{{item._id}}" class="cotiza">Cotiza ahora<i class="fas fa-angle-right"></i></span>
+          </div>
+        </div>
+  </div>
+           
           
           <button NguCarouselPrev class='leftRs'><i class="fas fa-angle-left"></i></button>
           <button NguCarouselNext class='rightRs'><i class="fas fa-angle-right"></i></button>

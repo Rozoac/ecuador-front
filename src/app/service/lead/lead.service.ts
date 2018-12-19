@@ -142,4 +142,16 @@ export class LeadService {
     const url = URL_SERVICIOS + 'ultimo';
     return this.http.get(url);
   }
+
+  enviarLead(mensaje){
+    let json = JSON.stringify(mensaje);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set(
+      'Content-Type',
+      'application/x-www-form-urlencoded'
+    );
+    const url = URL_SERVICIOS + 'crearLead';
+
+    return this.http.post(url, params, { headers });
+  }
 }

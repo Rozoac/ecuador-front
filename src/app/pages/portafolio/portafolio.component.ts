@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContenedoresService } from '../../service/contenedores.service';
 import { Router } from '@angular/router';
-import { NguCarousel } from "@ngu/carousel";
+import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { NguCarousel } from "@ngu/carousel";
 })
 export class PortafolioComponent implements OnInit {
   public tipo: any = null;
-  public carouselOne: NguCarousel;
+  public carouselOne: NguCarouselConfig;
 
   contenedores: any[] = [];
   portafolio() {
@@ -27,7 +27,7 @@ export class PortafolioComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.carouselOne = { grid: { xs: 1, sm: 1, md: 4, lg: 4, all: 0 }, slide: 1, speed: 400, interval: 4000, point: { visible: true }, load: 2, touch: true, loop: true, custom: "banner" };
+    this.carouselOne = { grid: { xs: 1, sm: 1, md: 4, lg: 4, all: 0 }, slide: 1, speed: 400, point: { visible: true }, load: 2, touch: true, loop: true, custom: "banner" };
 
     // service
 

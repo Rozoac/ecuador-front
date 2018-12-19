@@ -21,6 +21,7 @@ export class CotizacionComponent implements OnInit {
   public body = { referenceCode: '', amount: 0 };
   public disablePaymentButton = true;
   public contenedor_maritimo = 'CONTENEDORES MARÍTIMOS';
+  public disabled = false;
 
   payu= null;
   tipoId = 1;
@@ -361,6 +362,7 @@ export class CotizacionComponent implements OnInit {
   }
 
   sendEmail(message: IMessage) {
+    this.disabled = true;
     console.log(message);
 
     message.tipo_estandar = this.tipo_estandar;
@@ -377,7 +379,7 @@ export class CotizacionComponent implements OnInit {
         //   showConfirmButton: false,
         //   timer: 3000
         // });
-
+         localStorage.setItem('comercial', JSON.stringify(res));
         this.router2.navigate(['gracias']);
       },
       error => {
@@ -387,7 +389,7 @@ export class CotizacionComponent implements OnInit {
         //   title: `error ${error.message}`,
         //   showConfirmButton: true
         // });
-        this.router2.navigate(['gracias']);
+        // this.router2.navigate(['gracias']);
       }
     );
   }

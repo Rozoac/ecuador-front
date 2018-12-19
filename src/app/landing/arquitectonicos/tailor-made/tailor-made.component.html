@@ -1,14 +1,50 @@
-<div class="principal wow fadeIn">
   
-    <div class="container-fluid ">
+  <div class="has-animation animation-ltr seccion-titulo" data-delay="10">
+    <ul class="text hidden wow fadeIn" data-wow-delay="1.5s">
+        <li>T</li>
+        <li class="ghost">a</li>
+        <li class="ghost">i</li>
+        <li class="ghost">l</li>
+        <li class="ghost">o</li>
+        <li class="ghost">r</li>
+        <li class="spaced">M</li>
+        <li class="ghost">a</li>
+        <li class="ghost">d</li>
+        <li class="ghost">e</li>
+        <li class="spaced">/</li>
+        <li class="spaced">P</li>
+        <li class="ghost">r</li>
+        <li class="ghost">o</li>
+        <li class="ghost">y</li>
+        <li class="ghost">e</li>
+        <li class="ghost">c</li>
+        <li class="ghost">t</li>
+        <li class="ghost">o</li>
+        <li class="spaced">A</li>
+        <li class="spaced">t</li>
+        <li class="ghost">u</li>
+        <li class="spaced">M</li>
+        <li class="ghost">e</li>
+        <li class="ghost">d</li>
+        <li class="ghost">i</li>
+        <li class="ghost">d</li>
+        <li class="ghost">a</li>
+       
+      </ul>
+  </div>
+  
+  <br>
+  <br>
+  
+  <div class="has-animation animation-rtl" >
       <div class="row">
         <div class="col-md-4 iz">
-          <div class="iz-section p-5">
+          <div class="iz-section p-5" style="padding-top:0!important">
         
-            <div class="card">
+            <div class="card wow fadeIn" data-delay="1000" data-wow-delay="1s">
                 <div class="card-body">
-                    <h3 class="card-title">Taylor-Made</h3>
-                    <p class="">Aquí te ayudamos a hacer realidad tus sueños,a poyamos tus ideas paso a paso, para esto ten en cuenta las medidas de los contenedores que implementaremos en tu proyecto</p>
+                    <h3 class="card-title text-center">Descripción</h3>
+                    <p class="">Aquí te ayudamos a hacer realidad tus sueños,apoyamos tus ideas paso a paso, para esto ten en cuenta las medidas de los contenedores que implementaremos en tu proyecto</p>
                     <ngb-tabset>
                       <ngb-tab title="20 Pies">
                         <ng-template ngbTabContent>
@@ -24,91 +60,103 @@
                     </ngb-tabset>
             </div>
             </div>
-            <hr>
+         
           </div>
         </div>
-        <div class="col-md-8 de" style="background:  url('assets/imgs/arquitectonicos/tailor-made.jpg')  ; background-size: cover;
-        background-position: center;  height: 500px; ">
+        <div class="col-md-8 de wow fadeIn imagen-contenedor" data-wow-delay="1s">
+        
+          <img src="assets/imgs/arquitectonicos/tailor-made.jpg" width="600" />
+     
         </div>
       </div> 
-    <div class="container-fluid">
-      <div class="row">
+  </div>
+  <br>
+  <br>
+  <div class="has-animation animation-ltr" data-delay="1500">
+    <div class="row p-5" style="background: #f0f4f5;">
       
-        <div class="col-md-6 mt-5">
-         <div class="formulario">
-            <form [formGroup]="payuFormGroup">
-                <div class="row">
-                  <div class="col-md-12">
-                    <!-- ============================================================== -->
-                    <!-- SELECCION
-                    <!-- ============================================================== -->
-                    <label>Selecciona la cantidad de contenedores</label>
-                    <mat-radio-group [(ngModel)]="payuMessage.amount" formControlName="seleccion_payu">
-                      <mat-radio-button (click)="signature(season)" class="example-radio-button mt-4 mr-4 mb-4" *ngFor="let season of seasons"
-                        [value]="season.valor">
-                        {{season.nombre}}
-                      </mat-radio-button>
-                    </mat-radio-group>
-                  </div>
-                    <!-- ============================================================== -->
-                    <!-- NOMBRE
-                    <!-- ============================================================== -->
-                    <mat-form-field class="mr-4" appearance="outline">
-                      <mat-label>Nombre y Apellido</mat-label>
-                      <input matInput placeholder="" required formControlName="nombre_payu" [(ngModel)]="payuMessage.buyerFullName">
-                      <!-- <mat-error *ngIf="payuFormGroup.get('nombre_payu').invalid">{{getErrorMessage("nombre")}}</mat-error> -->
-                    </mat-form-field>
-                    <!-- ============================================================== -->
-                    <!-- CELULAR
-                    <!-- ============================================================== -->
-                    <mat-form-field class="mr-4" appearance="outline">
-                      <mat-label>Celular</mat-label>
-                      <input matInput placeholder="" type="number" #input required maxlength="10" [(ngModel)]="payuMessage.telephone"
-                        formControlName="celular_payu">
-                      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                      <!-- <mat-error *ngIf="firstFormGroup.get('celular').invalid">{{getErrorMessage("celular")}}</mat-error> -->
-                    </mat-form-field>
-                    <!-- ============================================================== -->
-                    <!-- CORREO
-                    <!-- ============================================================== -->
-                    <mat-form-field class="mr-4" appearance="outline">
-                      <mat-label>Correo Electronico</mat-label>
-                      <input matInput placeholder="" required formControlName="email_payu" [(ngModel)]="payuMessage.buyerEmail">
-                      <!-- <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error> -->
-                    </mat-form-field>
-                    <!-- ============================================================== -->
-                    <!-- CIUDAD
-                    <!-- ============================================================== -->
-                    <mat-form-field class="mr-4" appearance="outline">
-                      <mat-label>Ciudad</mat-label>
-                      <mat-select placeholder="Select" formControlName="ciudad_payu" [(ngModel)]="payuMessage.shippingCity">
-                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                          {{option}}
-                        </mat-option>
-                      </mat-select>
-                      <!-- <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error> -->
-                    </mat-form-field>
-                    <!-- ============================================================== -->
-                    <!-- DIRECCIÓN
-                    <!-- ============================================================== -->
-                    <mat-form-field class="mr-4" appearance="outline">
-                      <mat-label>Direccion</mat-label>
-                      <input matInput placeholder="" required formControlName="direccion_payu" [(ngModel)]="payuMessage.shippingAddress">
-    
-                      <!-- <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error> -->
-                    </mat-form-field>
-                 
-                </div>
-              </form>
+      <div class="col-md-6 wow fadeIn"  data-wow-delay="2.5s">
+          <h2>Inicia el diseño de tu proyecto a tan solo un click!</h2>
+         <div class="formulario" style="padding-top: 0!important"> 
+          <div class="card">
+            <div class="card-body">
+                <form [formGroup]="payuFormGroup" class="p-3">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- ============================================================== -->
+                        <!-- SELECCION
+                        <!-- ============================================================== -->
+                        <label class="card-title ">Selecciona la cantidad de contenedores: </label>
+                        <hr>
+                        <mat-radio-group [(ngModel)]="payuMessage.amount" formControlName="seleccion_payu">
+                          <mat-radio-button (click)="signature(season)" class="example-radio-button mt-4 mr-4 mb-4" *ngFor="let season of seasons"
+                            [value]="season.valor">
+                            {{season.nombre}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                        <!-- ============================================================== -->
+                        <!-- NOMBRE
+                        <!-- ============================================================== -->
+                        <mat-form-field class="mr-4" appearance="outline">
+                          <mat-label>Nombre y Apellido</mat-label>
+                          <input matInput placeholder="" required formControlName="nombre_payu" [(ngModel)]="payuMessage.buyerFullName">
+                          <!-- <mat-error *ngIf="payuFormGroup.get('nombre_payu').invalid">{{getErrorMessage("nombre")}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- ============================================================== -->
+                        <!-- CELULAR
+                        <!-- ============================================================== -->
+                        <mat-form-field class="mr-4" appearance="outline">
+                          <mat-label>Celular</mat-label>
+                          <input matInput placeholder="" type="number" #input required maxlength="10" [(ngModel)]="payuMessage.telephone"
+                            formControlName="celular_payu">
+                          <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                          <!-- <mat-error *ngIf="firstFormGroup.get('celular').invalid">{{getErrorMessage("celular")}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- ============================================================== -->
+                        <!-- CORREO
+                        <!-- ============================================================== -->
+                        <mat-form-field class="mr-4" appearance="outline">
+                          <mat-label>Correo Electronico</mat-label>
+                          <input matInput placeholder="" required formControlName="email_payu" [(ngModel)]="payuMessage.buyerEmail">
+                          <!-- <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- ============================================================== -->
+                        <!-- CIUDAD
+                        <!-- ============================================================== -->
+                        <mat-form-field class="mr-4" appearance="outline">
+                          <mat-label>Ciudad</mat-label>
+                          <mat-select placeholder="Select" formControlName="ciudad_payu" [(ngModel)]="payuMessage.shippingCity">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                              {{option}}
+                            </mat-option>
+                          </mat-select>
+                          <!-- <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- ============================================================== -->
+                        <!-- DIRECCIÓN
+                        <!-- ============================================================== -->
+                        <mat-form-field class="mr-4" appearance="outline">
+                          <mat-label>Direccion</mat-label>
+                          <input matInput placeholder="" required formControlName="direccion_payu" [(ngModel)]="payuMessage.shippingAddress">
+        
+                          <!-- <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error> -->
+                        </mat-form-field>
+                     
+                    </div>
+                  </form>
+            </div>
+           
+          </div>
       </div>
       <!-- ---------------------- -->
       <!--       FIN   FORMULARIO -->
       <!-- ---------------------- -->
               <hr>
          </div>
-          <div class="col-md-6 m-t-30">
-      <div class="card w-100">
-        <div class="card-body">
+          <div class="col-md-6 m-t-30 wow fadeIn" style="padding-top:0!important" data-wow-delay="2.5s">
+      <div class="card w-100 " >
+        <div class="card-body " >
           <h3 class="card-title">TU PEDIDO</h3>
           <div style="display: flex; justify-content: space-between">
             <span>Producto</span>
@@ -121,7 +169,7 @@
             <span *ngIf="payuMessage.amount"><b>$ {{payuMessage.amount | currency:'COP'}}</b></span>
           </div>
           <p class="card-text"></p>
-          <form #form method="post" [action]="prueba">
+          <form #form method="post" [action]="prueba" >
               <input name="merchantId" type="hidden" [(ngModel)]="payuMessage.merchantId">
               <input name="referenceCode" type="hidden" [(ngModel)]="payuMessage.referenceCode">
               <input name="description" type="hidden" [(ngModel)]="payuMessage.description">
@@ -147,21 +195,9 @@
         </div>
       </div>
     </div>
-        </div>
        
       </div>
-    </div>
-  </div>  
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+  </div>
+
+  
+  

@@ -10,7 +10,6 @@ import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./carrousel.component.css"]
 })
 export class CarrouselComponent implements OnInit {
-  public carouselOne: NguCarousel;
   constructor(config: NgbCarouselConfig) {
     // this.carouselOne = { grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 }, interval: 6000, speed: 200, animation: "lazy", point: { visible: true }, touch: true, loop: true, easing: "ease" }; // interval: 4000,
     config.interval = 10000;

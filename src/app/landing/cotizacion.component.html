@@ -448,7 +448,7 @@
 
                 <div>
                   <button mat-raised-button color="warn" class="mr-3" matStepperPrevious>Atras</button>
-                  <button [disabled]="!secondFormGroup.valid" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
+                  <button [disabled]="!secondFormGroup.valid || disabled == true" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
                 </div>
               </form>
             </mat-step>

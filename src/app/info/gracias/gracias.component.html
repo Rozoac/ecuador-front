@@ -9,12 +9,12 @@
       
       <div class="gracias">
         <div class="gracias-1">
-          <h1>Hola soy {{comercial_nombre}} tu comercial asignado!</h1>
+          <h1>Hola soy {{comercial.comercial_nombre}} tu comercial asignado!</h1>
           <h2>Pronto me contactare contigo para informarte sobre nuestro portafolio de productos y responder
             dudas e inquietudes para ofrecerte una grata experiencia.</h2>
             <div class="datos">
-              <h3 class="datos-comerciales mr-5"><i class="far fa-envelope mr-2"></i>{{correo}}</h3>
-              <h3 class="datos-comerciales"><i class="fab fa-whatsapp mr-2"></i>{{numeroComercial(correo)}}</h3>
+              <h3 class="datos-comerciales mr-5"><i class="far fa-envelope mr-2"></i>{{comercial.comercial_correo}}</h3>
+              <h3 class="datos-comerciales"><i class="fab fa-whatsapp mr-2"></i>{{comercial.comercial_numero}}</h3>
             </div>
 
         </div>

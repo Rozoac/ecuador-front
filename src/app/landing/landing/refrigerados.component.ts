@@ -190,7 +190,7 @@ export class RefrigeradosComponent implements OnInit {
         console.log(res);
         console.log(message);
         console.log('AppComponent Success', res);
-
+        localStorage.setItem('comercial', JSON.stringify(res));
         this.router2.navigate(['gracias']);
       },
       error => {

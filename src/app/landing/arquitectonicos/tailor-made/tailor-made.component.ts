@@ -4,11 +4,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PayuService } from '../../../service/payu.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+declare var $: any;
 
 @Component({
   selector: 'app-tailor-made',
   templateUrl: './tailor-made.component.html',
-  styleUrls: ['./tailor-made.component.css']
+  styleUrls: ['./tailor-made.component.scss']
 })
 export class TailorMadeComponent implements OnInit {
 
@@ -49,12 +50,28 @@ export class TailorMadeComponent implements OnInit {
   ];
 
   constructor(public _payu: PayuService) { 
+    $(function() {
+      var text = $(".text");
+      setTimeout(function(){ text.removeClass("hidden"); }, 2000);
+    
+     
+      });
+    
     
   }
 
 
 
   ngOnInit() {
+
+    $(document).ready(function() {
+      $('.has-animation').each(function(index) {
+        $(this).delay($(this).data('delay')).queue(function(){
+          $(this).addClass('animate-in');
+        });
+      });
+    });
+    
 
     this.payuFormGroup = new FormGroup({
       nombre_payu: new FormControl('', [Validators.required]),

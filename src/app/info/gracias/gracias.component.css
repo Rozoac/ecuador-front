@@ -122,12 +122,19 @@ iframe{
     margin-top: 0px;
 }
 
+.img-logo{
+  width: 50%;
+}
+
 }
 
 	@media screen and (max-width: 380px){
       .principal{
       height: 100%;
     }
+    .img-logo {
+      width: 50%;
+  }
 .gracias-1{
   font-size: .6em;
 }
@@ -155,6 +162,9 @@ iframe{
     }
     .gracias-1{
   font-size: .6em;
+}
+.img-logo {
+  width: 50%;
 }
 .proyectos-seccion{
   height: 220px;

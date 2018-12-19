@@ -14,24 +14,17 @@ import { Router, RouterLink } from '@angular/router';
 export class GraciasComponent implements OnInit {
   public ultimo: string;
   public lead;
+  public comercial;
   public nombre: string;
   public comercial_nombre:string;
   public posts:any;
   public loadImage: boolean = true
+  public encuesta;
 
   public fabiano: string;
   public correo: string;
 
   constructor(public _lead: LeadService, public _landingService: LandingService, public router: Router) {
-    _lead.ultimo().subscribe((res: any) => {
-      this.lead = res.ultimo;
-      this.correo = res.ultimo.comercial;
-      this.imagenComercial(res.ultimo.comercial);
-
-  
-
-  
-    });
 
 
     _landingService.getPostBlog().subscribe( (res:any) =>{
@@ -44,30 +37,38 @@ export class GraciasComponent implements OnInit {
   }
 
   abrirModal(){
-    this.router.navigate([`/encuesta-satisfaccion/${this.lead.id}`])
+    this.router.navigate([`/encuesta-satisfaccion/${this.comercial.id}`])
   }
 
   ngOnInit() {
- 
-  
-    
-    swal({
-      title: 'Hasta 10% de descuento',
-      text: "Contesta las siguientes preguntas y recibe hasta el 10% de descuento.",
-      type: 'question',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No gracias'
-    }).then((result) => {
-      if (result.value === true) {
-this.router.navigate([`/encuesta-satisfaccion/${this.lead.id}`])   
-      }
-    })
+    this.encuesta = localStorage.getItem('encuesta');
+    this.datosComercial();
+    this.imagenComercial(this.comercial.comercial_correo);
+    if( !this.encuesta){
+      swal({
+        title: 'Hasta 10% de descuento',
+        text: "Contesta las siguientes preguntas y recibe hasta el 10% de descuento.",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No gracias'
+      }).then((result) => {
+        if (result.value === true) {
+  this.router.navigate([`/encuesta-satisfaccion/${this.comercial.id}`])   
+        }
+      })
+    }
+   
 
   }
 
+
+  datosComercial() {
+    this.comercial = JSON.parse(localStorage.getItem('comercial'));
+    console.log(this.comercial);
+  }
 
 
   imagenComercial(comercial: string) {
@@ -112,6 +113,12 @@ this.router.navigate([`/encuesta-satisfaccion/${this.lead.id}`])
 
       return;
     }
+    if (comercial === "ltorres@econtainers.co") {
+      this.ultimo = "assets/css/backend/images/users/laura.png";
+      this.comercial_nombre = "Diego Arango"
+
+      return;
+    }
     if (comercial === "lvargas@econtainerscolombia.com") {
       this.ultimo = "assets/css/backend/images/users/luisa.png";
       this.comercial_nombre = "Luisa Vargas"
@@ -133,75 +140,7 @@ this.router.navigate([`/encuesta-satisfaccion/${this.lead.id}`])
 
     return comercial;
   }
-  numeroComercial(comercial: string) {
-    if (comercial === "fcastrodelrio@econtainerscolombia.com") {
-     
-      return "3224243121" ;
-    }
-    if (comercial === "pvalencia@econtainerscolombia.com") {
-      
-
-      return "3108331305" ;
-
-    }
-    if (comercial === "fvargas@econtainerscolombia.com") {
-      
-
-            return "3103617492" ;
-
-    }
-    if (comercial === "lmahecha@econtainerscolombia.com") {
-      
-
-      return "3203997868" ;
-
-    }
-    if (comercial === "avila@econtainerscolombia.com") {
-      
-
-      return "3164650177" ;
-
-    }
-    if (comercial === "cortega@econtainerscolombia.com") {
-      
-
-            return "3103617492" ;
-
-    }
-    if (comercial === "cfiallo@econtainerscolombia.com") {
-      
-
-      return "3138847558" ;
-
-    }
-    if (comercial === "lvargas@econtainerscolombia.com") {
-      
-
-            return "3103617492" ;
-
-    }
-    if (comercial === "mmancipe@econtainers.com") {
-      
-
-      return "3115489213" ;
-
-    }
-    if (comercial === "moviedo@econtainers.co") {
-      
-
-      return "3118519124" ;
-
-    }
-
-    if (comercial === "ltorres@econtainers.co") {
-      
-
-      return "3132323919" ;
-
-    }
-
-    return comercial;
-  }
+ 
 
 
 }

@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { map, catchError } from "rxjs/operators";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+import { URL_SERVICIOS } from "../config/config";
 
 export interface IMessage {
   name?: string;
@@ -62,19 +63,32 @@ export class CorreoService {
 
   constructor(private http: HttpClient) {}
   // CONTACTANOS
+  // sendEmail(message: IMessage): Observable<IMessage> | any {
+  //   console.log(message);
+  //   return this.http.post(this.emailUrl, message).pipe(
+  //     map(response => {
+  //       console.log("Sending email was successfull", response);
+  //       return response;
+  //     }),
+  //     catchError(error => {
+  //       console.log("Sending email got error", error);
+  //       return Observable.throw(error);
+  //     })
+  //   );
+  // }
+
   sendEmail(message: IMessage): Observable<IMessage> | any {
-    console.log(message);
-    return this.http.post(this.emailUrl, message).pipe(
-      map(response => {
-        console.log("Sending email was successfull", response);
-        return response;
-      }),
-      catchError(error => {
-        console.log("Sending email got error", error);
-        return Observable.throw(error);
-      })
+    let json = JSON.stringify(message);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set(
+      'Content-Type',
+      'application/x-www-form-urlencoded'
     );
+    const url = URL_SERVICIOS + 'crearLead';
+    return this.http.post(url, params, { headers });
   }
+
+
   // REDES
   sendEmailRedes(message: IMessageR): Observable<IMessage> | any {
     return this.http.post(this.emailUrlRedes, message).pipe(
