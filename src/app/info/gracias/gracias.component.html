@@ -1,47 +1,5 @@
-<div class="principal animated bounceInDown">
-  <div class="container-fluid">
-    <section class="seccion-1">
-      <div class="logo ">
-          <a routerLink="/home">
-              <img src="assets/imgs/logo-nuevo-negro.png" class="img-logo" alt="logo">
-          </a>
-      </div>
-      
-      <div class="gracias">
-        <div class="gracias-1">
-          <h1>Hola soy {{comercial.comercial_nombre}} tu comercial asignado!</h1>
-          <h2>Pronto me contactare contigo para informarte sobre nuestro portafolio de productos y responder
-            dudas e inquietudes para ofrecerte una grata experiencia.</h2>
-            <div class="datos">
-              <h3 class="datos-comerciales mr-5"><i class="far fa-envelope mr-2"></i>{{comercial.comercial_correo}}</h3>
-              <h3 class="datos-comerciales"><i class="fab fa-whatsapp mr-2"></i>{{comercial.comercial_numero}}</h3>
-            </div>
 
-        </div>
-        <img class="comercial-img d-none d-lg-flex" [src]="ultimo" alt="comercial" style="max-width: 250px;">
-      </div>
-    </section>
-    <section class="seccion-2">
-      <div class="row">
-        <div class="col-md-6 proyectos-seccion">
-          <div class="vimeo" style="width: 100%; margin-top: 0px;">
-              <p style=" margin-top: 30px; margin-bottom: 0">
-                <b>
-                  Proyectos
-                </b>
-              </p>
-            <iframe style="width: 500px; " src="https://player.vimeo.com/video/234784754?byline=0&portrait=0" width="640" height="360"
-              frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="list-group">
-            <p>
-              <b>
-                Nuestro Blog
-              </b>
-            </p>
-            <a [href]="post.URL" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let post of posts">
+            <!-- <a [href]="post.URL" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let post of posts">
               <div class="d-flex w-100 justify-content-between">
                 <img *ngIf="!loading" [src]="post.featured_image" class="imagen" alt="">
                 <div class="title-section">
@@ -50,16 +8,52 @@
                 </div>
                 <small class="text-muted">{{post.date | date}}</small>
               </div>
-            </a>
+            </a> -->
+         
+<div class="hero">
 
-          </div>
-          
-        </div>
-
-      </div>
-
-    </section>
-
+<div class="modal-principal hide" id="modal" >
+  <div class="modal-encuesta wow bounceIn" data-wow-duration="3s">
+    <div class="botonera">
+      <button (click)="abrirModal()">¡SI! 😄</button>
+      <button (click)="cerrarModal()">No, gracias 😢</button>
+    </div>
+  </div>
   </div>
   
+    <header>
+        <img class="logo" src="/assets/imgs/gracias/logo.png" alt="">
+        <ul class="links d-none d-md-flex d-lg-flex">
+          <!-- <li routerLink="/arquitectonicos" class="pointer"> Arquitectónicos</li> -->
+          <li routerLink="/refrigerados" class="pointer">Refrigerados</li>
+          <li routerLink="/landing" class="pointer">Productos Estándar</li>
+        </ul>
+        <ul class="lista-redes d-none d-md-flex d-lg-flex"> 
+          <li><a href="https://es-la.facebook.com/EContainers/"><img src="/assets/imgs/gracias/Icono-FB-landing.png" alt=""></a> </li>
+          <li><a href="https://www.instagram.com/econtainers/"><img src="/assets/imgs/gracias/Icono-IG-landing.png" alt=""></a> </li>
+          <li><a href="https://co.linkedin.com/company/e-containers"><img src="/assets/imgs/gracias/Icono-linkedin-landing.png" alt=""></a></li>
+          <li><a href="https://twitter.com/econtainerscol?lang=es"><img src="/assets/imgs/gracias/Icono-twitter-landing.png" alt=""></a></li>
+        </ul>              
+      </header>
+  <div class="row ">
+    <div class="col-md-7 hero-text text-center wow fadeInLeft">
+      <h2>¡HOLA!</h2>
+      <div class="noombre text-center ">
+        <p style="margin-bottom: 0;">Soy <span>{{comercial.comercial_nombre}}</span></p>
+        <p>tu comercial asignado</p>
+      </div>
+
+      <p class="hero-message">Pronto me contactaré contigo para informarte sobre nuestro portafolio de productos y responder dudas e inquietudes para ofrecerte una grata experiencia.</p>
+      <div class="redes">
+        <ul>
+          <li><img src="/assets/imgs/gracias/Icono-mail.png" alt=""> {{comercial.comercial_correo}}</li>
+          <li><img src="/assets/imgs/gracias/Icono-whatsapp.png" alt=""> +(57) {{comercial.comercial_numero}} </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-5 seccion-comercial wow fadeIn " data-wow-duration="3s">
+      <img class="img-fluid" [src]="imagen" alt="">    
+    </div>
+  </div>
 </div>
+

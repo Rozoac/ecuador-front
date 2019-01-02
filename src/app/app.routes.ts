@@ -16,7 +16,6 @@ import { ComercialComponent } from './admin/comercial/comercial.component';
 import { ListaComponent } from './admin/lista/lista.component';
 import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
 import { GraciasComponent } from './info/gracias/gracias.component';
-import { AniversarioComponent } from './aniversario/aniversario.component';
 import { LandingComponent } from './landing/landing/landing.component';
 import { CotizacionComponent } from './landing/cotizacion.component';
 import { PayuComponent } from './landing/payu.component';
@@ -30,6 +29,7 @@ import { TailorMadeComponent } from './landing/arquitectonicos/tailor-made/tailo
 import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/encuesta-satisfaccion.component';
 import { EncuestasComponent } from './admin/encuestas/encuestas.component';
 import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
+import { GraciasGuard } from './services/guards/gracias.guard';
 
 const APP_ROUTES: Routes = [
   {
@@ -50,14 +50,13 @@ const APP_ROUTES: Routes = [
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
-          { path: 'aniversario', component: AniversarioComponent },
           { path: 'landing', component: LandingComponent },   
           { path: 'refrigerados', component: RefrigeradosComponent },
           { path: 'payu', component: PayuComponent },
           { path: 'pagos-online', component: PagosOnlineComponent },
           { path: 'payu-response', component: PayuResponseComponent },
           { path: 'cotizacion/:nombre', component: CotizacionComponent },
-          { path: 'gracias', component: GraciasComponent },
+          { path: 'gracias', component: GraciasComponent, canActivate: [GraciasGuard], },
           { path: 'login', component: LoginComponent },
           // { path: '**',  component: NotFoundComponent },
           

@@ -1,206 +1,250 @@
-.principal {
-  background: url("/../assets/imgs/info/background.jpg");
-  background-size: cover;
-}
-
-.logo {
-  padding: 0px 0 0 5%;
-  display: inline-block;
-}
-
-.gracias {
-  justify-content: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 40px;
-    background: rgba(8, 66, 129, 1);
-    color: white;
-    margin-top: 20px;
-}
-
-.img-logo {
-  width: 20%;
-}
-
-h2,
-h1 {
-  text-align: left;
-  font-family: "CenturyGothic" !important;
-}
-
-h2 {
-  font-size: 1.2em;
-}
-
-.lista {
-  display: inline-block !important;
-}
-
-.nav {
-  display: block;
-}
-
-.imagen {
-  max-width: 200px;
-    max-height: 100px;
-    margin-right: 10px;
-}
-
-.comercial-img{
-      border-radius: 50%;
-    border: 3px solid #084281;
-}
-
-.blog-section {
+.modal-principal{
+  position: fixed;
+  top: 0;
+  background: #0000007d;
+  width: 100vw;
   display: flex;
-  background: #ffffff4a;
+  height: 100vh;
+  justify-content: center;
+  z-index: 99;
   align-items: center;
-  justify-content: left;
 }
-
-.title-section {
+.modal-encuesta{
+  
+  background: url(/assets/imgs/gracias/modal.png);
+  width: 512px;
+  height: 600px;
+}
+.hero {
+  background: url(/assets/imgs/gracias/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
 }
 
-.titulo {
-  font-family: "CenturyGothic-bold" !important;
-  font-size: 0.8em;
+.hide{
+  display: none;
 }
 
-.subtitulo {
-  font-family: "CenturyGothic" !important;
-  font-size: 12px;
-}
-
-.alert-primary {
+.botonera{
+  position: relative;
   color: white;
-  background-color: #1e92df;
-  border-color: #1e92df;
-}
-
-.list-group {
-  margin-top: 40px;
-}
-
-.list-group-item {
-  background-color: #ffffff4a;
-}
-.redes li a {
-    color: white;
-}
-
-.datos{
+  font-size: 1.5em;
+  
+  left: 23%;
+  right: 0;
+  top: 88%;
 
 }
 
-.datos-comerciales{
+.modal-principal button{
+  color: black;
+  font-size: 1.2em;
+  top: 78%;
+  background: white;
+  font-family: 'brandon-black'!important;
+  margin-right: 10px;
+}
+
+
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header ul{
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+header ul li {
+  margin-right: 15px;
+  color: #fff;
+  font-family: 'brandon-regular';
+
+}
+.logo{
+  width: 300px;
+}
+
+.seccion-comercial{
+  text-align: left;
+}
+
+.hero .row{
+  width: 100%;
+}
+
+h2{
+  font-family: 'brandon-black'!important;
+  color: white;
+  font-size: 8em;
+}
+.hero-text p {
+  font-family: 'brandon-regular';
+  font-size: 2.5em;
+  color: white;
   display: inline-block;
-  font-size: 1.3em;
+  margin-left: 25%;
+}
+.hero-text p span {
+  font-family: 'brandon-medium';
+  background: #171832;
+  color: white;
+  padding: 1px;
+}
+
+.hero-message{
+  font-size: 1.2em!important;
+  text-align: left;
+}
+
+.redes{
+  margin-left: 25%;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.redes ul li{
+  font-size: 1.5em;
+  list-style: none;
+  font-family: 'brandon-regular';
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.img-fluid{
+  width: calc(100% - 100px);
 }
 
 
-@media screen and (max-width: 375px) {
 
-.gracias-1{
-  font-size: .6em;
-}
-.proyectos-seccion{
-  height: 220px;
-}
 
-iframe{
-      width: 100%!important;
-    position: relative;
-    bottom: 80px;
-}
-
-.vimeo{
-      width: 100%;
-    position: relative;
-    margin-top: 0px;
-}
-
-.img-logo{
-  width: 50%;
-}
-
-}
 
 	@media screen and (max-width: 380px){
-      .principal{
-      height: 100%;
-    }
-    .img-logo {
-      width: 50%;
+    .hero .row {
+      width: initial;
   }
-.gracias-1{
-  font-size: .6em;
-}
-.proyectos-seccion{
-  height: 220px;
-}
 
-iframe{
-      width: 100%!important;
-    position: relative;
-    bottom: 80px;
+  .logo {
+    width: 200px;
+  }
+  .text-center {
+    text-align: center !important;
 }
+  h2 {
+    font-family: 'brandon-black'!important;
+    color: white;
+    font-size: 5em;
+  }
+  .hero-text p {
+    font-family: 'brandon-regular';
+    font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    margin-left: 0;
+    text-align: center;
+  }
 
-.vimeo{
-      width: 100%;
-    position: relative;
-    margin-top: 0px;
+  .redes ul li {
+    font-size: 1em;
+   }
+
+  .redes {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .seccion-comercial{
+    text-align: center;
+  }
+
+.modal-encuesta{
+  background: url(/assets/imgs/gracias/modal.png);
+  width: 345px;
+  height: 556px;
+  background-size: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-	}
-
+}
 
 	@media screen and (max-width: 480px){
-      .principal{
-      height: 100%;
-    }
-    .gracias-1{
-  font-size: .6em;
+    .hero .row {
+      width: initial;
+  }
+
+  .redes ul{
+    padding: 0;
+  }
+
+  .redes ul li {
+    font-size: 1em;
+   }
+
+  .logo {
+    width: 200px;
+  }
+  .text-center {
+    text-align: center !important;
 }
-.img-logo {
-  width: 50%;
-}
-.proyectos-seccion{
-  height: 220px;
+  h2 {
+    font-family: 'brandon-black'!important;
+    color: white;
+    font-size: 5em;
+  }
+  .hero-text p {
+    font-family: 'brandon-regular';
+    font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .redes {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .redes ul li {
+    display: inline-block;
+  }
+  .hero-message {
+    font-size: 1em!important;
+ }
+  .seccion-comercial{
+    text-align: center;
+  }
+
+  .botonera {
+    position: relative;
+    color: white;
+    font-size: 1.5em;
+    left: 7%;  /* right: 25px; */
+    top: 64%;
 }
 
-iframe{
-      width: 100%!important;
-    position: relative;
-    bottom: 80px;
-}
-
-.vimeo{
-      width: 100%;
-    position: relative;
-    margin-top: 0px;
-}
+  
 	}
 
 
 	@media screen and (max-width: 768px){
 
-    .principal{
-      height: 100%;
-    }
-
-    iframe{
-      width: 100%!important;
-    position: relative;
-    bottom: 80px;
-}
-
-.vimeo{
-      width: 100%;
-    position: relative;
-    margin-top: 0px;
-}
+   
 	}
 
 
@@ -209,20 +253,13 @@ iframe{
 
 
 	@media screen and (min-width: 1900px) and (max-width: 4000px){
-.principal{
-  height: 100vh;
-}
+    .hero-text p {
+      font-size: 3.5em;
+    }
+    .hero-message {
+      font-size: 2.2em!important;
+  }
 
-    iframe{
-      width: 100%!important;
-    bottom: 80px;
-}
+  
+  }
 
-.vimeo p {
-      text-align: center;
-    margin-left: -280px;
-    margin-top: 30px;
-    width: 100%;
-    margin-bottom: 0;
-}
-	}

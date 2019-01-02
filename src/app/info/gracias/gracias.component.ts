@@ -3,7 +3,8 @@ import { LeadService } from "../../service/lead/lead.service";
 import { LandingService } from '../../services/landing.service';
 import swal from "sweetalert2";
 import { Router, RouterLink } from '@angular/router';
-
+declare var jQuery: any;
+declare var $: any;
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ["./gracias.component.css"]
 })
 export class GraciasComponent implements OnInit {
-  public ultimo: string;
+  public imagen: string;
   public lead;
   public comercial;
   public nombre: string;
@@ -20,47 +21,42 @@ export class GraciasComponent implements OnInit {
   public posts:any;
   public loadImage: boolean = true
   public encuesta;
-
+  
   public fabiano: string;
   public correo: string;
-
+  
   constructor(public _lead: LeadService, public _landingService: LandingService, public router: Router) {
-
-
+    
+    
     _landingService.getPostBlog().subscribe( (res:any) =>{
       this.posts = res.posts;
       this.loadImage = false
       console.log(res.posts.date);
     });
-
-
+    
+ 
+    
+    
   }
 
   abrirModal(){
     this.router.navigate([`/encuesta-satisfaccion/${this.comercial.id}`])
+  }
+  cerrarModal(){
+    document.getElementById('modal').setAttribute('class', 'hide');     
   }
 
   ngOnInit() {
     this.encuesta = localStorage.getItem('encuesta');
     this.datosComercial();
     this.imagenComercial(this.comercial.comercial_correo);
-    if( !this.encuesta){
-      swal({
-        title: 'Hasta 10% de descuento',
-        text: "Contesta las siguientes preguntas y recibe hasta el 10% de descuento.",
-        type: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si',
-        cancelButtonText: 'No gracias'
-      }).then((result) => {
-        if (result.value === true) {
-  this.router.navigate([`/encuesta-satisfaccion/${this.comercial.id}`])   
-        }
-      })
-    }
-   
+    if(!this.encuesta){
+      setTimeout(function(){
+        console.log('entro');
+        $('#modal').removeClass('hide');
+      },2000);
+
+    };
 
   }
 
@@ -73,69 +69,47 @@ export class GraciasComponent implements OnInit {
 
   imagenComercial(comercial: string) {
     if (comercial === "fcastrodelrio@econtainerscolombia.com") {
-      this.ultimo = "assets/css/backend/images/users/ivan.png";
-      this.comercial_nombre = "Ivan Castro"
-      return ;
+      this.imagen = "assets/imgs/gracias/ivan.png";
     }
     if (comercial === "pvalencia@econtainerscolombia.com") {
-      this.ultimo = "assets/css/backend/images/users/paula.png";
-      this.comercial_nombre = "Paula Valencia"
+      this.imagen = "assets/imgs/gracias/paula.png";
 
-      return;
     }
     if (comercial === "fvargas@econtainerscolombia.com") {
-      this.ultimo = "assets/css/backend/images/users/frank.png";
-      this.comercial_nombre = "Frank Vargas"
+      this.imagen = "assets/imgs/gracias/frank.png";
 
-      return;
     }
     if (comercial === "lmahecha@econtainerscolombia.com") {
-      this.ultimo = "assets/css/backend/images/users/leonardo.png";
-      this.comercial_nombre = "Leonardo Mahecha"
+      this.imagen = "assets/imgs/gracias/leo.png";
 
-      return;
     }
     if (comercial === "avila@econtainerscolombia.com") {
-      this.ultimo = "assets/css/backend/images/users/vila.png";
-      this.comercial_nombre = "Alejandra Vila"
+      this.imagen = "assets/imgs/gracias/vila.png";
 
-      return;
     }
     if (comercial === "moviedo@econtainers.co") {
-      this.ultimo = "assets/css/backend/images/users/maxi.png";
-      this.comercial_nombre = "Maximiliano Oviedo"
+      this.imagen = "assets/imgs/gracias/maxi.png";
 
-      return;
     }
     if (comercial === "darango@econtainers.co") {
-      this.ultimo = "assets/css/backend/images/users/diego.png";
-      this.comercial_nombre = "Diego Arango"
+      this.imagen = "assets/imgs/gracias/diego.png";
 
-      return;
     }
     if (comercial === "ltorres@econtainers.co") {
-      this.ultimo = "assets/css/backend/images/users/laura.png";
-      this.comercial_nombre = "Diego Arango"
+      this.imagen = "assets/imgs/gracias/laura.png";
 
-      return;
     }
     if (comercial === "lvargas@econtainerscolombia.com") {
-      this.ultimo = "assets/css/backend/images/users/luisa.png";
-      this.comercial_nombre = "Luisa Vargas"
+      this.imagen = "assets/imgs/gracias/luisa.png";
 
-      return;
     }
     if (comercial === "mmancipe@econtainers.co") {
-      this.ultimo = "assets/css/backend/images/users/mancipe.png";
-      this.comercial_nombre = "Maria Fernanda Mancipe"
+      this.imagen = "assets/imgs/gracias/mancipe.png";
 
-      return;
     }
     if (comercial === "ppatino@econtainers.co") {
-      this.ultimo = "assets/css/backend/images/users/ppatino.png";
-      this.comercial_nombre = "Paula Patiño"
+      this.imagen = "assets/imgs/gracias/ppatino.png";
 
-      return;
     }
 
     return comercial;

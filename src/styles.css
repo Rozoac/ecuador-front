@@ -3,8 +3,6 @@
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
 
-
-
 @font-face {
     font-family: 'calibri-bold';
     src: url('assets/fonts/calibri/CALIBRIB.ttf');
@@ -32,6 +30,18 @@
 @font-face {
     font-family: 'brandon';
     src: url('assets/fonts/brandon/brandon-italic.otf');
+}
+@font-face {
+    font-family: 'brandon-regular';
+    src: url('assets/fonts/brandon/brandon-regular.woff');
+}
+@font-face {
+    font-family: 'brandon-medium';
+    src: url('assets/fonts/brandon/brandon-medium.woff');
+}
+@font-face {
+    font-family: 'brandon-black';
+    src: url('assets/fonts/brandon/brandon-black.woff');
 }
 @font-face {
     font-family: 'CenturyGothic';

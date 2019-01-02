@@ -2,6 +2,9 @@
 
 $color-main: #59bcf4;
 $black: #202020;
+
+
+
 body {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -172,3 +175,13 @@ label{
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .text {
+    font-size: .88em !important;
+   }
+
+   .imagen-contenedor img{
+    width: 100%;
+   }
+ }

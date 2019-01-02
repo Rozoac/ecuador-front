@@ -105,7 +105,6 @@ import { CiudadPipe } from './pipes/ciudad.pipe';
 import { HoraPipe } from './pipes/hora.pipe';
 import { ComercialPipe } from './pipes/comercial.pipe';
 import { GraciasComponent } from './info/gracias/gracias.component';
-import { AniversarioComponent } from './aniversario/aniversario.component';
 import { LandingComponent } from './landing/landing/landing.component';
 import { CotizacionComponent } from './landing/cotizacion.component';
 import { RmEtiquetasPipe } from './pipes/rm-etiquetas.pipe';
@@ -174,7 +173,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     InfoComponent,
     DashboardRedesComponent,
     GraciasComponent,
-    AniversarioComponent,
     LandingComponent,
     CotizacionComponent,
     RmEtiquetasPipe,

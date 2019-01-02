@@ -357,6 +357,7 @@ export class CotizacionComponent implements OnInit {
   //   this.halloweenActivo = true;
   //   this.active = false;
   // }
+  
   activarModal() {
     this.active = true;
   }

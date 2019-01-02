@@ -23,7 +23,7 @@
             <span class="texto-2 animated fadeIn">
               {{contenedor?.descripcion}}
             </span>
-            <div class="mt-4" *ngIf="contenedor.tipo == 'Contenedores Maritimos'">
+            <div class="mt-4" *ngIf="contenedor?.tipo == 'Contenedores Maritimos'">
               <button (click)="pagosOnline()" class="btn">Pagar con <img src="assets/imgs/images/payu.png" class="imagen-s" alt="" ></button>
               <span style="display: block; font-family: 'CenturyGothic' !important; color: white; ">Obten tu contenedor a tan solo un click</span>
              
@@ -35,7 +35,7 @@
           <img [src]="imagenContenedor(contenedor.tipo)" class="contenedor animated fadeIn" *ngIf="!carga" alt="contenedor">
           <mat-spinner *ngIf="carga"></mat-spinner>
          
-        </div>x
+        </div>
        
        
       </div>

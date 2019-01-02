@@ -30,13 +30,10 @@
                                   </p>
                           </ng-template>
                         </ngb-tab>
-                      
                       </ngb-tabset>
             </div>
-    
         </div>
     </div>
-
     <div class="cuadro">
        <div class="container-fluid">
            <div class="row propiedades">
@@ -45,11 +42,11 @@
                    <button (click)="cambiarTamanio(20)" class="button-size btn btn-outline-primary mr-2 ">20 Pies</button>
                    <button (click)="cambiarTamanio(40)" class="button-size btn btn-outline-primary " >40 Pies</button>
                </div>
-               <div class="col-md-3">
+                 <div class="col-md-3">
                     <label for="" class="subtitulo">Tipo de Pago</label>
                     <div class="form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1"><img src="assets/imgs/images/payu.png" class="imagen-s" alt="" ></label>
-                          </div>
+                    <label class="form-check-label" for="inlineRadio1"><img src="assets/imgs/images/payu.png" class="imagen-s" alt="" ></label>
+                </div>
                </div>
                <div class="col-md-3">
                     <label for="" class="subtitulo">Precio</label>
@@ -57,11 +54,9 @@
                </div>
                <div class="col-md-3" style="    display: flex;
                justify-content: center;
-               align-items: center;
-           }">
+               align-items: center;">
 
-
-<form #form method="post" [action]="prueba">
+      <form #form method="post" [action]="prueba">
         <input name="merchantId" type="hidden" [(ngModel)]="payuMessage.merchantId">
         <input name="referenceCode" type="hidden" [(ngModel)]="payuMessage.referenceCode">
         <input name="description" type="hidden" [(ngModel)]="payuMessage.description">
@@ -82,10 +77,22 @@
         <input name="confirmationUrl" type="hidden" value="http://localhost:4200/payu-response">
         <input  class="btn btn-comprar" (click)="enviarPago(form)" name="Submit"
           type="submit" value="Comprar">
-        
       </form>
-                
                </div>
+           </div>
+       </div>
+    </div>
+    <div class="cuadro2">
+       <div class="container-fluid">
+           <div class="row propiedades">
+              
+               <div class="col-md-6 pointer">
+                   Terminos y condiciones.
+               </div>
+               <div class="col-md-6 pointer">
+                    Politica de devoluciones y reembolsos.
+               </div>
+              
            </div>
        </div>
     </div>

@@ -33,7 +33,7 @@ p{
     height: 500px;
      max-height: 585px;
      background-size: cover !important;
-     background-position: 50% 60% !important;
+     background-position: 50% 46% !important;
      background-repeat: no-repeat !important; 
 }
 
@@ -253,6 +253,8 @@ li:last-child{
   
 
 @media screen and (max-width: 576px) {
+
+
     .iz {
         padding-left: 0;
         padding-right: 0;

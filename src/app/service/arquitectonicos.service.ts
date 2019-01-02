@@ -144,7 +144,7 @@ export class ArquitectonicosService {
       ],
       imgs : {
         plano: 'asd',
-        img_1: 'assets/imgs/arquitectonicos/card-4.jpg',
+        img_1: 'assets/imgs/arquitectonicos/card-4.png',
         img_2: 'assets/imgs/arquitectonicos/piscina-contenedor.png',
         img_3: 'asd'
       },
