@@ -30,6 +30,8 @@ import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/enc
 import { EncuestasComponent } from './admin/encuestas/encuestas.component';
 import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
 import { GraciasGuard } from './services/guards/gracias.guard';
+import { TerminosYCondicionesComponent } from './landing/pagos/terminos-y-condiciones/terminos-y-condiciones.component';
+import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y-reembolsos/devoluciones-y-reembolsos.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -54,6 +56,8 @@ const APP_ROUTES: Routes = [
           { path: 'refrigerados', component: RefrigeradosComponent },
           { path: 'payu', component: PayuComponent },
           { path: 'pagos-online', component: PagosOnlineComponent },
+          { path: 'pagos-online/terminos-y-condiciones', component: TerminosYCondicionesComponent },
+          { path: 'pagos-online/devolucion-y-reembolsos', component: DevolucionesYReembolsosComponent },
           { path: 'payu-response', component: PayuResponseComponent },
           { path: 'cotizacion/:nombre', component: CotizacionComponent },
           { path: 'gracias', component: GraciasComponent, canActivate: [GraciasGuard], },

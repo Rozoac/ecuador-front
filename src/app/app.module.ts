@@ -119,6 +119,8 @@ import { TailorMadeComponent } from './landing/arquitectonicos/tailor-made/tailo
 import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/encuesta-satisfaccion.component';
 import { EncuestasComponent } from './admin/encuestas/encuestas.component';
 import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
+import { TerminosYCondicionesComponent } from './landing/pagos/terminos-y-condiciones/terminos-y-condiciones.component';
+import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y-reembolsos/devoluciones-y-reembolsos.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -187,6 +189,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     EncuestaSatisfaccionComponent,
     EncuestasComponent,
     RespuestaComponent,
+    TerminosYCondicionesComponent,
+    DevolucionesYReembolsosComponent,
   ],
   imports: [
     BrowserAnimationsModule,
