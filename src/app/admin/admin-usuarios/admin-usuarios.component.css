@@ -1,0 +1,13 @@
+.boton-agregar{
+    position: absolute;
+    top: 85%;
+    left: 92%;
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: #518bef;
+    color: #fff;
+}

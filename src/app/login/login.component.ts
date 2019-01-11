@@ -5,7 +5,6 @@ import { UsuarioService } from "../service/usuario/usuario.service";
 import { Usuario } from "../models/usuario.model";
 import swal from "sweetalert2";
 
-declare function init_plugins();
 
 @Component({
   selector: "app-login",
@@ -16,7 +15,7 @@ export class LoginComponent implements OnInit {
   recuerdame: boolean = null;
   token;
   identity;
-  email: string;
+  correo: string;
   editor: any;
   constructor(public router: Router, public _usuarioService: UsuarioService) {}
 
@@ -24,16 +23,14 @@ export class LoginComponent implements OnInit {
 
   ingresar(forma: NgForm) {
     let usuario = new Usuario(
-      null,
-      null,
-      forma.value.email,
-      forma.value.password
+      forma.value.correo,
+      forma.value.clave
     );
     this._usuarioService.login(usuario, null, forma.value.recuerdame).subscribe(
       (resp: any) => {
         // Token
-        if (resp.status !== 'error') {
-          this.token = resp;
+        if (resp.ok !== 'false') {
+          this.token = resp.token;
           localStorage.setItem( 'token', this.token);
           // Objeto usuario identificado
           this._usuarioService
@@ -44,28 +41,30 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('identity', JSON.stringify(this.identity));
                 // redireccion
                 const identity2 = JSON.parse(localStorage.getItem('identity'));
-                console.log(identity2);
-                if (identity2.email === 'admin@econtainerscolombia.com') {
-                   this.router.navigate(['admin/dashboard']);
-                 } else {
-                   this.router.navigate(['admin/redes-sociales']);
-                 }
+                // console.log(identity2);
+                swal({
+                  type: 'success',
+                  title: `Bienvenido ${identity2.usuario.nombre} ${identity2.usuario.apellido} `,
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+              this.router.navigate(['admin/dashboard']);
+              
               },
               error => {
                 console.log(<any>error);
               }
             );
-        } else {
-          swal({
-            type: 'error',
-            title: 'Datos de usuario incorrectos',
-            showConfirmButton: false,
-            timer: 3000
-          });
         }
       },
       error => {
-        console.log(<any>error);
+        let mensaje = error.error.mensaje;
+        swal({
+          type: 'error',
+          title: mensaje,
+          showConfirmButton: false,
+          timer: 3000
+        });
       }
     );
     // this.router.navigate(['/admin/dashboard']);
@@ -73,8 +72,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // init_plugins();
-    this.email = localStorage.getItem('email') || '';
-    if (this.email.length > 1) {
+    this.correo = localStorage.getItem('correo') || '';
+    if (this.correo.length > 1) {
       this.recuerdame = true;
     }
     let user = this._usuarioService.getIdentity();

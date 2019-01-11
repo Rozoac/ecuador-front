@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   ) {
     let datos = _usuarioService.getIdentity();
     this.datos = datos;
+    console.log(this.datos);
   }
   public showSearch = false;
 

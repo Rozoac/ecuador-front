@@ -55,6 +55,10 @@ import { LeadService } from './service/lead/lead.service';
 import { ContadorService } from './service/contador.service';
 import { GraficaService } from './service/grafica.service';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { RolService } from './service/rol.service';
+import { SegmentoService } from './service/segmento.service';
+import { PaisService } from './service/pais.service';
+
 
 
 // Angular Material
@@ -62,16 +66,19 @@ import {
   MatAutocompleteModule,
   MatCheckboxModule,
   MatFormFieldModule,
+  MatIconModule,
   MatInputModule,
   MatSelectModule,
   MatStepperModule,
+  MatDialogModule,
   MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
   MatButtonToggleModule,
   MatTableModule,
-  MatRadioModule
+  MatRadioModule,
 } from "@angular/material";
+import {DragDropModule} from '@angular/cdk/drag-drop'
 
 
 
@@ -121,6 +128,9 @@ import { EncuestasComponent } from './admin/encuestas/encuestas.component';
 import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
 import { TerminosYCondicionesComponent } from './landing/pagos/terminos-y-condiciones/terminos-y-condiciones.component';
 import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y-reembolsos/devoluciones-y-reembolsos.component';
+import { CrearUsuarioComponent } from './admin/crear-usuario/crear-usuario.component';
+import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
+import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -191,6 +201,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RespuestaComponent,
     TerminosYCondicionesComponent,
     DevolucionesYReembolsosComponent,
+    CrearUsuarioComponent,
+    AdminUsuariosComponent,
+    UsuarioComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -203,8 +216,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatInputModule,
     MatCardModule,
     MatRadioModule,
+    MatIconModule,
+    DragDropModule,
     MatFormFieldModule,
     MatTableModule,
+    MatDialogModule,
     MatProgressSpinnerModule,
     NgxImageZoomModule.forRoot(),
     BrowserModule,
@@ -226,6 +242,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ChartsModule,
     MyDatePickerModule
   ],
+  entryComponents: [CrearUsuarioComponent],
   providers: [
     {
       provide: LOCALE_ID,
@@ -242,6 +259,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     // SweetAlertService,
     SidebarService,
     UsuarioService,
+    RolService,
+    SegmentoService,
+    PaisService,
     LoginGuardGuard,
     LeadService,
     ContadorService,

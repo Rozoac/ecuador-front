@@ -9,7 +9,6 @@ import {PqrsComponent} from './pages/pqrs/pqrs.component';
 import {LoginComponent} from './login/login.component';
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {GraficasComponent} from './admin/graficas/graficas.component';
-import {AdminComponent} from './admin/admin.component';
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
 import { LeadComponent } from './admin/lead/lead.component';
 import { ComercialComponent } from './admin/comercial/comercial.component';
@@ -32,6 +31,9 @@ import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.compon
 import { GraciasGuard } from './services/guards/gracias.guard';
 import { TerminosYCondicionesComponent } from './landing/pagos/terminos-y-condiciones/terminos-y-condiciones.component';
 import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y-reembolsos/devoluciones-y-reembolsos.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
+import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -71,6 +73,8 @@ const APP_ROUTES: Routes = [
           canActivate: [LoginGuardGuard],
           children: [
             { path: 'comerciales', component: GraficasComponent, data: { titulo: 'Leads'} },
+            { path: 'usuarios', component: AdminUsuariosComponent, data: { titulo: 'Usuarios'} },
+            { path: 'usuarios/usuario/:id', component: UsuarioComponent, data: { titulo: 'Usuario'} },
             { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard'} },
             { path: 'redes-sociales', component: DashboardRedesComponent, data: { titulo: 'Redes-Sociales'} },
             { path: 'encuestas', component: EncuestasComponent, data: { titulo: 'Encuestas'} },

@@ -6,6 +6,7 @@ import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { URL_LANDING_DEV } from '../../../../../colombia/src/app/config/config';
 
 @Injectable()
 export class UsuarioService {
@@ -16,6 +17,17 @@ export class UsuarioService {
     this.carcarStorage();
 
   }
+
+  createUsuario(usuario:Usuario){
+    console.log(this.token);
+    let url = `${URL_LANDING_DEV}usuario?token=${this.token}`
+    return this.http.post(url, usuario)
+  }
+
+  getUsuarios() {
+    let url = URL_LANDING_DEV
+    return this.http.get(`${url}usuario`);
+    }
 
   estaLogueado() {
     return this.token !== null ? true : false;
@@ -44,22 +56,17 @@ export class UsuarioService {
 
   login(usuario: Usuario, gettoken = null, recordar: boolean = false) {
     if (recordar) {
-      localStorage.setItem('email', usuario.email);
+      localStorage.setItem('correo', usuario.correo);
     } else {
-      localStorage.removeItem('email');
+      localStorage.removeItem('correo');
     }
     if (gettoken != null) {
       usuario.gettoken = 'true';
     }
-    let json = JSON.stringify(usuario);
-    let params = 'json=' + json;
-    let headers = new HttpHeaders().set(
-      'Content-Type',
-      'application/x-www-form-urlencoded'
-    );
-    const url = URL_SERVICIOS + 'login';
+  
+    const url = URL_LANDING_DEV + 'login';
 
-    return this.http.post(url, params, { headers: headers });
+    return this.http.post(url, usuario);
   }
 
   getIdentity() {
