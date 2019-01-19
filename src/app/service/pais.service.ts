@@ -13,7 +13,7 @@ export class PaisService {
   }
 
   getPais(){
-    let url = `${URL_LANDING_DEV}/pais`
+    let url = `${URL_LANDING_DEV}pais`
     return this.http.get(url);
   }
   

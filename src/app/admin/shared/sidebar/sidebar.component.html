@@ -6,7 +6,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                     <li class="user-profile" >
-                            <a class="has-arrow waves-effect waves-dark" (click)="addExpandClass('user')"  aria-expanded="false"><img src="assets/images/users/profile.png" alt="user" /><span class="hide-menu nombre-principal">{{usuario.usuario.nombre}} {{usuario.usuario.apellido}}</span></a>
+                            <a class="has-arrow waves-effect waves-dark" (click)="addExpandClass('user')"  aria-expanded="false"><img [src]="fotoPrincipal()" alt="user" /><span class="hide-menu nombre-principal">{{usuario.usuario.nombre}} {{usuario.usuario.apellido}}</span></a>
                             <ul aria-expanded="false" class="collapse" [class.in]="showMenu === 'user'">
                               <li><a href="javascript:void()">Mi Perfil </a></li>
                               <li><a href="javascript:void()">Bandeja de Entrada</a></li>

@@ -14,7 +14,7 @@ export class RolService {
   }
 
   getRoles(){
-    let url = `${URL_LANDING_DEV}/rol`
+    let url = `${URL_LANDING_DEV}rol`
     return this.http.get(url);
   }
   

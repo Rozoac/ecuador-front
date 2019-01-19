@@ -110,6 +110,8 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { NombrePipe } from './pipes/nombre.pipe';
 import { CiudadPipe } from './pipes/ciudad.pipe';
 import { HoraPipe } from './pipes/hora.pipe';
+import { ImagenPipe } from './pipes/imagen.pipe';
+
 import { ComercialPipe } from './pipes/comercial.pipe';
 import { GraciasComponent } from './info/gracias/gracias.component';
 import { LandingComponent } from './landing/landing/landing.component';
@@ -146,6 +148,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
+    ImagenPipe,
     // TypingAnimationDirective,
     HomepageComponent,
     FooterComponent,
@@ -204,6 +207,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CrearUsuarioComponent,
     AdminUsuariosComponent,
     UsuarioComponent,
+    ImagenPipe,
   ],
   imports: [
     BrowserAnimationsModule,

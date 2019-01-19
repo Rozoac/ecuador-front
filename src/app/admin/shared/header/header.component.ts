@@ -24,17 +24,10 @@ export class HeaderComponent implements OnInit {
   public showSearch = false;
 
   fotoPrincipal() {
-    const role = JSON.parse(localStorage.getItem("identity"));
-    let foto;
-    if (role.email === "admin@econtainerscolombia.com") {
-      foto = "assets/css/backend/images/users/vila.png";
-    }
-    if (role.email === "aberdugo@econtainerscolombia.com") {
-      foto = "assets/css/backend/images/users/alejandra.png";
-    }
-
+    let foto:string;
+    foto = (this.datos.usuario.imagen) ?  this.datos.usuario.imagen : 'assets/imgs/images/no-image.png';
     return foto;
-  }
+    }
 
   ngOnInit() {}
 }

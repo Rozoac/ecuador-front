@@ -25,6 +25,14 @@ export class AdminUsuariosComponent implements OnInit {
     })
   }
 
+  estadoUsuario(estado){
+    if(estado === 'INACTIVO'){
+      return 'grayscale(100%)';
+    }else{
+      return 'inherit';
+    }
+  }
+
   openDialog(nombre): void {
     const dialogRef = this.dialog.open(CrearUsuarioComponent, {
       width: '800px',

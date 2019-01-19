@@ -13,7 +13,7 @@ export class SegmentoService {
   }
 
   getSegmento(){
-    let url = `${URL_LANDING_DEV}/segmento`
+    let url = `${URL_LANDING_DEV}segmento`
     return this.http.get(url);
   }
   

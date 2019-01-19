@@ -36,5 +36,11 @@ export class SidebarComponent implements OnInit {
     }
   }
 
+  fotoPrincipal() {
+    let foto:string;
+    foto = (this.usuario.usuario.imagen) ?  this.usuario.usuario.imagen : 'assets/imgs/images/no-image.png';
+    return foto;
+    }
+
   ngOnInit() {}
 }
