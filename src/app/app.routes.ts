@@ -34,6 +34,7 @@ import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
 import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
+import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -74,6 +75,7 @@ const APP_ROUTES: Routes = [
           children: [
             { path: 'comerciales', component: GraficasComponent, data: { titulo: 'Leads'} },
             { path: 'usuarios', component: AdminUsuariosComponent, data: { titulo: 'Usuarios'} },
+            { path: 'mis-negocios', component: MisNegociosComponent, data: { titulo: 'Mis Negocios'} },
             { path: 'usuarios/usuario/:id', component: UsuarioComponent, data: { titulo: 'Usuario'} },
             { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard'} },
             { path: 'redes-sociales', component: DashboardRedesComponent, data: { titulo: 'Redes-Sociales'} },

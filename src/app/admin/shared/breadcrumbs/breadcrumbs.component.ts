@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET} from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET, ActivationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -9,21 +10,22 @@ import { Title } from '@angular/platform-browser';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  label = 'asd';
+  titulo:string;
 
   constructor(public router: Router, public title: Title) {
 
-    this.getDataRoute().subscribe( event => {
-      event = event.substr(7, 20);
-      event = this.MaysPrimera(event);
-      this.label = event;
-      this.title.setTitle(this.label + ' - E-Containers');
+    this.getDataRoute().subscribe( data => {
+      this.titulo = data.titulo;
+      this.title.setTitle(this.titulo);
+      console.log(this.titulo);
     });
   }
   getDataRoute() {
-    return this.router.events
-    .filter( evento => evento instanceof NavigationEnd)
-    .map((evento: NavigationEnd) => evento.url);
+    return this.router.events.pipe(
+      filter( evento => evento instanceof ActivationEnd),
+      filter( (evento:ActivationEnd) => evento.snapshot.firstChild === null),
+      map((evento: ActivationEnd) => evento.snapshot.data)
+    )
   }
 
    MaysPrimera(dato) {

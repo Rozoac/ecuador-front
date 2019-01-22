@@ -104,6 +104,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { QuillModule } from 'ngx-quill'
 
 
 // pipes
@@ -133,6 +134,8 @@ import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y
 import { CrearUsuarioComponent } from './admin/crear-usuario/crear-usuario.component';
 import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
 import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
+import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
+import { NegociosService } from './service/negocios.service';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -208,6 +211,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminUsuariosComponent,
     UsuarioComponent,
     ImagenPipe,
+    MisNegociosComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -224,6 +228,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DragDropModule,
     MatFormFieldModule,
     MatTableModule,
+    QuillModule,
     MatDialogModule,
     MatProgressSpinnerModule,
     NgxImageZoomModule.forRoot(),
@@ -261,6 +266,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PortafolioService,
     CorreoService,
     // SweetAlertService,
+    NegociosService,
     SidebarService,
     UsuarioService,
     RolService,
