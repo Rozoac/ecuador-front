@@ -22,6 +22,8 @@ export class MisNegociosComponent implements OnInit {
 
   ngOnInit() {
     this.getLeads();
+    this.getLeadsWS();
+    this.negociosService.sendLeadsWS();
   }
 
   // getMessages(): void {
@@ -37,6 +39,12 @@ export class MisNegociosComponent implements OnInit {
       console.log(this.messages);
       this.selectedMessage = this.messages[1];
     });
+  }
+
+  getLeadsWS(){
+    this.negociosService.getLeadsWS().subscribe( resp => {
+      console.log(resp);
+    })
   }
 
   onSelect(message): void {
@@ -70,7 +78,17 @@ export class MisNegociosComponent implements OnInit {
     if(nombre === 'Contenedores Oficinas'){
       return 'assets/css/backend/images/users/user-4.jpg';
     }
+    if(nombre === 'Contenedores Maritimos'){
+      return 'assets/css/backend/images/users/user-2.jpg';
+    }
     console.log(nombre);
+  }
+
+  public whatsapp(numero){
+    window.open(`https://api.whatsapp.com/send?phone=${numero}`, '_blank'); 
+  }
+  public gmail(correo){
+    window.open(`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${correo}&su=Contacto Comercial&tf=1`, '_blank'); 
   }
 
 }

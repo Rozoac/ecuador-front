@@ -5,6 +5,7 @@ color == 'bluedark', 'purpledark': color == 'purpledark', 'megnadark': color == 
     <!-- ============================================================== -->
     <!-- Topbar header - style you can find in pages.scss -->
     <!-- ============================================================== -->
+    <div toastEstado></div>
     <header class="topbar">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <!-- ============================================================== -->
@@ -83,6 +84,10 @@ color == 'bluedark', 'purpledark': color == 'purpledark', 'megnadark': color == 
     <!-- ============================================================== -->
     <footer class="footer">
         © 2018 E-Containers Colombia
+        <span>Conexion al servidor: <span [ngClass]="{
+            'text-success':wsService.socketStatus === true,
+            'text-danger':wsService.socketStatus === false
+          }">{{(wsService.socketStatus)? 'Online' : 'Offline'}}</span></span>
     </footer>
     <!-- ============================================================== -->
     <!-- End footer -->

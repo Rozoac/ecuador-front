@@ -5,10 +5,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from "@angular/common";
 import localeEs from "@angular/common/locales/es";
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { TypingAnimationDirective } from 'angular-typing-animation'
 registerLocaleData(localeEs);
 
 import {APP_ROUTING} from './app.routes';
+const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
 
 // componentes
 import { AppComponent } from './app.component';
@@ -136,6 +138,7 @@ import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.co
 import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
 import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
 import { NegociosService } from './service/negocios.service';
+import { environment } from '../environments/environment.prod';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -214,6 +217,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MisNegociosComponent,
   ],
   imports: [
+    SocketIoModule.forRoot(config),
     BrowserAnimationsModule,
     MatButtonModule,
     MatButtonToggleModule,

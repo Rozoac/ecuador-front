@@ -32,12 +32,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xlg-9 col-lg-8 bg-light-part b-l col-md-8">
+                <div class="col-xlg-9 col-lg-8 bg-light-part b-l col-md-8 wow fadeIn">
                     <div class="w-100">
                         <div class="card-body">
                             <div class="btn-group m-b-10 m-r-10" role="group" aria-label="Button group with nested dropdown">
-                                <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-inbox-arrow-down"></i></button>
-                                <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-delete"></i></button>
+                                <button (click)="whatsapp(selectedMessage.id_cliente.celular)" type="button" class="btn btn-secondary font-18"><img src="assets/images/icon/whatsapp.png" alt="" class="whatsapp"></button>
+                                <button (click)="gmail(selectedMessage.id_cliente.correo)" type="button" class="btn btn-secondary font-18"><img src="assets/images/icon/gmail.png" alt="" class="whatsapp"></button>
                             </div>
                             <div class="btn-group m-b-10 m-r-10">
                               <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
@@ -80,21 +80,21 @@
                       <ngb-tabset>
                       <ngb-tab title="Perfil">
                             <ng-template ngbTabContent>
-                          <div class="card-body">
-                                  <div class="row">
+                          <div class="card-body ">
+                                  <div class="row wow fadeInUp">
                                       <div class="col-md-3 col-xs-6 b-r"> <strong>Nombre</strong>
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.nombre}} {{selectedMessage.id_cliente.apellido}}</p>
                                     </div>
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>Celular</strong>
                                         <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.celular}}</p>
+                                        <p class="text-muted">{{selectedMessage.id_cliente.celular}} </p> 
                                     </div>
                                     <div class="col-md-3 col-xs-6 b-r"> <strong>Correo</strong>
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.correo}}</p>
                                     </div>
-                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>{{selectedMessage.id_cliente.tipo_cliente.tipo}}</strong>
+                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>Ciudad</strong>
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.id_ciudad.nombre}}</p>
                                     </div>
@@ -103,56 +103,32 @@
                               </div>  
                             </ng-template>
                         </ngb-tab>
-                      <ngb-tab title="Perfil">
+                      <ngb-tab title="Otros">
                             <ng-template ngbTabContent>
-                          <div class="card-body">
-                                  <div class="row">
-                                      <div class="col-md-3 col-xs-6 b-r"> <strong>Nombre</strong>
+                          <div class="card-body ">
+                                  <div class="row wow fadeInUp">
+                                      <div class="col-md-3 col-xs-6 b-r"> <strong>Segmento</strong>
                                         <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.nombre}} {{selectedMessage.id_cliente.apellido}}</p>
+                                        <p class="text-muted">{{selectedMessage.id_cliente.id_segmento.nombre}}</p>
                                     </div>
-                                    <div class="col-md-3 col-xs-6 b-r"> <strong>Celular</strong>
+                                    <div class="col-md-3 col-xs-6 b-r"> <strong>Modalidad</strong>
                                         <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.celular}}</p>
-                                    </div>
-                                    <div class="col-md-3 col-xs-6 b-r"> <strong>Correo</strong>
-                                        <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.correo}}</p>
+                                        <p class="text-muted">{{selectedMessage.id_cliente.modalidad}}</p>
                                     </div>
                                     <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>{{selectedMessage.id_cliente.tipo_cliente.tipo}}</strong>
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.tipo_cliente.nombre}}</p>
+                                    </div>
+                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>Fuente</strong>
+                                        <br>
+                                        <p class="text-muted">{{selectedMessage.id_cliente.fuente}}</p>
                                     </div>
                                 </div>
                                 <hr>
                               </div>  
                             </ng-template>
                         </ngb-tab>
-                      <ngb-tab title="Perfil">
-                            <ng-template ngbTabContent>
-                          <div class="card-body">
-                                  <div class="row">
-                                      <div class="col-md-3 col-xs-6 b-r"> <strong>Nombre</strong>
-                                        <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.nombre}} {{selectedMessage.id_cliente.apellido}}</p>
-                                    </div>
-                                    <div class="col-md-3 col-xs-6 b-r"> <strong>Celular</strong>
-                                        <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.celular}}</p>
-                                    </div>
-                                    <div class="col-md-3 col-xs-6 b-r"> <strong>Correo</strong>
-                                        <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.correo}}</p>
-                                    </div>
-                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>{{selectedMessage.id_cliente.tipo_cliente.tipo}}</strong>
-                                        <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.tipo_cliente.nombre}}</p>
-                                    </div>
-                                </div>
-                                <hr>
-                              </div>  
-                            </ng-template>
-                        </ngb-tab>
+                  
                         </ngb-tabset>
                       
                       </div>

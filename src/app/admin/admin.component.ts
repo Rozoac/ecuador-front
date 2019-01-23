@@ -1,5 +1,7 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import { Component, OnInit, HostListener, ViewChild } from "@angular/core";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
+import { WebsocketService } from '../service/websocket.service';
+import { ToastrService, ToastContainerDirective } from "ngx-toastr";
 
 
 
@@ -9,14 +11,20 @@ import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
   styleUrls: ["./admin.component.css"]
 })
 export class AdminComponent implements OnInit {
+  @ViewChild(ToastContainerDirective) toastEstado: ToastContainerDirective;
   color = "defaultdark";
 
   showSettings = false;
   showMinisidebar = false;
   public innerWidth: any;
+  public variable1: any;
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor() {}
+  constructor(public wsService: WebsocketService,  private toastr: ToastrService) {
+    this.variable1 = this.toastr.overlayContainer = this.toastEstado; 
+    
+  }
+
 
   ngOnInit() {
     this.handleLayout();
