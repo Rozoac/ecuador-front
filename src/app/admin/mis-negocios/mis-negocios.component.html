@@ -5,12 +5,13 @@
             <div class="row">
                 <div class="col-xlg-3 col-lg-4 col-md-4">
                     <div class="inbox-panel">
-                        <div class="d-flex p-20 no-block">
+                        <div class="d-flex p-20 no-block" style="    display: flex!important;
+                        justify-content: space-around;">
                             <div class="align-self-center">
-                                <h4 class="m-b-0">Inbox</h4> </div>
-                            <div class="ml-auto align-self-center">
-                                <!-- <button class="btn btn-danger btn-sm" (click)="open2(content)">Compose</button> -->
-                            </div>
+                             <i class="fa fa-circle text-danger m-r-5 font-10 mr-2"  ></i><div class="font-medium mr-2"> No leido</div> <i class="fa fa-circle text-warning m-r-5 font-10" ></i> <div class="font-medium mr-2"> Leido</div> <i class="fa fa-circle text-success m-r-5 font-10" ></i> <div class="font-medium mr-2" >Resuelto</div> <i class="fa fa-circle text-secondary m-r-5 font-10" ></i> <div class="font-medium mr-2"> Cerrado</div> </div>
+                            <!-- <div class="ml-auto align-self-center">
+                                <button class="btn btn-danger btn-sm" (click)="open2(content)">Compose</button>
+                            </div> -->
                         </div>
                         <div class="inb-right">
                                 <div class="row " *ngIf="!messages ">
@@ -31,8 +32,8 @@
                                     </div>
                                     <div class="pl-3">
                                         <div class="d-flex w-100 justify-content-between align-items-center"> 
-                                            <small class="font-medium text-{{message.id_semaforo.color}}"> 
-                                                <i class="fa fa-circle text-{{message.id_semaforo.color}} m-r-5 font-10"></i>{{message?.id_cliente?.nombre}}  {{message?.id_cliente?.apellido}}
+                                            <small class="font-medium text-{{message.id_semaforo.color}}" style="transition: color 0.5s ease;"> 
+                                                <i class="fa fa-circle  m-r-5 font-10" ></i>{{message?.id_cliente?.nombre}}  {{message?.id_cliente?.apellido}}
                                             </small> 
                                             <small class="bold text-muted time ">  {{ message.fecha_creacion | date: 'MMMM d' }} </small> 
                                         </div>

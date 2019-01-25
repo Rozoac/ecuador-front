@@ -64,8 +64,8 @@ export class MisNegociosComponent implements OnInit, OnDestroy {
         console.log(res);
         this.messages.map((dato) => {
           if(dato._id === res.lead._id){
-            dato.id_semaforo.color = res.lead._id.color;
-            dato.id_semaforo.estado = res.lead._id.estado;
+            dato.id_semaforo.color = 'warning';
+            dato.id_semaforo.estado = 'Naranja';
           }
         });
       });
