@@ -26,7 +26,7 @@ export class NegociosService {
       id:'5c38fe2eea1a921fcf8320f2'
     };
     this.wsService.emit('leads-por-comercial', payload, r => {
-      console.log(r);
+      // console.log(r);
     });
   }
 

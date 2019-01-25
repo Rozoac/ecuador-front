@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Lead } from "../../models/lead.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { URL_SERVICIOS } from "../../config/config";
+import { URL_SERVICIOS, URL_LANDING_DEV } from "../../config/config";
 import { Comercial } from "../../models/comercial.model";
 import "rxjs/Rx";
 import { Observable } from "rxjs/Rx";
@@ -153,5 +153,10 @@ export class LeadService {
     const url = URL_SERVICIOS + 'crearLead';
 
     return this.http.post(url, params, { headers });
+  }
+
+  actualizarUsuario(id) {
+    let url = `${URL_LANDING_DEV}lead/${id}`
+    return this.http.put(url, id);
   }
 }

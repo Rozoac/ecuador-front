@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Message } from './message';
 import { NegociosService } from '../../service/negocios.service';
 import { UsuarioService } from '../../service/usuario/usuario.service';
-UsuarioService
+import { Subscription } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { LeadService } from '../../service/lead/lead.service';
 
 @Component({
   selector: 'app-mis-negocios',
   templateUrl: './mis-negocios.component.html',
   styleUrls: ['./mis-negocios.component.scss']
 })
-export class MisNegociosComponent implements OnInit {
+export class MisNegociosComponent implements OnInit, OnDestroy {
   closeResult: string;
   messages;
   selectedMessage: Message;
   messageOpen = false;
   usuario
-  constructor(private negociosService: NegociosService, private modalService: NgbModal, public _usuarioService: UsuarioService) { 
+  mensajesSuscription: Subscription;
+  constructor(public _leadService: LeadService, private negociosService: NegociosService, private modalService: NgbModal, public _usuarioService: UsuarioService) { 
     this.usuario = _usuarioService.getIdentity().usuario._id;
   }
 
@@ -24,6 +27,10 @@ export class MisNegociosComponent implements OnInit {
     this.getLeads();
     this.getLeadsWS();
     this.negociosService.sendLeadsWS();
+  }
+
+  ngOnDestroy(){
+    this.mensajesSuscription.unsubscribe();
   }
 
   // getMessages(): void {
@@ -36,24 +43,40 @@ export class MisNegociosComponent implements OnInit {
   getLeads() {
     this.negociosService.getLeads(this.usuario).subscribe((res:any)=> {
       this.messages = res.leads;
+      this.messages.reverse();
       console.log(this.messages);
-      this.selectedMessage = this.messages[1];
+      // this.selectedMessage = this.messages[1];
     });
   }
 
-  getLeadsWS(){
-    this.negociosService.getLeadsWS().subscribe( resp => {
+  
+   getLeadsWS(){
+    this.mensajesSuscription = this.negociosService.getLeadsWS().subscribe( (resp:any) => {
       console.log(resp);
+      if(resp.id_usuario == this._usuarioService.getIdentity().id)
+      this.messages.unshift(resp);
     })
   }
 
-  onSelect(message): void {
+  onSelect(message, id): void {
+    if (message.id_semaforo.color !== 'warning'){
+      this._leadService.actualizarUsuario(id).subscribe((res:any)=> {
+        console.log(res);
+        this.messages.map((dato) => {
+          if(dato._id === res.lead._id){
+            dato.id_semaforo.color = res.lead._id.color;
+            dato.id_semaforo.estado = res.lead._id.estado;
+          }
+        });
+      });
+    }
     this.selectedMessage = message;
     console.log(this.selectedMessage);
   }
 
   // This is for the email compose
   open2(content) {
+    
     this.modalService.open(content).result.then(
       result => {
         this.closeResult = `Closed with: ${result}`;
@@ -80,6 +103,9 @@ export class MisNegociosComponent implements OnInit {
     }
     if(nombre === 'Contenedores Maritimos'){
       return 'assets/css/backend/images/users/user-2.jpg';
+    }
+    if(nombre === 'Contenedores Refrigerados'){
+      return 'assets/css/backend/images/users/user.jpg';
     }
     console.log(nombre);
   }

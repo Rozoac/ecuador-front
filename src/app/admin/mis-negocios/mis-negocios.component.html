@@ -13,15 +13,26 @@
                             </div>
                         </div>
                         <div class="inb-right">
-                            <div (click)="onSelect(message)" *ngFor="let message of messages; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column">
+                                <div class="row " *ngIf="!messages ">
+                                        <div class="col-sm-12 ">
+                                            <div class="alert alert-warning text-center ">
+                                                <strong>Cargando</strong>
+                                                <br>
+                                                <i class="fa fa-sync fa-spin fa-2x "></i>
+                                                <br>
+                                                <span>Espere por favor</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <div (click)="onSelect(message, message._id)" *ngFor="let message of messages; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column wow fadeIn">
                                 <div class="d-flex">
                                     <div class="">
-                                        <div *ngIf="message.type" class="avatar-status bg-{{message.type}}"> <img alt="" class="avatar-sm rounded-circle" [src]="imagenSegmento(message.id_cliente.id_segmento.nombre)" /> </div> <img *ngIf="!message.type" alt="" class="avatar-sm rounded-circle" [src]="imagenSegmento(message.id_cliente.id_segmento.nombre)" /> 
+                                        <div class="avatar-status bg-{{message.id_semaforo.color}}"> <img alt="" class="avatar-sm rounded-circle" [src]="imagenSegmento(message.id_cliente.id_segmento.nombre)" /> </div>
                                     </div>
                                     <div class="pl-3">
                                         <div class="d-flex w-100 justify-content-between align-items-center"> 
-                                            <small class="font-medium text-{{message.type}}"> 
-                                                <i class="fa fa-circle text-{{message.type}} m-r-5 font-10"></i>{{message?.id_cliente?.nombre}}  {{message?.id_cliente?.apellido}}
+                                            <small class="font-medium text-{{message.id_semaforo.color}}"> 
+                                                <i class="fa fa-circle text-{{message.id_semaforo.color}} m-r-5 font-10"></i>{{message?.id_cliente?.nombre}}  {{message?.id_cliente?.apellido}}
                                             </small> 
                                             <small class="bold text-muted time ">  {{ message.fecha_creacion | date: 'MMMM d' }} </small> 
                                         </div>
