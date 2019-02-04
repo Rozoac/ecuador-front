@@ -15,7 +15,6 @@ export class EncuestasComponent implements OnInit {
 
   constructor(public _encuestaService:EncuestaService) { 
     _encuestaService.mostrar().subscribe((res:any) => {
-      console.log(res);
      this.encuestas = res.respuestas;
      this.total = res.total;
      this.carga= false;

@@ -1,0 +1,151 @@
+   <div class="row">
+      <div class="col-md-12">
+          <div class="card wow fadeIn">
+              <div class="card-body">
+                  <div class="row p-t-10 p-b-10">
+                      <!-- Column -->
+                      <div class="col p-r-0 datos mb-3">       
+                          <!-- <h1 class="font-light">Negocio</h1> -->
+                          <div class="display-4 nombre mr-3" ><i class="mdi mdi-account-circle text-info" style="    font-size: 2rem;"></i><span style="font-size: initial;">{{negocio?.lead.id_cliente.nombre}} {{negocio?.lead.id_cliente.apellido}}</span></div>
+                          <div *ngIf="negocio?.lead.id_cliente.tipo_cliente.tipo == 'Empresa'" class="display-4 nombre" ><i class="mdi mdi-city text-info" style="    font-size: 2rem;"></i><span style="font-size: initial;">{{negocio?.lead.id_cliente.tipo_cliente.nombre}}</span></div>
+                      <!-- Column -->
+                  </div>
+                  <div class="col-md-12">
+                      <div class="linea-de-tiempo">
+                          <ul>
+                            <li class="active pointer">
+                              <div ngbPopover="Has estado aqui {{tiempo2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Lead en proceso" class="seccion-negocio">
+                                <span class="">0 días</span>
+                              </div>
+                            </li>
+                            <li (click)="estado(2)" class="pointer">
+                                <div class="seccion-negocio" >
+                                  <span class="">0 días</span>
+                                  <span class="flecha-inicial"></span>
+                                </div>
+                              </li>
+                              <li (click)="estado(3)" class="pointer">
+                                  <div class="seccion-negocio">
+                                     <span class="">0 días</span>
+                                     <span class="flecha-inicial"></span>
+                                  </div>
+                                </li>
+                                <li (click)="estado(4)" class="pointer">
+                                    <div class="seccion-negocio">
+                                      <span class="">0 días</span>
+                                      <span class="flecha-inicial"></span>
+                                    </div>
+                                  </li>
+                          </ul>
+                        </div>
+                    </div>
+                    
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card wow fadeIn">
+              <div class="card-body">
+                  <div class="row p-t-10 p-b-10">
+                  <div class="col-md-12">
+                     <h5 class="text-themecolor">Detalle</h5>
+                     <hr>
+                  </div>
+                    
+                  </div>
+              </div>
+          </div>
+              <div class="card wow fadeIn">
+                  <div class="card-body">
+                      <div class="row p-t-10 p-b-10">
+                      <div class="col-md-12">
+                         <h5 class="text-themecolor">Persona</h5>
+                         <hr>
+                         <div class="display-7" >Nombre:</div > {{persona?.nombre}} {{persona?.apellido}}
+                         <div class="display-7" >Correo:</div > {{persona?.correo}}
+                         <div class="display-7" >Telefono:</div > {{persona?.celular}}
+                      </div>
+                      </div>
+                  </div>
+              </div>
+      </div>
+      <div class="col-md-8">
+          <div class="card wow fadeIn">
+              <div class="card-body">
+                  <div class="row p-t-10 p-b-10">
+                  <div class="col-md-12">
+                     <ngb-tabset>
+                        <ngb-tab title="Tomar Notas">
+                          <ng-template ngbTabContent>
+                           
+                          </ng-template>
+                        </ngb-tab>
+                        <ngb-tab>
+                          <ng-template ngbTabTitle><b>Añadir acción</b></ng-template>
+                          <ng-template ngbTabContent>
+                            
+                          </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Disabled" [disabled]="true">
+                          <ng-template ngbTabContent>
+                         
+                          </ng-template>
+                        </ngb-tab>
+                      </ngb-tabset>
+                  </div>
+                    
+                  </div>
+              </div>
+          </div>
+        
+                  <ul class="timeline">
+                      <li>
+                          <div class="timeline-badge success"><i class="mdi mdi-phone" style="    font-size: 2rem;"></i> </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4 class="timeline-title">Llamada</h4>
+                                  <p><small class="text-muted"><i class="fa fa-clock-o"></i> Hace 2 horas</small> </p>
+                              </div>
+                              <div class="timeline-body">
+                                  <p>LLamada al señor danixon a las 3 pm</p>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="timeline-inverted">
+                          <div class="timeline-badge warning"><i class="mdi mdi-account-multiple" style="    font-size: 2rem;"></i> </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4 class="timeline-title">Reunion</h4>
+                                  <p><small class="text-muted"><i class="fa fa-clock-o"></i> Hace 2 horas</small> </p>
+
+                              </div>
+                              <div class="timeline-body">
+                                  <p>Me reuni con el señor xyz en la sala de juntas para hablar sobre xyz</p>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="timeline-badge danger"><i class="mdi mdi-email"></i> </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4 class="timeline-title">Correo Electronico</h4>
+                                  <p><small class="text-muted"><i class="fa fa-clock-o"></i> Hace 2 horas</small> </p>
+
+                              </div>
+                              <div class="timeline-body">
+                                  <p>Se envio correo al señor xyz a tal hora y xyz</p>
+                              </div>
+                          </div>
+                      </li>
+           
+          
+                  </ul>
+ 
+
+     
+     
+   </div>
+  
+
+   

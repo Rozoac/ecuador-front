@@ -4,8 +4,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { URL_SERVICIOS, URL_LANDING_DEV } from "../../config/config";
 import { Comercial } from "../../models/comercial.model";
 import "rxjs/Rx";
-import { Observable } from "rxjs/Rx";
+import { Observable,  } from "rxjs/Rx";
 import { Fechas } from "../../models/fechas.model";
+import { map } from "rxjs/operators";
+
 
 @Injectable()
 export class LeadService {
@@ -155,8 +157,22 @@ export class LeadService {
     return this.http.post(url, params, { headers });
   }
 
-  actualizarUsuario(id) {
-    let url = `${URL_LANDING_DEV}lead/${id}`
+  actualizarUsuario(id, estado) {
+    let url = `${URL_LANDING_DEV}lead/${id}/${estado}`
     return this.http.put(url, id);
+  }
+
+    getLeadsNuevos(id) {
+    let url = `${URL_LANDING_DEV}lead/nuevo/${id}`
+    return this.http.get(url, id)
+  }
+    getLeadsVerdes(id) {
+    let url = `${URL_LANDING_DEV}lead/verde/${id}`
+    return this.http.get(url, id)
+  }
+
+  getLead(id: string) {
+    const url = URL_LANDING_DEV + `lead/unico/${id}`;
+    return this.http.get(url);
   }
 }

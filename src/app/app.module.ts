@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from "@angular/common";
 import localeEs from "@angular/common/locales/es";
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { TypingAnimationDirective } from 'angular-typing-animation'
+import { TypingAnimationDirective } from 'angular-typing-animation';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 registerLocaleData(localeEs);
 
 import {APP_ROUTING} from './app.routes';
@@ -109,6 +110,7 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { QuillModule } from 'ngx-quill'
 
 
+
 // pipes
 import { NombrePipe } from './pipes/nombre.pipe';
 import { CiudadPipe } from './pipes/ciudad.pipe';
@@ -136,9 +138,12 @@ import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y
 import { CrearUsuarioComponent } from './admin/crear-usuario/crear-usuario.component';
 import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
 import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
-import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
-import { NegociosService } from './service/negocios.service';
+import { InboxComponent } from './admin/inbox/inbox.component';
+import { InboxService } from './service/inbox.service';
 import { environment } from '../environments/environment.prod';
+import { SharedService } from './service/shared.service';
+import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
+import { NegocioComponent } from './admin/negocio/negocio.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -214,7 +219,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminUsuariosComponent,
     UsuarioComponent,
     ImagenPipe,
+    InboxComponent,
     MisNegociosComponent,
+    NegocioComponent,
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -232,6 +239,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DragDropModule,
     MatFormFieldModule,
     MatTableModule,
+    NgMultiSelectDropDownModule.forRoot(),
     QuillModule,
     MatDialogModule,
     MatProgressSpinnerModule,
@@ -270,12 +278,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PortafolioService,
     CorreoService,
     // SweetAlertService,
-    NegociosService,
+    InboxService,
     SidebarService,
     UsuarioService,
     RolService,
     SegmentoService,
     PaisService,
+    SharedService,
     LoginGuardGuard,
     LeadService,
     ContadorService,

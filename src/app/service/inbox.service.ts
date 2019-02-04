@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Message } from '../admin/mis-negocios/message';
-import { MESSAGES } from '../admin/mis-negocios/mock-messages';
 import { URL_LANDING_DEV } from '../config/config';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { WebsocketService } from './websocket.service';
 
 @Injectable()
-export class NegociosService {
+export class InboxService {
 
   constructor(public http: HttpClient, public router: Router, public wsService: WebsocketService) {
 

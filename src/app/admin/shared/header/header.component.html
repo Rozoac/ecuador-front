@@ -38,28 +38,28 @@
         <a ngbDropdownToggle class="nav-link text-muted waves-effect waves-dark" href="javascript:void(0)">
             <i class="mdi mdi-email"></i>
             <!-- notify -->
-            <!-- <div class="notify">
+            <div *ngIf="total > 0" class="notify">
                             <span class="heartbit"></span>
                             <span class="point"></span>
-                        </div> -->
+                        </div>
         </a>
         <div class="dropdown-menu mailbox animated slideInDown" ngbDropdownMenu>
             <ul>
                 <li>
-                    <div class="drop-title">Tienes 0 mensajes nuevos</div>
+                    <div class="drop-title">Tienes {{total}} leads nuevos</div>
                 </li>
                 <li>
-                    <div class="message-center">
+                    <div  class="message-center">
                         <!-- Message -->
-                        <!-- <a href="#">
-                                        <div class="user-img"> <img src="assets/css/backend/images/users/vila.png" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                        <a *ngFor="let lead of leads" (click)="mensaje(lead._id)" class="pointer">
+                                        <div class="user-img"> <img [src]="lead.id_cliente.id_segmento.foto" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                         <div class="mail-contnet">
-                                            <h5>{{datos.name}}</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
-                                    </a> -->
+                                            <h5>{{lead.id_cliente.nombre}} {{lead.id_cliente.apellido}}</h5> <span class="mail-desc">{{lead.id_cliente.mensaje}}</span> <span class="time">{{lead.hora_creacion}}</span> </div>
+                                    </a>
                     </div>
                 </li>
                 <li>
-                    <a class="nav-link text-center" href="javascript:void(0);">
+                    <a class="nav-link text-center"  [routerLink]="[ 'mis-negocios' ]">
                         <strong>Ver todos</strong>
                         <i class="fa fa-angle-right"></i>
                     </a>

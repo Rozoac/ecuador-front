@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import swal from "sweetalert2";
 import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { SegmentoService } from '../../../service/segmento.service';
+import { PaisService } from '../../../service/pais.service';
 
 
 @Component({
@@ -24,19 +25,76 @@ export class UsuarioComponent implements OnInit {
   segmentos:any = [];
   segmentos_total:any = [];
   paises:any = [];
+  ciudades:any = [];
+  ciudadesArray:any = [];
+  dropdownList = [];
+  cities = [];
+  selectedItems = [];
+  singleselectedItems = [];
+  dropdownSettings = {};
+  singledropdownSettings = {};
+  closeDropdownSelection = false;
   
 
-  constructor(public _segmentoService: SegmentoService, public _usuarioService: UsuarioService, route: ActivatedRoute, public router: Router) {
+  constructor(public _segmentoService: SegmentoService, public _usuarioService: UsuarioService, route: ActivatedRoute, public router: Router, public _paisService: PaisService) {
     // this.usuario = _usuarioService.usuario;
     route.params.subscribe(params => {
       this.id_usuario = params.id;
-     
+      
     });
   }
 
   ngOnInit() {
     this.getUsuario();
+    this.dropdownList = [
+      { item_id: 1, item_text: 'Bogota' },
+      { item_id: 2, item_text: 'Medellin' },
+      { item_id: 3, item_text: 'Cali' },
+    ];
+    this.cities = ['Mumbai', 'New Delhi', 'Bangaluru', 'Pune', 'Navsari'];
+    this.selectedItems = [];
+    this.singleselectedItems = ['Pune'];
+    this.singledropdownSettings = {
+      singleSelection: true,
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      allowSearchFilter: true,
+      closeDropDownOnSelection: this.closeDropdownSelection
+    };
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: '_id',
+      textField: 'nombre',
+      selectAllText: 'Seleccionar Todos',
+      unSelectAllText: 'Deseleccionar Todos',
+      searchPlaceholderText: 'Busqueda',
+      itemsShowLimit: 7,
+      allowSearchFilter: true
+      
+    };
     
+
+    
+    
+  }
+
+  onItemSelect(item: any) {
+    // this.ciudadesArray.push(item);
+    console.log(this.ciudadesArray);
+  }
+  onSelectAll(items: any) {
+    this.ciudadesArray = [];
+    this.ciudadesArray =items ;
+    console.log(this.ciudadesArray);
+  }
+  
+  unSelectAll(items: any){
+    // this.ciudadesArray = [];
+    console.log(this.ciudadesArray);
+  }
+  unSelect(items: any){
+    let index = this.ciudades.findIndex(obj => obj._id == items._id)
+    this.ciudades.splice(index, 1);
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -54,7 +112,9 @@ export class UsuarioComponent implements OnInit {
     await this._usuarioService.getUsuario(this.id_usuario).subscribe( (resp:any) => {
       console.log(resp);
       this.usuario = resp.usuario;
+      this.ciudadesArray = resp.usuario.ciudad;
       this.todo = resp.usuario.segmento;
+      this.getCiudades(this.usuario.id_pais);
       this.getSegmento();
     });
   }
@@ -108,11 +168,13 @@ export class UsuarioComponent implements OnInit {
   
   
   guardar(usuario: Usuario, id) {
+
     this.usuario.nombre = usuario.nombre;
     this.usuario.apellido = usuario.apellido;
     this.usuario.celular = usuario.celular;
     this.usuario.correo = usuario.correo;
     this.usuario.segmento = this.todo;
+    this.usuario.ciudad = this.ciudadesArray;
    
 
     this._usuarioService.actualizarUsuario(this.usuario, id).subscribe(resp => {
@@ -175,5 +237,11 @@ export class UsuarioComponent implements OnInit {
 
   cambiarImagen() {
     this._usuarioService.cambiarImagen( this.imagenSubir, this.usuario._id);
+  }
+  getCiudades(id) {
+    this._paisService.getCiudades(id).subscribe( (res:any) => {
+      this.ciudades = res;
+      console.log(this.ciudades);
+    });
   }
 }

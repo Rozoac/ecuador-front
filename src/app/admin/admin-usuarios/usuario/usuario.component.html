@@ -89,7 +89,7 @@
           </div>
         </div>
       </div>
-    <div class="col-lg-5" *ngIf="usuario?.id_rol.nombre != 'ADMIN'">
+    <div class="col-lg-5" *ngIf="usuario?.id_rol.nombre != 'ADMIN'" style="margin-bottom: 100px;">
         <div class="card">
           <div class="card-body" align="center">
               <div class="row mb-2">
@@ -122,4 +122,23 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-5">
+          <div class="card">
+              <div class="card-body">
+                  <h4 class="card-title">Ciudades</h4>
+                  <ng-multiselect-dropdown *ngIf="ciudades"
+                    placeholder="Selecciona una o varias ciudades"
+                    [data]="ciudades"
+                    [(ngModel)]="ciudadesArray"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    (onDeSelect)="unSelect($event)"
+                    (onDeSelectAll)="unSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                  <button (click)="guardar(usuario, usuario._id)" type="button" class="btn btn-block color-azul waves-effect waves-light m-r-10 mt-3">Actualizar Ciudades</button>
+              </div>
+          </div>
+      </div>
+     
   </div>
