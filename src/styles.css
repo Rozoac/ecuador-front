@@ -65,6 +65,14 @@ h6 {
     font-family: 'bebas-bold'!important;
 }
 
+.blanco{
+    color: white;
+}
+
+.negro{
+    color: black;
+}
+
 .texto-principal{
     text-align: center;
 }

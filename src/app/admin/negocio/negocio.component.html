@@ -14,28 +14,47 @@
                       <div class="linea-de-tiempo">
                           <ul>
                             <li class="active pointer">
-                              <div ngbPopover="Has estado aqui {{tiempo2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Lead en proceso" class="seccion-negocio">
-                                <span class="">0 días</span>
+                              <div  *ngIf="!estadoGeneral?.segundoPaso.estado" ngbPopover="Has estado aqui {{tiempoInicial_1}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Lead en proceso" class="seccion-negocio">
+                                <span class="">{{estado_1_dias}} días</span>
+                              </div>
+                              <div *ngIf="estadoGeneral?.segundoPaso.estado" ngbPopover="Fecha final: {{tiempoFinal_1}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Lead en proceso" class="seccion-negocio">
+                                <span class="">{{estado_1_dias}} días</span>
                               </div>
                             </li>
-                            <li (click)="estado(2)" class="pointer">
-                                <div class="seccion-negocio" >
-                                  <span class="">0 días</span>
-                                  <span class="flecha-inicial"></span>
-                                </div>
-                              </li>
-                              <li (click)="estado(3)" class="pointer">
-                                  <div class="seccion-negocio">
-                                     <span class="">0 días</span>
-                                     <span class="flecha-inicial"></span>
+                            <li (click)="estado(2)"  class="pointer" [ngClass]="{'verde': estadoGeneral?.segundoPaso.estado === true, 
+                                                                                'gris':estadoGeneral?.segundoPaso.estado === false }" class="transition-effect">
+                                <div  *ngIf="!estadoGeneral?.tercerPaso.estado" ngbPopover="Has estado aqui {{tiempoInicial_2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
+                                    <span  class="">0 días</span>
+                                    <span class="flecha-inicial"></span>
                                   </div>
-                                </li>
-                                <li (click)="estado(4)" class="pointer">
-                                    <div class="seccion-negocio">
-                                      <span class="">0 días</span>
-                                      <span class="flecha-inicial"></span>
-                                    </div>
-                                  </li>
+                                  <div *ngIf="estadoGeneral?.tercerPaso.estado" ngbPopover="Fecha final: {{tiempoFinal_2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto 3" class="seccion-negocio">
+                                    <span  class="">0 días  </span> 
+                                      <span class="flecha-inicial" [ngClass]="{'flecha-inicial-verde': estadoGeneral?.primerPaso.estado == true}"></span>
+                                  </div>
+                                 
+                              </li>
+                            <li (click)="estado(3)" class="pointer" [ngClass]="{'verde': estadoGeneral?.tercerPaso.estado === true, 
+                                                                                'gris':estadoGeneral?.tercerPaso.estado === false }" class="transition-effect">
+                                <div  *ngIf="!estadoGeneral?.cuartoPaso.estado" ngbPopover="Has estado aqui {{tiempoInicial_3}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
+                                    <span class="">0 días</span>
+                                    <span class="flecha-inicial"></span>
+                                  </div>
+                                  <div *ngIf="estadoGeneral?.cuartoPaso.estado" ngbPopover="Fecha final: {{tiempoFinal_3}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
+                                    <span class="">0 días</span>
+                                    
+                                    <span class="flecha-inicial" [ngClass]="{'flecha-inicial-verde': estadoGeneral?.segundoPaso.estado == true}"></span>
+                                </div>
+                                 
+                              </li>
+                            <li (click)="estado(4)" class="pointer" [ngClass]="{'verde': estadoGeneral?.cuartoPaso.estado === true, 
+                                                                                'gris':estadoGeneral?.cuartoPaso.estado === false }" class="transition-effect">
+                                  <div  ngbPopover="Fecha final: {{tiempoFinal_4}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto" class="seccion-negocio">
+                                    <span class="">0 días</span>
+                                    
+                                    <span class="flecha-inicial" [ngClass]="{'flecha-inicial-verde': estadoGeneral?.tercerPaso.estado == true}"></span>
+                                </div>
+                                  
+                              </li>
                           </ul>
                         </div>
                     </div>

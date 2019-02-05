@@ -18,9 +18,11 @@ export class InboxComponent implements OnInit, OnDestroy {
   messages;
   selectedMessage: Message;
   messageOpen = false;
-  usuario
+  usuario;
   mensajesSuscription: Subscription;
-  constructor(public _leadService: LeadService, private negociosService: InboxService, private modalService: NgbModal, public _usuarioService: UsuarioService, public router: Router) { 
+  constructor(
+    public _leadService: LeadService, private negociosService: InboxService, private modalService: NgbModal,
+    public _usuarioService: UsuarioService, public router: Router) {
     this.usuario = _usuarioService.getIdentity().usuario._id;
   }
 
@@ -31,7 +33,7 @@ export class InboxComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.mensajesSuscription.unsubscribe();
   }
 
@@ -43,7 +45,7 @@ export class InboxComponent implements OnInit, OnDestroy {
   // }
 
   getLeads() {
-    this.negociosService.getLeads(this.usuario).subscribe((res:any)=> {
+    this.negociosService.getLeads(this.usuario).subscribe((res: any ) => {
       this.messages = res.leads;
       this.messages.reverse();
       console.log(this.messages);
@@ -52,23 +54,23 @@ export class InboxComponent implements OnInit, OnDestroy {
 
     });
   }
-  
-   getLeadsWS(){
-    this.mensajesSuscription = this.negociosService.getLeadsWS().subscribe( (resp:any) => {
+   getLeadsWS() {
+    this.mensajesSuscription = this.negociosService.getLeadsWS().subscribe( (resp: any) => {
       console.log(resp);
-      if(resp.id_usuario._id === this._usuarioService.getIdentity().id)
-      this.messages.unshift(resp);
-    })
+      if (resp.id_usuario._id === this._usuarioService.getIdentity().id) {
+        this.messages.unshift(resp);
+      }
+    });
   }
 
 
   onSelect(message, id, estado): void {
-    if(estado === 'warning'){
-      if (message.id_semaforo.color === 'danger' && message.id_semaforo.color !== 'success'){
-        this._leadService.actualizarUsuario(id, '5c4b576af1848a00177ab14a').subscribe((res:any)=> {
+    if (estado === 'warning') {
+      if (message.id_semaforo.color === 'danger' && message.id_semaforo.color !== 'success') {
+        this._leadService.actualizarUsuario(id, '5c4b576af1848a00177ab14a').subscribe((res: any ) => {
           console.log(res);
           this.messages.map((dato) => {
-            if(dato._id === res.lead._id){
+            if (dato._id === res.lead._id) {
               dato.id_semaforo.color = 'warning';
               dato.id_semaforo.estado = 'Naranja';
             }
@@ -76,16 +78,16 @@ export class InboxComponent implements OnInit, OnDestroy {
         });
       }
     }
-    if(estado === 'success'){
-      if (message.id_semaforo.color === 'success'){
-        this.router.navigate([`admin/negocio/${id}`])
-      }else{
-        this._leadService.actualizarUsuario(id, '5c4b5757f1848a00177ab149').subscribe((res:any)=> {
+    if (estado === 'success') {
+      if (message.id_semaforo.color === 'success') {
+        this.router.navigate([`admin/negocio/${id}`]);
+      } else {
+        this._leadService.actualizarUsuario(id, '5c4b5757f1848a00177ab149').subscribe((res: any) => {
           this.messages.map((dato) => {
-            if(dato._id === res.lead._id){
+            if (dato._id === res.lead._id) {
               dato.id_semaforo.color = 'success';
               dato.id_semaforo.estado = 'Verde';
-              this.router.navigate([`admin/negocio/${id}`])
+              this.router.navigate([`admin/negocio/${id}`]);
             }
           });
         });
@@ -98,7 +100,6 @@ export class InboxComponent implements OnInit, OnDestroy {
 
   // This is for the email compose
   open2(content) {
-    
     this.modalService.open(content).result.then(
       result => {
         this.closeResult = `Closed with: ${result}`;

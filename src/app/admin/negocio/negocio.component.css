@@ -1,6 +1,15 @@
 .seccion-negocio{
     position: relative;
 }
+
+.verde{
+    background-color: #08a742!important;
+    transition: background-color 0.5s ease
+}
+.gris{
+    background-color: #e5e5e5 !important;
+    transition: background-color 0.5s ease;
+}
 .nombre{
     display: flex;
     align-items: center;
@@ -67,6 +76,19 @@
     cursor: pointer;
     background: #e5e5e5;
 }
+.flecha-inicial-verde:after {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: -7px;
+    top: 5px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: scaleX(.3) rotate(45deg);
+    content: " ";
+    cursor: pointer;
+    background: #4fa44f;
+}
 
 ul li.active+li .seccion-negocio .flecha-inicial:after, ul li.active+li .seccion-negocio .flecha-inicial:after {
     border-top: 3px solid #fff;
@@ -77,4 +99,13 @@ ul li.active+li .seccion-negocio .flecha-inicial:after, ul li.active+li .seccion
 .timeline > li > .timeline-panel {
  background: white;
 
+}
+
+.timeline > li > .timeline-badge {
+
+    line-height: 58px!important;
+}
+
+.contenedor-carga{
+    display: inline-block;
 }

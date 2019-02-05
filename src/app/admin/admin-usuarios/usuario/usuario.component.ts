@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../models/usuario.model';
 import { UsuarioService } from '../../../service/usuario/usuario.service';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from "@angular/router";
-import swal from "sweetalert2";
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { SegmentoService } from '../../../service/segmento.service';
 import { PaisService } from '../../../service/pais.service';
@@ -216,21 +216,20 @@ export class UsuarioComponent implements OnInit {
   }
 
 
-  imagenContenedor(nombre:string){
-    if (nombre == "Contenedores Maritimos"){
+  imagenContenedor(nombre: string) {
+    if (nombre === 'Contenedores Maritimos') {
       return 'assets/css/backend/images/users/user-2.jpg';
     }
-    if (nombre == "Contenedores Oficinas"){
+    if (nombre === 'Contenedores Oficinas') {
       return 'assets/css/backend/images/users/user-4.jpg';
     }
-    if (nombre == "Contenedores Refrigerados"){
+    if (nombre === 'Contenedores Refrigerados') {
       return 'assets/css/backend/images/users/user.jpg';
     }
-    if (nombre == "Productos Especiales"){
-      
+    if (nombre === 'Productos Especiales') {
       return 'assets/css/backend/images/users/user-3.jpg';
     }
-    if (nombre == "Contenedores Salas de Ventas"){
+    if (nombre === 'Contenedores Salas de Ventas') {
       return 'assets/css/backend/images/users/user-5.jpg';
     }
   }
