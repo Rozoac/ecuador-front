@@ -1,13 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { LeadService } from '../../service/lead/lead.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbProgressbarConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
-import { ToastrService, ToastContainerDirective } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
+import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
+import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { Howl } from 'howler';
+import { Subject } from 'rxjs';
 
-
-
+const colors: any = {
+  red: {
+    primary: '#ad2121',
+    secondary: '#FAE3E3'
+  },
+  blue: {
+    primary: '#1e90ff',
+    secondary: '#D1E8FF'
+  },
+  yellow: {
+    primary: '#e3bc08',
+    secondary: '#FDF1BA'
+  }
+};
 @Component({
   selector: 'app-negocio',
   templateUrl: './negocio.component.html',
@@ -15,12 +30,50 @@ import { Howl } from 'howler';
 })
 export class NegocioComponent implements OnInit {
 
+  @ViewChild('modalContent') modalContent: TemplateRef<any>;
+  view = 'day';
+  viewDate: Date = new Date();
+
+  modalData: {
+    action: string;
+    event: CalendarEvent;
+  };
+
+  actions: CalendarEventAction[] = [
+        {
+      label: '<i class="fa fa-fw fa-times  text-white"></i>',
+      onClick: ({ event }: { event: CalendarEvent }): void => {
+        this.events = this.events.filter(iEvent => iEvent !== event);
+        this.handleEvent('Deleted', event);
+      }
+    }
+  ];
+
+  refresh: Subject<any> = new Subject();
+
+  events: CalendarEvent[] = [
+    {
+      start: addHours(startOfDay(new Date()), 3),
+      end: addHours(startOfDay(new Date()), 4),
+      title: `${addHours(startOfDay(new Date()), 2)} - ${new Date()}`,
+      color: colors.yellow,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true
+      },
+      draggable: true
+    }
+  ];
+
+  activeDayIsOpen = true;
+
+  public mensaje: any;
   public negocio: any;
   public tiempo;
   public tiempo2;
   public tiempo3;
   public tiempo4;
-  // cargas
   public carga2 = false;
   public carga3 = false;
   public carga4 = false;
@@ -48,7 +101,8 @@ export class NegocioComponent implements OnInit {
   constructor(public _leadService: LeadService,
               public activateRouter: ActivatedRoute,
               public  config: NgbProgressbarConfig,
-              public toastr: ToastrService) {
+              public toastr: ToastrService,
+              private modal: NgbModal) {
     config.max = 100;
     config.striped = true;
     config.animated = true;
@@ -92,19 +146,21 @@ export class NegocioComponent implements OnInit {
 
   estado(estado) {
     if (estado === 2) {
+      if (!this.estadoGeneral.segundoPaso.fecha_final) {
       this.carga2 = true;
       this._leadService.actualizarUsuario( this.id, '5c5869777933fe00170b515b' ).subscribe ( (res: any) => {
         this.estadoGeneral =  res.lead.estado;
-        console.log(this.estadoGeneral);
         this.tiempoInicial_2 =  moment(this.tiempo2).locale('es').fromNow();
         const final = moment(res.lead.estado.primerPaso.fecha_final).format('L');
         this.tiempoFinal_1 = final;
         this.carga2 = false;
-        this.toastr.info('Fase terminada', 'Contacto Establecido 📞', {
+        this.toastr.success('Fase terminada', 'Contacto Establecido 📞', {
           progressBar: true
         });
       });
     }
+    return;
+  }
     if (estado === 3) {
       if (this.estadoGeneral.segundoPaso.estado === true) {
         if (!this.estadoGeneral.tercerPaso.fecha_final) {
@@ -115,7 +171,7 @@ export class NegocioComponent implements OnInit {
             const final = moment(res.lead.estado.segundoPaso.fecha_final).format('L');
             this.tiempoFinal_2 = final;
             this.carga3 = false;
-            this.toastr.info('Fase terminada', 'Propuesta Realizada 📝', {
+            this.toastr.success('Fase terminada', 'Propuesta Realizada 📝', {
               progressBar: true
             });
           });
@@ -125,6 +181,7 @@ export class NegocioComponent implements OnInit {
     }
     if (estado === 4) {
       if (this.estadoGeneral.tercerPaso.estado === true) {
+        if (!this.estadoGeneral.cuartoPaso.fecha_final) {
         this.carga4 = true;
         this._leadService.actualizarUsuario( this.id, '5c58698b7933fe00170b515d' ).subscribe ( (res: any) => {
           this.carga4 = false;
@@ -135,16 +192,60 @@ export class NegocioComponent implements OnInit {
           this.tiempoFinal_4 = final;
           this.carga4 = false;
           this.sound.play();
-          this.toastr.info('Fase terminada', 'Negociación Terminada 💵 💵 💵 💵 💵!! WUUU' , {
+          this.toastr.success('Fase terminada', 'Negociación Terminada 💵 💵 💵 !! ' , {
             progressBar: true
           });
         });
       }
     }
   }
+}
+
+limpiarMensaje() {
+  this.mensaje = '';
+}
+
+dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+  if (isSameMonth(date, this.viewDate)) {
+    if ((isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) || events.length === 0) {
+      this.activeDayIsOpen = false;
+    } else {
+      this.activeDayIsOpen = true;
+      this.viewDate = date;
+    }
+  }
+}
+
+eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): void {
+  event.start = newStart;
+  event.end = newEnd;
+  this.handleEvent('Dropped or resized', event);
+  this.refresh.next();
+}
+
+handleEvent(action: string, event: CalendarEvent): void {
+  this.modalData = { event, action };
+  // this.modal.open(this.modalContent, { size: 'lg' });
+}
+
+addEvent(): void {
+  this.events.push({
+    title: 'New event',
+    start: startOfDay(new Date()),
+    end: endOfDay(new Date()),
+    color: colors.red,
+    draggable: true,
+    resizable: {
+      beforeStart: true,
+      afterEnd: true
+    }
+  });
+  this.refresh.next();
+}
 
   ngOnInit() {
     this.getLead();
+    console.log(this.mensaje);
   }
 
 }

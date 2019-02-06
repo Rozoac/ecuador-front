@@ -9,25 +9,24 @@ import { UsuarioService } from '../../service/usuario/usuario.service';
 })
 export class MisNegociosComponent implements OnInit {
   public datos;
-  public leads
-  public total
-  
+  public leads;
+  public total;
 
-  constructor(public _leadService: LeadService, public _usuarioService:UsuarioService) { 
-    let datos = _usuarioService.getIdentity();
+  constructor(public _leadService: LeadService, public _usuarioService: UsuarioService) {
+    const datos = _usuarioService.getIdentity();
     this.datos = datos;
   }
   ngOnInit() {
-    this.getLeadsNuevos()
+    this.getLeadsNuevos();
   }
 
-  getLeadsNuevos(){
-    this._leadService.getLeadsVerdes(this.datos.id).subscribe((res:any)=> {
+  getLeadsNuevos() {
+    this._leadService.getLeadsVerdes(this.datos.id).subscribe((res: any) => {
       console.log(res);
       this.leads = res.leads;
       this.leads.reverse();
       this.total = res.total;
-    })
+    });
   }
 
 }

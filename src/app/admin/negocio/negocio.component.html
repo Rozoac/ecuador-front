@@ -21,25 +21,25 @@
                                 <span class="">{{estado_1_dias}} días</span>
                               </div>
                             </li>
-                            <li (click)="estado(2)"  class="pointer" [ngClass]="{'verde': estadoGeneral?.segundoPaso.estado === true, 
-                                                                                'gris':estadoGeneral?.segundoPaso.estado === false }" class="transition-effect">
-                                <div  *ngIf="!estadoGeneral?.tercerPaso.estado" ngbPopover="Has estado aqui {{tiempoInicial_2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
+                            <li (click)="estado(2)" [ngClass]="{'verde': estadoGeneral?.segundoPaso.estado === true, 
+                                                                                'gris':estadoGeneral?.segundoPaso.estado === false }" class="transition-effect pointer">
+                                <div  *ngIf="!estadoGeneral?.tercerPaso.estado" ngbPopover="{{(tiempoInicial_2) ? 'Has estado aqui' : '...' }} {{tiempoInicial_2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
                                     <span  class="">0 días</span>
                                     <span class="flecha-inicial"></span>
                                   </div>
-                                  <div *ngIf="estadoGeneral?.tercerPaso.estado" ngbPopover="Fecha final: {{tiempoFinal_2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto 3" class="seccion-negocio">
+                                  <div *ngIf="estadoGeneral?.tercerPaso.estado" ngbPopover="{{(tiempoFinal_2) ? 'Fecha Final' : '...' }} {{tiempoFinal_2}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
                                     <span  class="">0 días  </span> 
                                       <span class="flecha-inicial" [ngClass]="{'flecha-inicial-verde': estadoGeneral?.primerPaso.estado == true}"></span>
                                   </div>
                                  
                               </li>
-                            <li (click)="estado(3)" class="pointer" [ngClass]="{'verde': estadoGeneral?.tercerPaso.estado === true, 
-                                                                                'gris':estadoGeneral?.tercerPaso.estado === false }" class="transition-effect">
-                                <div  *ngIf="!estadoGeneral?.cuartoPaso.estado" ngbPopover="Has estado aqui {{tiempoInicial_3}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
+                            <li (click)="estado(3)" [ngClass]="{'verde': estadoGeneral?.tercerPaso.estado === true, 
+                                                                                'gris':estadoGeneral?.tercerPaso.estado === false }" class="transition-effect pointer">
+                                <div  *ngIf="!estadoGeneral?.cuartoPaso.estado" ngbPopover="{{(tiempoInicial_3) ? 'Has estado aqui' : '...' }}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Propuesta Realizada" class="seccion-negocio">
                                     <span class="">0 días</span>
                                     <span class="flecha-inicial"></span>
                                   </div>
-                                  <div *ngIf="estadoGeneral?.cuartoPaso.estado" ngbPopover="Fecha final: {{tiempoFinal_3}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto Establecido" class="seccion-negocio">
+                                  <div *ngIf="estadoGeneral?.cuartoPaso.estado" ngbPopover="{{(tiempoFinal_3) ? 'Fecha Final' : '...' }} {{tiempoFinal_3}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Propuesta Realizada" class="seccion-negocio">
                                     <span class="">0 días</span>
                                     
                                     <span class="flecha-inicial" [ngClass]="{'flecha-inicial-verde': estadoGeneral?.segundoPaso.estado == true}"></span>
@@ -48,7 +48,7 @@
                               </li>
                             <li (click)="estado(4)" class="pointer" [ngClass]="{'verde': estadoGeneral?.cuartoPaso.estado === true, 
                                                                                 'gris':estadoGeneral?.cuartoPaso.estado === false }" class="transition-effect">
-                                  <div  ngbPopover="Fecha final: {{tiempoFinal_4}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Contacto" class="seccion-negocio">
+                                  <div  ngbPopover="{{(tiempoFinal_4) ? 'Fecha Final' : '...' }} {{tiempoFinal_4}}" placement="bottom" triggers="mouseenter:mouseleave" popoverTitle="Negociación Terminada" class="seccion-negocio pointer">
                                     <span class="">0 días</span>
                                     
                                     <span class="flecha-inicial" [ngClass]="{'flecha-inicial-verde': estadoGeneral?.tercerPaso.estado == true}"></span>
@@ -68,7 +68,7 @@
               <div class="card-body">
                   <div class="row p-t-10 p-b-10">
                   <div class="col-md-12">
-                     <h5 class="text-themecolor">Detalle</h5>
+                     <h5 class="text-themecolor">Detalles</h5>
                      <hr>
                   </div>
                     
@@ -81,34 +81,88 @@
                       <div class="col-md-12">
                          <h5 class="text-themecolor">Persona</h5>
                          <hr>
-                         <div class="display-7" >Nombre:</div > {{persona?.nombre}} {{persona?.apellido}}
-                         <div class="display-7" >Correo:</div > {{persona?.correo}}
-                         <div class="display-7" >Telefono:</div > {{persona?.celular}}
+                         <div class="" >Nombre:</div > {{persona?.nombre}} {{persona?.apellido}}
+                         <div class="" >Correo:</div > {{persona?.correo}}
+                         <div class="" >Telefono:</div > {{persona?.celular}}
                       </div>
                       </div>
                   </div>
               </div>
       </div>
       <div class="col-md-8">
-          <div class="card wow fadeIn">
-              <div class="card-body">
-                  <div class="row p-t-10 p-b-10">
+          <div class="card wow fadeIn" style="margin-bottom: 0;">
+              <div class="card-body" style="padding: 0;">
+                  <div class="row p-t-10 p-b-10" style="padding: 0;">
                   <div class="col-md-12">
                      <ngb-tabset>
                         <ngb-tab title="Tomar Notas">
                           <ng-template ngbTabContent>
-                           
+                                <div class="row">
+                                        <div class="col-12">
+                                                <quill-editor [style]="{height: '154px'}" [(ngModel)]="mensaje" placeholder="Haz click aquí para tomar notas..." >
+                                                        <div quill-editor-toolbar>
+                                                         
+                                                                      <span class="ql-formats">
+                                                                        <button class="ql-bold"></button>
+                                                                        <button class="ql-italic"></button>
+                                                                        <button class="ql-underline"></button>
+                                                                      </span>
+                                                                      <span class="ql-formats">
+                                                                        <button class="ql-list" value="ordered"></button>
+                                                                        <button class="ql-list" value="bullet"></button>
+                                                                       
+                                                                      </span>
+                                                                      <span class="ql-formats">
+                                                                        <button class="ql-link"></button>
+                                                                      </span>
+                                                        </div>
+                                                    </quill-editor>
+                                                    <div class="botonera">
+                                                        <button type="button" (click)="limpiarMensaje()" class="btn btn-rounded mr-2 btn-secondary">Limpiar</button>
+                                                        <button type="button" class="btn btn-rounded btn-success">Guardar</button>
+                                                    </div>
+                                                    
+                                        </div>
+                                    </div>
                           </ng-template>
                         </ngb-tab>
                         <ngb-tab>
                           <ng-template ngbTabTitle><b>Añadir acción</b></ng-template>
                           <ng-template ngbTabContent>
-                            
-                          </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Disabled" [disabled]="true">
-                          <ng-template ngbTabContent>
-                         
+                                            <ng-template #modalContent let-close="close">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Event action occurred</h5>
+                                                    <button type="button" class="close" (click)="close()"> <span aria-hidden="true">&times;</span> </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div> Action: <pre>{{ modalData?.action }}</pre> </div>
+                                                    <div> Event: <pre>{{ modalData?.event | json }}</pre> </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
+                                                </div>
+                                            </ng-template>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-3" style="overflow: auto;
+                                                    height: 400px;">
+                                                        <div class="top-accion mb-2 mt-2" >
+                                                            <div class=" text-center">
+                                                                <h5 style="margin: 0;">{{ viewDate | calendarDate:(view + 'ViewTitle'):'es' }}</h5>
+                                                            </div>
+                                                                        <div class="btn-group">
+                                                                            <a class="btn btn-success" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false"> < </a>
+                                                                            <!-- <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate"> Hoy </div> -->
+                                                                            <a class="btn btn-info" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false"> > </a>
+                                                                        </div>
+                                                        </div>
+                                                        <mwl-calendar-day-view [locale]="es" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"> </mwl-calendar-day-view>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
                           </ng-template>
                         </ngb-tab>
                       </ngb-tabset>
@@ -119,12 +173,13 @@
           </div>
         
                   <ul class="timeline">
-                      <li>
-                          <div class="timeline-badge success"><i class="mdi mdi-phone" style="    font-size: 2rem;"></i> </div>
+                      
+                      <li class="timeline-inverted">
+                          <div class="timeline-badge success"><i class="mdi mdi-phone"></i> </div>
                           <div class="timeline-panel">
                               <div class="timeline-heading">
-                                  <h4 class="timeline-title">Llamada</h4>
-                                  <p><small class="text-muted"><i class="fa fa-clock-o"></i> Hace 2 horas</small> </p>
+                                  <h5 class="timeline-title">Llamada</h5>
+                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
                               </div>
                               <div class="timeline-body">
                                   <p>LLamada al señor danixon a las 3 pm</p>
@@ -132,11 +187,11 @@
                           </div>
                       </li>
                       <li class="timeline-inverted">
-                          <div class="timeline-badge warning"><i class="mdi mdi-account-multiple" style="    font-size: 2rem;"></i> </div>
+                          <div class="timeline-badge warning"><i class="mdi mdi-account-multiple"></i> </div>
                           <div class="timeline-panel">
                               <div class="timeline-heading">
-                                  <h4 class="timeline-title">Reunion</h4>
-                                  <p><small class="text-muted"><i class="fa fa-clock-o"></i> Hace 2 horas</small> </p>
+                                  <h5 class="timeline-title">Reunion</h5>
+                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
 
                               </div>
                               <div class="timeline-body">
@@ -144,12 +199,25 @@
                               </div>
                           </div>
                       </li>
-                      <li>
+                      <li class="timeline-inverted">
                           <div class="timeline-badge danger"><i class="mdi mdi-email"></i> </div>
                           <div class="timeline-panel">
                               <div class="timeline-heading">
-                                  <h4 class="timeline-title">Correo Electronico</h4>
-                                  <p><small class="text-muted"><i class="fa fa-clock-o"></i> Hace 2 horas</small> </p>
+                                  <h5 class="timeline-title">Correo Electronico</h5>
+                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
+
+                              </div>
+                              <div class="timeline-body">
+                                  <p>Se envio correo al señor xyz a tal hora y xyz</p>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="timeline-inverted">
+                          <div class="timeline-badge danger"><i class="mdi mdi-file-document"></i></div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h5 class="timeline-title">Nota</h5>
+                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
 
                               </div>
                               <div class="timeline-body">
@@ -160,6 +228,7 @@
            
           
                   </ul>
+                 
  
 
      

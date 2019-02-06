@@ -46,6 +46,8 @@ import { AdminComponent } from './admin/admin.component';
 import { ListaComponent } from './admin/lista/lista.component';
 import { InfoComponent } from './info/info.component';
 import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 // servicios
 import {ContenedoresService} from './service/contenedores.service';
@@ -230,6 +232,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatButtonToggleModule,
     MatSelectModule,
     SweetAlert2Module.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
     MatStepperModule,
     MatCheckboxModule,
     MatInputModule,
