@@ -5,9 +5,17 @@ import { NgbProgressbarConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
-import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
+import { CalendarEvent, DAYS_OF_WEEK, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { Howl } from 'howler';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+
+moment.updateLocale('es', {
+  week: {
+    dow: DAYS_OF_WEEK.MONDAY,
+    doy: 0
+  }
+});
+
 
 const colors: any = {
   red: {
@@ -30,14 +38,16 @@ const colors: any = {
 })
 export class NegocioComponent implements OnInit {
 
-  @ViewChild('modalContent') modalContent: TemplateRef<any>;
-  view = 'day';
-  viewDate: Date = new Date();
-
-  modalData: {
+  public view = 'day';
+  public viewDate: Date = new Date();
+  public modalData: {å
     action: string;
     event: CalendarEvent;
   };
+public mensajes
+
+
+
 
   actions: CalendarEventAction[] = [
         {
@@ -55,7 +65,7 @@ export class NegocioComponent implements OnInit {
     {
       start: addHours(startOfDay(new Date()), 3),
       end: addHours(startOfDay(new Date()), 4),
-      title: `${addHours(startOfDay(new Date()), 2)} - ${new Date()}`,
+      title: `(${moment().format('LT')} - ${moment().format('LT')})`,
       color: colors.yellow,
       actions: this.actions,
       resizable: {
@@ -96,6 +106,14 @@ export class NegocioComponent implements OnInit {
   public sound = new Howl({
     src: ['../../../../assets/sounds/cash.mp3']
   });
+  public mensajeAccion = {
+    id_tipo: '',
+    nombre: '',
+    mensaje: '',
+    hora_inicio: '',
+    hora_fin: ''
+  };
+  public tipoMensaje;
 
 
   constructor(public _leadService: LeadService,
@@ -109,15 +127,32 @@ export class NegocioComponent implements OnInit {
     config.type = 'success';
   }
 
+  llenarTipoMensaje(mensaje) {
+    console.log(mensaje);
+    this.mensajeAccion = {
+      id_tipo: mensaje._id,
+      nombre: mensaje.nombre,
+      mensaje: '',
+      hora_inicio: '',
+      hora_fin: ''
+    };
+  }
+  agregarTipoMensaje() {
+    this._leadService.agregarTipoMensaje(this.mensajeAccion, this.id ).subscribe( (res: any) => {
+      console.log(res);
+      this.getLead();
+    });
+  }
   getLead() {
     this.activateRouter.params.subscribe((resp: any) => {
-
         this._leadService.getLead(resp.id).subscribe( (res: any) => {
-          this.tiempoFinal_1 = moment(res.lead.estado.primerPaso.fecha_final).format('L');
-          this.tiempoFinal_2 = moment(res.lead.estado.segundoPaso.fecha_final).format('L');
-          this.tiempoFinal_3 = moment(res.lead.estado.tercerPaso.fecha_final).format('L');
+          console.log(res.lead.mensaje);
+          this.mensajes = res.lead.mensaje;
+          this.tiempoFinal_1 = moment(res.lead.estado.primerPaso.fecha_final).calendar();
+          this.tiempoFinal_2 = moment(res.lead.estado.segundoPaso.fecha_final).calendar();
+          this.tiempoFinal_3 = moment(res.lead.estado.tercerPaso.fecha_final).calendar();
           if (res.lead.estado.cuartoPaso.estado) {
-            this.tiempoFinal_4 = moment(res.lead.estado.tercerPaso.fecha_final).format('L');
+            this.tiempoFinal_4 = moment(res.lead.estado.tercerPaso.fecha_final).calendar();
           }
           this.estadoGeneral =  res.lead.estado;
           this.id = res.lead._id;
@@ -224,8 +259,15 @@ eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): 
 }
 
 handleEvent(action: string, event: CalendarEvent): void {
-  this.modalData = { event, action };
-  // this.modal.open(this.modalContent, { size: 'lg' });
+  this.events[0].start = event.start;
+  this.mensajeAccion.hora_inicio = String(moment(this.events[0].start).format('LLL'));
+  this.events[0].end = event.end;
+  this.mensajeAccion.hora_fin = String(moment(this.events[0].end).format('LLL'));
+
+  this.events[0].title = `(${moment(this.events[0].start).format('LT')} -
+                          ${moment(this.events[0].end).format('LT')})`;
+  console.log(event);
+  console.log(this.events);
 }
 
 addEvent(): void {
@@ -243,9 +285,21 @@ addEvent(): void {
   this.refresh.next();
 }
 
+  getMensaje() {
+    this._leadService.agregarMensaje(this.id, this.mensajeAccion ).subscribe( (resp) => {
+      console.log(resp);
+    });
+  }
+
+  getTipoMensaje() {
+    this._leadService.getTipoMensaje().subscribe( (res: any) => {
+      this.tipoMensaje = res;
+    });
+  }
+
   ngOnInit() {
     this.getLead();
-    console.log(this.mensaje);
+    this.getTipoMensaje();
   }
 
 }

@@ -7,13 +7,17 @@
             <li class="pointer" [routerLink]="[ '/cotizacion/5bd8fc05b71ca700131deca3' ]">Contenedor Salas de Ventas</li>
         </ul>
     </div>
-    <div class="container wow fadeIn">
+    <div class="container wow fadeIn mt-5">
         <div class="row">
           <div class="informacion">
             <div class="texto">
-              <p>
-                 <b>Politica de devolución y reembolsos</b><br>
-                  Los terminos y condiciones para devoluciones y rembolsos estan sujetos a las condiciones comerciales de E-Containers y su acuerdo segun el contrato que se halla realizado.
+                <div [routerLink]="['/pagos-online']" class="pointer mb-2 volver">
+                  <img src="assets/imgs/images/back-arrow.png" style="width: 25px;" class="mb-2"> Volver
+                </div>
+                    
+                 <b style="display: block">Politica de devolución y reembolsos</b>
+                 Los términos y condiciones para devoluciones y reembolsos están sujetos a las condiciones comerciales de E-Containers y su acuerdo según el contrato que se halla realizado. Dicho acuerdo esta basado en el contrato que una vez se realice tendrá vigencia, E-Containers no realiza ningún tipo de reembolso de dinero, prestara todo el asesoramiento a traves de su linea telefónica nacional (1)7462065.<br>
+                 Los pagos realizados a través de nuestra plataforma deben realizarse por medio de las tarjetas mencionadas debito o crédito , una vez realizado el pago por la plataforma Payu el cliente recibirá una notificación vía correo electrónico que confirmara el pago realizado, inmediatamente el ejecutivo comercial asignado a la solicitud del requerimiento se comunicara con el cliente vía telefónica.
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@
   
       <section class="container-fluid hero">
         <div class="logo">
-          <img src="assets/imgs/logo-nuevo.png" [routerLink]="['/home']" class="img-logo" alt="logo">
+          <img src="assets/imgs/logo-nuevo.png" [routerLink]="['/home']" class="img-logo pointer" alt="logo">
   
         </div>
   
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <img [src]="imagenContenedor('Contenedores Refrigerados')" class="contenedor animated fadeIn" alt="contenedor">
+            <img [src]="imagenContenedor('Contenedores Refrigerados')" class="contenedor-reefer animated fadeIn" alt="contenedor">
           </div>
         </div>
   
@@ -140,7 +140,7 @@
   
                   <div>
                     <button mat-raised-button color="warn" class="mr-3" matStepperPrevious>Atras</button>
-                    <button [disabled]="!secondFormGroup.valid" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
+                    <button *ngIf="carga2" [disabled]="!secondFormGroup.valid" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
                   </div>
                 </form>
               </mat-step>
@@ -154,6 +154,5 @@
     <!-- ---------------------- -->
     <!--       FIN   FORMULARIO -->
     <!-- ---------------------- -->
-  
-  
   </div>
+  <!-- <app-footer-landing></app-footer-landing> -->

@@ -119,7 +119,6 @@ export class CotizacionComponent implements OnInit {
           if (this.contenedor.tipo === 'Tailor made') {
             this.tailor = true;
           }
-          console.log(this.contenedor);
           this.carga = false;
         });
     });
@@ -200,7 +199,6 @@ export class CotizacionComponent implements OnInit {
     };
     this._payu.getComercio(this.body).subscribe(
       datos => {
-        console.log(datos);
         this.payuMessage.merchantId = datos.merchantId;
         this.payuMessage.referenceCode = this.body.referenceCode;
         this.payuMessage.description = `${valor.nombre} Contenedores`;
@@ -364,14 +362,12 @@ export class CotizacionComponent implements OnInit {
 
   sendEmail(message: IMessage) {
     this.disabled = true;
-    console.log(message);
 
     message.tipo_estandar = this.tipo_estandar;
     message.tipo_casa = this.tipo_vivienda;
     this.appService.sendEmail(message).subscribe(
       res => {
-        console.log(res);
-        console.log(message);
+ 
         console.log('AppComponent Success', res);
         // swal({
         //   type: 'success',

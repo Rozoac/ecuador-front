@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ArquitectonicosService } from '../../../service/arquitectonicos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IMessage, CorreoService } from '../../../service/correo.service';
-import swal from "sweetalert2";
+import swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
@@ -40,8 +40,8 @@ export class ProductosArquitectonicosComponent implements OnInit {
     'Valledupar',
     'Villavicencio'
   ];
-  constructor(public _arquitectonicosService: ArquitectonicosService, public router: ActivatedRoute, private appService: CorreoService) { 
-    
+  // tslint:disable-next-line:max-line-length
+  constructor(public _arquitectonicosService: ArquitectonicosService, public router: ActivatedRoute, public router2: Router, private appService: CorreoService) { 
     this.firstFormGroup = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       celular: new FormControl('', [
@@ -55,7 +55,6 @@ export class ProductosArquitectonicosComponent implements OnInit {
       nit: new FormControl(),
       cedula: new FormControl(),
     });
-   
   }
 
   ngOnInit() {
@@ -64,8 +63,7 @@ export class ProductosArquitectonicosComponent implements OnInit {
       this.tipoDeProyecto();
       console.log(this.contenedor);
 
-   })
-   
+   });
 
    this.filteredOptions = this.ciudad_control.valueChanges.pipe(
     startWith(''),
@@ -74,15 +72,15 @@ export class ProductosArquitectonicosComponent implements OnInit {
   }
 
 
-  tipoDeProyecto(){
+  tipoDeProyecto() {
     this.message.tipo = 'Productos Especiales';
     if (this.contenedor.nombre === 'Unidades Comerciales' || this.contenedor.nombre === 'Piscina Container'){
       this.message.tipo_estandar = this.contenedor.nombre;
     }
-    if(this.contenedor.nombre === 'Casa tipo 1' || this.contenedor.nombre === 'Casa tipo 2'){
+    if (this.contenedor.nombre === 'Casa tipo 1' || this.contenedor.nombre === 'Casa tipo 2') {
       this.message.tipo_casa = this.contenedor.nombre;
     }
-  } 
+  }
 
 
   getErrorMessage(campo: string, form: string) {
@@ -103,13 +101,8 @@ export class ProductosArquitectonicosComponent implements OnInit {
         console.log(res);
         console.log(message);
         console.log('AppComponent Success', res);
-        swal({
-          type: 'success',
-          title:
-            '¡Muchas Gracias! Proximamente un asesor comercial se estará comunicando contigo.',
-          showConfirmButton: false,
-          timer: 3000
-        });
+        localStorage.setItem('comercial', JSON.stringify(res));
+        this.router2.navigate(['gracias']);
       },
       error => {
         console.log(message);
@@ -130,12 +123,4 @@ export class ProductosArquitectonicosComponent implements OnInit {
       option.toLowerCase().includes(filterValue)
     );
   }
-
-
-  
-
-
-
-  
-
 }

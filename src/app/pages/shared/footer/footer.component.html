@@ -1,6 +1,7 @@
 <footer class=" footer-page  ">
     <div class="row text-center padding-40 margin-0 containerf">
-        <div class="col-3 menu-1">
+        
+        <div class="col-md-3 menu-1">
             <span><a [routerLink]="['/quienes-somos']">Nosotros</a></span>
             <span><a pageScroll [pageScrollDuration]="1000" href="#9" [routerLink]="['/home']">Contactanos</a></span>
             <span><a [routerLink]="['/trabaja']">Trabaja con nosotros</a></span>
@@ -8,13 +9,13 @@
             <span><a target="_blank" href="https://noticias.econtainerscolombia.com">Blog</a></span>
         </div>
 
-        <div class="col-3 menu-1">
+        <div class="col-md-3 menu-1">
             <span><a [routerLink]="['/pqrs']">PQRS</a></span>
             <span><a href="https://econtainers.co/politicas.pdf" target="_blank">Politicas de tratamiento de datos personales</a></span>
         </div>
-        <div class="col-2 d-none d-lg-block menu-2">
+        <div class="col-md-2 menu-2">
             <span><a>Siguenos en:</a></span>
-            <ul>
+            <ul style="padding: 0;">
                 <li>
                     <a href="https://www.facebook.com/EContainers/" target="_blank">
 
@@ -38,12 +39,14 @@
             </li>
         </ul>
         </div>
-        <div class="col-4 redes-sgs">
+        <hr>
+        <div class="col-md-4 redes-sgs">
             <div class="sgs row">
                 <img src="/assets/imgs/ISO9001.png" alt="">
                 <img src="/assets/imgs/ISO14001.png" alt="">
             </div>
         </div>
+        <hr>
     </div>
     <div class="container-fluid d-none d-md-block">
         <div class="row super containerf footer-2">

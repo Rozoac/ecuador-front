@@ -45,8 +45,7 @@ export class MapaComponent implements OnInit {
       margin: 10,
       dotsClass: 'prueba',
       dotClass: 'prueba-2',
-
-
+      activeClass: 'activop',
 
       responsive: {
         0: {
@@ -59,9 +58,11 @@ export class MapaComponent implements OnInit {
           items: 3
         }
       }
-    })
-    $('.prueba').css({'height': '10px','width': '10px', 'position' : 'absolute', 'left':'91%', 'bottom': '74%'});
-    $('.prueba-2').css({'background' : '#34cdff', 'height': '10px','width': '10px', 'display' : 'inline-block', 'borderRadius': '50%', 'cursor': 'pointer'});
+    });
+    $('.prueba').css({'height': '10px', 'width': '10px', 'position' : 'absolute', 'left': '91%', 'bottom': '74%'});
+    // tslint:disable-next-line:max-line-length
+    $('.prueba-2').css({'background' : '#34cdff', 'height': '15px', 'width': '10px', 'display' : 'inline-block', 'borderRadius': '50%', 'cursor': 'pointer'});
+    $('active').css({'border' : 'black'});
     // let x = document.querySelectorAll('.prueba-2.active') as HTMLCollectionOf<HTMLElement>;
     //   x[0].style.backgroundColor = "red";
 }

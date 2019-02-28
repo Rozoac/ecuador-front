@@ -1,5 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~angular-calendar/css/angular-calendar.css";
+
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700,900');
 
@@ -36,6 +36,10 @@
     src: url('assets/fonts/brandon/brandon-regular.woff');
 }
 @font-face {
+    font-family: 'brandon-light';
+    src: url('assets/fonts/brandon/brandon-light.woff');
+}
+@font-face {
     font-family: 'brandon-medium';
     src: url('assets/fonts/brandon/brandon-medium.woff');
 }
@@ -63,14 +67,6 @@ h4,
 h5,
 h6 {
     font-family: 'bebas-bold'!important;
-}
-
-.blanco{
-    color: white;
-}
-
-.negro{
-    color: black;
 }
 
 .texto-principal{

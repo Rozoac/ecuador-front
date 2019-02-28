@@ -1,0 +1,13 @@
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.logo{
+    width: 300px;
+}
+
+li{
+    text-align: center;
+}

@@ -12,11 +12,21 @@ background: linear-gradient(to bottom, rgba(109,186,212,1) 0%, rgba(92,157,194,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6dbad4', endColorstr='#5c9dc2', GradientType=0 );
 
 }
+.volver{
+    transition: .5s;
+    display: inline-block ;
+    border: 1px solid black;
+    padding: 0 15px;
+}
+.volver:hover{
+    color: white;
+    background: #7aaeca;
+}
 
 .informacion{
     background: white;
-    padding: 40px;
-    border-radius: 2px;
+    padding: 20px 40px 40px 40px;
+        border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
 }
 .titulo{
@@ -33,7 +43,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6dbad4', end
 }
 
 .imagen-s{
-    width: 70px;
+    width: 270px;
 }
 
 .main svg {

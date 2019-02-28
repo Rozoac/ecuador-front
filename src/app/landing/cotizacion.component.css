@@ -3,6 +3,11 @@
     padding: 0px 0 0 5%;
     display: inline-block;
 }
+
+.row {
+	margin-right: 0;
+	margin-left: 0;
+	}
 .img-logo{
     width: 20%;
 
@@ -103,6 +108,9 @@
 .contenedor {
   width: 80%;
 }
+.contenedor-reefer {
+  width: 70%;
+}
 
 @media screen and (max-width: 576px) {
 
@@ -114,10 +122,18 @@
     top: 80px;
 }
 
+
+
 .contenedor{
 	z-index: 2;	
       position: relative;
     top: -32px;
+    left: 10%;
+}
+.contenedor-reefer{
+	z-index: 2;	
+      position: relative;
+    top: -40px;
     left: 10%;
 }
 

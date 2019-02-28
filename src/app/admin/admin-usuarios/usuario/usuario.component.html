@@ -83,13 +83,14 @@
           <div class="card-body" align="center">
               <ul>
                 <li><i class="ti-trash" style="color: red;"></i><h5 class="pointer" (click)="deleteUsuario(usuario?._id)" style="display: inline-block; color: red;">Eliminar Comercial</h5></li>
-                <hr *ngIf="usuario?.id_rol.nombre != 'ADMIN'">
-                <li *ngIf="usuario?.id_rol.nombre != 'ADMIN'"><h5 (click)="cambiarEstado(usuario?.estado, usuario?._id)" class="pointer" style="display: inline-block;">{{(usuario?.estado == 'ACTIVO') ? 'DESACTIVAR' : 'ACTIVAR'}} Comercial</h5></li>
+                <hr >
+                <li><h5 (click)="cambiarEstado(usuario?.estado, usuario?._id)" class="pointer" style="display: inline-block;">{{(usuario?.estado == 'ACTIVO') ? 'DESACTIVAR' : 'ACTIVAR'}} Comercial</h5></li>
+                <!-- *ngIf="usuario?.id_rol.nombre != 'ADMIN'" -->
               </ul>
           </div>
         </div>
       </div>
-    <div class="col-lg-5" *ngIf="usuario?.id_rol.nombre != 'ADMIN'" style="margin-bottom: 100px;">
+    <div class="col-lg-5" style="margin-bottom: 100px;">
         <div class="card">
           <div class="card-body" align="center">
               <div class="row mb-2">

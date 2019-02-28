@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { registerLocaleData } from "@angular/common";
-import localeEs from "@angular/common/locales/es";
+import { HttpClientModule,HttpClientJsonpModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { TypingAnimationDirective } from 'angular-typing-animation';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -46,8 +46,14 @@ import { AdminComponent } from './admin/admin.component';
 import { ListaComponent } from './admin/lista/lista.component';
 import { InfoComponent } from './info/info.component';
 import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import {
+  CalendarDateFormatter,
+  CalendarModule,
+  CalendarMomentDateFormatter,
+  DateAdapter,
+  MOMENT
+} from 'angular-calendar';
 
 // servicios
 import {ContenedoresService} from './service/contenedores.service';
@@ -63,8 +69,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { RolService } from './service/rol.service';
 import { SegmentoService } from './service/segmento.service';
 import { PaisService } from './service/pais.service';
-
-
+import moment from 'moment';
 
 // Angular Material
 import {
@@ -82,7 +87,7 @@ import {
   MatButtonToggleModule,
   MatTableModule,
   MatRadioModule,
-} from "@angular/material";
+} from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop'
 
 
@@ -100,14 +105,14 @@ import { ChartsModule } from 'ng2-charts';
 import { MyDatePickerModule } from 'mydatepicker';
 import { GraficaDonaComponent } from './admin/grafica-dona/grafica-dona.component';
 import { LeadComponent } from './admin/lead/lead.component';
-import { NguCarouselModule } from "@ngu/carousel";
-import { ToastrModule } from "ngx-toastr";
-import { CounterModule } from "angular-circle-counter";
-import { ParallaxScrollModule } from "ng2-parallaxscroll";
-import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
-import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
-import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NguCarouselModule } from '@ngu/carousel';
+import { ToastrModule } from 'ngx-toastr';
+import { CounterModule } from 'angular-circle-counter';
+import { ParallaxScrollModule } from 'ng2-parallaxscroll';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { QuillModule } from 'ngx-quill'
 
@@ -146,6 +151,9 @@ import { environment } from '../environments/environment.prod';
 import { SharedService } from './service/shared.service';
 import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
 import { NegocioComponent } from './admin/negocio/negocio.component';
+import { HeaderLandingComponent } from './landing/shared/header-landing/header-landing.component';
+import { FooterLandingComponent } from './landing/shared/footer-landing/footer-landing.component';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -153,6 +161,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelSpeed: 2,
   wheelPropagation: true
 };
+export function momentAdapterFactory() {
+  return adapterFactory(moment);
+}
 
 
 
@@ -165,6 +176,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     // TypingAnimationDirective,
     HomepageComponent,
     FooterComponent,
+    HeaderLandingComponent,
+    FooterLandingComponent,
     QuienesSomosComponent,
     TrabajaConNosotrosComponent,
     ContenedorComponent,
@@ -229,13 +242,22 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SocketIoModule.forRoot(config),
     BrowserAnimationsModule,
     MatButtonModule,
+    HttpClientJsonpModule,
     MatButtonToggleModule,
     MatSelectModule,
     SweetAlert2Module.forRoot(),
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    }),
+    CalendarModule.forRoot(
+      {
+        provide: DateAdapter,
+        useFactory: momentAdapterFactory
+      },
+      {
+        dateFormatter: {
+          provide: CalendarDateFormatter,
+          useClass: CalendarMomentDateFormatter
+        }
+      }
+    ),
     MatStepperModule,
     MatCheckboxModule,
     MatInputModule,
@@ -264,7 +286,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyD9h_JPuErKyrfGHD5HGY0lG45AxPj_Ejo"
+      apiKey: 'AIzaSyD9h_JPuErKyrfGHD5HGY0lG45AxPj_Ejo'
     }),
     ChartsModule,
     MyDatePickerModule
@@ -273,7 +295,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: "es"
+      useValue: 'es'
+    },
+    {
+      provide: MOMENT,
+      useValue: moment
     },
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

@@ -197,3 +197,9 @@ ul li.active+li .seccion-negocio .flecha-inicial:after, ul li.active+li .seccion
     width: 45px;
     text-align: center;
 }
+
+.tipos-denotas a {
+    height: 35px;
+    min-width: 30px;
+    background: white;
+}

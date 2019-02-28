@@ -13,6 +13,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6dbad4', end
 
 }
 
+.volver{
+    transition: .5s;
+    display: inline-block ;
+    border: 1px solid black;
+    padding: 0 15px;
+}
+.volver:hover{
+    color: white;
+    background: #7aaeca;
+}
+
 .informacion{
     background: white;
     padding: 40px;

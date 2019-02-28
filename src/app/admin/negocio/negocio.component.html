@@ -144,8 +144,8 @@
                                             </ng-template>
                                             <div class="container">
                                                 <div class="row">
-                                                    <div class="col-md-3" style="overflow: auto;
-                                                    height: 400px;">
+                                                    <div class="col-md-3" style="    overflow: scroll;
+                                                    height: 355px;">
                                                         <div class="top-accion mb-2 mt-2" >
                                                             <div class=" text-center">
                                                                 <h5 style="margin: 0;">{{ viewDate | calendarDate:(view + 'ViewTitle'):'es' }}</h5>
@@ -156,13 +156,41 @@
                                                                             <a class="btn btn-info" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false"> > </a>
                                                                         </div>
                                                         </div>
-                                                        <mwl-calendar-day-view [locale]="es" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"> </mwl-calendar-day-view>
+                                                        <mwl-calendar-day-view locale="es" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"> </mwl-calendar-day-view>
                                                     </div>
                                                     <div class="col-md-9">
-                                                    </div>
+                                                            <div class="btn-group tipos-denotas mt-3 mb-3">
+                                                                    <a  *ngFor="let mensajes of tipoMensaje" (click)="llenarTipoMensaje(mensajes)" class="btn btn-success"><i [class]="mensajes.icono"></i></a>
+                                                                    <!-- <a (click)="mensajeAccion.tipo = 'reunion'" class="btn btn-info"><i class="mdi mdi-account-multiple"></i></a>
+                                                                    <a (click)="mensajeAccion.tipo = 'correo electronico'" class="btn btn-success"><i class="mdi mdi-email-alert"></i></a> -->
+                                                                    <h4 class="ml-3 ">{{mensajeAccion.nombre}}</h4>
+                                                                </div>
+                                                                <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="card card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-12 col-xs-12">
+                                                                                        <form>
+                                                                                                <div class="form-group">
+                                                                                                        <label>Notas</label>
+                                                                                                        <textarea name="mensaje" [(ngModel)]="mensajeAccion.mensaje" class="form-control" rows="5"></textarea>
+                                                                                                    </div>
+                                                                                                    <div class="botonera" style="position: relative; right: 0;">
+                                                                                                            <button type="button" (click)="limpiarMensaje()" class="btn btn-rounded mr-2 btn-secondary">Limpiar</button>
+                                                                                                            <button type="button" (click)="agregarTipoMensaje()" class="btn btn-rounded btn-success">Guardar</button>
+                                                                                                        </div>
+                                                                                            
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                         </div>
                                                   
-                                                </div>
-                                            </div>
+                                    </div>
+                                 </div>
                           </ng-template>
                         </ngb-tab>
                       </ngb-tabset>
@@ -172,67 +200,21 @@
               </div>
           </div>
         
-                  <ul class="timeline">
-                      
-                      <li class="timeline-inverted">
-                          <div class="timeline-badge success"><i class="mdi mdi-phone"></i> </div>
+                  <ul *ngIf="mensajes != null"  class="timeline">
+                    
+                      <li *ngFor="let mensaje of mensajes" class="timeline-inverted">
+                          <div class="timeline-badge success"><i [class]="mensaje.id_tipo?.icono"></i> </div>
                           <div class="timeline-panel">
                               <div class="timeline-heading">
-                                  <h5 class="timeline-title">Llamada</h5>
-                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
+                                  <h5 class="timeline-title">{{mensaje.id_tipo.nombre}}</h5>
+                                  <p><small class="text-muted"><i class="icon-clock"></i> {{mensaje.fecha_inicial}}</small> </p>
                               </div>
                               <div class="timeline-body">
-                                  <p>LLamada al señor danixon a las 3 pm</p>
+                                  <p>{{mensaje.mensaje}}</p>
                               </div>
                           </div>
                       </li>
-                      <li class="timeline-inverted">
-                          <div class="timeline-badge warning"><i class="mdi mdi-account-multiple"></i> </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h5 class="timeline-title">Reunion</h5>
-                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
-
-                              </div>
-                              <div class="timeline-body">
-                                  <p>Me reuni con el señor xyz en la sala de juntas para hablar sobre xyz</p>
-                              </div>
-                          </div>
-                      </li>
-                      <li class="timeline-inverted">
-                          <div class="timeline-badge danger"><i class="mdi mdi-email"></i> </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h5 class="timeline-title">Correo Electronico</h5>
-                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
-
-                              </div>
-                              <div class="timeline-body">
-                                  <p>Se envio correo al señor xyz a tal hora y xyz</p>
-                              </div>
-                          </div>
-                      </li>
-                      <li class="timeline-inverted">
-                          <div class="timeline-badge danger"><i class="mdi mdi-file-document"></i></div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h5 class="timeline-title">Nota</h5>
-                                  <p><small class="text-muted"><i class="icon-clock"></i> Hace 2 horas</small> </p>
-
-                              </div>
-                              <div class="timeline-body">
-                                  <p>Se envio correo al señor xyz a tal hora y xyz</p>
-                              </div>
-                          </div>
-                      </li>
-           
-          
-                  </ul>
-                 
- 
-
-     
-     
+                    </ul>
    </div>
   
 

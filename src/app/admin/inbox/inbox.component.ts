@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class InboxComponent implements OnInit, OnDestroy {
   closeResult: string;
   messages;
-  selectedMessage: Message;
+  selectedMessage: any;
   messageOpen = false;
   usuario;
   mensajesSuscription: Subscription;

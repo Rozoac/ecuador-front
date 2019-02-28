@@ -1,18 +1,18 @@
-<div class="principal">
+<div class="principal animated fadeIn">
   <div class="container">
-    <div class="row">
+      <app-header-landing style=""></app-header-landing>
+    <div class="row responsive-1">
       <div class="col-md-6">
-        <ul id="texto-principal" class=" animated zoomInLeft ">
+        <ul id="texto-principal">
           <li><span class="text-principal">TRANSFORMAMOS</span></li>
           <li><span class="text-principal">TUS SUEÑOS</span></li>
           <li><span class="text-principal">EN REALIDADES</span></li>
-          <li><span class="mr-2 ml-2 rotate ultimo-texto">¿En qué estas pensando?</span></li>
+          <li><span class="mr-2 ml-2 rotate ultimo-texto">Selecciona tu contenedor ideal !</span></li>
         </ul>
-
       </div>
       <div class="col-md-5">
         <div>
-          <img src="assets/imgs/info/derecha.png" class="imagen-derecha" alt="">
+          <img src="assets/imgs/info/derecha.png" class="imagen-derecha d-none d-sm-block " alt="">
         </div>
       </div>
     </div>
@@ -21,32 +21,50 @@
         <div class="carga" *ngIf="!loading">
           <mat-spinner ></mat-spinner>
         </div>    
-
         <ngu-carousel #myCarousel [inputs]="carouselConfig" *ngIf="loading" [dataSource]="contenedores">
-
   <div *nguCarouselDef="let item;" class="item"> 
-      <div class="card hvr-grow-shadow" style="">
+      <div class="card pointer" style="" (click)="cotizacion(item._id)" >
           <div class="imagen-contenedor mt-4">
             <img class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{item.img}}" alt="Card image cap">
           </div>
           <div class="card-body">
             <h2 class="card-title">{{item.nombre}}</h2>
             <p class="card-text">{{item.descripcion}}</p>
-              <span routerLink="/cotizacion/{{item._id}}" class="cotiza">Cotiza ahora<i class="fas fa-angle-right"></i></span>
+              <span class="cotiza">Cotiza ahora<i class="fas fa-angle-right"></i></span>
           </div>
         </div>
   </div>
-           
-          
-          <button NguCarouselPrev class='leftRs'><i class="fas fa-angle-left"></i></button>
-          <button NguCarouselNext class='rightRs'><i class="fas fa-angle-right"></i></button>
+          <button NguCarouselPrev class='leftRs2'><i class="fas fa-angle-left"></i></button>
+          <button NguCarouselNext class='rightRs2'><i class="fas fa-angle-right"></i></button>
         </ngu-carousel>
       </div>
-
     </div>
-
+      <!-- <ul>
+        <li *ngFor="let post of posts">
+          <img class="images-instagram" [src]="post.images.standard_resolution.url" alt="" >
+        </li>
+      </ul> -->
   </div>
+  <div class="barra-instagram">
+    <h3>  Siguenos en  <a style="color: white;" target="_blank" href="https://www.instagram.com/econtainers/"><i class="fab fa-instagram mr-2 ml-2 mr-2"></i>Instagram</a> y <a style="color: white;" target="_blank" href="https://www.facebook.com/EContainers/"><i class="fab fa-facebook ml-2 mr-2" ></i> Facebook</a>  </h3>
+</div>
+  <ngu-carousel #myCarousel [inputs]="carouselBanner" *ngIf="loading2" [dataSource]="posts">
+      <ngu-item *nguCarouselDef="let item;" NguCarouselItem class="bannerStyle" >
+          <!-- <img class="images-instagram" [src]="item.images.standard_resolution.url" alt="" > -->
+          <a [href]="item.link" target="_blank">
+          <div class="post" [ngStyle]="{'background-image': 'url(' + item.images.standard_resolution.url + ')'}">
+            <div class="insta-data">
+              <i class="far fa-heart fa-2x " color="white"></i> <h5 class="mr-3"  style="font-size: 30px;" >{{item.likes.count}}</h5>
+              <i class="far fa-comment fa-2x " color="white"  ></i> <h5 class="mr-3"  style="font-size: 30px;" >{{item.comments.count}}</h5>
+            </div>
+          </div>
+        </a>
+      </ngu-item>     
+      <button NguCarouselPrev class='leftRs2'><i class="fas fa-angle-left"></i></button>
+      <button NguCarouselNext class='rightRs2'><i class="fas fa-angle-right"></i></button>
+  </ngu-carousel>
   <!-- <div class="popup" [ngClass]="{active: active == true}">
     <img src="assets/imgs/popup.png" alt="" class="animated zoomInLeft" (click)="cambiarActive()">
   </div> -->
 </div>
+<app-footer-landing></app-footer-landing>

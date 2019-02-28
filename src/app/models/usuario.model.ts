@@ -2,11 +2,12 @@ export class Usuario {
     constructor(
         public correo: string,
         public clave: string,
+        public id_rol?:any[],
         public nombre?: string,
         public estado?: string,
         public apellido?: string,
         public celular?: string,
-        public id_rol?: string,
+        // public id_rol?: string,
         public imagen?: string,
         public segmento?:any[],
         public ciudad?:any[],

@@ -20,6 +20,7 @@ export class RefrigeradosComponent implements OnInit {
 
   
   carga = true;
+  carga2 = true;
   ciudad_control = new FormControl();
   datos_control = new FormControl();
   filteredOptions: Observable<string[]>;
@@ -65,9 +66,7 @@ export class RefrigeradosComponent implements OnInit {
     private appService: CorreoService,
     public _landingService: LandingService
   ) {
-   
     this.message.tipo = 'Contenedores Refrigerados'; 
-       
     this.firstFormGroup = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       celular: new FormControl('', [
@@ -184,6 +183,7 @@ export class RefrigeradosComponent implements OnInit {
   
 
   sendEmail(message: IMessage) {
+    this.carga2 = false;
     console.log(message);
     this.appService.sendEmail(message).subscribe(
       res => {
@@ -191,6 +191,7 @@ export class RefrigeradosComponent implements OnInit {
         console.log(message);
         console.log('AppComponent Success', res);
         localStorage.setItem('comercial', JSON.stringify(res));
+        this.carga2 = true;
         this.router2.navigate(['gracias']);
       },
       error => {
@@ -223,7 +224,7 @@ export class RefrigeradosComponent implements OnInit {
       { Id: 1, name: 'Empresa' },
       { Id: 2, name: 'Contratación estatal' }
     ];
-
+    this.carga2 = true;
     this.filteredOptions = this.ciudad_control.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))

@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { Lead } from "../../models/lead.model";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { URL_SERVICIOS, URL_LANDING_DEV } from "../../config/config";
-import { Comercial } from "../../models/comercial.model";
-import "rxjs/Rx";
-import { Observable,  } from "rxjs/Rx";
-import { Fechas } from "../../models/fechas.model";
-import { map } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Lead } from '../../models/lead.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { URL_SERVICIOS, URL_LANDING_DEV } from '../../config/config';
+import { Comercial } from '../../models/comercial.model';
+import 'rxjs/Rx';
+import { Observable,  } from 'rxjs/Rx';
+import { map } from 'rxjs/operators';
+import { Fechas } from '../../models/fechas.model';
 
 
 @Injectable()
@@ -14,18 +14,17 @@ export class LeadService {
   constructor(public http: HttpClient) {}
 
   leads: any;
-
   getLeads(
     pagina: number = 1,
-    segmento: string = "",
+    segmento: string = '',
     fecha?: Fechas,
-    comercial: string = "",
-    pdf: string = ""
+    comercial: string = '',
+    pdf: string = ''
   ) {
-    let headers = new HttpHeaders()
-      .set("Content-Type", "application/x-www-form-urlencoded")
-      .set("Segmento", segmento)
-      .set("Comercial", comercial)
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Segmento', segmento)
+      .set('Comercial', comercial)
       .set('Archivo', pdf)
       .set('Fecha', JSON.stringify(fecha));
 
@@ -41,23 +40,22 @@ export class LeadService {
     fecha?: Fechas,
   ) {
     const json = JSON.stringify(fecha);
-    let headers = new HttpHeaders()
+    const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
     const params = 'json=' + json;
 
     const url = URL_SERVICIOS + `pdf`;
-    
-      return this.http.post(url,params ,{ responseType: 'blob', headers });
+      return this.http.post(url, params , { responseType: 'blob', headers });
 
   }
 
-  borrarLead(id){
+  borrarLead(id) {
       const url = `https://api.econtainerscolombia.com/public/api/leads/${id}`;
       return this.http.delete(url);
   }
 
-  getReferidosPDF(){
-    let headers = new HttpHeaders()
+  getReferidosPDF() {
+    const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
 
     const url = URL_SERVICIOS + `pdfReferidos`;
@@ -83,10 +81,10 @@ export class LeadService {
   }
 
   buscarLeadFecha(termino: string, comercial: Comercial) {
-    let json = JSON.stringify(comercial);
+    const json = JSON.stringify(comercial);
     console.log(json);
-    let params = 'json=' + json;
-    let headers = new HttpHeaders().set(
+    const params = 'json=' + json;
+    const headers = new HttpHeaders().set(
       'Content-Type',
       'application/x-www-form-urlencoded'
     );
@@ -99,10 +97,20 @@ export class LeadService {
     const url = URL_SERVICIOS + `busqueda/${termino}`;
     return this.http.get(url).map((resp: any) => resp.leads);
   }
+
+  getTipoMensaje() {
+    const url = URL_LANDING_DEV  + `tipoMensaje`;
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res.tiposMensajes;
+      })
+    );
+  }
   buscarLead(id: string) {
     const url = URL_SERVICIOS + `leads/${id}`;
     return this.http.get(url).map((resp: any) => resp.lead);
   }
+
 
   segmentos() {
     const url = URL_SERVICIOS + `cantidadSegmento`;
@@ -110,9 +118,9 @@ export class LeadService {
   }
 
   getLeadsComercial(fecha: any) {
-    let json = JSON.stringify(fecha);
-    let params = 'json=' + json;
-    let headers = new HttpHeaders().set(
+    const json = JSON.stringify(fecha);
+    const params = 'json=' + json;
+    const headers = new HttpHeaders().set(
       'Content-Type',
       'application/x-www-form-urlencoded'
     );
@@ -139,16 +147,15 @@ export class LeadService {
     const url = URL_SERVICIOS + 'referidos';
     return this.http.get(url);
   }
-  
-  ultimo(){
+  ultimo() {
     const url = URL_SERVICIOS + 'ultimo';
     return this.http.get(url);
   }
 
-  enviarLead(mensaje){
-    let json = JSON.stringify(mensaje);
-    let params = 'json=' + json;
-    let headers = new HttpHeaders().set(
+  enviarLead(mensaje) {
+    const json = JSON.stringify(mensaje);
+    const params = 'json=' + json;
+    const headers = new HttpHeaders().set(
       'Content-Type',
       'application/x-www-form-urlencoded'
     );
@@ -158,21 +165,32 @@ export class LeadService {
   }
 
   actualizarUsuario(id, estado) {
-    let url = `${URL_LANDING_DEV}lead/${id}/${estado}`
+    const url = `${URL_LANDING_DEV}lead/${id}/${estado}`;
     return this.http.put(url, id);
   }
 
     getLeadsNuevos(id) {
-    let url = `${URL_LANDING_DEV}lead/nuevo/${id}`
-    return this.http.get(url, id)
+    const url = `${URL_LANDING_DEV}lead/nuevo/${id}`;
+    return this.http.get(url, id);
   }
     getLeadsVerdes(id) {
-    let url = `${URL_LANDING_DEV}lead/verde/${id}`
-    return this.http.get(url, id)
+    const url = `${URL_LANDING_DEV}lead/verde/${id}`;
+    return this.http.get(url, id);
   }
 
   getLead(id: string) {
     const url = URL_LANDING_DEV + `lead/unico/${id}`;
     return this.http.get(url);
+  }
+
+  agregarMensaje(id, lead) {
+    console.log(id);
+      const url = URL_LANDING_DEV + `lead/mensaje/${id}`;
+      return this.http.put(url, lead);
+  }
+
+  agregarTipoMensaje(mensaje, id) {
+      const url = URL_LANDING_DEV + `lead/tipoMensaje/${id}`;
+      return this.http.put(url, mensaje );
   }
 }

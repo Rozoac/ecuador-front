@@ -4,15 +4,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PayuService } from '../../../service/payu.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { ArquitectonicosService } from '../../../service/arquitectonicos.service';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
   selector: 'app-tailor-made',
   templateUrl: './tailor-made.component.html',
-  styleUrls: ['./tailor-made.component.scss']
+  styleUrls: ['./tailor-made.component.css']
 })
 export class TailorMadeComponent implements OnInit {
-
+  public arquitectonicos;
   public payuMessage: Payu = {};
   public prueba = 'https://checkout.payulatam.com/ppp-web-gateway-payu';
   public body = { referenceCode: '', amount: 0 };
@@ -49,15 +51,12 @@ export class TailorMadeComponent implements OnInit {
     'Villavicencio'
   ];
 
-  constructor(public _payu: PayuService) { 
+  constructor(public _payu: PayuService, public _arquitectonicosService: ArquitectonicosService, public router: Router) {
     $(function() {
-      var text = $(".text");
-      setTimeout(function(){ text.removeClass("hidden"); }, 2000);
-    
-     
+      const text = $('.text');
+      setTimeout(function(){ text.removeClass('hidden'); }, 2000);
       });
-    
-    
+      this.cargarArquitectonicos();
   }
 
 
@@ -71,7 +70,6 @@ export class TailorMadeComponent implements OnInit {
         });
       });
     });
-    
 
     this.payuFormGroup = new FormGroup({
       nombre_payu: new FormControl('', [Validators.required]),
@@ -130,7 +128,6 @@ export class TailorMadeComponent implements OnInit {
   enviarPago(res) {
     return res.submit();
   }
-  
 
   getErrorMessage(campo: string, form: string) {
     return this.payuFormGroup.get(`${campo}`).hasError('required')
@@ -138,6 +135,27 @@ export class TailorMadeComponent implements OnInit {
       : this.payuFormGroup.get(`${campo}`).hasError('email')
         ? 'No es un email valido'
         : '';
+  }
+
+  verArquitectonico( id ) {
+    this.router.navigate(['/arquitectonicos', id]);
+    // return this.arquitectonicos[id];
+  }
+
+  alcobas(cantidad) {
+    if (cantidad <= 0 ){
+      return;
+    }
+    if (cantidad > 0 && cantidad <= 1) {
+      return `${cantidad} Alcoba |`;
+    }
+    if (cantidad > 0 && cantidad > 1) {
+      return `${cantidad} Alcobas |`;
+    }
+  }
+
+  cargarArquitectonicos() {
+    this.arquitectonicos = this._arquitectonicosService.cargarArquitectonicos(); 
   }
 
 }
