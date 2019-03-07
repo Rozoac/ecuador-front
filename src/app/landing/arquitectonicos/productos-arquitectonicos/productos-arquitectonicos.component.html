@@ -48,9 +48,17 @@
                       <!-- NOMBRE
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
-                        <mat-label>Nombre y Apellido</mat-label>
-                        <input matInput placeholder="" required formControlName="nombre" [(ngModel)]="message.name">
+                        <mat-label>Nombre </mat-label>
+                        <input matInput placeholder="" required formControlName="nombre" [(ngModel)]="message.nombre">
                         <mat-error *ngIf="firstFormGroup.get('nombre').invalid">{{getErrorMessage("nombre")}}</mat-error>
+                      </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- APELLIDO
+                    <!-- ============================================================== -->
+                    <mat-form-field class="mr-4" appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput placeholder="" required formControlName="apellido" [(ngModel)]="message.apellido">
+                        <mat-error *ngIf="firstFormGroup.get('nombre').invalid">{{getErrorMessage("apellido")}}</mat-error>
                       </mat-form-field>
                       <!-- ============================================================== -->
                       <!-- CELULAR
@@ -67,49 +75,58 @@
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
                         <mat-label>Correo Electronico</mat-label>
-                        <input matInput placeholder="" required formControlName="email" [(ngModel)]="message.email">
-                        <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+                        <input matInput placeholder="" required formControlName="correo" [(ngModel)]="message.correo">
+                        <mat-error *ngIf="firstFormGroup.get('correo').invalid">{{getErrorMessage("correo")}}</mat-error>
                       </mat-form-field>
                       <!-- ============================================================== -->
                       <!-- CIUDAD
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
-                        <mat-label>Ciudad</mat-label>
-                        <mat-select placeholder="Select" formControlName="ciudad" [(ngModel)]="message.ciudad">
-                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                            {{option}}
-                          </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
-                      </mat-form-field>
+                          <mat-label>Ciudad</mat-label>
+                          <mat-select placeholder="Select" formControlName="ciudad" [(ngModel)]="message.id_ciudad">
+                            <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad._id">
+                              {{ciudad.nombre}}
+                            </mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
+                        </mat-form-field>
                        <!-- ============================================================== -->
                       <!-- TIPO DE CLIENTE
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-5" appearance="outline" >
                           <mat-label>Tipo de cliente</mat-label>
-                          <mat-select placeholder="Tipo de cliente" formControlName="cliente" [(ngModel)]="message.cliente">
-                            <mat-option *ngFor="let tipo_cliente of interes" [value]="tipo_cliente" >
-                              {{tipo_cliente}}
+                          <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente">
+                            <mat-option *ngFor="let tipo_cliente of interes" [value]="tipo_cliente" (onSelectionChange) = "onEvent($event)">
+                              {{tipo_cliente.tipo}}
                             </mat-option>
                           </mat-select>
                          
-                          <mat-error *ngIf="firstFormGroup.get('cliente').invalid">{{getErrorMessage("cliente")}}</mat-error>
+                          <mat-error *ngIf="firstFormGroup.get('tipo_cliente').invalid">{{getErrorMessage("tipo_cliente")}}</mat-error>
                      </mat-form-field>
-                     <mat-form-field *ngIf="message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'" class="mr-4"
+                    <!-- ============================================================== -->
+                    <!-- NIT
+                    <!-- ============================================================== -->
+                     <mat-form-field *ngIf="message?.tipo_cliente.tipo === 'Empresa' || message?.tipo_cliente.tipo  === 'Contratación estatal'" class="mr-4"
                      appearance="outline">
                      <mat-label>Nit</mat-label>
-   
-                     <input matInput placeholder="" type="number" required formControlName="nit" [(ngModel)]="message.nit">
-                     <mat-error *ngIf="firstFormGroup.get('nit').invalid">{{getErrorMessage("nit")}}</mat-error>
-   
-                   </mat-form-field>
-                   <mat-form-field *ngIf="message.cliente == 'Natural'" class="mr-4" appearance="outline">
+                     <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
+                     <mat-error *ngIf="firstFormGroup.get('documento').invalid">{{getErrorMessage("documento")}}</mat-error>
+                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- CEDULA
+                    <!-- ============================================================== -->
+                   <mat-form-field *ngIf="message?.tipo_cliente.tipo  == 'Natural'" class="mr-4" appearance="outline">
                      <mat-label>Cedula</mat-label>
-   
-                     <input matInput placeholder="" type="number" required formControlName="cedula" [(ngModel)]="message.cedula">
-                     <mat-error *ngIf="firstFormGroup.get('cedula').invalid">{{getErrorMessage("cedula")}}</mat-error>
-   
+                     <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
+                     <mat-error *ngIf="firstFormGroup.get('documento').invalid">{{getErrorMessage("documento")}}</mat-error>
                    </mat-form-field>
+                    <!-- ============================================================== -->
+                    <!-- Mensaje
+                    <!-- ============================================================== -->
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Mensaje</mat-label>
+                      <textarea  [(ngModel)]="message.mensaje" formControlName="mensaje" matInput placeholder="Deja tu mensaje"></textarea>
+                    </mat-form-field>
  
                     </div>
                   </div>

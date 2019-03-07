@@ -27,6 +27,14 @@ export class LandingService {
     // tslint:disable-next-line:max-line-length
     const url = 'https://api.instagram.com/v1/users/self/media/recent?access_token=1700981807.1677ed0.47d58bc3e86d40eabd905eed1925210e&callback=JSONP_CALLBACK';
     return this.http.jsonp(url, '');
- }
+  }
+  getCiudades() {
+    const url = `${URL_LANDING_DEV}ciudad/5c3ce3835d14850017167207`;
+    return this.http.get(url);
+  }
+  getSegmentos() {
+    const url = `${URL_LANDING_DEV}segmento`;
+    return this.http.get(url);
+  }
 }
 

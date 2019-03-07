@@ -1,26 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS, URL_LANDING_DEV } from '../../config/config';
-import swal from "sweetalert2";
+import swal from 'sweetalert2';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { SubirArchivoService } from '../subir-archivo.service';
 
 @Injectable()
 export class UsuarioService {
-  public identity
+  public identity;
   public token = null;
-  
 
-  constructor(public http: HttpClient, public router: Router, public _subirArchivoService:SubirArchivoService) {
+  constructor(public http: HttpClient, public router: Router, public _subirArchivoService: SubirArchivoService) {
     this.carcarStorage();
 
   }
   actualizarUsuario(usuario: Usuario, id) {
-    let url = `${URL_LANDING_DEV}usuario/${id}/?token=${this.identity.token}`
+    const url = `${URL_LANDING_DEV}usuario/${id}/?token=${this.identity.token}`;
     return this.http.put(url, usuario).pipe(
       map((resp: any) => {
         const usuarioDB: Usuario = resp.usuario;
@@ -31,23 +29,23 @@ export class UsuarioService {
     );
   }
 
-  createUsuario(usuario:Usuario){
-    let url = `${URL_LANDING_DEV}usuario?token=${this.token}`
-    return this.http.post(url, usuario)
+  createUsuario(usuario: Usuario) {
+    const url = `${URL_LANDING_DEV}usuario?token=${this.token}`;
+    return this.http.post(url, usuario);
   }
 
   getUsuarios() {
-    let url = URL_LANDING_DEV
+    const url = URL_LANDING_DEV;
     return this.http.get(`${url}usuario`);
     }
-  getUsuario(id:String) {
-    let url = URL_LANDING_DEV
+  getUsuario(id: String) {
+    const url = URL_LANDING_DEV;
     return this.http.get(`${url}usuario/${id}`);
     }
 
 
-    deleteUsuario(id:String){
-      let url = URL_LANDING_DEV
+    deleteUsuario(id: String) {
+      const url = URL_LANDING_DEV;
       return this.http.delete(`${url}usuario/${id}`);
     }
 
@@ -77,15 +75,14 @@ export class UsuarioService {
     if (gettoken != null) {
       usuario.gettoken = 'true';
     }
-  
     const url = URL_LANDING_DEV + 'login';
 
     return this.http.post(url, usuario);
   }
 
   getIdentity() {
-    let identity = JSON.parse(localStorage.getItem('identity'));
-    if (identity != 'undefined') {
+    const identity = JSON.parse(localStorage.getItem('identity'));
+    if (identity !== 'undefined') {
       this.identity = identity;
     } else {
       this.identity = null;
@@ -94,8 +91,7 @@ export class UsuarioService {
   }
 
   getToken() {
-    let token = localStorage.getItem('token');
-
+    const token = localStorage.getItem('token');
     if (token !== 'undefined') {
       this.token = token;
     } else {
@@ -115,9 +111,9 @@ export class UsuarioService {
   }
 
   guardarStorage(id: string, token: string, usuario: Usuario) {
-    localStorage.setItem("id", id);
-    localStorage.setItem("token", token);
-    localStorage.setItem("identity", JSON.stringify(usuario));
+    localStorage.setItem('id', id);
+    localStorage.setItem('token', token);
+    localStorage.setItem('identity', JSON.stringify(usuario));
   }
 
   cambiarImagen(file: File, id: string) {

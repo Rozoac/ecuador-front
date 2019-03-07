@@ -44,7 +44,6 @@ import { SidebarComponent } from './admin/shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './admin/shared/breadcrumbs/breadcrumbs.component';
 import { AdminComponent } from './admin/admin.component';
 import { ListaComponent } from './admin/lista/lista.component';
-import { InfoComponent } from './info/info.component';
 import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import {
@@ -211,7 +210,6 @@ export function momentAdapterFactory() {
     ComercialComponent,
     ComercialPipe,
     ListaComponent,
-    InfoComponent,
     DashboardRedesComponent,
     GraciasComponent,
     LandingComponent,

@@ -17,8 +17,8 @@ declare var $: any;
 export class DashboardRedesComponent implements OnInit {
   cargaReporte: boolean = false;
     tipoId = 1;
-  tipoCliente: TipoCliente[];
-  message: IMessage = {
+  tipoCliente;
+  message = {
   ciudad: '¿Cual es tu ciudad mas cercana?',
   tipo: '¿En que estas interesado?',
   para: '¿Lo quieres para?',

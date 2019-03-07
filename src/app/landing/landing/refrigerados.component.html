@@ -1,14 +1,9 @@
 <div class="main animated fadeIn">
     <div class="row principal">
-  
-  
-  
       <section class="container-fluid hero">
         <div class="logo">
           <img src="assets/imgs/logo-nuevo.png" [routerLink]="['/home']" class="img-logo pointer" alt="logo">
-  
         </div>
-  
         <div class="row" >
           <div class="col-md-6">
             <div class="left">
@@ -24,15 +19,11 @@
             <img [src]="imagenContenedor('Contenedores Refrigerados')" class="contenedor-reefer animated fadeIn" alt="contenedor">
           </div>
         </div>
-  
-  
-  
-  
       </section>
-      <!-- ---------------------- -->
-      <!--       FORMULARIO -->
-      <!-- ---------------------- -->
-      <section class="col-md-12 seccion-1" >
+    <!-- ---------------------- -->
+    <!--       FORMULARIO -->
+    <!-- ---------------------- -->
+    <section class="col-md-12 seccion-1" id="formulario">
         <div class="container animated fadeInUp">
           <mat-card>
             <mat-horizontal-stepper [linear]="isLinear" #stepper>
@@ -45,8 +36,16 @@
                       <!-- NOMBRE
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
-                        <mat-label>Nombre y Apellido</mat-label>
-                        <input matInput placeholder="" required formControlName="nombre" [(ngModel)]="message.name">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="" required formControlName="nombre" [(ngModel)]="message.nombre">
+                        <mat-error *ngIf="firstFormGroup.get('nombre').invalid">{{getErrorMessage("nombre")}}</mat-error>
+                      </mat-form-field>
+                      <!-- ============================================================== -->
+                      <!-- APELLIDO
+                      <!-- ============================================================== -->
+                      <mat-form-field class="mr-4" appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput placeholder="" required formControlName="apellido" [(ngModel)]="message.apellido">
                         <mat-error *ngIf="firstFormGroup.get('nombre').invalid">{{getErrorMessage("nombre")}}</mat-error>
                       </mat-form-field>
                       <!-- ============================================================== -->
@@ -64,17 +63,17 @@
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
                         <mat-label>Correo Electronico</mat-label>
-                        <input matInput placeholder="" required formControlName="email" [(ngModel)]="message.email">
-                        <mat-error *ngIf="firstFormGroup.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+                        <input matInput placeholder="" required formControlName="correo" [(ngModel)]="message.correo">
+                        <mat-error *ngIf="firstFormGroup.get('correo').invalid">{{getErrorMessage("correo")}}</mat-error>
                       </mat-form-field>
                       <!-- ============================================================== -->
                       <!-- CIUDAD
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
                         <mat-label>Ciudad</mat-label>
-                        <mat-select placeholder="Select" formControlName="ciudad" [(ngModel)]="message.ciudad">
-                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                            {{option}}
+                        <mat-select placeholder="Select" formControlName="ciudad" [(ngModel)]="message.id_ciudad">
+                          <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad._id">
+                            {{ciudad.nombre}}
                           </mat-option>
                         </mat-select>
                         <mat-error *ngIf="firstFormGroup.get('ciudad').invalid">{{getErrorMessage("ciudad")}}</mat-error>
@@ -85,9 +84,9 @@
                     <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
                   </div>
                 </form>
+               
               </mat-step>
-  
-  
+             
               <mat-step [stepControl]="secondFormGroup">
                 <form [formGroup]="secondFormGroup">
                   <ng-template matStepLabel>¿Que estas buscando?</ng-template>
@@ -96,56 +95,55 @@
                   <!-- ============================================================== -->
                   <mat-form-field class="mr-5" appearance="outline" >
                     <mat-label>Tipo de cliente</mat-label>
-                    <mat-select placeholder="Tipo de cliente" formControlName="cliente" [(ngModel)]="message.cliente" *ngIf="contenedor?.tipo != 'Contenedores Refrigerados' ">
-                      <mat-option *ngFor="let tipo_cliente of interes " [value]="tipo_cliente" >
-                        {{tipo_cliente}}
+                    <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente">
+                      <mat-option *ngFor="let tipo_cliente of interes" [value]="tipo_cliente" (onSelectionChange) = "onEvent($event)" >
+                        {{tipo_cliente.tipo}}
                       </mat-option>
                     </mat-select>
-                    <mat-select placeholder="Tipo de cliente rifer" formControlName="cliente" [(ngModel)]="message.cliente" *ngIf="contenedor?.tipo == 'Contenedores Refrigerados' ">
-                      <mat-option *ngFor="let tipo_cliente2 of interes2 " [value]="tipo_cliente" >
-                        {{tipo_cliente2}}
-                      </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="secondFormGroup.get('cliente').invalid">{{getErrorMessage2("cliente")}}</mat-error>
+                    <mat-error *ngIf="secondFormGroup.get('tipo_cliente').invalid">{{getErrorMessage2("tipo_cliente")}}</mat-error>
                   </mat-form-field>
-                  
-  
-                  <mat-form-field *ngIf="message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'" class="mr-4"
+                  <!-- ============================================================== -->
+                  <!-- NIT
+                  <!-- ============================================================== -->
+                   <mat-form-field *ngIf="message?.tipo_cliente.tipo === 'Empresa' || message?.tipo_cliente.tipo  === 'Contratación estatal'" class="mr-4"
                     appearance="outline">
                     <mat-label>Nit</mat-label>
-  
-                    <input matInput placeholder="" type="number" required formControlName="nit" [(ngModel)]="message.nit">
-                    <mat-error *ngIf="secondFormGroup.get('nit').invalid">{{getErrorMessage2("nit")}}</mat-error>
-  
+                    <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
+                    <mat-error *ngIf="secondFormGroup.get('documento').invalid">{{getErrorMessage2("documento")}}</mat-error>
                   </mat-form-field>
-                  <mat-form-field *ngIf="message.cliente == 'Natural'" class="mr-4" appearance="outline">
+                  <!-- ============================================================== -->
+                  <!-- CEDULA
+                  <!-- ============================================================== -->
+                  <mat-form-field *ngIf="message?.tipo_cliente.tipo  == 'Natural'" class="mr-4" appearance="outline">
                     <mat-label>Cedula</mat-label>
-  
-                    <input matInput placeholder="" type="number" required formControlName="cedula" [(ngModel)]="message.cedula">
-                    <mat-error *ngIf="secondFormGroup.get('cedula').invalid">{{getErrorMessage2("cedula")}}</mat-error>
-  
+                    <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
+                    <mat-error *ngIf="secondFormGroup.get('documento').invalid">{{getErrorMessage2("documento")}}</mat-error>
                   </mat-form-field>
-  
+                  <!-- ============================================================== -->
+                  <!-- Modalidad
+                  <!-- ============================================================== -->
                   <mat-form-field class="mr-5" appearance="outline">
                     <mat-label>¿Lo quieres para?</mat-label>
-  
-                    <mat-select placeholder="¿Lo quieres para?" formControlName="interes" [(ngModel)]="message.para">
-                      <mat-option value="Compra" *ngIf="message.cliente == 'Natural' || message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'">Compra</mat-option>
-                      <mat-option value="Alquiler" *ngIf="message.cliente != 'Tipo de cliente' && message.cliente != 'Natural'">Alquiler</mat-option>
+                    <mat-select placeholder="¿Lo quieres para?" formControlName="modalidad" [(ngModel)]="message.modalidad">
+                      <mat-option value="Compra" *ngIf="message.tipo_cliente.tipo == 'Natural' || message.tipo_cliente.tipo == 'Empresa' || message.tipo_cliente.tipo == 'Contratación estatal'">Compra</mat-option>
+                      <mat-option value="Alquiler" *ngIf="message.tipo_cliente.tipo != 'Tipo de cliente' && message.tipo_cliente.tipo != 'Natural'">Alquiler</mat-option>
                     </mat-select>
-                    <mat-error *ngIf="secondFormGroup.get('interes').invalid">{{getErrorMessage2("interes")}}</mat-error>
+                    <mat-error *ngIf="secondFormGroup.get('modalidad').invalid">{{getErrorMessage2("modalidad")}}</mat-error>
                   </mat-form-field>
-  
-  
+                  <!-- ============================================================== -->
+                  <!-- Mensaje
+                  <!-- ============================================================== -->
+                  <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Mensaje</mat-label>
+                    <textarea  [(ngModel)]="message.mensaje" formControlName="mensaje" matInput placeholder="Deja tu mensaje"></textarea>
+                  </mat-form-field>
   
                   <div>
                     <button mat-raised-button color="warn" class="mr-3" matStepperPrevious>Atras</button>
-                    <button *ngIf="carga2" [disabled]="!secondFormGroup.valid" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
+                    <button [disabled]="!secondFormGroup.valid || disabled == true" mat-raised-button color="primary" (click)="sendEmail(message)">Enviar</button>
                   </div>
                 </form>
               </mat-step>
-  
-  
             </mat-horizontal-stepper>
           </mat-card>
         </div>

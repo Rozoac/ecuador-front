@@ -39,15 +39,15 @@
     <div class="col-md-7 hero-text text-center wow fadeInLeft">
       <h2>¡HOLA!</h2>
       <div class="noombre text-center ">
-        <p style="margin-bottom: 0;">Soy <span>{{comercial.comercial_nombre}}</span></p>
+        <p style="margin-bottom: 0;">Soy <span>{{comercial.lead.id_usuario.nombre}} {{comercial.lead.id_usuario.apellido}}</span></p>
         <p>tu comercial asignado</p>
       </div>
 
       <p class="hero-message">Pronto me contactaré contigo para informarte sobre nuestro portafolio de productos y responder dudas e inquietudes para ofrecerte una grata experiencia.</p>
       <div class="redes">
         <ul>
-          <li><img src="/assets/imgs/gracias/Icono-mail.png" alt=""> {{comercial.comercial_correo}}</li>
-          <li><img src="/assets/imgs/gracias/Icono-whatsapp.png" alt=""> +(57) {{comercial.comercial_numero}} </li>
+          <li><img src="/assets/imgs/gracias/Icono-mail.png" alt=""> {{comercial.lead.id_usuario.correo}}</li>
+          <li><img src="/assets/imgs/gracias/Icono-whatsapp.png" alt=""> +(57) {{comercial.lead.id_usuario.celular}} </li>
         </ul>
       </div>
     </div>

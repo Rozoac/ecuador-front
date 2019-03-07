@@ -4,6 +4,9 @@ import { IMyDpOptions, IMyDateModel } from 'mydatepicker';
 import { Fechas } from '../../models/fechas.model';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PaisService } from '../../service/pais.service';
+import { Observable } from 'rxjs';
+import { UsuarioService } from '../../service/usuario/usuario.service';
 
 // Modelos
 
@@ -16,9 +19,11 @@ import { Router } from '@angular/router';
 export class GraficasComponent implements OnInit {
 
 
-  constructor(public _leadService: LeadService, public router: Router) {
-      this._leadService.getLeadsComercialMes()
+  constructor(public _leadService: LeadService, public router: Router,
+              public _paisesService: PaisService, public _usuariosService: UsuarioService) {
+                 this._leadService.getLeadsComercialMes()
                        .subscribe( (resp: any) => {
+                         console.log(resp);
                           this.mesInicio = resp.inicio;
                           this.mesFin = resp.fin;
                        });
@@ -34,14 +39,15 @@ export class GraficasComponent implements OnInit {
     disableUntil: { year: 0, month: 0, day: 0 },
 
   };
-
+  public paises: any;
+  public usuarios: any;
   public comerciales: any = null;
   public mesInicio: any;
   public mesFin: any ;
   public totalGeneral: number;
   public editable = false;
   public locale = 'es';
-  public placeholder: string = 'Selecciona una fecha';
+  public placeholder = 'Selecciona una fecha';
   public date = new Date();
 
   onStartDateChanged(event: IMyDateModel) {
@@ -93,7 +99,19 @@ export class GraficasComponent implements OnInit {
                      console.log(resp);
                         this.comerciales = resp;
                      });
-                     
+  }
+
+  getPaises() {
+    this._paisesService.getPais().subscribe((res: any) => {
+      this.paises = res.pais;
+    });
+  }
+
+  getUsuarios() {
+    this._usuariosService.getUsuarios().subscribe( (res: any) => {
+      this.usuarios = res.usuarios;
+      console.log(this.usuarios);
+    });
   }
 
   comercialInfo(ruta, inicio, fin): any {
@@ -102,9 +120,8 @@ export class GraficasComponent implements OnInit {
 
   }
 
-
-
   ngOnInit() {
-  
+    this.getPaises();
+    this.getUsuarios();
 }
 }

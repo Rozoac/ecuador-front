@@ -56,6 +56,10 @@ select {
     width: 100%;
 }
 
+::ng-deep .mat-form-field-outline {
+    background: white;
+}
+
 .principal {
     padding-top: 80px;
     padding-bottom: 80px;

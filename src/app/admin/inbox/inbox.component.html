@@ -1,17 +1,20 @@
-
-
 <div class="email-container ">
         <div class="card wow fadeIn">
             <div class="row">
                 <div class="col-xlg-3 col-lg-4 col-md-4">
                     <div class="inbox-panel">
                         <div class="d-flex p-20 no-block" style="    display: flex!important;
-                        justify-content: space-around;">
+                                                                      justify-content: space-around;">
                             <div class="align-self-center">
-                             <i class="fa fa-circle text-danger m-r-5 font-10 mr-2"  ></i><div class="font-medium mr-2"> No leido</div> <i class="fa fa-circle text-warning m-r-5 font-10" ></i> <div class="font-medium mr-2"> Leido</div> <i class="fa fa-circle text-success m-r-5 font-10" ></i> <div class="font-medium mr-2" >Resuelto</div> <i class="fa fa-circle text-secondary m-r-5 font-10" ></i> <div class="font-medium mr-2"> Cerrado</div> </div>
-                            <!-- <div class="ml-auto align-self-center">
-                                <button class="btn btn-danger btn-sm" (click)="open2(content)">Compose</button>
-                            </div> -->
+                                <i class="fa fa-circle text-danger m-r-5 font-10 mr-2"></i>
+                                <div class="font-medium mr-2"> No leido</div> 
+                                <i class="fa fa-circle text-warning m-r-5 font-10" ></i> 
+                                <div class="font-medium mr-2"> Leido</div> 
+                                <i class="fa fa-circle text-success m-r-5 font-10" ></i> 
+                                <div class="font-medium mr-2" >Resuelto</div> 
+                                <i class="fa fa-circle text-secondary m-r-5 font-10" ></i> 
+                                <div class="font-medium mr-2"> Cerrado</div> 
+                             </div>
                         </div>
                         <div class="inb-right">
                                 <div class="row " *ngIf="!messages ">
@@ -28,14 +31,14 @@
                             <div (click)="onSelect(message, message._id, 'warning')" *ngFor="let message of messages; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column animated fadeIn">
                                 <div class="d-flex">
                                     <div class="">
-                                        <div class="avatar-status bg-{{message.id_semaforo.color}}"> <img alt="" class="avatar-sm rounded-circle" [src]="imagenSegmento(message.id_cliente.id_segmento.nombre)" /> </div>
+                                        <div class="avatar-status bg-{{message.id_semaforo.color}}"> <img alt="" class="avatar-sm rounded-circle" [src]="message.id_cliente.id_segmento.foto" /> </div>
                                     </div>
                                     <div class="pl-3">
                                         <div class="d-flex w-100 justify-content-between align-items-center"> 
                                             <small class="font-medium text-{{message.id_semaforo.color}}" style="transition: color 0.5s ease;"> 
                                                 <i class="fa fa-circle  m-r-5 font-10" ></i>{{message?.id_cliente?.nombre}}  {{message?.id_cliente?.apellido}}
                                             </small> 
-                                            <small class="bold text-muted time ">  {{ message.fecha_creacion | date: 'MMMM d' }} </small> 
+                                            <small class="bold text-muted time ml-2">  {{ message.fecha_creacion | date: 'MMMM d' }} </small> 
                                         </div>
                                         <p class="mb-0 font-14 "> {{message?.id_cliente?.mensajeCliente | slice:0:40}} ... </p>
                                     </div>
@@ -62,7 +65,7 @@
                     <div class="card-body" *ngIf="selectedMessage">
                         <div class="p-20">
                             <div class="d-flex align-items-center m-b-30">
-                                <div class=""> <img alt="" class="avatar-lg rounded-circle" [src]="imagenSegmento(selectedMessage.id_cliente.id_segmento.nombre)" /> </div>
+                                <div class=""> <img alt="" class="avatar-lg rounded-circle" [src]="selectedMessage.id_cliente.id_segmento.foto" /> </div>
                                 <div class="pl-3">
                                     <div class="font-medium">{{selectedMessage.id_cliente.nombre}} {{selectedMessage.id_cliente.apellido}} -  {{ selectedMessage.fecha_creacion | date: 'MMMM d' }} ( <i class="icon-clock"></i> {{ selectedMessage.hora_creacion}})  </div> 
                                     <br/>
@@ -72,7 +75,7 @@
                             </div>
                           
                             <div class="b-r mb-2"> <strong>Mensaje del cliente:</strong></div>
-                      <div><blockquote>{{selectedMessage.id_cliente.mensaje}}</blockquote> </div>
+                      <div><blockquote>{{selectedMessage.id_cliente.mensajeCliente}}</blockquote> </div>
                           
                       <ngb-tabset>
                       <ngb-tab title="Perfil">
@@ -125,28 +128,10 @@
                               </div>  
                             </ng-template>
                         </ngb-tab>
-                  
                         </ngb-tabset>
-                      
                       </div>
                     </div>
                 </div>
-                <ng-template #content let-c="close" let-d="dismiss">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Compose Email</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="to" placeholder="To"> </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="subject" placeholder="Subject"> </div>
-                            <quill-editor [style]="{height: '200px'}"></quill-editor>
-                            <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10 m-t-20">Send</button>
-                        </form>
-                    </div>
-                </ng-template>
             </div>
         </div>
       </div>

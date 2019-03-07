@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoCliente } from '../models/tipoCliente.model';
-import { CorreoService, IMessage } from '../service/correo.service';
+import { CorreoService, IMessage, Ciudad } from '../service/correo.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { map, startWith } from 'rxjs/operators';
 import { LandingService } from '../services/landing.service';
 import { Payu } from '../models/payu.model';
 import { PayuService } from '../service/payu.service';
+import { MatOptionSelectionChange } from '@angular/material';
 
 @Component({
   selector: 'app-cotizacion',
@@ -16,19 +17,19 @@ import { PayuService } from '../service/payu.service';
   styleUrls: ['./cotizacion.component.css']
 })
 export class CotizacionComponent implements OnInit {
+  public ciudades: Ciudad[];
   public payuMessage: Payu = {};
   public prueba = 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu';
   public body = { referenceCode: '', amount: 0 };
   public disablePaymentButton = true;
   public contenedor_maritimo = 'CONTENEDORES MARÍTIMOS';
   public disabled = false;
-
-  payu= null;
-  tipoId = 1;
-  maritimo = false;
-  estandar = false;
-  casa = false;
-  tailor = false;
+  public payu = null;
+  public tipoId = 1;
+  public maritimo = false;
+  public estandar = false;
+  public casa = false;
+  public tailor = false;
   // -------------------------
   // TIPO DE PROYECTO ESTANDAR
   // -------------------------
@@ -52,35 +53,24 @@ export class CotizacionComponent implements OnInit {
   ciudad_control = new FormControl();
   datos_control = new FormControl();
   filteredOptions: Observable<string[]>;
-  tipoCliente: TipoCliente[];
+  tipoCliente;
   tipoCliente2: TipoCliente[];
   displayedColumns: string[] = ['Nombre', 'Celular', 'Correo', 'Ciudad'];
-  message: IMessage = {};
-  halloweenActivo = false;
-  halloween;
+  message: IMessage = {
+    documento: {
+      tipo_documento: '',
+      numero: ''
+    },
+    tipo_cliente: {
+      tipo: '',
+      nombre: ''
+    },
+    id_pais: '5c3ce3835d14850017167207',
+    fuente: 'Landing'
+  };
   public active = false;
-
-  interes: string[]
-  interes2: string[]
-
-  ciudades: string[] = [
-    'Armenia',
-    'Barranca',
-    'Barranquilla',
-    'Bogotá',
-    'Bucaramanga',
-    'Cali',
-    'Ibagué',
-    'Maicao',
-    'Manizales',
-    'Medellín',
-    'Otros',
-    'Pereira',
-    'Riohacha',
-    'Santa Marta',
-    'Valledupar',
-    'Villavicencio'
-  ];
+  interes: TipoCliente[];
+  interes2: string[];
   contenedor: any;
   contenedor_id: any;
   forma: FormGroup;
@@ -101,15 +91,17 @@ export class CotizacionComponent implements OnInit {
       _landingService
         .getContenedor(res['nombre'])
         .subscribe((contenedor: any) => {
-          if(contenedor.contenedor.tipo === 'Contenedores Refrigerados'){
-            
-            this.interes = [ 'Empresa', 'Contratación estatal']
+          console.log(contenedor);
+          if (contenedor.contenedor.tipo === 'Contenedores Refrigerados') {
+            this.interes = [  {tipo: 'Empresa', nombre: '' }, {tipo: 'Contratación estatal' , nombre: ''}];
               }
-              if(contenedor.contenedor.tipo !== 'Contenedores Refrigerados'){
-                this.interes = ['Natural' ,'Empresa', 'Contratación estatal'];
+              if (contenedor.contenedor.tipo !== 'Contenedores Refrigerados') {
+                // tslint:disable-next-line:max-line-length
+                this.interes = [ {tipo: 'Natural' }, {tipo: 'Empresa', nombre: '' }, {tipo: 'Contratación estatal' , nombre: ''}];
               }
           this.contenedor = contenedor.contenedor;
-          this.message.tipo = this.contenedor.tipo;
+          this.message.id_segmento = this.contenedor.id_segmento;
+          // this.message.tipo = this.contenedor.tipo;
           // if (this.contenedor.tipo === 'Contenedores Maritimos') {
           //   this.maritimo = true;
           // }
@@ -138,19 +130,24 @@ export class CotizacionComponent implements OnInit {
 
     this.firstFormGroup = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
+      apellido: new FormControl('', [Validators.required]),
       celular: new FormControl('', [
         Validators.required,
         Validators.pattern('[0-9]{1,10}'),
         Validators.minLength(10)
       ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      correo: new FormControl('', [Validators.required, Validators.email]),
       ciudad: new FormControl('', [Validators.required])
     });
     this.secondFormGroup = new FormGroup({
-      cliente: new FormControl('', [Validators.required]),
-      nit: new FormControl(),
-      cedula: new FormControl(),
-      interes: new FormControl('', Validators.required)
+      tipo_cliente: new FormControl('', [Validators.required]),
+      mensaje: new FormControl(''),
+      documento: new FormControl('', [Validators.required]),
+      // interes: new FormControl('', Validators.required),
+      modalidad: new FormControl(
+        '¿En que estas interesado?',
+        Validators.required
+      ),
     });
 
     this.forma = new FormGroup(
@@ -165,10 +162,6 @@ export class CotizacionComponent implements OnInit {
           Validators.pattern('[0-9]{1,10}'),
           Validators.minLength(10)
         ]),
-        interes: new FormControl(
-          '¿En que estas interesado?',
-          Validators.required
-        ),
         email: new FormControl('', [
           Validators.required,
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')
@@ -177,18 +170,34 @@ export class CotizacionComponent implements OnInit {
         cliente: new FormControl('Tipo de cliente', Validators.required),
         autorizo: new FormControl('', Validators.required),
         mensaje: new FormControl(),
-        cedula: new FormControl(),
-        nit: new FormControl()
+        documento: new FormControl()
       },
       {
         validators: this.validacionCampos(
           'ciudad',
-          'interes',
           'para',
           'cliente'
         )
       }
     );
+  }
+
+  ngOnInit() {
+    this.tipoCliente = [
+      { Id: 1, name: 'Natural' },
+      { Id: 2, name: 'Empresa' },
+      { Id: 3, name: 'Contratación estatal' }
+    ];
+    // this.tipoCliente2 = [
+    //   { Id: 1, name: 'Empresa' },
+    //   { Id: 2, name: 'Contratación estatal' }
+    // ];
+
+    this._landingService.getCiudades().subscribe( (res: any) => {
+      this.ciudades = res.ciudades;
+      console.log(res);
+    });
+
   }
 
   signature(valor) {
@@ -218,7 +227,7 @@ export class CotizacionComponent implements OnInit {
     );
   }
 
-  pagosOnline(){
+  pagosOnline() {
    this.router2.navigate(['/pagos-online']);
   }
 
@@ -254,17 +263,17 @@ export class CotizacionComponent implements OnInit {
     if (tipo === 'Productos Especiales') {
       return 'assets/imgs/contenedor5.png';
     }
-    if(tipo === 'Piscina container'){
-      return 'assets/imgs/piscina-principal.png'
+    if (tipo === 'Piscina container') {
+      return 'assets/imgs/piscina-principal.png';
     }
-    if(tipo === 'Unidades comerciales'){
-      return 'assets/imgs/arquitectonicos/unidad-comercial.png'
+    if (tipo === 'Unidades comerciales') {
+      return 'assets/imgs/arquitectonicos/unidad-comercial.png';
     }
-    if(tipo === 'Casa 1'){
-      return 'assets/imgs/arquitectonicos/unidad-comercial.png'
+    if (tipo === 'Casa 1') {
+      return 'assets/imgs/arquitectonicos/unidad-comercial.png';
     }
-    if(tipo === 'Casa 2'){
-      return 'assets/imgs/arquitectonicos/unidad-comercial.png'
+    if (tipo === 'Casa 2') {
+      return 'assets/imgs/arquitectonicos/unidad-comercial.png';
     }
   }
 
@@ -283,21 +292,32 @@ export class CotizacionComponent implements OnInit {
         : '';
   }
 
+  onEvent(evento: MatOptionSelectionChange) {
+      if ((evento.source.value.tipo === 'Natural') && (evento.isUserInput = true)) {
+        this.message.documento.tipo_documento = 'Cedula';
+        console.log(this.message);
+      return;
+    } if ((evento.source.value.tipo !== 'Natural' && (evento.isUserInput = true)) ) {
+       this.message.documento.tipo_documento = 'NIT';
+    }
+    console.log(evento);
+    // return;
+  }
+
   validacionCampos(
     campo1: string,
-    campo2: string,
     campo3: string,
     campo4: string
   ) {
     return (group: FormGroup) => {
       const ciudad = group.controls[campo1].value;
-      const interes = group.controls[campo2].value;
+      // const modalidad = group.controls[campo2].value;
       const para = group.controls[campo3].value;
       const cliente = group.controls[campo4].value;
 
       if (
         ciudad !== '¿Cual es tu ciudad mas cercana?' &&
-        interes !== '¿En que estas interesado?' &&
+        // modalidad !== '¿En que estas interesado?' &&
         para !== '¿Lo quieres para?' &&
         cliente !== 'Tipo de cliente'
       ) {
@@ -310,14 +330,14 @@ export class CotizacionComponent implements OnInit {
   }
 
   admin() {
-    if (this.message.name === 'juan rozo') {
+    if (this.message.nombre === 'juan rozo') {
       this.router2.navigate(['gracias']);
     }
   }
 
   tipoContenedor(tipo: string) {
     this.maritimo = false;
-    this.message.tipo = tipo;
+    // this.message.tipo = tipo;
     this.contenedor.tipo = tipo;
   }
   tipoContenedorVivienda() {
@@ -327,11 +347,11 @@ export class CotizacionComponent implements OnInit {
   }
 
   seleccionVivienda(tipo) {
-    if(tipo === 1 ){
+    if (tipo === 1 ) {
       this.contenedor.tipo = 'Casa 1';
       this.tipo_vivienda = tipo;
       this.casa = false;
-    }else {
+    } else {
       this.contenedor.tipo = 'Casa 2';
       this.tipo_vivienda = tipo;
       this.casa = false;
@@ -363,56 +383,22 @@ export class CotizacionComponent implements OnInit {
   sendEmail(message: IMessage) {
     this.disabled = true;
 
-    message.tipo_estandar = this.tipo_estandar;
-    message.tipo_casa = this.tipo_vivienda;
+    // message.tipo_estandar = this.tipo_estandar;
+    // message.tipo_casa = this.tipo_vivienda;
     this.appService.sendEmail(message).subscribe(
       res => {
- 
+        console.log(res);
+        console.log(message);
         console.log('AppComponent Success', res);
-        // swal({
-        //   type: 'success',
-        //   title:
-        //     '¡Muchas Gracias! Proximamente un asesor comercial se estará comunicando contigo.',
-        //   showConfirmButton: false,
-        //   timer: 3000
-        // });
-         localStorage.setItem('comercial', JSON.stringify(res));
+        localStorage.setItem('comercial', JSON.stringify(res));
         this.router2.navigate(['gracias']);
       },
       error => {
-        console.log(message);
-        // swal({
-        //   type: 'error',
-        //   title: `error ${error.message}`,
-        //   showConfirmButton: true
-        // });
-        // this.router2.navigate(['gracias']);
+        console.log(error);
       }
     );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
 
-    return this.ciudades.filter(option =>
-      option.toLowerCase().includes(filterValue)
-    );
-  }
 
-  ngOnInit() {
-    this.tipoCliente = [
-      { Id: 1, name: 'Natural' },
-      { Id: 2, name: 'Empresa' },
-      { Id: 3, name: 'Contratación estatal' }
-    ];
-    this.tipoCliente2 = [
-      { Id: 1, name: 'Empresa' },
-      { Id: 2, name: 'Contratación estatal' }
-    ];
-
-    this.filteredOptions = this.ciudad_control.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-  }
 }

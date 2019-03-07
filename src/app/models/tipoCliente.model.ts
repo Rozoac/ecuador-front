@@ -1,6 +1,6 @@
 export class TipoCliente {
 
-    public Id: number;
-    public name: string;
+  tipo: string;
+  nombre?: string;
   }
 
