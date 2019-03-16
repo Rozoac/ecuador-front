@@ -8,7 +8,7 @@
                 <div class="d-flex">
                     <div>
                         <h4 class="card-title">
-                            <span class="lstick"></span>Leads por Comerciales</h4>
+                            <span class="lstick"></span>Leads por Comerciales {{inicio}}</h4>
                     </div>
                 </div>
                 <form ngNativeValidate #myForm="ngForm" (ngSubmit)="getLeads( myForm )" class="">
@@ -71,38 +71,38 @@
                                                            <th>Bodegas</th>
                                                            <th>Oficinas</th>
                                                            <th>Salas de venta</th>
-                                                           <th>Proyectos Arq</th>
+                                                           <th>Productos Especiales</th>
                                                            <th>Refrigerados</th>
                                                            <th>Total</th>
                                                        </tr>
                                                    </thead>
                                                    <tbody class="pointer">
-                                                       <ng-container *ngFor="let usuario of usuarios">
-                                                           <tr  (click)="comercialInfo('fcastrodelrio',comerciales.inicio ,comerciales.fin )" *ngIf="usuario?.id_pais?.nombre != 'ADMIN' && usuario?.id_pais?.nombre === pais.nombre">
+                                                       <ng-container *ngFor="let comercial of comerciales">
+                                                           <tr  (click)="comercialInfo(comercial.comercial._id,inicio ,fin )" *ngIf="comercial?.comercial.id_rol?.nombre != 'ADMIN' && comercial?.comercial.id_pais?.nombre === pais.nombre">
                                                                <td style="width:50px;">
-                                                                   <img [src]="usuario.imagen" alt="user" class="img-circle" style="width: 70px;" />
+                                                                   <img [src]="comercial.comercial.imagen" alt="user" class="img-circle" style="width: 70px;" />
                                                                </td>
                                                                <td>
-                                                                   <h6>{{usuario.nombre}} {{usuario.apellido}}</h6>
+                                                                   <h6>{{comercial.comercial.nombre}} {{comercial.comercial.apellido}}</h6>
                                                                    <small class="text-muted">Comercial</small>
                                                                </td>
                                                                <td>
-                                                                   <span>{{comerciales.icastro.bodegas }}</span>
+                                                                   <span></span>
                                                                </td>
                                                                <td>
-                                                                   <span>{{comerciales.icastro.oficinas }}</span>
+                                                                   <span></span>
                                                                </td>
                                                                <td>
-                                                                   <span>{{comerciales.icastro.salas }}</span>
+                                                                   <span></span>
                                                                </td>
                                                                <td>
-                                                                   <span>{{comerciales.icastro.proyectos }}</span>
+                                                                   <span></span>
                                                                </td>
                                                                <td>
-                                                                   <span>{{comerciales.icastro.refrigerados }}</span>
+                                                                   <span></span>
                                                                </td>
                                                                <td>
-                                                                   <span class="label label-success label-rounded">{{comerciales.icastro.total}}</span>
+                                                                   <span class="label label-success label-rounded">{{comercial.total}}</span>
                                                                </td>
                                                            </tr>
                                                        </ng-container>
@@ -115,7 +115,7 @@
                                                            <td>{{comerciales.totalProyectos}}</td>
                                                            <td>{{comerciales.totalRefrigerados}}</td>
                                                            <td>
-                                                               <span class="label label-success label-rounded">{{comerciales.totalGeneral}}</span>
+                                                               <span class="label label-success label-rounded">{{totalLeads}}</span>
                                                            </td>
                                                        </tr>
                                                    </tbody>

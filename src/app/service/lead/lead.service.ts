@@ -64,33 +64,22 @@ export class LeadService {
   }
 
   getComercial(fecha: any, pagina: any, pdf: string) {
-    const json = JSON.stringify(fecha);
-    console.log(json);
-    const params = 'json=' + json;
-    const headers = new HttpHeaders().set(
-      'Content-Type',
-      'application/x-www-form-urlencoded'
-    );
-    const url = URL_SERVICIOS + `leadFecha?page=${pagina}`;
-
+    const url = URL_LANDING_DEV + `lead/unico/personalizada`;
     if (pdf === 'true') {
-      return this.http.post(url, params, { responseType: 'blob', headers });
+      // return this.http.post(url, params, { responseType: 'blob', headers });
     } else {
-      return this.http.post(url, params, { headers });
+      return this.http.post(url, fecha, ).pipe(
+        map((res: any) => res.usuario)
+      );
     }
   }
 
   buscarLeadFecha(termino: string, comercial: Comercial) {
-    const json = JSON.stringify(comercial);
-    console.log(json);
-    const params = 'json=' + json;
-    const headers = new HttpHeaders().set(
-      'Content-Type',
-      'application/x-www-form-urlencoded'
-    );
+    console.log(termino);
+    console.log(comercial);
 
-    const url = URL_SERVICIOS + `busquedaFecha/${termino}`;
-    return this.http.post(url, params, { headers });
+    const url = URL_LANDING_DEV  + `cliente/busqueda/${termino}`;
+    return this.http.post(url, comercial);
   }
 
   buscarLeads(termino: string) {
@@ -107,38 +96,30 @@ export class LeadService {
     );
   }
   buscarLead(id: string) {
-    const url = URL_SERVICIOS + `leads/${id}`;
-    return this.http.get(url).map((resp: any) => resp.lead);
+    const url = URL_LANDING_DEV + `cliente/${id}`;
+    return this.http.get(url).map((resp: any) => resp.cliente);
   }
 
 
   segmentos() {
-    const url = URL_SERVICIOS + `cantidadSegmento`;
+    const url = URL_LANDING_DEV + 'lead/todos/personalizada';
     return this.http.get(url);
   }
 
   getLeadsComercial(fecha: any) {
-    const json = JSON.stringify(fecha);
-    const params = 'json=' + json;
-    const headers = new HttpHeaders().set(
-      'Content-Type',
-      'application/x-www-form-urlencoded'
-    );
-    const url = URL_SERVICIOS + 'leadFechaC';
 
-    return this.http.post(url, params, { headers }).map(resp => {
-      this.leads = resp;
-      return resp;
-    });
+    const url = URL_LANDING_DEV + 'lead/todos/personalizada';
+
+    return this.http.post(url, fecha);
   }
 
   getLeadsComercialActual() {
-    const url = URL_SERVICIOS + 'leadFechaCA';
+    const url = URL_LANDING_DEV + 'lead/todos/dia';
     return this.http.get(url);
   }
   // ultimos 30 dias
   getLeadsComercialMes() {
-    const url = URL_SERVICIOS + 'leadFechaCT';
+    const url = URL_LANDING_DEV + 'lead/todos/mes';
     return this.http.get(url);
   }
 
@@ -177,10 +158,30 @@ export class LeadService {
     const url = `${URL_LANDING_DEV}lead/verde/${id}`;
     return this.http.get(url, id);
   }
+    getLeadsVerdes2(id) {
+    const url = `${URL_LANDING_DEV}lead/verdeDos/${id}`;
+    return this.http.get(url, id);
+  }
+    getLeadsVerdes3(id) {
+    const url = `${URL_LANDING_DEV}lead/verdeTres/${id}`;
+    return this.http.get(url, id);
+  }
+    getLeadsVerdes4(id) {
+    const url = `${URL_LANDING_DEV}lead/verdeCuatro/${id}`;
+    return this.http.get(url, id);
+  }
 
   getLead(id: string) {
     const url = URL_LANDING_DEV + `lead/unico/${id}`;
     return this.http.get(url);
+  }
+  getLeadPorCliente(id: string) {
+    const url = URL_LANDING_DEV + `lead/cliente/${id}`;
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res.cliente[0];
+      })
+    );
   }
 
   agregarMensaje(id, lead) {

@@ -1,20 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LeadService } from '../../service/lead/lead.service';
 import { ActivatedRoute } from '@angular/router';
 import { Comercial } from '../../models/comercial.model';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {saveAs} from 'file-saver';
-import { ToastrService, ToastContainerDirective } from "ngx-toastr";
+import { ToastrService, ToastContainerDirective } from 'ngx-toastr';
+import { UsuarioService } from '../../service/usuario/usuario.service';
+import {MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { InfoClienteModalComponent } from './modals/info-cliente-modal/info-cliente-modal.component';
+
+export interface UserData {
+ nombre: string;
+ apellido: string;
+ celular: string;
+ correo: string;
+ modalidad: string;
+ fecha_creacion: string;
+ hora_creacion: string;
+ id_ciudad: {
+   nombre: string
+ };
+  }
+  // name: string;
+  // progress: string;
+  // color: string;
 
 
 @Component({
-  selector: "app-comercial",
-  templateUrl: "./comercial.component.html",
-  styleUrls: ["../admin.component.css"]
+  selector: 'app-comercial',
+  templateUrl: './comercial.component.html',
+  styleUrls: ['../admin.component.css']
 })
 export class ComercialComponent implements OnInit {
+  displayedColumns: string[] = ['nombre', 'celular', 'correo', 'modalidad', 'ciudad'];
+  dataSource: MatTableDataSource<UserData>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
   data: any;
   data2: any;
+  public comercial;
   public pagina = 1;
   public ultimaPagina;
   inicio: string;
@@ -22,61 +49,46 @@ export class ComercialComponent implements OnInit {
   closeResult: string;
   busquedaResultado: string;
   resultado: Comercial;
-  pdf = "false";
-  cargaReporte: boolean = true;
+  pdf = 'false';
+  cargaReporte = true;
 
   constructor(
     public _leadService: LeadService,
     public activateRouter: ActivatedRoute,
     private modalService: NgbModal,
     private modalService2: NgbModal,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _usuarioService: UsuarioService,
+    public dialog: MatDialog
   ) {
     this.cargarLeads(this.pdf);
   }
 
-  open2(content) {
-    this.modalService.open(content).result.then(
-      result => {
-        this.closeResult = `Closed with: ${result}`;
-      },
-      reason => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      }
-    );
-  }
-  open(content) {
-    this.modalService2.open(content, { windowClass: "dark-modal" });
-  }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return "by pressing ESC";
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return "by clicking on a backdrop";
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+
+
+
 
   cargarLeads(pdf: string) {
     this.activateRouter.params.subscribe((resp: any) => {
       this.resultado = new Comercial(
-        resp["id"],
-        resp["inicio"],
-        resp["fin"],
+        resp['id'],
+        resp['inicio'],
+        resp['fin'],
         pdf
       );
       this.inicio = resp.inicio;
       this.fin = resp.fin;
-      console.log(this.resultado);
-
-      if (pdf === "true") {
+      this._usuarioService.getUsuario(resp['id']).subscribe( (res: any) => {
+        this.comercial = res.usuario;
+        console.log(this.comercial);
+      });
+      if (pdf === 'true') {
         this.cargaReporte = false;
         this._leadService
           .getComercial(this.resultado, this.pagina, pdf)
           .subscribe((resp2: any) => {
             this.cargaReporte = true;
-            this.toastr.info("Reporte generado satisfactoriamente", "Reporte PDF", {
+            this.toastr.info('Reporte generado satisfactoriamente', 'Reporte PDF', {
               progressBar: true
             });
             return saveAs(resp2);
@@ -86,107 +98,42 @@ export class ComercialComponent implements OnInit {
           .getComercial(this.resultado, this.pagina, pdf)
           .subscribe((resp2: any) => {
             this.data = resp2;
-            console.log(resp2);
-            this.ultimaPagina = resp2.total.last_page;
+            this.data = resp2.map( resp => resp.id_cliente);
+            this.dataSource = new MatTableDataSource(this.data);
+            this.paginator._intl.itemsPerPageLabel = 'Clientes por página';
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+            console.log(this.dataSource);
+            console.log(this.data);
           });
       }
     });
   }
 
-  busqueda(termino: string, comercial: Comercial) {
-    if (termino.length <= 0) {
-      this.cargarLeads(this.pdf);
-      return;
+  getLead( id ) {
+    this._leadService.getLeadPorCliente(id).subscribe((res: any) => {
+      this.openDialog(res);
+    });
     }
-    this._leadService
-      .buscarLeadFecha(termino, comercial)
-      .subscribe((busqueda: any) => {
-        console.log(busqueda);
-        this.data = busqueda;
-      });
-  }
 
-  buscarLead(id, content) {
-    this._leadService.buscarLead(id).subscribe((resp: any) => {
-      this.data2 = resp;
-      console.log(resp);
-      this.open2(content);
+  openDialog(lead): void {
+    const dialogRef = this.dialog.open(InfoClienteModalComponent, {
+      width: '1200px',
+      data: {data: lead }
     });
   }
 
-  cambiarDesde(valor: number) {
-    const desde = this.pagina + valor;
 
-    if (desde > this.ultimaPagina) {
-      return;
-    }
-
-    if (desde < 0) {
-      return;
-    }
-
-    this.pagina += valor;
-    this.cargarLeads(this.pdf);
+  ngOnInit() {
   }
 
-  avatar(segmento: string) {
-    let img = "";
-    if (segmento === "Salas de Ventas") {
-      img = "/assets/css/backend/images/users/user-5.jpg";
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
     }
-    if (segmento === "Oficinas") {
-      img = "/assets/css/backend/images/users/user-4.jpg";
-    }
-    if (segmento === "Productos Especiales") {
-      img = "/assets/css/backend/images/users/user-3.jpg";
-    }
-    if (segmento === "Contenedores Maritimos") {
-      img = "/assets/css/backend/images/users/user-2.jpg";
-    }
-    if (segmento === "Contenedores Refrigerados") {
-      img = "/assets/css/backend/images/users/user.jpg";
-    }
-    return img;
   }
 
-  imagenComercial(comercial: string) {
-    let foto;
-    if (comercial === "pvalencia") {
-      foto = "/assets/css/backend/images/users/paula.png";
-    }
-    if (comercial === "ppatino") {
-      foto = "/assets/css/backend/images/users/ppatino.png";
-    }
-    if (comercial === "avila") {
-      foto = "/assets/css/backend/images/users/vila.png";
-    }
-    if (comercial === "fvargas") {
-      foto = "/assets/css/backend/images/users/frank.png";
-    }
-    if (comercial === "fcastrodelrio") {
-      foto = "/assets/css/backend/images/users/ivan.png";
-    }
-    if (comercial === "lmahecha") {
-      foto = "/assets/css/backend/images/users/leonardo.png";
-    }
-    if (comercial === "lrios") {
-      foto = "/assets/css/backend/images/users/laura.png";
-    }
-    if (comercial === "mmancipe") {
-      foto = "/assets/css/backend/images/users/mancipe.png";
-    }
-    if (comercial === "lvargas") {
-      foto = "/assets/css/backend/images/users/luisa.png";
-    }
-    if (comercial === "moviedo") {
-      foto = "/assets/css/backend/images/users/maxi.png";
-    }
-    if (comercial === "darango") {
-      foto = "/assets/css/backend/images/users/diego.png";
-    }
-   
-    return foto;
-  }
-
-  ngOnInit() {}
 }
+

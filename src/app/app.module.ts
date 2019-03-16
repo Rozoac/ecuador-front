@@ -80,6 +80,7 @@ import {
   MatSelectModule,
   MatStepperModule,
   MatDialogModule,
+  MatPaginatorModule,
   MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
@@ -152,6 +153,7 @@ import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.componen
 import { NegocioComponent } from './admin/negocio/negocio.component';
 import { HeaderLandingComponent } from './landing/shared/header-landing/header-landing.component';
 import { FooterLandingComponent } from './landing/shared/footer-landing/footer-landing.component';
+import { InfoClienteModalComponent } from './admin/comercial/modals/info-cliente-modal/info-cliente-modal.component';
 
 
 
@@ -235,11 +237,13 @@ export function momentAdapterFactory() {
     InboxComponent,
     MisNegociosComponent,
     NegocioComponent,
+    InfoClienteModalComponent,
   ],
   imports: [
     SocketIoModule.forRoot(config),
     BrowserAnimationsModule,
     MatButtonModule,
+    MatPaginatorModule,
     HttpClientJsonpModule,
     MatButtonToggleModule,
     MatSelectModule,
@@ -289,7 +293,7 @@ export function momentAdapterFactory() {
     ChartsModule,
     MyDatePickerModule
   ],
-  entryComponents: [CrearUsuarioComponent],
+  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent],
   providers: [
     {
       provide: LOCALE_ID,

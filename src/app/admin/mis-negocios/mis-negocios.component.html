@@ -4,7 +4,7 @@
         <h6 class="taskboard-header">Leads en proceso ( {{total}} )</h6>
         <div class="taskboard-cards" >
          
-          <div class="taskboard-task task-status-success wow flipInX" *ngFor="let lead of leads">
+          <div class="taskboard-task task-status-success wow flipInX" *ngFor="let lead of leads" (click)="getLead(lead._id)">
             <div class="taskboard-task-title">{{lead.id_cliente.nombre}} {{lead.id_cliente.apellido}}</div>
             <small class="card-text text-muted">{{lead.id_cliente.mensaje}}</small>
           </div>
@@ -17,10 +17,10 @@
         <h6 class="taskboard-header">Contacto Establecido </h6>
         <div class="taskboard-cards" >
 
-          <!-- <div class="taskboard-task task-status-info" >
-            <div class="taskboard-task-title">Cliente n</div>
-            <small class="card-text text-muted">Etiam porta sem malesuada magna mollis euismod.</small>
-          </div> -->
+          <div class="taskboard-task task-status-info" style="cursor: pointer"  *ngFor="let lead2 of leads2" (click)="getLead(lead2._id)">
+            <div class="taskboard-task-title">{{lead2.id_cliente.nombre}} {{lead2.id_cliente.apellido}}</div>
+            <small class="card-text text-muted">{{lead2.id_cliente.mensaje}}</small>
+          </div>
          
         </div>
       </div>
@@ -29,25 +29,25 @@
     <div class="taskboard-wrapper col-md-3">
       <div class="taskboard-list">
         <h6 class="taskboard-header">Propuesta Realizada</h6>
-        <!-- <div class="taskboard-cards" >
-          <div class="taskboard-task">
-            <div class="taskboard-task-title">Cliente n</div>
-            <small class="card-text text-muted">Maecenas sed diam eget risus varius blandit sit amet non magna.</small>
+        <div class="taskboard-cards" >
+          <div class="taskboard-task" *ngFor="let lead3 of leads3" (click)="getLead(lead3._id)">
+            <div class="taskboard-task-title">{{lead3.id_cliente.nombre}} {{lead3.id_cliente.apellido}}</div>
+            <small class="card-text text-muted">{{lead3.id_cliente.mensaje}}</small>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   
     <div class="taskboard-wrapper col-md-3">
       <div class="taskboard-list ">
         <h6 class="taskboard-header">Negociaión Terminada / Cierre de Lead</h6>
-        <!-- <div class="taskboard-cards" >
+        <div class="taskboard-cards" >
          
-          <div class="taskboard-task task-status-secondary" >
-            <div class="taskboard-task-title">Cliente n</div>
-            <small class="card-text text-muted">Aenean lacinia bibendum nulla sed consectetur.</small>
+          <div class="taskboard-task task-status-secondary" *ngFor="let lead4 of leads4" (click)="getLead(lead4._id)">
+            <div class="taskboard-task-title">{{lead4.id_cliente.nombre}} {{lead4.id_cliente.apellido}}</div>
+            <small class="card-text text-muted">{{lead4.id_cliente.mensaje}}</small>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   

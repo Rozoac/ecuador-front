@@ -30,7 +30,7 @@ export class GraciasComponent implements OnInit {
   }
 
   abrirModal() {
-    this.router.navigate([`/encuesta-satisfaccion/${this.comercial.id}`]);
+    this.router.navigate([`/encuesta-satisfaccion/${this.comercial.lead.id_cliente._id}`]);
   }
   cerrarModal() {
     document.getElementById('modal').setAttribute('class', 'hide');
@@ -49,7 +49,6 @@ export class GraciasComponent implements OnInit {
 
   datosComercial() {
     this.comercial = JSON.parse(localStorage.getItem('comercial'));
-    console.log(this.comercial.lead.id_usuario);
   }
 
   imagenComercial(comercial: string) {

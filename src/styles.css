@@ -69,6 +69,10 @@ h6 {
     font-family: 'bebas-bold'!important;
 }
 
+.font-12{
+    font-size: 12px;
+}
+
 .texto-principal{
     text-align: center;
 }
@@ -199,4 +203,9 @@ li {
     .owl-dots {
         left: 40.5%;
     }
+}
+
+::ng-deep .mat-dialog-container {
+    border: 3px solid #375ea2!important;
+    border-radius: 0!important;
 }

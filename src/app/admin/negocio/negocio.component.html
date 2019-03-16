@@ -64,32 +64,58 @@
           </div>
       </div>
       <div class="col-md-4">
-          <div class="card wow fadeIn">
-              <div class="card-body">
-                  <div class="row p-t-10 p-b-10">
-                  <div class="col-md-12">
-                     <h5 class="text-themecolor">Detalles</h5>
-                     <hr>
-                  </div>
-                    
-                  </div>
-              </div>
-          </div>
+       
+           
               <div class="card wow fadeIn">
-                  <div class="card-body">
-                      <div class="row p-t-10 p-b-10">
-                      <div class="col-md-12">
-                         <h5 class="text-themecolor">Persona</h5>
-                         <hr>
-                         <div class="" >Nombre:</div > {{persona?.nombre}} {{persona?.apellido}}
-                         <div class="" >Correo:</div > {{persona?.correo}}
-                         <div class="" >Telefono:</div > {{persona?.celular}}
-                      </div>
-                      </div>
-                  </div>
-              </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><span class="lstick"></span>Datos</h4>
+                        <div style="height: 220px" class="text-center">
+                            <img [src]="persona?.id_segmento.foto" width="150" class="img-circle" alt="">
+                        </div>
+                        <table class="table vm font-12 m-b-0">
+
+
+                            <tr>
+                                <td>Fecha</td>
+                                <td class="text-right font-medium">{{persona?.fecha_creacion}} - {{persona?.hora_creacion}}</td>
+                            </tr>
+                            <tr>
+                                <td>Correo</td>
+                                <td class="text-right font-medium">{{persona?.correo}}</td>
+                            </tr>
+                            <tr>
+                                <td>Celular</td>
+                                <td class="text-right font-medium">{{persona?.celular}}</td>
+                            </tr>
+                            <tr>
+                                <td>Ciudad</td>
+                                <td class="text-right font-medium">{{persona?.id_ciudad.nombre}}</td>
+                            </tr>
+                            <tr>
+                                <td>Documento</td>
+                                <td class="text-right font-medium">{{persona?.documento.tipo_documento}}: {{persona?.documento.numero}}</td>
+                            </tr>
+                            <tr>
+                                <td>Segmento</td>
+                                <td class="text-right font-medium">{{persona?.id_segmento.nombre}}</td>
+                            </tr>
+                            <tr>
+                                <td>Modalidad</td>
+                                <td class="text-right font-medium">{{persona?.modalidad}}</td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </div>
       </div>
       <div class="col-md-8">
+            <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"><span class="lstick"></span>Mensaje del cliente</h4>
+       
+                        <p style="font-size: 12px; font-family:Montserrat">{{persona.mensajeCliente}}</p>
+                    </div>
+                </div>
           <div class="card wow fadeIn" style="margin-bottom: 0;">
               <div class="card-body" style="padding: 0;">
                   <div class="row p-t-10 p-b-10" style="padding: 0;">
@@ -144,7 +170,7 @@
                                             </ng-template>
                                             <div class="container">
                                                 <div class="row">
-                                                    <div class="col-md-3" style="    overflow: scroll;
+                                                    <div class="col-md-5 col-lg-3 "  style="    overflow: scroll;
                                                     height: 355px;">
                                                         <div class="top-accion mb-2 mt-2" >
                                                             <div class=" text-center">
@@ -158,7 +184,7 @@
                                                         </div>
                                                         <mwl-calendar-day-view locale="es" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"> </mwl-calendar-day-view>
                                                     </div>
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-7 col-lg-9">
                                                             <div class="btn-group tipos-denotas mt-3 mb-3">
                                                                     <a  *ngFor="let mensajes of tipoMensaje" (click)="llenarTipoMensaje(mensajes)" class="btn btn-success"><i [class]="mensajes.icono"></i></a>
                                                                     <!-- <a (click)="mensajeAccion.tipo = 'reunion'" class="btn btn-info"><i class="mdi mdi-account-multiple"></i></a>
@@ -179,7 +205,6 @@
                                                                                                             <button type="button" (click)="limpiarMensaje()" class="btn btn-rounded mr-2 btn-secondary">Limpiar</button>
                                                                                                             <button type="button" (click)="agregarTipoMensaje()" class="btn btn-rounded btn-success">Guardar</button>
                                                                                                         </div>
-                                                                                            
                                                                                         </form>
                                                                                     </div>
                                                                                     
@@ -187,8 +212,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                         </div>
-                                                  
+                                         </div>            
                                     </div>
                                  </div>
                           </ng-template>

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { PaisService } from '../../service/pais.service';
 import { Observable } from 'rxjs';
 import { UsuarioService } from '../../service/usuario/usuario.service';
+import * as moment from 'moment';
 
 // Modelos
 
@@ -30,18 +31,22 @@ export class GraficasComponent implements OnInit {
   }
 
   public startDate: IMyDpOptions = {
-    dateFormat: 'yyyy-mm-dd',
+    dateFormat: 'mm-dd-yyyy',
     editableDateField: false
   };
 
   public endDate: IMyDpOptions = {
-    dateFormat: 'yyyy-mm-dd',
+    dateFormat: 'mm-dd-yyyy',
     disableUntil: { year: 0, month: 0, day: 0 },
 
   };
+
+  public totalLeads: any;
   public paises: any;
   public usuarios: any;
   public comerciales: any = null;
+  public inicio: any = null;
+  public fin: any = null;
   public mesInicio: any;
   public mesFin: any ;
   public totalGeneral: number;
@@ -76,28 +81,57 @@ export class GraficasComponent implements OnInit {
 
 
   getLeads(fechas: NgForm) {
-    let f = new Fechas(
-      fechas.value.start.formatted,
-      fechas.value.end.formatted
+    const f = new Fechas(
+      fechas.value.start.formatted || '',
+      fechas.value.end.formatted || ''
     );
+    this.inicio = f.start;
+    this.fin = f.end;
+
 
     this._leadService.getLeadsComercial(f)
                      .subscribe( (resp: any) => {
-                        this.comerciales = resp;
+                        this.comerciales = resp.comerciales;
+                        this.totalLeads = resp.total;
                      });
+
   }
   getLeadsHoy() {
+    this.inicio = moment().format('MM-DD-YYYY');
+    this.fin = '';
     this._leadService.getLeadsComercialActual()
                      .subscribe( (resp: any) => {
-                       console.log(resp);
-                        this.comerciales = resp;
+                        this.comerciales = resp.comerciales;
+                        this.totalLeads = resp.total;
+                        console.log(this.comerciales);
+
+                  });
+    this._leadService.getLeadsComercialActual()
+                     .subscribe( (resp: any) => {
+                        this.comerciales = resp.comerciales;
+                        this.totalLeads = resp.total;
+                        console.log(this.comerciales);
+
                   });
   }
+
+
   getLeadsMes() {
+    this.fin = moment().format('MM-DD-YYYY');
+    this.inicio = moment().subtract(30, 'd').format('MM-DD-YYYY');
     this._leadService.getLeadsComercialMes()
                      .subscribe( (resp: any) => {
-                     console.log(resp);
-                        this.comerciales = resp;
+                      console.log(this.comerciales);
+
+                       this.comerciales = resp.comerciales;
+                       this.totalLeads = resp.total;
+                     });
+    this._leadService.getLeadsComercialMes()
+                     .subscribe( (resp: any) => {
+                      console.log(this.comerciales);
+
+                       this.comerciales = resp.comerciales;
+                       this.totalLeads = resp.total;
                      });
   }
 
@@ -107,21 +141,20 @@ export class GraficasComponent implements OnInit {
     });
   }
 
-  getUsuarios() {
-    this._usuariosService.getUsuarios().subscribe( (res: any) => {
-      this.usuarios = res.usuarios;
-      console.log(this.usuarios);
-    });
-  }
+  // getUsuarios() {
+  //   this._usuariosService.getUsuarios().subscribe( (res: any) => {
+  //     this.usuarios = res.usuarios;
+  //     console.log(this.usuarios);
+  //   });
+  // }
 
   comercialInfo(ruta, inicio, fin): any {
+    console.log(ruta + inicio + fin);
     this.router.navigate(['/admin/comercial', ruta, inicio, fin]);
-
-
   }
 
   ngOnInit() {
     this.getPaises();
-    this.getUsuarios();
-}
+    // this.getUsuarios();
+  }
 }
