@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NgbProgressbarConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LeadService } from '../../../../service/lead/lead.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class InfoClienteModalComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<InfoClienteModalComponent>,
     public  config: NgbProgressbarConfig,
+    public _leadService: LeadService,
     @Inject(MAT_DIALOG_DATA) public lead: any) { }
 
   ngOnInit() {
@@ -22,6 +24,17 @@ export class InfoClienteModalComponent implements OnInit {
     this.mensajes = this.lead.data.mensaje;
     this.estado = this.lead.data.id_semaforo.estado;
     this.getEstado();
+  }
+
+  borrarLead(id){
+    this._leadService.borrarLead(id).subscribe((res:any) => {
+      console.log(res)
+      this.onNoClick();
+    })
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close(true);
   }
 
   getEstado() {

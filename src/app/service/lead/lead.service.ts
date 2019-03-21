@@ -49,10 +49,7 @@ export class LeadService {
 
   }
 
-  borrarLead(id) {
-      const url = `https://api.econtainerscolombia.com/public/api/leads/${id}`;
-      return this.http.delete(url);
-  }
+
 
   getReferidosPDF() {
     const headers = new HttpHeaders()
@@ -193,5 +190,10 @@ export class LeadService {
   agregarTipoMensaje(mensaje, id) {
       const url = URL_LANDING_DEV + `lead/tipoMensaje/${id}`;
       return this.http.put(url, mensaje );
+  }
+
+  borrarLead(id){
+    const url = URL_LANDING_DEV + `lead/${id}`;
+    return this.http.delete(url)
   }
 }

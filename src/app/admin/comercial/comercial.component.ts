@@ -121,6 +121,10 @@ export class ComercialComponent implements OnInit {
       width: '1200px',
       data: {data: lead }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.cargarLeads(this.pdf);
+     
+    });
   }
 
 

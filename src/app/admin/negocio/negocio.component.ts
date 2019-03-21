@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, Inject } from '@angular/core';
 import { LeadService } from '../../service/lead/lead.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgbProgressbarConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -8,6 +8,8 @@ import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMo
 import { CalendarEvent, DAYS_OF_WEEK, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { Howl } from 'howler';
 import { Subject, Subscription } from 'rxjs';
+import { PageScrollService } from 'ngx-page-scroll-core';
+import { DOCUMENT } from '@angular/common';
 
 moment.updateLocale('es', {
   week: {
@@ -15,7 +17,6 @@ moment.updateLocale('es', {
     doy: 0
   }
 });
-
 
 const colors: any = {
   red: {
@@ -37,17 +38,13 @@ const colors: any = {
   styleUrls: ['./negocio.component.css']
 })
 export class NegocioComponent implements OnInit {
-
+  public mensajes;
   public view = 'day';
   public viewDate: Date = new Date();
-  public modalData: {å
+  public modalData: {
     action: string;
     event: CalendarEvent;
   };
-public mensajes
-
-
-
 
   actions: CalendarEventAction[] = [
         {
@@ -58,6 +55,7 @@ public mensajes
       }
     }
   ];
+  carga = false;
 
   refresh: Subject<any> = new Subject();
 
@@ -120,7 +118,10 @@ public mensajes
               public activateRouter: ActivatedRoute,
               public  config: NgbProgressbarConfig,
               public toastr: ToastrService,
-              private modal: NgbModal) {
+              private modal: NgbModal,
+              private pageScrollService: PageScrollService,
+               @Inject(DOCUMENT) private document: any
+              ) {
     config.max = 100;
     config.striped = true;
     config.animated = true;
@@ -128,21 +129,50 @@ public mensajes
   }
 
   llenarTipoMensaje(mensaje) {
-    console.log(mensaje);
-    this.mensajeAccion = {
-      id_tipo: mensaje._id,
-      nombre: mensaje.nombre,
-      mensaje: '',
-      hora_inicio: '',
-      hora_fin: ''
-    };
+    this.mensajeAccion.id_tipo = mensaje._id;
   }
-  agregarTipoMensaje() {
+
+  agregarTipoMensaje(tipo) {
+    if (tipo === 'nota') {
+      this.mensajeAccion.id_tipo = '5c770bbe1df97a001724d382';
+    }
+    if (tipo === 'tipo') {
+      if (this.mensajeAccion.id_tipo === '') {
+        this.toastr.info('Agrega un tipo de mensaje,', '📨📨📨', {
+          progressBar: true
+        });
+        return null;
+      }
+      if (this.mensajeAccion.hora_fin === '') {
+        this.toastr.info('Agrega una hora,', '🕑🕓🕔', {
+          progressBar: true
+        });
+        return null;
+      }
+      if (this.mensajeAccion.mensaje === '') {
+        this.toastr.info('Agrega un mensaje', '📨📨📨', {
+          progressBar: true
+        });
+        return null;
+      }
+    }
+    this.carga = true;
     this._leadService.agregarTipoMensaje(this.mensajeAccion, this.id ).subscribe( (res: any) => {
-      console.log(res);
+      this.toastr.success('Mensaje Agregado,', '👌🏻👌🏻👌🏻', {
+        progressBar: true
+      });
+      this.carga = false;
       this.getLead();
+      this.mensajeAccion = {
+        id_tipo: '',
+        nombre: '',
+        mensaje: '',
+        hora_inicio: '',
+        hora_fin: ''
+      };
     });
   }
+
   getLead() {
     this.activateRouter.params.subscribe((resp: any) => {
         this._leadService.getLead(resp.id).subscribe( (res: any) => {
@@ -237,7 +267,14 @@ public mensajes
 }
 
 limpiarMensaje() {
-  this.mensaje = '';
+  console.log("entro");
+  this.mensajeAccion = {
+    id_tipo: '',
+    nombre: '',
+    mensaje: '',
+    hora_inicio: '',
+    hora_fin: ''
+  };
 }
 
 dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {

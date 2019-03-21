@@ -8,6 +8,8 @@ import localeEs from '@angular/common/locales/es';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { TypingAnimationDirective } from 'angular-typing-animation';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import {NgxAutoScrollModule} from "ngx-auto-scroll";
 registerLocaleData(localeEs);
 
 import {APP_ROUTING} from './app.routes';
@@ -242,7 +244,9 @@ export function momentAdapterFactory() {
   imports: [
     SocketIoModule.forRoot(config),
     BrowserAnimationsModule,
+    NgxPageScrollCoreModule,
     MatButtonModule,
+    NgxAutoScrollModule,
     MatPaginatorModule,
     HttpClientJsonpModule,
     MatButtonToggleModule,

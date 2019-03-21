@@ -2,6 +2,7 @@
 <div mat-dialog-content>
 <div class="row">
 
+       
 
     <div class="col-md-12">
         <div class="linea-de-tiempo">
@@ -40,6 +41,7 @@
             </ul>
           </div>
       </div>
+      
       <div class="col-lg-4">
           <div class="card">
               <div class="card-body">
@@ -47,6 +49,7 @@
                   <div style="height: 220px" class="text-center">
                       <img [src]="lead.data.id_cliente.id_segmento.foto" width="150" class="img-circle" alt="">
                   </div>
+                  <mat-button-toggle  (click)="borrarLead(lead.data._id)" value="bold">Borrar <i class="fa fa-trash"></i></mat-button-toggle>
                   <table class="table vm font-12 m-b-0">
                      
                       <tr>
