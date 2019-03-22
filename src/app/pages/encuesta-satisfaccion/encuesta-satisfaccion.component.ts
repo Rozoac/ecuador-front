@@ -22,7 +22,7 @@ public otro = false;
     p3: "",
     p4: "",
     p5: "",
-    id_lead: null
+    id_lead: ""
   };
  
   forma:FormGroup;
@@ -42,7 +42,8 @@ public otro = false;
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-      this.encuesta.id_lead = Number(id);
+    this.encuesta.id_lead = id;
+    console.log(this.encuesta)
   }
 
   cambiarValorp1(estado){

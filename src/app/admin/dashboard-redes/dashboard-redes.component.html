@@ -1,4 +1,4 @@
-<!-- <div class="row">
+<div class="row">
 
 
     <div class="col-lg-5">
@@ -10,6 +10,9 @@
 
 
                 <form [formGroup]="forma" (submit)="sendEmail(message)" class="form p-t-20">
+                    <!-- ============================================================== -->
+                    <!-- NOMBRE
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
                         <div class="col-sm-12">
@@ -19,11 +22,31 @@
                                         <i class="ti-user"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="exampleInputuname3" name="name" formControlName="nombre" placeholder="Nombre"
+                                <input type="text" class="form-control" id="exampleInputuname3" name="noombre" formControlName="nombre" placeholder="Nombre"
                                     [(ngModel)]="message.nombre">
                             </div>
                         </div>
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- APELLIDO
+                    <!-- ============================================================== -->
+                    <div class="form-group ">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Apellido</label>
+                        <div class="col-sm-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon11">
+                                        <i class="ti-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="exampleInputuname3" name="apellido" formControlName="apellido" placeholder="Apellido"
+                                    [(ngModel)]="message.apellido">
+                            </div>
+                        </div>
+                    </div>
+                     <!-- ============================================================== -->
+                    <!-- CORREO
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="exampleInputEmail3" class="col-sm-12 control-label">Correo Electronico</label>
                         <div class="col-sm-12">
@@ -33,11 +56,14 @@
                                         <i class="ti-email"></i>
                                     </span>
                                 </div>
-                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Correo electronico" name="email" formControlName="email"
-                                    [(ngModel)]="message.email">
+                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Correo electronico" name="correo" formControlName="correo"
+                                    [(ngModel)]="message.correo">
                             </div>
                         </div>
                     </div>
+                     <!-- ============================================================== -->
+                    <!-- CELULAR
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="web" class="col-sm-3 control-label">Celular</label>
                         <div class="col-sm-12">
@@ -47,12 +73,13 @@
                                         <i class="ti-mobile"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="web" placeholder="Celular" name="celular" formControlName="cel" required [(ngModel)]="message.celular">
-                                <input type="text" class="form-control" id="web" placeholder="Celular 2" name="celular2" formControlName="cel2" required
-                                    [(ngModel)]="message.celular2">
+                                <input type="text" class="form-control" id="celular" placeholder="celular" name="celular" formControlName="celular" required [(ngModel)]="message.celular">
                             </div>
                         </div>
                     </div>
+                     <!-- ============================================================== -->
+                    <!-- TIPO DE CLIENTE
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="web" class="col-sm-12 control-label">Tipo cliente</label>
                         <div class="col-sm-12">
@@ -62,13 +89,16 @@
                                         <i class="ti-briefcase"></i>
                                     </span>
                                 </div>
-                                <select class="form-control custom-select" name="cliente" formControlName="cliente" [(ngModel)]="message.cliente" tabindex="1">
+                                <select class="form-control custom-select" name="tipo_cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente.tipo" tabindex="1">
                                     <option *ngFor="let tipo of tipoCliente" [value]="tipo.name">{{tipo.name}}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="message.cliente == 'Empresa'" class="form-group ">
+                     <!-- ============================================================== -->
+                    <!-- EMPRESA
+                    <!-- ============================================================== -->
+                    <div *ngIf="message.tipo_cliente.tipo == 'Empresa'" class="form-group ">
                         <label for="web" class="col-sm-12 control-label">Empresa</label>
                         <div class="col-sm-12">
                             <div class="input-group mb-3">
@@ -77,11 +107,14 @@
                                         <i class="ti-user"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="exampleInputuname3" name="name" formControlName="empresa" placeholder="Nombre Empresa"
-                                    [(ngModel)]="message.empresa">
+                                <input type="text" class="form-control" id="exampleInputuname3" name="empresa" formControlName="empresa" placeholder="Nombre Empresa"
+                                    [(ngModel)]="message.tipo_cliente.nombre">
                             </div>
                         </div>
                     </div>
+                     <!-- ============================================================== -->
+                    <!-- MODALIDAD
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="web" class="col-sm-12 control-label">Modalidad</label>
                         <div class="col-sm-12">
@@ -91,7 +124,7 @@
                                         <i class="ti-bag"></i>
                                     </span>
                                 </div>
-                                <select class="form-control custom-select" name="para" formControlName="para" [(ngModel)]="message.para" tabindex="1">
+                                <select class="form-control custom-select" name="modalidad" formControlName="modalidad" [(ngModel)]="message.modalidad" tabindex="1">
                                     <option>¿Lo quieres para?</option>
                                     <option disabled *ngIf="message.cliente == 'Tipo de cliente' ">*Selecciona un tipo de cliente</option>
                                     <option *ngIf="message.cliente == 'Natural' || message.cliente == 'Empresa' || message.cliente == 'Contratación estatal'">Compra</option>
@@ -100,6 +133,9 @@
                             </div>
                         </div>
                     </div>
+                     <!-- ============================================================== -->
+                    <!--   SEGMENTO
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="web" class="col-sm-3 control-label">Segmento</label>
                         <div class="col-sm-12">
@@ -121,7 +157,9 @@
                         </div>
                     </div>
 
-
+                    <!-- ============================================================== -->
+                    <!-- CIUDAD
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="web" class="col-sm-3 control-label">Ciudad</label>
                         <div class="col-sm-12">
@@ -155,6 +193,9 @@
                             </div>
                         </div>
                     </div>
+                     <!-- ============================================================== -->
+                    <!-- LEAD REFERIDO
+                    <!-- ============================================================== -->
                     <div class="form-group ">
                         <label for="web" class="col-sm-3 control-label">Referido</label>
                         <div class="col-sm-12">
@@ -248,4 +289,4 @@
     </div>
 
 
-</div> -->
+</div>

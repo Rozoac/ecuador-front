@@ -1,55 +1,52 @@
 <div class=" row wow fadeIn">
-  <div class="col-12 ">
-      <div class="card ">
-          <div class="card-body ">
-
-              <div class="table-responsive ">
-                  <div class="row mb-2">
-                      <div class="col-md-6 d-flex align-items-center ">
-                          <h3 class="card-title margin-0 ">Total de respuestas (<small>{{total}}</small>) </h3>
-                      </div>
-                      <div class="col-md-6 ">
-                        
-                          
-                                <input #input (keyup)="busqueda(input.value) " type="text " class="form-control " placeholder="Busqueda por correo ">
-                          
-                       
+        <div class="col-12 ">
+            <div class="card ">
+                <div class="card-body ">
+                        <mat-form-field>
+                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Busqueda">
+                            </mat-form-field>
+                      <div class="mat-elevation-z8">
+                              <table mat-table [dataSource]="dataSource" matSort>
+                            
+                                <!-- Nombre Column -->
+                                <ng-container matColumnDef="p1">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ¿ Por que medio o canal digital nos encontraste ?. </th>
+                                  <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.p1}} </td>
+                                </ng-container>
+                                <!-- Celular Column -->
+                                <ng-container matColumnDef="p2">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ¿ Encontraste la información que buscabas ?. </th>
+                                  <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.p2}} </td>
+                                </ng-container>
+                                <!-- Correo Column -->
+                                <ng-container matColumnDef="p3">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ¿ Que tan agradable fue tu interacción con la pagína ?. </th>
+                                  <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.p3}} </td>
+                                </ng-container>
+                                <!-- Modalidad Column -->
+                                <ng-container matColumnDef="p4">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Si no encontraste nada de lo que necesitabas, comunicanos qué tipo de información estabas buscando. </th>
+                                  <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.p4}} </td>
+                                </ng-container>
+                                <!-- Ciudad Column -->
+                                <ng-container matColumnDef="p5">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ¿ Segun tu opinion que crees que podria mejorar en la pagína que visitaste ? </th>
+                                  <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.p5}} </td>
+                                </ng-container>
+                                
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row">
+                                    
+                                </tr>
+                              </table>
+                            
+                              <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+                            </div>
                     </div>
-                  </div>
-                  <table id="myTable " class="table table-bordered table-hover ">
-                      <thead class="color-azul ">
-                          <tr>
-                              <th>¿ Por que medio o canal digital nos encontraste ?.</th>
-                              <th>¿ Encontraste la información que buscabas ?.</th>
-                              <th>¿ Que tan agradable fue tu interacción con la pagína ?.</th>
-                              <th>Si no encontraste nada de lo que necesitabas, comunicanos qué tipo de información estabas buscando.</th>
-                              <th>¿ Segun tu opinion que crees que podria mejorar en la pagína que visitaste ?</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr *ngFor="let encuesta of encuestas">
-                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p1}}</td>
-                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p2}}</td>
-                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p3}}</td>
-                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p4}}</td>
-                              <td class="pointer" [routerLink]="[ '/admin/lead', encuesta.id_lead ]">{{encuesta.p5}}</td>
-                          </tr>
-                      </tbody>
-                  </table>
-                  <div class="row " *ngIf="!encuestas ">
-                      <div class="col-sm-12 ">
-                          <div class="alert alert-warning text-center ">
-                              <strong>Cargando</strong>
-                              <br>
-                              <i class="fa fa-sync fa-spin fa-2x "></i>
-                              <br>
-                              <span>Espere por favor</span>
-                          </div>
-                      </div>
-                  </div>
-                 
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+                </div>
+            </div>
+        </div>
+      
+      
+      
+      

@@ -30,7 +30,7 @@ export class GraciasComponent implements OnInit {
   }
 
   abrirModal() {
-    this.router.navigate([`/encuesta-satisfaccion/${this.comercial.lead.id_cliente._id}`]);
+    this.router.navigate([`/encuesta-satisfaccion/${this.comercial.lead._id}`]);
   }
   cerrarModal() {
     document.getElementById('modal').setAttribute('class', 'hide');
@@ -91,8 +91,8 @@ export class GraciasComponent implements OnInit {
       this.imagen = 'assets/imgs/gracias/mancipe.png';
 
     }
-    if (comercial === 'ppatino@econtainers.co') {
-      this.imagen = 'assets/imgs/gracias/ppatino.png';
+    if (comercial === 'dgomez@econtainers.co') {
+      this.imagen = 'assets/imgs/gracias/dgomez.png';
 
     }
 

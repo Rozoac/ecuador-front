@@ -5,7 +5,7 @@ export class Encuesta {
         public p3: string,
         public p4: string,
         public p5: string,
-        public id_lead: number
+        public id_lead: string
     ) { }
     
 }

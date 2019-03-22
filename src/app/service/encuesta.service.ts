@@ -12,15 +12,9 @@ export class EncuestaService {
 
   guardar(encuesta:Encuesta){
 
-    let json = JSON.stringify(encuesta);
-    let params = 'json=' + json;
-    let headers = new HttpHeaders().set(
-    'Content-Type',
-     'application/x-www-form-urlencoded'
-    );
-    let url = `${URL_SERVICIOS}encuesta`
+    let url = `https://econtainers.herokuapp.com/encuesta`
 
-    return this.http.post(url, params, { headers: headers });
+    return this.http.post(url, encuesta);
   }
   busqueda(termino){
     let params = 'json=' + termino;
@@ -34,7 +28,7 @@ export class EncuestaService {
   }
 
   mostrar(){
-    let url = `${URL_SERVICIOS}encuesta`
+    let url = `https://econtainers.herokuapp.com/encuesta`
     return this.http.get(url);
   }
 }

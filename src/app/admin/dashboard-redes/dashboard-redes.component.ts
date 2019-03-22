@@ -18,14 +18,22 @@ export class DashboardRedesComponent implements OnInit {
   cargaReporte: boolean = false;
     tipoId = 1;
   tipoCliente;
-  message = {
-  ciudad: '¿Cual es tu ciudad mas cercana?',
-  tipo: '¿En que estas interesado?',
-  para: '¿Lo quieres para?',
-  cliente: 'Tipo de cliente'
+
+  message: IMessage = {
+    documento: {
+      tipo_documento: '',
+      numero: ''
+    },
+    tipo_cliente: {
+      tipo: '',
+      nombre: ''
+    },
+    id_pais: '5c3ce3835d14850017167207',
   };
+
     forma: FormGroup;
     referidos: any;
+
 
    constructor( private appService: CorreoService, private _referidos: LeadService, private toastr: ToastrService
  ) {
