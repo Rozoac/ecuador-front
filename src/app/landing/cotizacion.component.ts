@@ -10,6 +10,7 @@ import { LandingService } from '../services/landing.service';
 import { Payu } from '../models/payu.model';
 import { PayuService } from '../service/payu.service';
 import { MatOptionSelectionChange } from '@angular/material';
+import { LeadService } from '../service/lead/lead.service';
 
 @Component({
   selector: 'app-cotizacion',
@@ -17,6 +18,7 @@ import { MatOptionSelectionChange } from '@angular/material';
   styleUrls: ['./cotizacion.component.css']
 })
 export class CotizacionComponent implements OnInit {
+  public tiposDeCliente: any;
   public ciudades: Ciudad[];
   public payuMessage: Payu = {};
   public prueba = 'https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu';
@@ -85,7 +87,8 @@ export class CotizacionComponent implements OnInit {
     public router2: Router,
     private appService: CorreoService,
     public _landingService: LandingService,
-    public _payu: PayuService
+    public _payu: PayuService,
+    public _leadService: LeadService
   ) {
     this.contenedor_id = router.params.subscribe(res => {
       _landingService
@@ -196,6 +199,10 @@ export class CotizacionComponent implements OnInit {
     this._landingService.getCiudades().subscribe( (res: any) => {
       this.ciudades = res.ciudades;
       console.log(res);
+    });
+    this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+      this.tiposDeCliente = res.tipoCliente;
+      console.log(this.tiposDeCliente);
     });
 
   }
@@ -369,13 +376,11 @@ export class CotizacionComponent implements OnInit {
       this.estandar = true;
     }
   }
-
   // botonHallowen(mensaje) {
   //   this.halloween = mensaje;
   //   this.halloweenActivo = true;
   //   this.active = false;
   // }
-  
   activarModal() {
     this.active = true;
   }

@@ -31,7 +31,9 @@
                             <div (click)="onSelect(message, message._id, 'warning')" *ngFor="let message of messages; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column animated fadeIn">
                                 <div class="d-flex">
                                     <div class="">
-                                        <div class="avatar-status bg-{{message.id_semaforo.color}}"> <img alt="" class="avatar-sm rounded-circle" [src]="message.id_cliente.id_segmento.foto" /> </div>
+                                        <div class="avatar-status bg-{{message.id_semaforo.color}}"> 
+                                            <!-- <img alt="" class="avatar-sm rounded-circle" [src]="message.id_cliente.id_segmento.foto" />  -->
+                                        </div>
                                     </div>
                                     <div class="pl-3">
                                         <div class="d-flex w-100 justify-content-between align-items-center"> 
@@ -65,7 +67,9 @@
                     <div class="card-body" *ngIf="selectedMessage">
                         <div class="p-20">
                             <div class="d-flex align-items-center m-b-30">
-                                <div class=""> <img alt="" class="avatar-lg rounded-circle" [src]="selectedMessage.id_cliente.id_segmento.foto" /> </div>
+                                <div class=""> 
+                                    <!-- <img alt="" class="avatar-lg rounded-circle" [src]="selectedMessage.id_cliente.id_segmento.foto" />  -->
+                                </div>
                                 <div class="pl-3">
                                     <div class="font-medium">{{selectedMessage.id_cliente.nombre}} {{selectedMessage.id_cliente.apellido}} -  {{ selectedMessage.fecha_creacion | date: 'MMMM d' }} ( <i class="icon-clock"></i> {{ selectedMessage.hora_creacion}})  </div> 
                                     <br/>
@@ -94,7 +98,7 @@
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.correo}}</p>
                                     </div>
-                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>Ciudad</strong>
+                                    <div  class="col-md-3 col-xs-6"> <strong>Ciudad</strong>
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.id_ciudad.nombre}}</p>
                                     </div>
@@ -115,11 +119,11 @@
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.modalidad}}</p>
                                     </div>
-                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>{{selectedMessage.id_cliente.tipo_cliente.tipo}}</strong>
+                                    <div class="col-md-3 col-xs-6"> <strong>Tipo de Cliente</strong>
                                         <br>
-                                        <p class="text-muted">{{selectedMessage.id_cliente.tipo_cliente.nombre}}</p>
+                                        <!-- <p class="text-muted">{{selectedMessage.id_cliente.tipoCliente.nombre}}</p> -->
                                     </div>
-                                    <div *ngIf="selectedMessage.id_cliente.tipo_cliente.nombre !== 'Natural'"  class="col-md-3 col-xs-6"> <strong>Fuente</strong>
+                                    <div class="col-md-3 col-xs-6"> <strong>Fuente</strong>
                                         <br>
                                         <p class="text-muted">{{selectedMessage.id_cliente.fuente}}</p>
                                     </div>

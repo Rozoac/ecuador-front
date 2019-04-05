@@ -1,5 +1,9 @@
-td{
+/* td{
     font-size: .7em!important;
+} */
+
+table{
+    width: 100%;
 }
 
 .fa-whatsapp{
@@ -19,4 +23,7 @@ td{
 }
 .table-amarilla{
     background: rgb(255, 241, 88)!important;
+}
+.table-azul-claro{
+    background: #4fa0eb!important;
 }

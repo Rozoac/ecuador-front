@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { LandingService } from '../../services/landing.service';
+import { LeadService } from '../../service/lead/lead.service';
 
 @Component({
   selector: 'app-formulario',
@@ -16,6 +17,7 @@ import { LandingService } from '../../services/landing.service';
 export class FormularioComponent implements OnInit {
   public ciudades;
   public segmentos;
+  public tiposDeCliente;
   tipoId = 1;
   tipoCliente: TipoCliente[] = [ {tipo: 'Natural' }, {tipo: 'Empresa', nombre: '' }, {tipo: 'Contratación estatal' , nombre: ''}];
   forma: FormGroup;
@@ -35,7 +37,8 @@ export class FormularioComponent implements OnInit {
     fuente: 'Landing'
   };
 
-  constructor(private appService: CorreoService, public router: Router, public _landingService: LandingService) {
+  constructor(private appService: CorreoService, public router: Router,
+    public _landingService: LandingService, public _leadService: LeadService) {
     this.forma = new FormGroup(
       {
         nombre: new FormControl('', Validators.required),
@@ -171,5 +174,8 @@ export class FormularioComponent implements OnInit {
    this._landingService.getSegmentos().subscribe((res: any) => {
     this.segmentos = res.segmento;
    });
+   this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+    this.tiposDeCliente = res.tipoCliente;
+  });
   }
 }

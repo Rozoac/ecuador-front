@@ -13,13 +13,13 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
   styleUrls: ['./encuestas.component.css']
 })
 export class EncuestasComponent implements OnInit {
-  displayedColumns: string[] = ['p1', 'p2', 'p3', 'p4', 'p5'];
+  displayedColumns: string[] = ['p1', 'p2', 'p3', 'p4', 'p5', 'fecha'];
   dataSource: MatTableDataSource<Encuesta>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   encuestas;
-  total:number;
+  total: number;
   carga=true;
 
   constructor(public _encuestaService:EncuestaService) { 

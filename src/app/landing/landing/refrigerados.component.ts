@@ -6,6 +6,7 @@ import { IMessage, CorreoService, Ciudad } from '../../service/correo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LandingService } from '../../services/landing.service';
 import { MatOptionSelectionChange } from '@angular/material';
+import { LeadService } from '../../service/lead/lead.service';
 
 @Component({
   selector: 'app-refrigerados',
@@ -13,6 +14,7 @@ import { MatOptionSelectionChange } from '@angular/material';
   styleUrls: ['../cotizacion.component.css']
 })
 export class RefrigeradosComponent implements OnInit {
+  public tiposDeCliente: any;
   public ciudades: Ciudad[];
   public disabled = false;
   public tipoId = 1;
@@ -48,6 +50,7 @@ export class RefrigeradosComponent implements OnInit {
   tercerFormGroup: FormGroup;
 
   constructor(
+    public _leadService: LeadService,
     public router: ActivatedRoute,
     public router2: Router,
     private appService: CorreoService,
@@ -114,6 +117,11 @@ export class RefrigeradosComponent implements OnInit {
     ];
     this._landingService.getCiudades().subscribe( (res: any) => {
       this.ciudades = res.ciudades;
+    });
+
+    this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+      this.tiposDeCliente = res.tipoCliente;
+      console.log(this.tiposDeCliente);
     });
 
   }

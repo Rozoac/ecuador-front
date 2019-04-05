@@ -7,6 +7,7 @@ import swal from 'sweetalert2';
 import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { SegmentoService } from '../../../service/segmento.service';
 import { PaisService } from '../../../service/pais.service';
+import { LeadService } from '../../../service/lead/lead.service';
 
 
 @Component({
@@ -20,13 +21,15 @@ export class UsuarioComponent implements OnInit {
   imagenSubir: File;
   imagenActual;
   //id de usuario
-  id_usuario:string;
-  todo:any[] = [];
-  segmentos:any = [];
-  segmentos_total:any = [];
-  paises:any = [];
-  ciudades:any = [];
-  ciudadesArray:any = [];
+  id_usuario: string;
+  todo: any[] = [];
+  segmentos: any = [];
+  segmentos_total: any = [];
+  paises: any = [];
+  ciudades: any = [];
+  tiposDeCliente: any = [];
+  ciudadesArray: any = [];
+  tiposDeClienteArray: any = [];
   dropdownList = [];
   cities = [];
   selectedItems = [];
@@ -34,13 +37,12 @@ export class UsuarioComponent implements OnInit {
   dropdownSettings = {};
   singledropdownSettings = {};
   closeDropdownSelection = false;
-  
 
-  constructor(public _segmentoService: SegmentoService, public _usuarioService: UsuarioService, route: ActivatedRoute, public router: Router, public _paisService: PaisService) {
-    // this.usuario = _usuarioService.usuario;
+  constructor(public _segmentoService: SegmentoService, public _usuarioService: UsuarioService,
+    public _leadService: LeadService, route: ActivatedRoute, public router: Router,
+    public _paisService: PaisService) {
     route.params.subscribe(params => {
       this.id_usuario = params.id;
-      
     });
   }
 
@@ -70,31 +72,29 @@ export class UsuarioComponent implements OnInit {
       searchPlaceholderText: 'Busqueda',
       itemsShowLimit: 7,
       allowSearchFilter: true
-      
     };
-    
-
-    
-    
   }
 
   onItemSelect(item: any) {
-    // this.ciudadesArray.push(item);
-    console.log(this.ciudadesArray);
   }
   onSelectAll(items: any) {
     this.ciudadesArray = [];
-    this.ciudadesArray =items ;
+    this.ciudadesArray = items ;
     console.log(this.ciudadesArray);
   }
-  
-  unSelectAll(items: any){
-    // this.ciudadesArray = [];
-    console.log(this.ciudadesArray);
+  onSelectAll2(items: any) {
+    this.tiposDeClienteArray = [];
+    this.tiposDeClienteArray = items ;
   }
-  unSelect(items: any){
-    let index = this.ciudades.findIndex(obj => obj._id == items._id)
+  unSelectAll(items: any) {
+  }
+  unSelect(items: any) {
+    const index = this.ciudades.findIndex(obj => obj._id === items._id );
     this.ciudades.splice(index, 1);
+  }
+  unSelect2(items: any) {
+    const index = this.tiposDeCliente.findIndex(obj => obj._id === items._id );
+    this.tiposDeCliente.splice(index, 1);
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -108,33 +108,35 @@ export class UsuarioComponent implements OnInit {
     }
   }
 
-  async getUsuario(){
-    await this._usuarioService.getUsuario(this.id_usuario).subscribe( (resp:any) => {
+  async getUsuario() {
+    await this._usuarioService.getUsuario(this.id_usuario).subscribe( (resp: any) => {
       console.log(resp);
       this.usuario = resp.usuario;
       this.ciudadesArray = resp.usuario.ciudad;
+      this.tiposDeClienteArray = resp.usuario.tipoCliente;
       this.todo = resp.usuario.segmento;
       this.getCiudades(this.usuario.id_pais);
       this.getSegmento();
+      this.getTiposDeCliente();
     });
   }
   // var index = data.findIndex(obj => obj.name=="allInterests");
-   getSegmento(){
-     this._segmentoService.getSegmento().subscribe( (resp:any ) => {
+   getSegmento() {
+     this._segmentoService.getSegmento().subscribe( (resp: any ) => {
       this.segmentos = resp.segmento;
       this.segmentos.filter(number => {
-        let index = this.todo.findIndex(obj => obj._id == number._id)
-        if(index < 0){
+        let index = this.todo.findIndex(obj => obj._id == number._id);
+        if (index < 0) {
           this.segmentos_total.push(number);
         }
       });
     });
   }
 
-  deleteUsuario(id){
+  deleteUsuario(id) {
     swal({
       title: '¿Estas seguro?',
-      text: "No podrás revertir esto!",
+      text: 'No podrás revertir esto!',
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -142,31 +144,28 @@ export class UsuarioComponent implements OnInit {
       confirmButtonText: 'Si, borralo!'
     }).then((result) => {
       if (result.value) {
-        this._usuarioService.deleteUsuario(id).subscribe((resp:any) => {
+        this._usuarioService.deleteUsuario(id).subscribe((resp: any) => {
           this.router.navigate(['admin/usuarios']);
           swal({
             type: 'success',
             title: `El usuario ${this.usuario.nombre} ${this.usuario.apellido} a sido eliminado correctamente `,
             showConfirmButton: false,
             timer: 3000
-          }); 
+          });
         }, error => {
           swal('Error', error, 'error');
         });
       }
-    })
+    });
   }
 
-  estadoUsuario(estado){
-    if(estado === 'INACTIVO'){
+  estadoUsuario(estado) {
+    if (estado === 'INACTIVO') {
       return 'grayscale(100%)';
-    }else{
+    } else {
       return 'inherit';
     }
   }
-  
-  
-  
   guardar(usuario: Usuario, id) {
 
     this.usuario.nombre = usuario.nombre;
@@ -175,26 +174,24 @@ export class UsuarioComponent implements OnInit {
     this.usuario.correo = usuario.correo;
     this.usuario.segmento = this.todo;
     this.usuario.ciudad = this.ciudadesArray;
-   
+    this.usuario.tipoCliente = this.tiposDeClienteArray;
 
     this._usuarioService.actualizarUsuario(this.usuario, id).subscribe(resp => {
       console.log(resp);
     });
   }
 
-  cambiarEstado(estado, id){
-    let nuevoEstado; 
-    if(estado === 'ACTIVO'){
-       nuevoEstado= 'INACTIVO'; 
-    }
-    else{
-       nuevoEstado= 'ACTIVO'; 
+  cambiarEstado(estado, id) {
+    let nuevoEstado;
+    if (estado === 'ACTIVO') {
+       nuevoEstado = 'INACTIVO';
+    } else {
+       nuevoEstado = 'ACTIVO';
     }
     this.usuario.estado = nuevoEstado;
     this._usuarioService.actualizarUsuario(this.usuario, id).subscribe(resp => {
       console.log(resp);
-    })
-    
+    });
     }
 
   seleccionImagen(archivo: File) {
@@ -209,8 +206,8 @@ export class UsuarioComponent implements OnInit {
 
     this.imagenSubir = archivo;
 
-    let reader = new FileReader();
-    let urlImagenTemp = reader.readAsDataURL (archivo);
+    const reader = new FileReader();
+    const urlImagenTemp = reader.readAsDataURL (archivo);
 
     reader.onloadend = () => this.imagenActual = reader.result;
   }
@@ -238,9 +235,13 @@ export class UsuarioComponent implements OnInit {
     this._usuarioService.cambiarImagen( this.imagenSubir, this.usuario._id);
   }
   getCiudades(id) {
-    this._paisService.getCiudades(id).subscribe( (res:any) => {
+    this._paisService.getCiudades(id).subscribe( (res: any) => {
       this.ciudades = res;
       console.log(this.ciudades);
     });
+  }
+  getTiposDeCliente() {
+    this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+      this.tiposDeCliente = res.tipoCliente;    });
   }
 }

@@ -140,6 +140,23 @@
                   <button (click)="guardar(usuario, usuario._id)" type="button" class="btn btn-block color-azul waves-effect waves-light m-r-10 mt-3">Actualizar Ciudades</button>
               </div>
           </div>
+          <div class="card">
+              <div class="card-body">
+                  <h4 class="card-title">Tipo de Cliente</h4>
+                  <ng-multiselect-dropdown
+                    placeholder="Selecciona uno o varios tipos de usuario"
+                    [data]="tiposDeCliente"
+                    [(ngModel)]="tiposDeClienteArray"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll2($event)"
+                    (onDeSelect)="unSelect2($event)"
+                    (onDeSelectAll)="unSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                  <button (click)="guardar(usuario, usuario._id)" type="button" class="btn btn-block color-azul waves-effect waves-light m-r-10 mt-3">Actualizar Tipo de cliente</button>
+              </div>
+          </div>     
       </div>
-     
+    
+         
   </div>

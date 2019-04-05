@@ -78,7 +78,7 @@
                                                    </thead>
                                                    <tbody class="pointer">
                                                        <ng-container *ngFor="let comercial of comerciales">
-                                                           <tr  (click)="comercialInfo(comercial.comercial._id,inicio ,fin )" *ngIf="comercial?.comercial.id_rol?.nombre != 'ADMIN' && comercial?.comercial.id_pais?.nombre === pais.nombre">
+                                                           <tr  (click)="comercialInfo(comercial.comercial._id,inicio ,fin )" *ngIf="comercial?.comercial.id_rol?.nombre != 'ADMIN' && comercial?.comercial.id_rol?.nombre != 'MERCADEO' && comercial?.comercial.id_pais?.nombre === pais.nombre">
                                                                <td style="width:50px;">
                                                                    <img [src]="comercial.comercial.imagen" alt="user" class="img-circle" style="width: 70px;" />
                                                                </td>

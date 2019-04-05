@@ -53,11 +53,10 @@ const APP_ROUTES: Routes = [
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
-          
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
-          { path: 'landing', component: LandingComponent },   
+          { path: 'landing', component: LandingComponent },
           { path: 'refrigerados', component: RefrigeradosComponent },
           { path: 'payu', component: PayuComponent },
           { path: 'pagos-online', component: PagosOnlineComponent },
@@ -68,7 +67,6 @@ const APP_ROUTES: Routes = [
           { path: 'gracias', component: GraciasComponent, canActivate: [GraciasGuard], },
           { path: 'login', component: LoginComponent },
           // { path: '**',  component: NotFoundComponent },
-          
 
   {
           path: 'admin',
@@ -91,7 +89,6 @@ const APP_ROUTES: Routes = [
             { path: '', redirectTo: 'dashboard' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent },
           ] }
-          
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {

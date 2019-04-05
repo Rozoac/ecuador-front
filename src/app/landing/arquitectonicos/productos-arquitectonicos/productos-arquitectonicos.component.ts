@@ -4,11 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IMessage, CorreoService, Ciudad } from '../../../service/correo.service';
 import { LandingService } from '../../../services/landing.service';
-import swal from 'sweetalert2';
 import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
 import { MatOptionSelectionChange } from '@angular/material';
 import { TipoCliente } from '../../../models/tipoCliente.model';
+import { LeadService } from '../../../service/lead/lead.service';
 
 @Component({
   selector: 'app-productos-arquitectonicos',
@@ -16,14 +15,15 @@ import { TipoCliente } from '../../../models/tipoCliente.model';
   styleUrls: ['./productos-arquitectonicos.component.css']
 })
 export class ProductosArquitectonicosComponent implements OnInit {
+  public tiposDeCliente: any;
   public ciudades: Ciudad[];
   public contenedor;
-  isLinear = true;
-  filteredOptions: Observable<string[]>;
-  firstFormGroup: FormGroup;
-  ciudad_control = new FormControl();
-  secondFormGroup: FormGroup;
-  message: IMessage = {
+  public isLinear = true;
+  public filteredOptions: Observable<string[]>;
+  public firstFormGroup: FormGroup;
+  public ciudad_control = new FormControl();
+  public secondFormGroup: FormGroup;
+  public message: IMessage = {
     documento: {
       tipo_documento: '',
       numero: ''
@@ -41,7 +41,7 @@ export class ProductosArquitectonicosComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
 
   constructor(public _landingService: LandingService, public _arquitectonicosService: ArquitectonicosService,
-     public router: ActivatedRoute, public router2: Router, private appService: CorreoService) {
+     public router: ActivatedRoute, public router2: Router, private appService: CorreoService, public _leadService: LeadService) {
     this.firstFormGroup = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl('', [Validators.required]),
@@ -71,10 +71,12 @@ export class ProductosArquitectonicosComponent implements OnInit {
     this.ciudades = res.ciudades;
     console.log(res);
   });
+
+  this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+    this.tiposDeCliente = res.tipoCliente;
+    console.log(this.tiposDeCliente);
+  });
   }
-
-  
-
 
   tipoDeProyecto() {
     // this.message.tipo = 'Productos Especiales';
@@ -117,11 +119,11 @@ export class ProductosArquitectonicosComponent implements OnInit {
 
 
   onEvent(evento: MatOptionSelectionChange) {
-    if ((evento.source.value.tipo === 'Natural') && (evento.isUserInput = true)) {
+    if ((evento.source.value.tipo === '5ca53c81c2ba0b0017eccd87') && (evento.isUserInput = true)) {
       this.message.documento.tipo_documento = 'Cedula';
       console.log(this.message);
     return;
-  } if ((evento.source.value.tipo !== 'Natural' && (evento.isUserInput = true)) ) {
+  } if ((evento.source.value.tipo !== '5ca53c81c2ba0b0017eccd87' && (evento.isUserInput = true)) ) {
      this.message.documento.tipo_documento = 'NIT';
   }
   console.log(evento);

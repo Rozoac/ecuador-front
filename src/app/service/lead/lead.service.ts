@@ -122,7 +122,7 @@ export class LeadService {
 
 
   getReferidos() {
-    const url = URL_SERVICIOS + 'referidos';
+    const url = URL_LANDING_DEV + 'cliente/redes/sociales';
     return this.http.get(url);
   }
   ultimo() {
@@ -194,6 +194,16 @@ export class LeadService {
 
   borrarLead(id){
     const url = URL_LANDING_DEV + `lead/${id}`;
-    return this.http.delete(url)
+    return this.http.delete(url);
   }
+
+  getSegmentos() {
+    const url = URL_LANDING_DEV + `segmento/`;
+    return this.http.get(url);
+  }
+  getTiposDeCliente() {
+    const url = URL_LANDING_DEV + `tipocliente/`;
+    return this.http.get(url);
+  }
+
 }

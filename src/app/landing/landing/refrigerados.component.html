@@ -94,18 +94,18 @@
                   <!-- TIPO DE CLIENTE
                   <!-- ============================================================== -->
                   <mat-form-field class="mr-5" appearance="outline" >
-                    <mat-label>Tipo de cliente</mat-label>
-                    <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente">
-                      <mat-option *ngFor="let tipo_cliente of interes" [value]="tipo_cliente" (onSelectionChange) = "onEvent($event)" >
-                        {{tipo_cliente.tipo}}
-                      </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="secondFormGroup.get('tipo_cliente').invalid">{{getErrorMessage2("tipo_cliente")}}</mat-error>
-                  </mat-form-field>
+                      <mat-label>Tipo de cliente</mat-label>
+                      <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente.tipo">
+                        <mat-option *ngFor="let tipo_cliente of tiposDeCliente" [value]="tipo_cliente._id" (onSelectionChange) = "onEvent($event)" >
+                          {{tipo_cliente.nombre}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="secondFormGroup.get('tipo_cliente').invalid">{{getErrorMessage2("tipo_cliente")}}</mat-error>
+                    </mat-form-field>
                   <!-- ============================================================== -->
                   <!-- NIT
                   <!-- ============================================================== -->
-                   <mat-form-field *ngIf="message?.tipo_cliente.tipo === 'Empresa' || message?.tipo_cliente.tipo  === 'Contratación estatal'" class="mr-4"
+                   <mat-form-field *ngIf="message?.tipo_cliente.tipo === '5ca53c8ac2ba0b0017eccd89' || message?.tipo_cliente.tipo  === '5ca53ca4c2ba0b0017eccd8a'" class="mr-4"
                     appearance="outline">
                     <mat-label>Nit</mat-label>
                     <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
@@ -114,7 +114,7 @@
                   <!-- ============================================================== -->
                   <!-- CEDULA
                   <!-- ============================================================== -->
-                  <mat-form-field *ngIf="message?.tipo_cliente.tipo  == 'Natural'" class="mr-4" appearance="outline">
+                  <mat-form-field *ngIf="message?.tipo_cliente.tipo  == '5ca53c81c2ba0b0017eccd87'" class="mr-4" appearance="outline">
                     <mat-label>Cedula</mat-label>
                     <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
                     <mat-error *ngIf="secondFormGroup.get('documento').invalid">{{getErrorMessage2("documento")}}</mat-error>

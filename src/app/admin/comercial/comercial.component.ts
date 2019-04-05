@@ -20,6 +20,7 @@ export interface UserData {
  id_ciudad: {
    nombre: string
  };
+ tipoCliente: string;
   }
   // name: string;
   // progress: string;

@@ -52,7 +52,9 @@
                     <div  class="message-center">
                         <!-- Message -->
                         <a *ngFor="let lead of leads" (click)="mensaje(lead._id)" class="pointer">
-                                        <div class="user-img"> <img [src]="lead.id_cliente.id_segmento.foto" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                        <div class="user-img">
+                                             <!-- <img [src]="lead.id_cliente.id_segmento.foto" alt="user" class="img-circle"> -->
+                                              <span class="profile-status online pull-right"></span> </div>
                                         <div class="mail-contnet">
                                             <h5>{{lead.id_cliente.nombre}} {{lead.id_cliente.apellido}}</h5> <span class="mail-desc">{{lead.id_cliente.mensaje}}</span> <span class="time">{{lead.hora_creacion}}</span> </div>
                                     </a>

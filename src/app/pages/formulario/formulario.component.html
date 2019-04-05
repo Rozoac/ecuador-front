@@ -104,26 +104,27 @@
                         <!-- ============================================================== -->
                         <!-- TIPO DE CLIENTE
                         <!-- ============================================================== -->
+       
            
                         <mat-form-field class="col-lg-6" appearance="outline" >
-                                <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente">
-                                  <mat-option *ngFor="let tipo of tipoCliente" [value]="tipo" (onSelectionChange) = "onEvent($event)" >
-                                    {{tipo.tipo}}
+                                <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente.tipo">
+                                  <mat-option *ngFor="let tipo_cliente of tiposDeCliente" [value]="tipo_cliente._id" (onSelectionChange) = "onEvent($event)" >
+                                    {{tipo_cliente.nombre}}
                                   </mat-option>
                                 </mat-select>
                                 <mat-error *ngIf="forma.get('tipo_cliente').invalid"></mat-error>
-                              </mat-form-field>
+                        </mat-form-field>
                         <!-- ============================================================== -->
                         <!-- DOCUMENTO
                          <!-- ============================================================== -->
-                        <div *ngIf="message.tipo_cliente.tipo == 'Natural'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('cedula').valid)&& forma.get('cedula').touched}">
+                        <div *ngIf="message.tipo_cliente.tipo == '5ca53c81c2ba0b0017eccd87'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('cedula').valid)&& forma.get('cedula').touched}">
                             <input [ngClass]="{'margin-bottom-cero': (!forma.get('cedula').valid)&& forma.get('cedula').touched}" type="number" class="form-control"
                                 name="cedula" formControlName="cedula" required placeholder="Numero de cedula" [(ngModel)]="message.documento.numero">
                             <div *ngIf="(forma.controls['cedula'].errors?.required)&& forma.get('cedula').touched" class="form-control-feedback">
                                 Escribe tu numero de cedula
                             </div>
                         </div>
-                        <div *ngIf="message.tipo_cliente.tipo == 'Empresa' || message.tipo_cliente.tipo == 'Contratación estatal'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nit').valid)&& forma.get('nit').touched}">
+                        <div *ngIf="message.tipo_cliente.tipo == '5ca53c8ac2ba0b0017eccd89' || message.tipo_cliente.tipo == '5ca53ca4c2ba0b0017eccd8a'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nit').valid)&& forma.get('nit').touched}">
                             <input [ngClass]="{'margin-bottom-cero': (!forma.get('nit').valid)&& forma.get('nit').touched}" type="number" class="form-control"
                                 name="nit" formControlName="nit" required placeholder="Numero de NIT" [(ngModel)]="message.documento.numero">
                             <div *ngIf="(forma.controls['nit'].errors?.required)&& forma.get('nit').touched" class="form-control-feedback">
@@ -137,8 +138,8 @@
                             <select class="form-control" name="modalidad" formControlName="modalidad" [(ngModel)]="message.modalidad">
                                 <option>¿Lo quieres para?</option>
                                 <option disabled *ngIf="message.tipo_cliente.tipo == 'Tipo de cliente' ">*Selecciona un tipo de cliente</option>
-                                <option *ngIf="message.tipo_cliente.tipo == 'Natural' || message.tipo_cliente.tipo == 'Empresa' || message.tipo_cliente.tipo == 'Contratación estatal'">Compra</option>
-                                <option *ngIf="message.tipo_cliente.tipo != 'Tipo de cliente' && message.tipo_cliente.tipo != 'Natural'" >Alquiler</option>
+                                <option *ngIf="message.tipo_cliente.tipo == '5ca53c81c2ba0b0017eccd87' || message.tipo_cliente.tipo == '5ca53c8ac2ba0b0017eccd89' || message.tipo_cliente.tipo == '5ca53ca4c2ba0b0017eccd8a'">Compra</option>
+                                <option *ngIf="message.tipo_cliente.tipo != 'Tipo de cliente' && message.tipo_cliente.tipo != '5ca53c81c2ba0b0017eccd87'" >Alquiler</option>
                             </select>
                             <div *ngIf="((forma.get('modalidad').value) == '¿Lo quieres para?') && forma.get('modalidad').touched" class="form-control-feedback text-danger">
                                 Elige una opción.
