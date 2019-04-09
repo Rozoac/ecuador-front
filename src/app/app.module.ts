@@ -9,7 +9,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { TypingAnimationDirective } from 'angular-typing-animation';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
-import {NgxAutoScrollModule} from "ngx-auto-scroll";
+import {NgxAutoScrollModule} from 'ngx-auto-scroll';
 registerLocaleData(localeEs);
 
 import {APP_ROUTING} from './app.routes';
@@ -156,6 +156,7 @@ import { NegocioComponent } from './admin/negocio/negocio.component';
 import { HeaderLandingComponent } from './landing/shared/header-landing/header-landing.component';
 import { FooterLandingComponent } from './landing/shared/footer-landing/footer-landing.component';
 import { InfoClienteModalComponent } from './admin/comercial/modals/info-cliente-modal/info-cliente-modal.component';
+import { RechazoModalComponent } from './admin/negocio/modals/rechazo-modal/rechazo-modal.component';
 
 
 
@@ -240,6 +241,7 @@ export function momentAdapterFactory() {
     MisNegociosComponent,
     NegocioComponent,
     InfoClienteModalComponent,
+    RechazoModalComponent,
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -297,7 +299,7 @@ export function momentAdapterFactory() {
     ChartsModule,
     MyDatePickerModule
   ],
-  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent],
+  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent],
   providers: [
     {
       provide: LOCALE_ID,

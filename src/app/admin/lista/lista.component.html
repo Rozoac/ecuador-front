@@ -1,8 +1,8 @@
 <!-- ============================================================== -->
 <!-- Start Page Content -->
 <!-- ============================================================== -->
-<div class="col-md-12">
-
+<!-- <div class="col-md-12"> -->
+<!-- 
     <div class="card">
         <div class="card-body">
             <form ngNativeValidate #myForm="ngForm"  (ngSubmit)="fechalista( myForm )">
@@ -32,17 +32,14 @@
                             </div>
                             <span *ngIf="!cargaReporte" ><i class="fas fa-file-pdf fa-lg "></i> Generar Reporte</span>
                         </button>
-                    </div>
-
+                    </div> -->
             <!-- <div>
                     <button class="btn color-azul" (click)="getLeadsHoy()">Fecha de hoy ({{date | date}})</button>
                     <button class="btn color-azul" (click)="getLeadsMes()">Ultimos 30 dias ({{mesInicio | date}} - {{mesFin | date}})</button>
                 </div> -->
-        </div>
-
-    </div>
-</div>
-
+        <!-- </div> -->
+    <!-- </div>
+</div> -->
 <div class=" row wow fadeIn">
     <div class="col-12 ">
         <div class="card ">
@@ -53,22 +50,21 @@
                         <div class="col-md-6 d-flex align-items-center ">
                             <h3 class="card-title margin-0 ">Leads Registrados (<small>{{total}}</small>) </h3>
                         </div>
-                        <div class="col-md-6 ">
+                        <!-- <div class="col-md-6 ">
                             <div class="card margin-0 ">
                                 <div class="card-body padding-top-0 ">
                                     <input #input (keyup)="buscarLead(input.value) " type="text " class="form-control " placeholder="Buscar Lead ">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <table id="myTable " class="table table-bordered table-hover ">
+                    <!-- <table id="myTable " class="table table-bordered table-hover ">
                         <thead class="color-azul ">
                             <tr>
                                 <th>Nombre</th>
                                 <th>Modalidad</th>
                                 <th>
                                     <select class="segmento" name="segmento" (change)="cargarLeads($event.target.value, 1, fechaEnviar)">
-
                                                 <option disabled>Segmento</option>
                                                 <option value="">Todos</option>
                                                 <option value="Bodegas" >Bodegas</option>
@@ -76,15 +72,11 @@
                                                 <option value="Oficinas">Oficinas</option>
                                                 <option value="Proyectos Especiales o Arquitectonicos">Proyectos Arquitectonicos</option>
                                                 <option value="Salas de Ventas">Salas de Ventas</option>
-                                                
-                                                
-                                          
                                               </select>
                                 </th>
                                 <th>Ciudad</th>
                                 <th>
                                     <select class="segmento" name="comercial" (change)="cargarLeads(segmento, 1 , fechaEnviar, $event.target.value)">
-                                
                                         <option disabled>Comercial</option>
                                         <option value="">Todos</option>
                                         <option value="fcastrodelrio@econtainerscolombia.com">Ivan Castro del Rio</option>
@@ -97,9 +89,6 @@
                                         <option value="lvargas@econtainerscolombia.com">Luisa Vargas</option>
                                         <option value="arodriguez@econtainerscolombia.com">Andrea Rodriguez</option>
                                         <option value="kalfaro@econtainerscolombia.com">Kerly Alfaro</option>
-                                
-                                
-                                
                                     </select>
                                 </th>
                                 <th>Fecha</th>
@@ -128,15 +117,57 @@
                                 <span>Espere por favor</span>
                             </div>
                         </div>
-                    </div>
-                    <button (click)="cambiarDesde(-1) " class="btn btn-secondary " [disabled]="pagina <=1 ">
+                    </div> -->
+                    <!-- <button (click)="cambiarDesde(-1) " class="btn btn-secondary " [disabled]="pagina <=1 ">
                         Anteriores
                     </button>
                     <button (click)="cambiarDesde(1) " [disabled]="pagina>= ultimaPagina" class="btn btn-secondary"> Siguientes
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-12">
+            <mat-form-field>
+                    <!-- <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Busqueda"> -->
+                </mat-form-field>
+                
+                  <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource" matSort>
+                  
+                      <!-- Nombre Column -->
+                      <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                        <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> <img [src]="row.id_segmento.foto" alt="user" class="img-circle circle-size" /> {{row.nombre}} {{row.apellido}} </td>
+                      </ng-container>
+                      <!-- Celular Column -->
+                      <ng-container matColumnDef="celular">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Celular </th>
+                        <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.celular}} </td>
+                      </ng-container>
+                      <!-- Correo Column -->
+                      <ng-container matColumnDef="correo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+                        <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.correo}} </td>
+                      </ng-container>
+                      <!-- Modalidad Column -->
+                      <ng-container matColumnDef="modalidad">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Modalidad </th>
+                        <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.modalidad}} </td>
+                      </ng-container>
+                      <!-- Ciudad Column -->
+                      <ng-container matColumnDef="ciudad">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </th>
+                        <td mat-cell *matCellDef="let row" (click)="getLead(row._id)"> {{row.id_ciudad.nombre}} </td>
+                      </ng-container>
+                      
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row">
+                          
+                      </tr>
+                    </table>
+                  
+                    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
     </div>
 </div>
 <!-- ============================================================== -->

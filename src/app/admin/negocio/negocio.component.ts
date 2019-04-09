@@ -10,6 +10,8 @@ import { Howl } from 'howler';
 import { Subject, Subscription } from 'rxjs';
 import { PageScrollService } from 'ngx-page-scroll-core';
 import { DOCUMENT } from '@angular/common';
+import { MatDialog } from '@angular/material';
+import { RechazoModalComponent } from './modals/rechazo-modal/rechazo-modal.component';
 
 moment.updateLocale('es', {
   week: {
@@ -120,6 +122,7 @@ export class NegocioComponent implements OnInit {
               public toastr: ToastrService,
               private modal: NgbModal,
               private pageScrollService: PageScrollService,
+              private dialog: MatDialog,
                @Inject(DOCUMENT) private document: any
               ) {
     config.max = 100;
@@ -333,6 +336,17 @@ addEvent(): void {
       this.tipoMensaje = res;
     });
   }
+
+  abrirModal() {
+    const dialogRef = this.dialog.open(RechazoModalComponent, {
+      width: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
 
   ngOnInit() {
     this.getLead();

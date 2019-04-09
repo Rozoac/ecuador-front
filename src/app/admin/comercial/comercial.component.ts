@@ -38,20 +38,18 @@ export class ComercialComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
-
-  data: any;
-  data2: any;
+  public data: any;
+  public data2: any;
   public comercial;
   public pagina = 1;
   public ultimaPagina;
-  inicio: string;
-  fin: string;
-  closeResult: string;
-  busquedaResultado: string;
-  resultado: Comercial;
-  pdf = 'false';
-  cargaReporte = true;
+  public inicio: string;
+  public fin: string;
+  public closeResult: string;
+  public busquedaResultado: string;
+  public resultado: Comercial;
+  public pdf = 'false';
+  public cargaReporte = true;
 
   constructor(
     public _leadService: LeadService,
@@ -100,7 +98,7 @@ export class ComercialComponent implements OnInit {
           .subscribe((resp2: any) => {
             this.data = resp2;
             this.data = resp2.map( resp => resp.id_cliente);
-            this.dataSource = new MatTableDataSource(this.data);
+            this.dataSource = new MatTableDataSource(this.data != null && this.data);
             this.paginator._intl.itemsPerPageLabel = 'Clientes por página';
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;

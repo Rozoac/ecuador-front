@@ -1,3 +1,9 @@
+<div class="row">
+    <div class="col-md-12">
+        <button  type="button" (click)="abrirModal()" class="btn btn-rounded mr-2 btn-secondary float-right mb-2">Rechazar lead</button>
+    </div>
+</div>
+
    <div class="row">
       <div class="col-md-12">
           <div class="card wow fadeIn">
@@ -7,6 +13,7 @@
                       <div class="col p-r-0 datos mb-3">       
                           <!-- <h1 class="font-light">Negocio</h1> -->
                           <div class="display-4 nombre mr-3" ><i class="mdi mdi-account-circle text-info" style="    font-size: 2rem;"></i><span style="font-size: initial;">{{negocio?.lead.id_cliente.nombre}} {{negocio?.lead.id_cliente.apellido}}</span></div>
+
                           <!-- <div *ngIf="negocio?.lead.id_cliente.tipo_cliente.tipo == 'Empresa'" class="display-4 nombre" ><i class="mdi mdi-city text-info" style="    font-size: 2rem;"></i><span style="font-size: initial;">{{negocio?.lead.id_cliente.tipo_cliente.nombre}}</span></div> -->
                       <!-- Column -->
                   </div>

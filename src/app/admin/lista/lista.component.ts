@@ -1,19 +1,38 @@
-import { Component, OnInit } from "@angular/core";
-import { LeadService } from "../../service/lead/lead.service";
-import { Lead } from "../../models/lead.model";
-import { Router } from "@angular/router";
-import { IMyDpOptions, IMyDateModel } from "mydatepicker";
-import { Fechas } from "../../models/fechas.model";
-import { ToastrService, ToastContainerDirective } from "ngx-toastr";
-import { NgForm } from "@angular/forms";
-import { saveAs } from "file-saver";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LeadService } from '../../service/lead/lead.service';
+import { Lead } from '../../models/lead.model';
+import { Router } from '@angular/router';
+import { IMyDpOptions, IMyDateModel } from 'mydatepicker';
+import { Fechas } from '../../models/fechas.model';
+import { ToastrService, ToastContainerDirective } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
+import { saveAs } from 'file-saver';
+import {MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
+export interface UserData {
+  nombre: string;
+  apellido: string;
+  celular: string;
+  correo: string;
+  modalidad: string;
+  fecha_creacion: string;
+  hora_creacion: string;
+  id_ciudad: {
+    nombre: string
+  };
+  tipoCliente: string;
+   }
 
 @Component({
-  selector: "app-lista",
-  templateUrl: "./lista.component.html",
-  styleUrls: ["../admin.component.css"]
+  selector: 'app-lista',
+  templateUrl: './lista.component.html',
+  styleUrls: ['../admin.component.css']
 })
 export class ListaComponent implements OnInit {
+  displayedColumns: string[] = ['nombre', 'celular', 'correo', 'modalidad', 'ciudad'];
+  dataSource: MatTableDataSource<UserData>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   public leads: Array<Lead>;
   public total;
   public pagina = 1;
@@ -21,8 +40,8 @@ export class ListaComponent implements OnInit {
   public segmento;
   public pdf;
   public comercial;
-  public placeholder = "Selecciona una fecha";
-  public locale = "es";
+  public placeholder = 'Selecciona una fecha';
+  public locale = 'es';
   public fechaEnviar: Fechas = null;
   public cargaReporte: boolean = false;
 
@@ -33,12 +52,12 @@ export class ListaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cargarLeads("", null, this.fechaEnviar, "");
+    this.cargarLeads('', null, this.fechaEnviar, '');
   }
 
   fechalista(fechas: NgForm) {
     if (fechas === null) {
-      const f = new Fechas("2018-01-01", "2018-12-31");
+      const f = new Fechas('2018-01-01', '2018-12-31');
     } else {
       const f = new Fechas(
         fechas.value.start.formatted,
@@ -57,7 +76,7 @@ export class ListaComponent implements OnInit {
 
   cargarPDF(fechas: Fechas) {
     if (fechas === null) {
-      this.toastr.info("Debes seleccionar una fecha", "Reporte PDF", {
+      this.toastr.info('Debes seleccionar una fecha', 'Reporte PDF', {
         progressBar: true
       });
       return;
@@ -66,7 +85,7 @@ export class ListaComponent implements OnInit {
     this.cargaReporte = true;
     this._lead.getLeadsPDF(fechas).subscribe((response: any) => {
       this.cargaReporte = false;
-      this.toastr.info("Reporte generado satisfactoriamente", "Reporte PDF", {
+      this.toastr.info('Reporte generado satisfactoriamente', 'Reporte PDF', {
         progressBar: true
       });
       return saveAs(response);
@@ -79,7 +98,7 @@ export class ListaComponent implements OnInit {
     }
     this._lead.getLeads(this.pagina, segmento, fecha, comercial, pdf).subscribe(
       (response: any) => {
-        if (response.status === "success") {
+        if (response.status === 'success') {
           this.leads = response.leads.data;
           this.total = response.leads.total;
           this.ultimaPagina = response.leads.last_page;
@@ -95,12 +114,12 @@ export class ListaComponent implements OnInit {
   }
 
   public startDate: IMyDpOptions = {
-    dateFormat: "yyyy-mm-dd",
+    dateFormat: 'yyyy-mm-dd',
     editableDateField: false
   };
 
   public endDate: IMyDpOptions = {
-    dateFormat: "yyyy-mm-dd",
+    dateFormat: 'yyyy-mm-dd',
     disableUntil: { year: 0, month: 0, day: 0 }
   };
 
@@ -146,7 +165,7 @@ export class ListaComponent implements OnInit {
 
   buscarLead(termino: string) {
     if (termino.length <= 0) {
-      this.cargarLeads("");
+      this.cargarLeads('');
       return;
     }
     this._lead.buscarLeads(termino).subscribe((leads) => {
@@ -157,6 +176,6 @@ export class ListaComponent implements OnInit {
   }
 
   leadInfo(ruta): any {
-    this.router.navigate(["/admin/lead", ruta]);
+    this.router.navigate(['/admin/lead', ruta]);
   }
 }

@@ -18,17 +18,17 @@ export class AdminUsuariosComponent implements OnInit {
     this.getUsuarios();
   }
 
-  getUsuarios(){
+  getUsuarios() {
     this._usuariosService.getUsuarios().subscribe((data:any) => {
       this.usuarios = data.usuarios;
       console.log(this.usuarios);
-    })
+    });
   }
 
-  estadoUsuario(estado){
-    if(estado === 'INACTIVO'){
+  estadoUsuario(estado) {
+    if (estado === 'INACTIVO') {
       return 'grayscale(100%)';
-    }else{
+    } else {
       return 'inherit';
     }
   }
@@ -43,7 +43,6 @@ export class AdminUsuariosComponent implements OnInit {
      dialogRef.afterClosed().subscribe(result => {
       if (result === true) {
         this.getUsuarios();
-   
           }
     });
   }

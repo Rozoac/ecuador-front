@@ -118,7 +118,7 @@ export class GraficasComponent implements OnInit {
 
   getLeadsMes() {
     this.fin = moment().format('MM-DD-YYYY');
-    this.inicio = moment().subtract(30, 'd').format('MM-DD-YYYY');
+    this.inicio = moment().startOf('month').format('MM-DD-YYYY');
     this._leadService.getLeadsComercialMes()
                      .subscribe( (resp: any) => {
                       console.log(this.comerciales);

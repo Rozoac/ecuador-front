@@ -69,6 +69,10 @@ h6 {
     font-family: 'bebas-bold'!important;
 }
 
+.float-right {
+    float: right!important;
+}
+
 .font-12{
     font-size: 12px;
 }
