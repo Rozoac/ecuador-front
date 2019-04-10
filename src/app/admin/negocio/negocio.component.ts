@@ -40,6 +40,7 @@ const colors: any = {
   styleUrls: ['./negocio.component.css']
 })
 export class NegocioComponent implements OnInit {
+  public id_lead;
   public mensajes;
   public view = 'day';
   public viewDate: Date = new Date();
@@ -178,6 +179,7 @@ export class NegocioComponent implements OnInit {
 
   getLead() {
     this.activateRouter.params.subscribe((resp: any) => {
+      this.id_lead = resp.id;
         this._leadService.getLead(resp.id).subscribe( (res: any) => {
           console.log(res.lead.mensaje);
           this.mensajes = res.lead.mensaje;
@@ -339,7 +341,8 @@ addEvent(): void {
 
   abrirModal() {
     const dialogRef = this.dialog.open(RechazoModalComponent, {
-      width: '800px'
+      width: '800px',
+      data: {id_lead: this.id_lead}
     });
 
     dialogRef.afterClosed().subscribe(result => {

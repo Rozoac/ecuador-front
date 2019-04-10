@@ -206,4 +206,18 @@ export class LeadService {
     return this.http.get(url);
   }
 
+  getCausales() {
+    const url = URL_LANDING_DEV + `causal/`;
+    return this.http.get(url).pipe(
+      map( (res: any) => {
+        return res.causal;
+      })
+    );
+  }
+
+  agregarCausal(mensaje, id) {
+    const url = URL_LANDING_DEV + `lead/rechazo/${id}`;
+    return this.http.put(url, mensaje );
+}
+
 }

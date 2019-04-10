@@ -29,6 +29,10 @@ export interface Documento {
   tipo_documento: string;
   numero: string;
 }
+export interface Causal {
+  id_causal: string;
+  mensaje: string;
+}
 export interface Ciudad {
   _id: string;
   nombre: string;
