@@ -98,7 +98,7 @@ export class ComercialComponent implements OnInit {
           .subscribe((resp2: any) => {
             this.data = resp2;
             this.data = resp2.map( resp => resp.id_cliente);
-            this.dataSource = new MatTableDataSource(this.data != null && this.data);
+            this.dataSource = new MatTableDataSource(this.data);
             this.paginator._intl.itemsPerPageLabel = 'Clientes por página';
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
@@ -122,7 +122,6 @@ export class ComercialComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.cargarLeads(this.pdf);
-     
     });
   }
 

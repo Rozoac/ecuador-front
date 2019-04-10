@@ -386,7 +386,6 @@ export class CotizacionComponent implements OnInit {
   }
 
   sendEmail(message: IMessage) {
-    console.log("entro")
     this.disabled = true;
 
     // message.tipo_estandar = this.tipo_estandar;
