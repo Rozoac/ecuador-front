@@ -8,7 +8,7 @@ import { ToastrService, ToastContainerDirective } from 'ngx-toastr';
 import { UsuarioService } from '../../service/usuario/usuario.service';
 import {MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { InfoClienteModalComponent } from './modals/info-cliente-modal/info-cliente-modal.component';
-
+import { map } from 'rxjs/operators';
 export interface UserData {
  nombre: string;
  apellido: string;
@@ -97,8 +97,8 @@ export class ComercialComponent implements OnInit {
           .getComercial(this.resultado, this.pagina, pdf)
           .subscribe((resp2: any) => {
             this.data = resp2;
-            this.data = resp2.map( resp => resp.id_cliente);
-            this.dataSource = new MatTableDataSource(this.data);
+            this.data = resp2.map( respuesta => respuesta.id_cliente);
+            this.dataSource = new MatTableDataSource(this.data != null && this.data);
             this.paginator._intl.itemsPerPageLabel = 'Clientes por página';
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
@@ -122,6 +122,7 @@ export class ComercialComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.cargarLeads(this.pdf);
+     
     });
   }
 
@@ -138,4 +139,3 @@ export class ComercialComponent implements OnInit {
   }
 
 }
-

@@ -37,6 +37,7 @@ import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.compone
 import { InboxComponent } from './admin/inbox/inbox.component';
 import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
 import { NegocioComponent } from './admin/negocio/negocio.component';
+import { RuletaComponent } from './extra/ruleta/ruleta.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -54,6 +55,7 @@ const APP_ROUTES: Routes = [
             // { path: '**',  component: NotFoundComponent }
           ] },
           { path: 'tailor-made', component: TailorMadeComponent },
+          { path: 'ruleta', component: RuletaComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
           { path: 'landing', component: LandingComponent },
