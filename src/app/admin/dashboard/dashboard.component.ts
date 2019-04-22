@@ -58,16 +58,16 @@ export class DashboardComponent implements OnInit {
     {
       // grey
       backgroundColor: "#2dc4e4",
-      borderColor: "#2dc4e4",
-      pointBackgroundColor: "#2dc4e4",
-      pointBorderColor: "#2dc4e4",
-      pointHoverBackgroundColor: "#2dc4e4",
-      pointHoverBorderColor: "#2dc4e4"
+      borderColor: '#2dc4e4',
+      pointBackgroundColor: '#2dc4e4',
+      pointBorderColor: '#2dc4e4',
+      pointHoverBackgroundColor: '#2dc4e4',
+      pointHoverBorderColor: '#2dc4e4'
     }
   ];
 
   public barChartData: any[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0], label: "Ciudades" }
+    { data: [0, 0, 0, 0, 0, 0, 0], label: 'Ciudades' }
   ];
 
   //   public doughnutOptions: any = {
@@ -93,14 +93,14 @@ export class DashboardComponent implements OnInit {
     this.getGrafica(null);
     this.variable1 = this.toastr.overlayContainer = this.toastContainer;
 
-    this.toastr.info("Selecciona una Fecha para empezar! 📅,", "Info", {
+    this.toastr.info('Selecciona una Fecha para empezar! 📅,', 'Info', {
               progressBar: true
     });
   }
 
   public toast2(seleccionado:boolean) {
     if (seleccionado === false) {
-      this.toastr.info("Selecciona un segmento,", "Info", {
+      this.toastr.info('Selecciona un segmento,', 'Info', {
         progressBar: true
       });
     }else{
@@ -113,12 +113,12 @@ export class DashboardComponent implements OnInit {
   }
 
   public startDate: IMyDpOptions = {
-    dateFormat: "yyyy-mm-dd",
+    dateFormat: 'mm-dd-yyyy',
     editableDateField: false
   };
 
   public endDate: IMyDpOptions = {
-    dateFormat: "yyyy-mm-dd",
+    dateFormat: 'mm-dd-yyyy',
     disableUntil: { year: 0, month: 0, day: 0 }
   };
 
@@ -148,16 +148,16 @@ export class DashboardComponent implements OnInit {
 
   getGrafica(fechas: NgForm) {
     if (fechas === null) {
-      const f = new Fechas("2018-01-01", "2018-12-31");
+      const f = new Fechas('01-01-2019', '12-31-2019');
       this._grafica.getGrafica(f).subscribe((resp: any) => {
         console.log(resp);
         this.graficas = resp;
       });
     } else {
       const f = new Fechas(
-        fechas.value.start.formatted,
+        fechas.value.inicio.formatted,
 
-        fechas.value.end.formatted
+        fechas.value.fin.formatted
       );
 
       this._grafica.getGrafica(f).subscribe((resp: any) => {
@@ -176,7 +176,7 @@ export class DashboardComponent implements OnInit {
   graficaDona(tipo: string) {
     // this.segmentos();
     this.graficaBarras(tipo);
-    if (tipo === "bodega") {
+    if (tipo === 'bodega') {
       this.compra = this.graficas.bodegas.compra;
       this.alquiler = this.graficas.bodegas.alquiler;
       this.suma = this.compra + this.alquiler;
@@ -185,7 +185,7 @@ export class DashboardComponent implements OnInit {
       this.dato2 = Math.round((this.alquiler * 100) / this.suma);
       this.doughnutChartData = [this.dato1, this.dato2];
     }
-    if (tipo === "sala") {
+    if (tipo === 'sala') {
       this.compra = this.graficas.salas.compra;
       this.alquiler = this.graficas.salas.alquiler;
       this.suma = this.compra + this.alquiler;
@@ -194,7 +194,7 @@ export class DashboardComponent implements OnInit {
       this.dato2 = Math.round((this.alquiler * 100) / this.suma);
       this.doughnutChartData = [this.dato1, this.dato2];
     }
-    if (tipo === "arq") {
+    if (tipo === 'arq') {
       this.compra = this.graficas.proyectos.compra;
       this.alquiler = this.graficas.proyectos.alquiler;
       this.suma = this.compra + this.alquiler;
@@ -203,7 +203,7 @@ export class DashboardComponent implements OnInit {
       this.dato2 = Math.round((this.alquiler * 100) / this.suma);
       this.doughnutChartData = [this.dato1, this.dato2];
     }
-    if (tipo === "oficina") {
+    if (tipo === 'oficina') {
       this.compra = this.graficas.oficinas.compra;
       this.alquiler = this.graficas.oficinas.alquiler;
       this.suma = this.compra + this.alquiler;
@@ -212,7 +212,7 @@ export class DashboardComponent implements OnInit {
       this.dato2 = Math.round((this.alquiler * 100) / this.suma);
       this.doughnutChartData = [this.dato1, this.dato2];
     }
-    if (tipo === "refrigerado") {
+    if (tipo === 'refrigerado') {
       this.compra = this.graficas.refrigerados.compra;
       this.alquiler = this.graficas.refrigerados.alquiler;
       this.suma = this.compra + this.alquiler;
@@ -225,16 +225,16 @@ export class DashboardComponent implements OnInit {
 
   graficaBarras(tipo: string) {
     // this.segmentos();
-    if (tipo === "bodega") {
+    if (tipo === 'bodega') {
       (this.colores = [
         {
           // grey
-          backgroundColor: "#7258f2",
-          borderColor: "#7258f2",
-          pointBackgroundColor: "#7258f2",
-          pointBorderColor: "#7258f2",
-          pointHoverBackgroundColor: "#7258f2",
-          pointHoverBorderColor: "#7258f2"
+          backgroundColor: '#7258f2',
+          borderColor: '#7258f2',
+          pointBackgroundColor: '#7258f2',
+          pointBorderColor: '#7258f2',
+          pointHoverBackgroundColor: '#7258f2',
+          pointHoverBorderColor: '#7258f2'
         }
       ]),
         (this.barChartData = [
@@ -256,7 +256,7 @@ export class DashboardComponent implements OnInit {
           this.graficas.bodegas.ciudades.villavicencio
         ]);
     }
-    if (tipo === "sala") {
+    if (tipo === 'sala') {
       this.barChartData = [
         this.graficas.salas.ciudades.armenia,
         this.graficas.salas.ciudades.barranca,
@@ -276,7 +276,7 @@ export class DashboardComponent implements OnInit {
         this.graficas.salas.ciudades.villavicencio
       ];
     }
-    if (tipo === "arq") {
+    if (tipo === 'arq') {
       this.barChartData = [
         this.graficas.proyectos.ciudades.armenia,
         this.graficas.proyectos.ciudades.barranca,
@@ -296,7 +296,7 @@ export class DashboardComponent implements OnInit {
         this.graficas.proyectos.ciudades.villavicencio
       ];
     }
-    if (tipo === "oficina") {
+    if (tipo === 'oficina') {
       this.barChartData = [
         this.graficas.oficinas.ciudades.armenia,
         this.graficas.oficinas.ciudades.barranca,
@@ -316,7 +316,7 @@ export class DashboardComponent implements OnInit {
         this.graficas.oficinas.ciudades.villavicencio
       ];
     }
-    if (tipo === "refrigerado") {
+    if (tipo === 'refrigerado') {
       this.barChartData = [
         this.graficas.refrigerados.ciudades.armenia,
         this.graficas.refrigerados.ciudades.barranca,

@@ -85,8 +85,8 @@ export class GraficasComponent implements OnInit {
       fechas.value.start.formatted || '',
       fechas.value.end.formatted || ''
     );
-    this.inicio = f.start;
-    this.fin = f.end;
+    this.inicio = f.inicio;
+    this.fin = f.fin;
 
 
     this._leadService.getLeadsComercial(f)

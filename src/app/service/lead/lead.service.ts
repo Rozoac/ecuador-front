@@ -60,10 +60,10 @@ export class LeadService {
     return this.http.get(url, { responseType: 'blob', headers });
   }
 
-  getComercial(fecha: any, pagina: any, pdf: string) {
+  getComercial(fecha: any, pagina: any, pdf: string, excel: string) {
     const url = URL_LANDING_DEV + `lead/unico/personalizada`;
-    if (pdf === 'true') {
-      // return this.http.post(url, params, { responseType: 'blob', headers });
+    if (pdf === 'true' || excel === 'true') {
+      return this.http.post(url, fecha, { responseType: 'blob' });
     } else {
       return this.http.post(url, fecha, ).pipe(
         map((res: any) => res.usuario)
@@ -192,7 +192,7 @@ export class LeadService {
       return this.http.put(url, mensaje );
   }
 
-  borrarLead(id){
+  borrarLead(id) { 
     const url = URL_LANDING_DEV + `lead/${id}`;
     return this.http.delete(url);
   }

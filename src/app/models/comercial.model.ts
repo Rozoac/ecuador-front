@@ -3,6 +3,7 @@ export class Comercial {
     public comercial: string,
     public start: string,
     public end: number,
-    public pdf: string
+    public pdf: string,
+    public excel: string
   ) {}
 }

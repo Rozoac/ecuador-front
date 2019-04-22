@@ -49,7 +49,9 @@ export class ComercialComponent implements OnInit {
   public busquedaResultado: string;
   public resultado: Comercial;
   public pdf = 'false';
-  public cargaReporte = true;
+  public excel = 'false';
+  public cargaReporte1 = true;
+  public cargaReporte2 = true;
 
   constructor(
     public _leadService: LeadService,
@@ -60,20 +62,17 @@ export class ComercialComponent implements OnInit {
     private _usuarioService: UsuarioService,
     public dialog: MatDialog
   ) {
-    this.cargarLeads(this.pdf);
+    this.cargarLeads(this.pdf, this.excel);
   }
 
-
-
-
-
-  cargarLeads(pdf: string) {
+  cargarLeads(pdf: string, excel: string) {
     this.activateRouter.params.subscribe((resp: any) => {
       this.resultado = new Comercial(
         resp['id'],
         resp['inicio'],
         resp['fin'],
-        pdf
+        pdf,
+        excel
       );
       this.inicio = resp.inicio;
       this.fin = resp.fin;
@@ -82,19 +81,30 @@ export class ComercialComponent implements OnInit {
         console.log(this.comercial);
       });
       if (pdf === 'true') {
-        this.cargaReporte = false;
+        this.cargaReporte1 = false;
         this._leadService
-          .getComercial(this.resultado, this.pagina, pdf)
+          .getComercial(this.resultado, this.pagina, pdf, excel)
           .subscribe((resp2: any) => {
-            this.cargaReporte = true;
+            this.cargaReporte1 = true;
             this.toastr.info('Reporte generado satisfactoriamente', 'Reporte PDF', {
+              progressBar: true
+            });
+            return saveAs(resp2);
+          });
+      } else if (excel === 'true') {
+        this.cargaReporte2 = false;
+        this._leadService
+          .getComercial(this.resultado, this.pagina, pdf, excel)
+          .subscribe((resp2: any) => {
+            this.cargaReporte2 = true;
+            this.toastr.info('Reporte generado satisfactoriamente', 'Reporte Excel', {
               progressBar: true
             });
             return saveAs(resp2);
           });
       } else {
         this._leadService
-          .getComercial(this.resultado, this.pagina, pdf)
+          .getComercial(this.resultado, this.pagina, pdf, excel)
           .subscribe((resp2: any) => {
             this.data = resp2;
             this.data = resp2.map( respuesta => respuesta.id_cliente);
@@ -121,8 +131,7 @@ export class ComercialComponent implements OnInit {
       data: {data: lead }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.cargarLeads(this.pdf);
-     
+      this.cargarLeads(this.pdf, this.excel);
     });
   }
 

@@ -157,7 +157,7 @@ import { HeaderLandingComponent } from './landing/shared/header-landing/header-l
 import { FooterLandingComponent } from './landing/shared/footer-landing/footer-landing.component';
 import { InfoClienteModalComponent } from './admin/comercial/modals/info-cliente-modal/info-cliente-modal.component';
 import { RechazoModalComponent } from './admin/negocio/modals/rechazo-modal/rechazo-modal.component';
-import { RuletaComponent } from './extra/ruleta/ruleta.component';
+import { TransporteComponent } from './admin/transporte/transporte.component';
 
 
 
@@ -243,7 +243,7 @@ export function momentAdapterFactory() {
     NegocioComponent,
     InfoClienteModalComponent,
     RechazoModalComponent,
-    RuletaComponent,
+    TransporteComponent,
   ],
   imports: [
     SocketIoModule.forRoot(config),

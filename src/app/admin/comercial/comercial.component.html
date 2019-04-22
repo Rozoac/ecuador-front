@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li>
-                            <a>Salas de Venta:
+                            <a>Salas de Venta:5
                                 <!-- <span>{{data?.segmento.salas}}</span> -->
                             </a>
                         </li>
@@ -57,12 +57,20 @@
                             </a>
                         </li>
                         <li class="box-label">
-                            <button (click)="cargarLeads('true')" class="btn color-azul text-white"><div *ngIf="!cargaReporte" class="text-center ">
-                                <span>Generando reporte</span>
+                            <button style="background: #cf3024;"  (click)="cargarLeads('true', 'false')" class="btn  text-white"><div *ngIf="!cargaReporte1" class="text-center ">
+                                <span>Generando reporte PDF </span>
                                 <br>
                                 <i class="fa fa-sync fa-spin fa-lg "></i>
                                 <br>
-                            </div><span *ngIf="cargaReporte">Generar Reporte</span></button>
+                            </div><span *ngIf="cargaReporte1">Generar Reporte PDF <i class="mdi mdi-file-pdf"></i> </span></button>
+                        </li>
+                        <li class="box-label mt-2">
+                            <button style="background: #227a4a;" (click)="cargarLeads('false', 'true')" class="btn  text-white"><div *ngIf="!cargaReporte2" class="text-center ">
+                                <span>Generando reporte Excel </span>
+                                <br>
+                                <i class="fa fa-sync fa-spin fa-lg "></i>
+                                <br>
+                            </div><span  *ngIf="cargaReporte2">Generar Reporte Excel <i class="mdi mdi-file-excel"></i> </span></button>
                         </li>
 
                         <ng-template #content let-c="close" let-d="dismiss">

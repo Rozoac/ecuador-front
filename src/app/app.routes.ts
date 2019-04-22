@@ -37,7 +37,7 @@ import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.compone
 import { InboxComponent } from './admin/inbox/inbox.component';
 import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
 import { NegocioComponent } from './admin/negocio/negocio.component';
-import { RuletaComponent } from './extra/ruleta/ruleta.component';
+import { TransporteComponent } from './admin/transporte/transporte.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -55,7 +55,6 @@ const APP_ROUTES: Routes = [
             // { path: '**',  component: NotFoundComponent }
           ] },
           { path: 'tailor-made', component: TailorMadeComponent },
-          { path: 'ruleta', component: RuletaComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
           { path: 'landing', component: LandingComponent },
@@ -77,6 +76,7 @@ const APP_ROUTES: Routes = [
           children: [
             { path: 'comerciales', component: GraficasComponent, data: { titulo: 'Leads'} },
             { path: 'usuarios', component: AdminUsuariosComponent, data: { titulo: 'Usuarios'} },
+            { path: 'transporte', component: TransporteComponent, data: { titulo: 'Cotización de transporte'} },
             { path: 'inbox', component: InboxComponent, data: { titulo: 'Inbox'} },
             { path: 'mis-negocios', component: MisNegociosComponent, data: { titulo: 'Mis Negocios'} },
             { path: 'negocio/:id', component: NegocioComponent, data: { titulo: 'Negocio'} },

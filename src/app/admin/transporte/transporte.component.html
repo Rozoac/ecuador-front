@@ -1,0 +1,70 @@
+<!-- ============================================================== -->
+<!-- Stats box -->
+<!-- ============================================================== -->
+
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+              <img src="assets/imgs/transporte/24-7.png" class="hero" alt="">
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card-body">
+             
+              <div class="row">
+                <div class="col-md-9 ">
+                    <h4 class="ml-4"> Datos generales</h4>
+                    <h6 class="ml-4">Ingrese los datos generales</h6>
+
+
+
+
+                  <form class="ml-4" (ngSubmit)="calcular(f)"  #f="ngForm" >
+                      <mat-form-field class="input-seleccion">
+                          <mat-select name="tipoVehiculo" placeholder="Tipo de Vehiculo" [(ngModel)]="formTransporte.transporte">
+                            <ng-container *ngFor="let transporte of transportes" >
+                              <mat-option    [value]="transporte._id">{{transporte.nombre}}</mat-option>
+                            </ng-container>
+                          
+                          </mat-select>
+                        </mat-form-field><br>
+                      <mat-form-field class="mr-2 input-seleccion">
+                          <mat-select name="origen"  [(ngModel)]="formTransporte.origen" placeholder="Origen">
+                            <mat-option value="option">Origen</mat-option>
+                            <ng-container *ngFor="let ciudad of ciudades">
+                              <mat-option    [value]="ciudad._id">{{ciudad.nombre}}</mat-option>
+                            </ng-container>
+                            
+
+                          </mat-select>
+                        </mat-form-field><br>
+                        <mat-form-field class="input-seleccion">
+                            <mat-select name="destino" [(ngModel)]="formTransporte.destino" placeholder="Destino">
+                                <mat-option  value="option">Destino</mat-option>
+                                <ng-container *ngFor="let ciudad of ciudades">
+                                  <mat-option   [value]="ciudad._id">{{ciudad.nombre}}</mat-option>
+                                </ng-container>
+                                
+    
+                              </mat-select>
+                          </mat-form-field>
+                          <br>
+                          <button class="btn btn-danger">Calcular</button>
+                  </form> 
+                  
+                  
+
+
+                </div>
+                <div class="col-md-3">
+                   <img src="assets/imgs/transporte/vehiculos/1.jpg" class="animated fadeInRight" alt="">
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
