@@ -345,9 +345,13 @@ addEvent(): void {
       data: {id_lead: this.id_lead}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+  dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
+  }
+
+  abrirModalRechazo() {
+
   }
 
 

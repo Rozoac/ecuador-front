@@ -159,6 +159,8 @@ import { InfoClienteModalComponent } from './admin/comercial/modals/info-cliente
 import { RechazoModalComponent } from './admin/negocio/modals/rechazo-modal/rechazo-modal.component';
 import { TransporteComponent } from './admin/transporte/transporte.component';
 import { ModalCompraComponent } from './landing/arquitectonicos/tailor-made/modal/modal-compra/modal-compra.component';
+import { RedireccionarModalComponent } from './admin/negocio/modals/redireccionar-modal/redireccionar-modal.component';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -244,6 +246,8 @@ export function momentAdapterFactory() {
     InfoClienteModalComponent,
     RechazoModalComponent,
     TransporteComponent,
+    ModalsComponent,
+    RedireccionarModalComponent,
   ],
   imports: [
     SocketIoModule.forRoot(config),
