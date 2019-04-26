@@ -272,7 +272,7 @@ export class NegocioComponent implements OnInit {
 }
 
 limpiarMensaje() {
-  console.log("entro");
+  console.log('entro');
   this.mensajeAccion = {
     id_tipo: '',
     nombre: '',
