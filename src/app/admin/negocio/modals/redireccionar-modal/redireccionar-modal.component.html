@@ -1,28 +1,33 @@
 <div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <h1 mat-dialog-title>Redireccionar Lead</h1>
   <hr>
   <div class="row">
     <div class="col-md-6">
       <label id="example-radio-group-label mr-2">Seleccione el area: </label>
       <br>
-      <div class="conteendor-flex">
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="redireccion.area.nombre">
+      <div class="conteendor-flex" formGroupName="area">
+        <mat-radio-group required aria-labelledby="example-radio-group-label" formControlName="nombre" class="example-radio-group" >
           <mat-radio-button class="example-radio-button" style="display:block;" *ngFor="let item of tipoarea" [value]="item">
             {{item}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
     </div>
-    <div class="col-md-6" *ngIf="redireccion.area.nombre == '24/7'">
+    <div class="col-md-6" *ngIf="myForm.value.area.nombre == '24/7'">
       <h6>Seleccione el tipo de transporte</h6>
+      <div>
       <mat-form-field class="example-full-width">
         <mat-label>Tipo de transporte</mat-label>
-        <mat-select [(ngModel)]="redireccion.area.tipoDeTransporte">
-          <mat-option [value]="item.nombre" name="tipoTransporte" *ngFor="let item of tipoTransporte.tipoTrasnporte">
+        <div formGroupName="area">
+        <mat-select  formControlName="tipoTransporte">
+          <mat-option *ngFor="let item of tipoTransporte.tipoTrasnporte" [value]="item.nombre" >
             {{item.nombre}}
           </mat-option>
         </mat-select>
+      </div>
       </mat-form-field>
+    </div>
     </div>
   </div>
   <div class="col-md-6">
@@ -30,8 +35,8 @@
       <textarea
         matInput maxlength="256"
         placeholder="Mensaje"
-        name="mensaje"
-        [(ngModel)]="redireccion.mensaje"
+        formControlName="mensaje"
+        required
       >
       </textarea>
     </mat-form-field>
@@ -41,9 +46,11 @@
       <button class="ec-margin-right-xsmall" (click)="onNoClick()" mat-raised-button>
         Cancelar
       </button>
-      <button mat-raised-button color="primary">
+      <button [disabled]="!myForm.valid " type="submit" mat-raised-button color="primary">
         Guardar
       </button>
     </div>
   </div>
+  {{myForm.value | json}}
+</form>
 </div>
