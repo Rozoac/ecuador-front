@@ -24,7 +24,7 @@
 
                   <form class="ml-4" (ngSubmit)="calcular(f)"  #f="ngForm" >
                       <mat-form-field class="input-seleccion">
-                          <mat-select name="tipoVehiculo" placeholder="Tipo de Vehiculo" [(ngModel)]="formTransporte.transporte">
+                          <mat-select name="tipoVehiculo" placeholder="Tipo de Vehiculo">
                             <ng-container *ngFor="let transporte of transportes" >
                               <mat-option    [value]="transporte._id">{{transporte.nombre}}</mat-option>
                             </ng-container>

@@ -25,21 +25,22 @@ export class CrearUsuarioComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  roles:any;
-  usuario:Usuario = {
+  roles: any;
+  usuario: Usuario = {
     correo: '',
     clave: '',
     nombre: '',
     apellido: '',
     segmento: []
   };
-  
 
-  constructor(public dialogRef: MatDialogRef<CrearUsuarioComponent>, private _formBuilder: FormBuilder, public _rolService: RolService, public _segmentoService: SegmentoService, public _paisService:PaisService, public _usuarioService:UsuarioService) {
+  constructor(public dialogRef: MatDialogRef<CrearUsuarioComponent>,
+              private _formBuilder: FormBuilder, public _rolService: RolService,
+              public _segmentoService: SegmentoService, public _paisService: PaisService,
+              public _usuarioService: UsuarioService) {
     this.getRoles();
     this.getSegmento();
     this.getPais();
-    
   }
 
   ngOnInit() {
@@ -54,8 +55,9 @@ export class CrearUsuarioComponent implements OnInit {
       rol: ['', Validators.required],
       pais: ['', Validators.required]
     });
-    
   }
+
+  
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

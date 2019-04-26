@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule,HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -116,7 +116,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
 
 
 
@@ -158,7 +158,7 @@ import { FooterLandingComponent } from './landing/shared/footer-landing/footer-l
 import { InfoClienteModalComponent } from './admin/comercial/modals/info-cliente-modal/info-cliente-modal.component';
 import { RechazoModalComponent } from './admin/negocio/modals/rechazo-modal/rechazo-modal.component';
 import { TransporteComponent } from './admin/transporte/transporte.component';
-
+import { ModalCompraComponent } from './landing/arquitectonicos/tailor-made/modal/modal-compra/modal-compra.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -178,7 +178,6 @@ export function momentAdapterFactory() {
   declarations: [
     AppComponent,
     ImagenPipe,
-    // TypingAnimationDirective,
     HomepageComponent,
     FooterComponent,
     HeaderLandingComponent,
@@ -219,6 +218,7 @@ export function momentAdapterFactory() {
     DashboardRedesComponent,
     GraciasComponent,
     LandingComponent,
+    ModalCompraComponent,
     CotizacionComponent,
     RmEtiquetasPipe,
     PayuComponent,
@@ -301,7 +301,7 @@ export function momentAdapterFactory() {
     ChartsModule,
     MyDatePickerModule
   ],
-  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent],
+  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent, ModalCompraComponent],
   providers: [
     {
       provide: LOCALE_ID,

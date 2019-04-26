@@ -1,0 +1,114 @@
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" class="animated fadeIn" #test2Form="ngForm">
+      <ng-template></ng-template>
+      <h4>Identifica y relaciona la medida de cada tipo de contenedor con 
+        relación al area aprox de tu proyecto (20 Pies / 40 Pies).</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <label>
+            <h3>20 PIES</h3>
+            <input type="radio" (click)="seleccionTamanio($event)" name="tamanio" value="20" checked>
+            <img img class="container-image" src="assets/imgs/tailorMade/20.jpg">
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label>
+              <h3>40 PIES</h3>
+            <input type="radio" (click)="seleccionTamanio($event)" name="tamanio" value="40">
+            <img class="container-image" src="assets/imgs/tailorMade/40.jpg">
+          </label>    
+        </div>
+      </div>
+      <div>
+        <div style="text-align: center;">
+          <button class="button-formulario " mat-button matStepperNext>Continuar</button>
+          <!-- {{formulario | json}} -->
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="firstFormGroup" class="animated fadeIn" #test2Form="ngForm">
+          <ng-template></ng-template>
+          <h4>Selecciona la cantidad de contenedores que crees que pueden relacionarse con el area aprox. De tu proyecto, y te mostraremos 
+            el presupuesto de inversión con el cual podras adquirirlo.</h4>
+          <div class="row">
+          
+                <div class="col-md-3" *ngFor="let cantidad of cantidades; let i=index">
+                    <label>
+                      <h3>{{cantidad.nombre}}</h3>
+                      <input type="radio" (click)="seleccionCantidad(cantidad)" name="tamanio"  checked>
+                      <img img class="container-image" src="assets/imgs/tailorMade/cuadro-azul.png">
+                    </label>
+                </div>
+      
+          </div>
+          <div>
+            <div style="text-align: center;">
+                <button class="button-formulario mr-2" mat-button matStepperPrevious>Regresar</button>
+              <button class="button-formulario mr-2 " mat-button matStepperNext>Continuar</button>
+              <!-- {{formulario | json}} -->
+            </div>
+          </div>
+        </form>
+  </mat-step>
+  <mat-step>  
+      <form [formGroup]="firstFormGroup" class="animated fadeIn" #test2Form="ngForm">
+          <h4>Una vez seleccionada la cantidad y previsualizando la inversión, podras accedes al pago, registra tus datos en el formulario Payu. Inmediatamente recibido el pago,
+            recibiras la confirmación via correo electronico y llamada telefónica, tendras a tu disposición nuestro equipo de proyectos y arquitectura para dar 
+            inicio a la siguiente etapa del proyecto.
+          </h4>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="card sombras">
+                  <div class="card-body">
+                      <h5 class="card-title">Resumen de Compra</h5>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <p class="card-text">Tipo de Contenedor: {{formulario.tamanio}} Pies</p>
+                          <p class="card-text">Contenedor Cantidad: {{formulario.cantidad.nombre}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="card-text text-right" > - </p>
+                            <p class="card-text text-right" > {{formulario.cantidad.valor}}</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <p class="card-text text-center"   style="display: inline;"> TOTAL A PAGAR </p>
+                      <p class="card-text" style=" float: right;"> <b> COP {{formulario.cantidad.valor}} </b></p>
+                    </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <h5>Datos de Pago</h5>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre Completo</label>
+                    <input type="text" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Numero Celular</label>
+                    <input type="number" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Direccion</label>
+                    <input type="text" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Correo Electronico</label>
+                    <input type="email" class="form-control">
+                  </div>
+                
+            </div>
+          </div>
+          <div>
+          </div>
+        </form>
+        <div class="text-center mt-3">
+          <button class="button-formulario mr-2" mat-button matStepperPrevious>Regresar</button>
+          <button class="button-formulario mr-2" mat-button >Realizar Pago</button>
+        </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+

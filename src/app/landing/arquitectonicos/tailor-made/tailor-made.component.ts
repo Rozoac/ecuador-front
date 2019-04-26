@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { ArquitectonicosService } from '../../../service/arquitectonicos.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { ModalCompraComponent } from './modal/modal-compra/modal-compra.component';
 declare var $: any;
 
 @Component({
@@ -51,10 +53,11 @@ export class TailorMadeComponent implements OnInit {
     'Villavicencio'
   ];
 
-  constructor(public _payu: PayuService, public _arquitectonicosService: ArquitectonicosService, public router: Router) {
+  constructor(public _payu: PayuService, public _arquitectonicosService: ArquitectonicosService,
+     public router: Router, public dialog: MatDialog) {
     $(function() {
       const text = $('.text');
-      setTimeout(function(){ text.removeClass('hidden'); }, 2000);
+      setTimeout(function() { text.removeClass('hidden'); }, 2000);
       });
       this.cargarArquitectonicos();
   }
@@ -65,7 +68,7 @@ export class TailorMadeComponent implements OnInit {
 
     $(document).ready(function() {
       $('.has-animation').each(function(index) {
-        $(this).delay($(this).data('delay')).queue(function(){
+        $(this).delay($(this).data('delay')).queue(function() {
           $(this).addClass('animate-in');
         });
       });
@@ -155,7 +158,16 @@ export class TailorMadeComponent implements OnInit {
   }
 
   cargarArquitectonicos() {
-    this.arquitectonicos = this._arquitectonicosService.cargarArquitectonicos(); 
+    this.arquitectonicos = this._arquitectonicosService.cargarArquitectonicos();
+  }
+
+  abrirModal(): void {
+    const dialogRef = this.dialog.open(ModalCompraComponent, {
+      width: '1000px',
+      data: { }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }

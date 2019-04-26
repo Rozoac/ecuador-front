@@ -5,9 +5,9 @@
       <ng-template matStepLabel>Datos Personales</ng-template>
       <div class="row">
         <div class="col-md-4">
-              <mat-form-field>
-                  <input matInput placeholder="Nombre" formControlName="nombre" [(ngModel)]="usuario.nombre" required>
-                </mat-form-field>
+            <mat-form-field>
+               <input matInput placeholder="Nombre" formControlName="nombre" [(ngModel)]="usuario.nombre" required>
+            </mat-form-field>
         </div>
         <div class="col-md-4">
           <mat-form-field>
@@ -24,10 +24,8 @@
               <input matInput type="number" placeholder="Celular" formControlName="celular" [(ngModel)]="usuario.celular"  required>
             </mat-form-field>
         </div>
-      </div>
-      <div>
-          
-
+        </div>
+        <div>
         <button class="button-formulario" mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
