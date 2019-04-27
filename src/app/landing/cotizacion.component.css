@@ -8,12 +8,12 @@
 	margin-right: 0;
 	margin-left: 0;
 	}
-.img-logo{
-    width: 20%;
 
+.img-logo{
+	max-width: 250px;
 }
 
-.imagen-s { 
+.imagen-s {
 	width: 20%;
 }
 
@@ -116,11 +116,11 @@
 
 	.img-logo {
     width: 60%;
-}
+  }
 
-.seccion-1 .container {
+  .seccion-1 .container {
     top: 80px;
-}
+  }
 
 
 

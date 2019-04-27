@@ -9,10 +9,6 @@
     background: blue;
 }
 
-body {
-    /* cursor: url("http://i2.cdn.cnn.com/cnnnext/dam/assets/160927210830-tk-ah0927-exlarge-169.jpg"); */
-}
-
 a {
     text-decoration: none;
     color: black;
@@ -30,7 +26,7 @@ a {
 .nav {
     width: 100%;
     display: flex;
-    position: fixed!important;
+    position: fixed !important;
     height: 70px;
     z-index: 99;
     background: white;
@@ -74,9 +70,12 @@ a {
     -moz-box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 10px 15px -16px rgba(0, 0, 0, 0.75);
 }
-
 .transparente{
     background: transparent;
+}
+
+.link-hover :hover {
+    color: #6ec3e2 !important;
 }
 
 .main-container {
@@ -99,10 +98,6 @@ a {
     display: inline-block;
     vertical-align: top;
     /* height: 100vh; */
-}
-
-.overflow-control {
-    /* overflow-x: hidden; */
 }
 
 .opciones {
