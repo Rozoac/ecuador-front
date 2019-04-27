@@ -102,22 +102,17 @@ color: black!important;
 }
 
 .main svg {
-    position: absolute;
-right: 0px;
-height: 100%;
+  position: absolute;
+  right: 0px;
+  height: 100%;
 }
 .logo{
-    padding: 0px 0 0 5%;
-    display: inline-block;
+  padding: 0px 0 0 5%;
+  display: inline-block;
 }
+
 .img-logo{
-    width: 20%;
-
-}
-
-.container-fluid{
-    /* padding: 10px!important; */
-    
+   width: 20%;
 }
 
 .header{
@@ -148,10 +143,6 @@ height: 100%;
     margin-right: 50px;
     font-size: 1em;
     z-index: 2;   
-
-}
-
-.banner{
 
 }
 
@@ -285,21 +276,12 @@ height: 100%;
     color: #0c298a;
 }
 
-.cantidad-productos{
-
-}
-
 .cantidad-seccion{
     display: flex;
 }
 
 .form-control {
     width: 34px;
-}
-
-
-.button-size{
-
 }
 
 .precio{
