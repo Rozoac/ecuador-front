@@ -47,9 +47,6 @@
 	color: white!important;
 }
 
-.principal {
-}
-
 .botonera{
     position: absolute!important;
     margin-top: 35px;
@@ -171,10 +168,6 @@
 
 .texto-2{
   font-size: 25px;
-}
-
-.img-logo {
-    /* width: 100%; */
 }
 
 .container {

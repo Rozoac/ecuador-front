@@ -3,10 +3,6 @@ a{
     color: white;
 }
 
-.hero{
-   /* margin-top: 10%; */
-}
-
 .subtitulo{
     font-size: 1.5em;
 }
@@ -153,10 +149,7 @@ figcaption div p{
 .hero-image h1{
     font-size: 72px;
     margin: 0;
-    text-shadow: -3px 8px 19px #263238;}
-
-.texto-principal{
-
+    text-shadow: -3px 8px 19px #263238;
 }
 
 .texto-1{
