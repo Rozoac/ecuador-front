@@ -299,11 +299,9 @@ export function momentAdapterFactory() {
     ChartsModule,
     MyDatePickerModule
   ],
-<<<<<<< HEAD
-  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent, ModalCompraComponent],
-=======
-  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent, RedireccionarModalComponent],
->>>>>>> 61b127a... implemete diseño y añadi servicios de tipoTransporte
+  entryComponents: [
+    CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent, ModalCompraComponent, RedireccionarModalComponent
+  ],
   providers: [
     {
       provide: LOCALE_ID,
