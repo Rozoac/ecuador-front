@@ -1,6 +1,9 @@
 *{
   font-family: roboto;
 }
+.logo-mapa img {
+  width: 60px !important;
+}
 
 .section-10 {
   z-index: 5;
