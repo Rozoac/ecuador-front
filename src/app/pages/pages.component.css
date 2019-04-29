@@ -302,6 +302,14 @@ h3 {
     color: white;
 }
 
+.menu-tienda {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    background-image: url('/assets/imgs/menu/t¡enda.jpg');
+    background-size: cover;
+}
 
 .menu-tickets {
     opacity: 0;
