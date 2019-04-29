@@ -55,10 +55,10 @@
     font-family: 'CenturyGothic-bold';
     src: url('assets/fonts/century-gothic/bold.ttf');
 }
-                .ps .ps__scrollbar-y-rail {
-                    left: 3px;
-                    right: auto;
-                }
+  .ps .ps__scrollbar-y-rail {
+    left: 3px;
+    right: auto;
+   }
 
 h1,
 h2,
@@ -71,6 +71,10 @@ h6 {
 
 .float-right {
     float: right!important;
+}
+
+.logo{
+    width: 240px;
 }
 
 .font-12{

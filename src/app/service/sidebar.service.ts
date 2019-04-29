@@ -4,14 +4,13 @@ import { UsuarioService } from './usuario/usuario.service';
 @Injectable()
 export class SidebarService {
 
-  public menu
+  public menu;
 
   constructor( public _usuarioService:UsuarioService ){
     this.generarMenu();
-   
   }
 
-  generarMenu(){
+  generarMenu() {
     this.menu = this._usuarioService.getIdentity().usuario.id_rol.menu;
     return this.menu;
   }
