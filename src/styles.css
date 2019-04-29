@@ -73,6 +73,10 @@ h6 {
     float: right!important;
 }
 
+.logo{
+    width: 240px;
+}
+
 .font-12{
     font-size: 12px;
 }
