@@ -235,7 +235,7 @@ export class CotizacionComponent implements OnInit {
   }
 
   pagosOnline() {
-   this.router2.navigate(['/pagos-online']);
+   this.router2.navigateByUrl('https://econtainers.co/shop');
   }
 
   enviarPago(res) {

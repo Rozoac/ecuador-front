@@ -30,7 +30,14 @@ export class ModalCompraComponent implements OnInit {
 
     formulario = {
     tamanio: '20',
-    cantidad: {}
+    cantidad: {
+      nombre: '',
+      valor: ''
+    },
+    nombre: '',
+    celular: '',
+    direccion: '',
+    correo: ''
   };
 
   constructor( private _formBuilder: FormBuilder) { }
