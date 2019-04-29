@@ -12,7 +12,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import {NgxAutoScrollModule} from 'ngx-auto-scroll';
 registerLocaleData(localeEs);
 
-import {APP_ROUTING} from './app.routes';
+import { APP_ROUTING } from './app.routes';
 const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
 
 // componentes
@@ -90,10 +90,7 @@ import {
   MatTableModule,
   MatRadioModule,
 } from '@angular/material';
-import {DragDropModule} from '@angular/cdk/drag-drop'
-
-
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 // guardias
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
@@ -160,8 +157,6 @@ import { RechazoModalComponent } from './admin/negocio/modals/rechazo-modal/rech
 import { TransporteComponent } from './admin/transporte/transporte.component';
 import { ModalCompraComponent } from './landing/arquitectonicos/tailor-made/modal/modal-compra/modal-compra.component';
 import { RedireccionarModalComponent } from './admin/negocio/modals/redireccionar-modal/redireccionar-modal.component';
-
-
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -245,9 +240,8 @@ export function momentAdapterFactory() {
     NegocioComponent,
     InfoClienteModalComponent,
     RechazoModalComponent,
-    TransporteComponent,
-    ModalsComponent,
     RedireccionarModalComponent,
+    TransporteComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -305,7 +299,11 @@ export function momentAdapterFactory() {
     ChartsModule,
     MyDatePickerModule
   ],
+<<<<<<< HEAD
   entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent, ModalCompraComponent],
+=======
+  entryComponents: [CrearUsuarioComponent, InfoClienteModalComponent, RechazoModalComponent, RedireccionarModalComponent],
+>>>>>>> 61b127a... implemete diseño y añadi servicios de tipoTransporte
   providers: [
     {
       provide: LOCALE_ID,

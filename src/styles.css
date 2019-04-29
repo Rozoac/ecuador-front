@@ -7,7 +7,6 @@
     font-family: 'calibri-bold';
     src: url('assets/fonts/calibri/CALIBRIB.ttf');
 }
-
 @font-face {
     font-family: 'bebas-bold';
     src: url('assets/fonts/bebas_neue/BebasNeueBold.otf');
@@ -55,10 +54,13 @@
     font-family: 'CenturyGothic-bold';
     src: url('assets/fonts/century-gothic/bold.ttf');
 }
+
   .ps .ps__scrollbar-y-rail {
     left: 3px;
     right: auto;
    }
+
+
 
 h1,
 h2,
@@ -98,6 +100,18 @@ input,label,select{
 
 p {
     /* font-family: 'bebas-regular'; */
+}
+
+.ec-padding-top-xsmall {
+   padding-top: 10px;
+}
+
+.ec-padding-top-small {
+    padding-top: 20px;
+}
+
+.ec-margin-right-xsmall {
+    margin-right: 10px !important;
 }
 
 .animated {
@@ -199,6 +213,7 @@ li {
 .fadeIn {
     animation-name: fadeIn;
 }
+
 
 .owl-dots {
     position: absolute;

@@ -12,6 +12,7 @@ import { PageScrollService } from 'ngx-page-scroll-core';
 import { DOCUMENT } from '@angular/common';
 import { MatDialog } from '@angular/material';
 import { RechazoModalComponent } from './modals/rechazo-modal/rechazo-modal.component';
+import { RedireccionarModalComponent } from './modals/redireccionar-modal/redireccionar-modal.component';
 
 moment.updateLocale('es', {
   week: {
@@ -50,7 +51,7 @@ export class NegocioComponent implements OnInit {
   };
 
   actions: CalendarEventAction[] = [
-        {
+    {
       label: '<i class="fa fa-fw fa-times  text-white"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.events = this.events.filter(iEvent => iEvent !== event);
@@ -119,7 +120,7 @@ export class NegocioComponent implements OnInit {
 
   constructor(public _leadService: LeadService,
               public activateRouter: ActivatedRoute,
-              public  config: NgbProgressbarConfig,
+              public config: NgbProgressbarConfig,
               public toastr: ToastrService,
               private modal: NgbModal,
               private pageScrollService: PageScrollService,
@@ -346,6 +347,17 @@ addEvent(): void {
     });
 
   dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  abrirModalRedireccionLead() {
+    const dialogRef = this.dialog.open(RedireccionarModalComponent, {
+      width: '800px',
+      data: {id_lead: this.id_lead}
+    });
+
+     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
   }

@@ -1,3 +1,49 @@
-<p>
-  redireccionar-modal works!
-</p>
+<div class="container">
+  <h1 mat-dialog-title>Redireccionar Lead</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <label id="example-radio-group-label mr-2">Seleccione el area: </label>
+      <br>
+      <div class="conteendor-flex">
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="redireccion.area.nombre">
+          <mat-radio-button class="example-radio-button" style="display:block;" *ngFor="let item of tipoarea" [value]="item">
+            {{item}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="col-md-6" *ngIf="redireccion.area.nombre == '24/7'">
+      <h6>Seleccione el tipo de transporte</h6>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de transporte</mat-label>
+        <mat-select [(ngModel)]="redireccion.area.tipoDeTransporte">
+          <mat-option [value]="item.nombre" name="tipoTransporte" *ngFor="let item of tipoTransporte.tipoTrasnporte">
+            {{item.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <mat-form-field class="example-full-width ec-padding-top-small">
+      <textarea
+        matInput maxlength="256"
+        placeholder="Mensaje"
+        name="mensaje"
+        [(ngModel)]="redireccion.mensaje"
+      >
+      </textarea>
+    </mat-form-field>
+  </div>
+  <div class="col-md-12">
+    <div class="float-right">
+      <button class="ec-margin-right-xsmall" (click)="onNoClick()" mat-raised-button>
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>
