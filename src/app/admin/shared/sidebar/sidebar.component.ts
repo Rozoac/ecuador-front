@@ -9,7 +9,7 @@ import { UsuarioService } from '../../../service/usuario/usuario.service';
 })
 export class SidebarComponent implements OnInit {
   datos;
-  usuario
+  usuario;
   showMenu = "";
   showSubMenu = "";
   public sidebarnavItems: any[];

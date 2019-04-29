@@ -8,12 +8,12 @@
 	margin-right: 0;
 	margin-left: 0;
 	}
-.img-logo{
-    width: 20%;
 
+.img-logo{
+	max-width: 250px;
 }
 
-.imagen-s { 
+.imagen-s {
 	width: 20%;
 }
 
@@ -45,9 +45,6 @@
 
 .pagina-refrigerados:hover{
 	color: white!important;
-}
-
-.principal {
 }
 
 .botonera{
@@ -116,11 +113,11 @@
 
 	.img-logo {
     width: 60%;
-}
+  }
 
-.seccion-1 .container {
+  .seccion-1 .container {
     top: 80px;
-}
+  }
 
 
 
@@ -171,10 +168,6 @@
 
 .texto-2{
   font-size: 25px;
-}
-
-.img-logo {
-    /* width: 100%; */
 }
 
 .container {
