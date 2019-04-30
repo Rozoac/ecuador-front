@@ -85,10 +85,10 @@ export class GraficasComponent implements OnInit {
       fechas.value.start.formatted || '',
       fechas.value.end.formatted || ''
     );
-    this.inicio = f.inicio;
-    this.fin = f.fin;
+    this.inicio = f.start;
+    this.fin = f.end;
 
-
+    console.log(f);
     this._leadService.getLeadsComercial(f)
                      .subscribe( (resp: any) => {
                         this.comerciales = resp.comerciales;
