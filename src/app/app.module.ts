@@ -60,8 +60,8 @@ import {
 import {ContenedoresService} from './service/contenedores.service';
 import {PortafolioService} from './service/portafolio.service';
 import {TrabajosService} from './service/trabajos.service';
-import {CorreoService} from './service/correo.service';
-import {SidebarService} from './service/sidebar.service';
+import { CorreoService } from './service/correo.service';
+import { SidebarService } from './service/sidebar.service';
 import { UsuarioService } from './service/usuario/usuario.service';
 import { LeadService } from './service/lead/lead.service';
 import { ContadorService } from './service/contador.service';
