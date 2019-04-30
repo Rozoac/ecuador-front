@@ -192,7 +192,7 @@ export class LeadService {
       return this.http.put(url, mensaje );
   }
 
-  borrarLead(id) { 
+  borrarLead(id) {
     const url = URL_LANDING_DEV + `lead/${id}`;
     return this.http.delete(url);
   }

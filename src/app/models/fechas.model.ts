@@ -1,7 +1,6 @@
 export class Fechas {
-
     constructor(
-      public inicio: string,
-      public fin?: string,
+      public start: string,
+      public end?: string,
     ) {}
   }
