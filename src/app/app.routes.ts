@@ -38,6 +38,7 @@ import { InboxComponent } from './admin/inbox/inbox.component';
 import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
 import { NegocioComponent } from './admin/negocio/negocio.component';
 import { TransporteComponent } from './admin/transporte/transporte.component';
+import { SegmentosComponent } from './pages/segmentos/segmentos.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -57,6 +58,7 @@ const APP_ROUTES: Routes = [
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
+          { path: 'detalles', component: SegmentosComponent},
           { path: 'landing', component: LandingComponent },
           { path: 'refrigerados', component: RefrigeradosComponent },
           { path: 'payu', component: PayuComponent },
