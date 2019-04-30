@@ -7,7 +7,7 @@ import { asTextData } from '@angular/core/src/view';
 })
 export class ArquitectonicosService {
 
-  public arquitectonicos:any =
+  public arquitectonicos: any =
   [
     {
       nombre: "Casa tipo 1",

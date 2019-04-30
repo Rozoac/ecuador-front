@@ -9,6 +9,7 @@ import { ToastrService, ToastContainerDirective } from 'ngx-toastr';
   templateUrl: './rechazo-modal.component.html',
   styleUrls: ['./rechazo-modal.component.css']
 })
+
 export class RechazoModalComponent implements OnInit, DoCheck {
   // public message;
   public rechazo: string[] = [];
@@ -33,7 +34,7 @@ export class RechazoModalComponent implements OnInit, DoCheck {
         if (iterator.tipo === 'Rechazo') {
           this.rechazo.push(iterator);
         } else {
-          this.   fueraOportunidad.push(iterator);
+          this.fueraOportunidad.push(iterator);
         }
       }
     });
@@ -59,12 +60,11 @@ export class RechazoModalComponent implements OnInit, DoCheck {
   }
 
   guardar() {
-    this._leadService.agregarCausal(this.causal, this.data.id_lead ).subscribe( res => {
+    this._leadService.agregarCausal(this.causal, this.data.id_lead ).subscribe(res => {
       this.toastr.info('Actualización', 'Ok', {
         progressBar: true
       });
       this.onNoClick();
     });
   }
-
 }

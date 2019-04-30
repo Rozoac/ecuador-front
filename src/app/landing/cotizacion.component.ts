@@ -17,6 +17,7 @@ import { LeadService } from '../service/lead/lead.service';
   templateUrl: './cotizacion.component.html',
   styleUrls: ['./cotizacion.component.css']
 })
+
 export class CotizacionComponent implements OnInit {
   public tiposDeCliente: any;
   public ciudades: Ciudad[];
@@ -403,7 +404,4 @@ export class CotizacionComponent implements OnInit {
       }
     );
   }
-
-
-
 }
