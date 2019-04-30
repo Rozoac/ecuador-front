@@ -217,10 +217,9 @@ ul li .text-principal {
 }
 
 .card:hover {
-  background: rgba(76, 195, 211, 1);
+  background: #2a4c99;
   color: white;
   transition-duration: 0.2s;
-
 }
 
 .card-title {
@@ -239,7 +238,7 @@ ul li .text-principal {
 
 .imagen-contenedor {
   margin: 0 auto;
-  width: 35%;
+  width: 45%;
   margin-bottom: 25px;
 }
 
@@ -315,16 +314,8 @@ ul li .text-principal {
   height: 380px;
 }
 
-::ng-deep .item:first-child {
-  /* margin-left: 10px; */
-}
-/* RESPONSIVE */
-/* CELULARES */
 @media screen and (max-width: 576px) {
 
-  .responsive-1{
-    /* margin-top: 100px; */
-  }
 
 
   .container{
@@ -343,9 +334,6 @@ ul li .text-principal {
     /* margin-left: 12%; */
   }
 
-  ::ng-deep ngu-carousel {
-    /* top: -50px; */
-  }
   .leftRs {
     left: -40px !important;
   }

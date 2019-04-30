@@ -9,7 +9,7 @@
 }
 
 .carrousel ul li:hover {
-  color: #6ec3e2;
+  color: #32529c;
 }
 
 .portafolio-texto {
@@ -24,7 +24,6 @@
   top: 10px;
   left: 60px;
 }
-
 .menu-carrousel {
   display: flex;
   display: flex;
