@@ -324,11 +324,19 @@ ul li .text-principal {
   height: 380px;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 576px) {
 
 
 
   .container{
+=======
+/* RESPONSIVE */
+/* CELULARES */
+@media screen and (max-width: 576px) {
+
+  .container {
+>>>>>>> cd5323d... mas ediciones
     height: inherit;
   }
   .principal {
@@ -346,11 +354,14 @@ ul li .text-principal {
     /* margin-left: 12%; */
   }
 
+<<<<<<< HEAD
   .icon {
     margin-left: 3px;
     font-size: 20px;
   }
 
+=======
+>>>>>>> cd5323d... mas ediciones
   .leftRs {
     left: -40px !important;
   }

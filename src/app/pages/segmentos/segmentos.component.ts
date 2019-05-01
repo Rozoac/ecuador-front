@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./segmentos.component.css']
 })
 export class SegmentosComponent implements OnInit {
-  tipo: string;
+  tipoS: any;
   segmentos: Segmento[] = [
     {
       nombre: 'reefer',
@@ -105,9 +105,9 @@ export class SegmentosComponent implements OnInit {
     console.log(this.segmentoSeleccionado);
   }
 
-  onChanges(e) {
-    console.log(e.target.value);
-    console.log(this.tipo);
+  onChanges(ev) {
+    this.tipoS = this.segmentoSeleccionado.tipo.find((e) => e.nombre === ev.value);
+    console.log(this.tipoS);
   }
 
   ngOnInit() {
