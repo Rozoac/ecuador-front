@@ -1,0 +1,81 @@
+.reefer-segmento {
+  background-image: url('assets/imgs/s-reefer.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10px;
+  background-position: center;
+}
+
+.bodegas-segmento {
+    background-image: url('assets/imgs/s-bodegas.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+    background-position: center;
+}
+
+.proyectos-segmento {
+    background-image: url('assets/imgs/s-proyectos.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+    background-position: center;
+}
+
+.salas-segemento {
+    background-image: url('assets/imgs/s-ventas.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+    background-position: center;
+}
+
+.fuente {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+
+.ec-color-ec {
+  color: #2a4c99 !important;
+}
+.ec-color-default {
+    color:#9B9B9B !important;
+}
+
+.fuente-franklin {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+.display-inline-block {
+    display: inline-block !important;
+}
+.segmento {
+  height: 50px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  vertical-align: middle;
+  display: flex;
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+  justify-content: center !important;
+}
+
+.segmento:hover {
+  border: 1px solid #2a4c99;
+}
+
+.segmento h4 {
+  justify-content: center !important;
+  margin-top: 8px;
+  font-weight: 300 !important;
+}
+
+.segmento-title {
+  color: hsl(222, 57%, 38%) ;
+  margin-top: 15px !important;
+  font-size: 40px !important;
+}
+
+.hr {
+    width: 40%;
+}
