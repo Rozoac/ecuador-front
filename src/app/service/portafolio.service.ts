@@ -9,7 +9,7 @@ export class PortafolioService {
       nombre: "Renault",
       bio_1: "Sala de ventas",
       bio_2: "En Manizales, Caldas, se realizó una sala de ventas para la marca francés de automóviles Renault, hecha de un contenedor de 20 pies que cuenta con los colores corporativos para conservar la identidad de la marca. Los laterales son en vidrio, ideales para aumentar la magnitud visual del proyecto, con el fin de llamar la atención de sus potenciales clientes. Adicionalmente, puede ser trasladada de un lugar a otro para asegurar su operación en diferentes lugares de Colombia.",
-      bio_3: "E-Containers Colombia brinda a sus usuarios los mejores productos del sector y en el tiempo oportuno para poner en marcha el desarrollo de cada uno de sus proyectos, por eso las salas de ventas son fabricadas bajo los más altos estándares de calidad y con los mejores acabados.",
+      bio_3: "E-Containers brinda a sus usuarios los mejores productos del sector y en el tiempo oportuno para poner en marcha el desarrollo de cada uno de sus proyectos, por eso las salas de ventas son fabricadas bajo los más altos estándares de calidad y con los mejores acabados.",
       img_0: "assets/imgs/contenedores/renault-0.jpg",
       img: "assets/imgs/contenedores/renault-1.jpg",
       img_1: "assets/imgs/contenedores/renault-2.jpg",
@@ -22,7 +22,7 @@ export class PortafolioService {
     {
       nombre: "Biblioteca pública",
       bio_1: "Proyecto arquitectónico",
-      bio_2: "Dentro de los proyectos que ha realizado E-Containers Colombia, se presenta unabiblioteca pública, en compañía del Ministerio de Cultura, ubicada en la veredaSanta Helena del municipio de Mesetas, Meta. Esta consta de 5 contenedores, 3de 20 pies y 2 de 40 pies, los cuales fueron restaurados y adaptados para lasnecesidades del municipio en temas culturales. La biblioteca pública cuenta con paneles solares para su funcionamiento y elpróximo 6 de marzo será dotada de aproximadamente 1.400 libros, suministradospor las Bibliotecas Nacionales, con el objetivo de facilitar la circulación y el accesoa la información hacia un mayor conocimiento y fortalecer los procesos de lecturay escritura.",
+      bio_2: "Dentro de los proyectos que ha realizado E-Containers, se presenta unabiblioteca pública, en compañía del Ministerio de Cultura, ubicada en la veredaSanta Helena del municipio de Mesetas, Meta. Esta consta de 5 contenedores, 3de 20 pies y 2 de 40 pies, los cuales fueron restaurados y adaptados para lasnecesidades del municipio en temas culturales. La biblioteca pública cuenta con paneles solares para su funcionamiento y elpróximo 6 de marzo será dotada de aproximadamente 1.400 libros, suministradospor las Bibliotecas Nacionales, con el objetivo de facilitar la circulación y el accesoa la información hacia un mayor conocimiento y fortalecer los procesos de lecturay escritura.",
       img_0: "assets/imgs/contenedores/biblioteca-0.jpg",
       img: "assets/imgs/contenedores/biblioteca-1.jpg",
       img_1: "assets/imgs/contenedores/biblioteca-2.jpg",
