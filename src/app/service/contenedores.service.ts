@@ -98,7 +98,7 @@ export class ContenedoresService {
       img_3: "assets/imgs/contenedores/naguara-3.jpg",
       img_4: "assets/imgs/contenedores/naguara-4.jpg",
       tipo: "arquitectonico",
-      linkId: "/arquitectonico"
+      linkId: "/arquitectonicos"
 
     },
     {

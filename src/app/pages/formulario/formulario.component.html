@@ -35,7 +35,7 @@
                         <!-- NOMBRE
                         <!-- ============================================================== -->
                         <div class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nombre').valid)&& forma.get('nombre').touched}">
-                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('nombre').valid)&& forma.get('nombre').touched}" type="text" class="form-control" name="name" formControlName="nombre" required placeholder="Nombre" [(ngModel)]="message.nombre">
+                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('nombre').valid)&& forma.get('nombre').touched}" type="text" class="form-control color-cool" name="name" formControlName="nombre" required placeholder="Nombre" [(ngModel)]="message.nombre">
                             <div *ngIf="(forma.controls['nombre'].errors?.required)&& forma.get('nombre').touched" class="form-control-feedback text-danger">
                                 Escribe tu nombre
                             </div>
@@ -44,7 +44,7 @@
                         <!-- APELLIDO
                         <!-- ============================================================== -->
                         <div class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('apellido').valid)&& forma.get('apellido').touched}">
-                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('apellido').valid)&& forma.get('apellido').touched}" type="text" class="form-control" name="apellido" formControlName="apellido" required placeholder="Apellido" [(ngModel)]="message.apellido">
+                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('apellido').valid)&& forma.get('apellido').touched}" type="text" class="form-control color-cool" name="apellido" formControlName="apellido" required placeholder="Apellido" [(ngModel)]="message.apellido">
                             <div *ngIf="(forma.controls['nombre'].errors?.required)&& forma.get('nombre').touched" class="form-control-feedback text-danger">
                                 Escribe tu apellido
                             </div>
@@ -53,7 +53,7 @@
                         <!-- CIUDAD
                         <!-- ============================================================== -->
                         <div class=" col-lg-6" [ngClass]="{'has-danger': ((forma.get('id_ciudad').value) == '¿Cual es tu ciudad mas cercana?') && forma.get('id_ciudad').touched}">
-                            <select type="text" name="id_ciudad" formControlName="id_ciudad" class="form-control" required [(ngModel)]="message.id_ciudad">
+                            <select type="text" name="id_ciudad" formControlName="id_ciudad" class="form-control color-cool" required [(ngModel)]="message.id_ciudad">
                                 <option>¿Cual es tu ciudad mas cercana?</option>
                                 <ng-container *ngFor="let ciudad of ciudades">
                                     <option [value]="ciudad._id">{{ciudad.nombre}}</option>
@@ -67,11 +67,11 @@
                         <!-- CELULAR
                         <!-- ============================================================== -->
                         <div class="col-sm-12 col-lg-6" [ngClass]="{'has-danger': (!forma.get('cel').valid)&& forma.get('cel').touched}">
-                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('cel').valid)&& forma.get('cel').touched}" type="text" name="celular" formControlName="cel" class="form-control" required placeholder="Celular" [(ngModel)]="message.celular">
+                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('cel').valid)&& forma.get('cel').touched}" type="text" name="celular" formControlName="cel" class="form-control color-cool" required placeholder="Celular" [(ngModel)]="message.celular">
                             <div *ngIf="(forma.controls['cel'].errors?.required) && forma.get('cel').touched" class="form-control-feedback text-danger">
                                 Escribe tu celular
                             </div>
-                            <div *ngIf="(!forma.get('cel').valid) && (forma.get('cel').touched) && forma.get('cel').dirty" class="form-control-feedback text-danger">
+                            <div *ngIf="(!forma.get('cel').valid) && (forma.get('cel').touched) && forma.get('cel').dirty" class="form-control-feedback color-cool text-danger">
                                 Número incorrecto
                             </div>
                         </div>
@@ -79,9 +79,9 @@
                         <!-- SEGMENTO
                         <!-- ============================================================== -->
                         <div class="col-lg-6" [ngClass]="{'has-danger': ((forma.get('id_segmento').value) == '¿En que estas interesado?') && forma.get('id_segmento').touched}">
-                            <select class="form-control" name="tipo" formControlName="id_segmento" required [(ngModel)]="message.id_segmento">
+                            <select class="form-control color-cool" name="tipo" formControlName="id_segmento" required [(ngModel)]="message.id_segmento">
                                 <option>¿En que estas interesado?</option>
-                                <ng-container *ngFor="let segmento of segmentos">
+                                <ng-container class="t" *ngFor="let segmento of segmentos">
                                         <option [value]="segmento._id">{{segmento.nombre}}</option>
                                     </ng-container>
                             </select>
@@ -93,11 +93,11 @@
                         <!-- EMAIL
                         <!-- ============================================================== -->
                         <div class=" col-lg-6" [ngClass]="{'has-danger': (!forma.get('correo').valid)&& forma.get('correo').touched}">
-                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('correo').valid) && (forma.get('correo').touched) }"  required type="email" class="form-control" name="correo" formControlName="correo" placeholder="Correo Electronico" [(ngModel)]="message.correo">
-                            <div *ngIf="(forma.controls['correo'].errors?.required)&& forma.get('correo').touched" class="form-control-feedback text-danger">
+                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('correo').valid) && (forma.get('correo').touched) }"  required type="email" class="form-control color-cool" name="correo" formControlName="correo" placeholder="Correo Electronico" [(ngModel)]="message.correo">
+                            <div *ngIf="(forma.controls['correo'].errors?.required)&& forma.get('correo').touched" class="form-control-feedback color-cool text-danger">
                                 Escribe tu correo electronico
                             </div>
-                            <div *ngIf="(!forma.get('correo').valid) && (forma.get('correo').touched) && forma.get('correo').dirty" class="form-control-feedback text-danger">
+                            <div *ngIf="(!forma.get('correo').valid) && (forma.get('correo').touched) && forma.get('correo').dirty" class="form-control-feedback  color-cool text-danger">
                                 Correo electronico incorrecto
                             </div>
                         </div>
@@ -106,26 +106,29 @@
                         <!-- ============================================================== -->
        
            
-                        <mat-form-field class="col-lg-6" appearance="outline" >
-                                <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente.tipo">
-                                  <mat-option *ngFor="let tipo_cliente of tiposDeCliente" [value]="tipo_cliente._id" (onSelectionChange) = "onEvent($event)" >
-                                    {{tipo_cliente.nombre}}
-                                  </mat-option>
-                                </mat-select>
-                                <mat-error *ngIf="forma.get('tipo_cliente').invalid"></mat-error>
-                        </mat-form-field>
+                        <div class="col-lg-6">
+                            <select class="form-control color-cool" name="tipo" formControlName="tipo_cliente"  [(ngModel)]="message.tipo_cliente.tipo">
+                                <option>Tipo de cliente</option>
+                                 <ng-container class="t" *ngFor="let tipo_cliente of tiposDeCliente">
+                                   <option [value]="tipo_cliente._id">{{tipo_cliente.nombre}}</option>
+                                 </ng-container>
+                             </select>
+                             <div *ngIf="((forma.get('tipo_cliente').value) == 'Tipo de cliente') && forma.get('tipo_cliente').touched" class="form-control-feedback text-danger">
+                                Elige una opción.
+                             </div>
+                            </div>
                         <!-- ============================================================== -->
                         <!-- DOCUMENTO
                          <!-- ============================================================== -->
                         <div *ngIf="message.tipo_cliente.tipo == '5ca53c81c2ba0b0017eccd87'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('cedula').valid)&& forma.get('cedula').touched}">
-                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('cedula').valid)&& forma.get('cedula').touched}" type="number" class="form-control"
+                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('cedula').valid)&& forma.get('cedula').touched}" type="number" class="form-control color-cool"
                                 name="cedula" formControlName="cedula" required placeholder="Numero de cedula" [(ngModel)]="message.documento.numero">
                             <div *ngIf="(forma.controls['cedula'].errors?.required)&& forma.get('cedula').touched" class="form-control-feedback">
                                 Escribe tu numero de cedula
                             </div>
                         </div>
                         <div *ngIf="message.tipo_cliente.tipo == '5ca53c8ac2ba0b0017eccd89' || message.tipo_cliente.tipo == '5ca53ca4c2ba0b0017eccd8a'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nit').valid)&& forma.get('nit').touched}">
-                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('nit').valid)&& forma.get('nit').touched}" type="number" class="form-control"
+                            <input [ngClass]="{'margin-bottom-cero': (!forma.get('nit').valid)&& forma.get('nit').touched}" type="number" class="form-control color-cool"
                                 name="nit" formControlName="nit" required placeholder="Numero de NIT" [(ngModel)]="message.documento.numero">
                             <div *ngIf="(forma.controls['nit'].errors?.required)&& forma.get('nit').touched" class="form-control-feedback">
                                 Escribe tu numero de NIT
@@ -135,7 +138,7 @@
                         <!-- LO QUIERES PARA
                         <!-- ============================================================== -->
                         <div class=" col-lg-6" [ngClass]="{'has-danger': ((forma.get('modalidad').value) == '¿Lo quieres para?') && forma.get('modalidad').touched}">
-                            <select class="form-control" name="modalidad" formControlName="modalidad" [(ngModel)]="message.modalidad">
+                            <select class="form-control color-cool" name="modalidad" formControlName="modalidad" [(ngModel)]="message.modalidad">
                                 <option>¿Lo quieres para?</option>
                                 <option disabled *ngIf="message.tipo_cliente.tipo == 'Tipo de cliente' ">*Selecciona un tipo de cliente</option>
                                 <option *ngIf="message.tipo_cliente.tipo == '5ca53c81c2ba0b0017eccd87' || message.tipo_cliente.tipo == '5ca53c8ac2ba0b0017eccd89' || message.tipo_cliente.tipo == '5ca53ca4c2ba0b0017eccd8a'">Compra</option>
@@ -149,7 +152,7 @@
                         <!-- MENSAJE
                         <!-- ============================================================== -->
                         <div class="col-lg-12 mt-3">
-                            <textarea class="form-control" rows="3" placeholder="Mensaje" name="mensaje" formControlName="mensaje" [(ngModel)]="message.mensaje"></textarea>
+                            <textarea class="form-control color-cool" rows="3" placeholder="Mensaje" name="mensaje" formControlName="mensaje" [(ngModel)]="message.mensaje"></textarea>
                         </div>
 
                         <!-- ============================================================== -->

@@ -157,8 +157,12 @@ h2 {
 }
 
 .right {
-    background: #183650;
+    background: #2a4c99;
     margin-bottom: 50px;
+}
+
+.color-cool {
+    background-color: #f7f7f7 !important;
 }
 
 .right h3 {
