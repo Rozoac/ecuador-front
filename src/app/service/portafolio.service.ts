@@ -196,17 +196,17 @@ export class PortafolioService {
 
 
 }
-export interface Contenedor{
-  nombre:string;
-  bio_1:string;
-  bio_2:string;
-  bio_3?:string;
-  img_0:string;
-  img:string;
-  img_1:string;
-  img_2:string;
-  img_3:string;
-  img_4:string;
-  vinculo?:string;
-  tipo:string;
+export interface Contenedor {
+  nombre: string;
+  bio_1: string;
+  bio_2: string;
+  bio_3?: string;
+  img_0: string;
+  img: string;
+  img_1: string;
+  img_2: string;
+  img_3: string;
+  img_4: string;
+  vinculo?: string;
+  tipo: string;
 }
