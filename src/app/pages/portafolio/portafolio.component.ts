@@ -21,6 +21,11 @@ export class PortafolioComponent implements OnInit {
   verContenedor(idx: number): void {
     this.router.navigate(["/contenedor", idx]);
   }
+
+  irLanding(nombre: any) {
+    this.router.navigate([nombre]);
+  }
+
   constructor(
     private _contenedoresService: ContenedoresService,
     private router: Router

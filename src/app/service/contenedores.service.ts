@@ -7,8 +7,9 @@ export class ContenedoresService {
     {
       nombre: "Renault",
       bio_1: "Sala de ventas",
+      linkId: "/arquitectonicos",
       bio_2: "En Manizales, Caldas, se realizó una sala de ventas para la marca francés de automóviles Renault, hecha de un contenedor de 20 pies que cuenta con los colores corporativos para conservar la identidad de la marca. Los laterales son en vidrio, ideales para aumentar la magnitud visual del proyecto, con el fin de llamar la atención de sus potenciales clientes. Adicionalmente, puede ser trasladada de un lugar a otro para asegurar su operación en diferentes lugares de Colombia.",
-      bio_3: "E-Containers Colombia brinda a sus usuarios los mejores productos del sector y en el tiempo oportuno para poner en marcha el desarrollo de cada uno de sus proyectos, por eso las salas de ventas son fabricadas bajo los más altos estándares de calidad y con los mejores acabados.",
+      bio_3: "E-Containers brinda a sus usuarios los mejores productos del sector y en el tiempo oportuno para poner en marcha el desarrollo de cada uno de sus proyectos, por eso las salas de ventas son fabricadas bajo los más altos estándares de calidad y con los mejores acabados.",
       img_0: "assets/imgs/contenedores/renault-0.jpg",
       img: "assets/imgs/contenedores/renault-1.jpg",
       img_1: "assets/imgs/contenedores/renault-2.jpg",
@@ -21,7 +22,8 @@ export class ContenedoresService {
     {
       nombre: "Biblioteca pública",
       bio_1: "Proyecto arquitectónico",
-      bio_2: "Dentro de los proyectos que ha realizado E-Containers Colombia, se presenta unabiblioteca pública, en compañía del Ministerio de Cultura, ubicada en la veredaSanta Helena del municipio de Mesetas, Meta. Esta consta de 5 contenedores, 3de 20 pies y 2 de 40 pies, los cuales fueron restaurados y adaptados para lasnecesidades del municipio en temas culturales. La biblioteca pública cuenta con paneles solares para su funcionamiento y elpróximo 6 de marzo será dotada de aproximadamente 1.400 libros, suministradospor las Bibliotecas Nacionales, con el objetivo de facilitar la circulación y el accesoa la información hacia un mayor conocimiento y fortalecer los procesos de lecturay escritura.",
+      linkId: "/arquitectonicos",
+      bio_2: "Dentro de los proyectos que ha realizado E-Containers, se presenta unabiblioteca pública, en compañía del Ministerio de Cultura, ubicada en la veredaSanta Helena del municipio de Mesetas, Meta. Esta consta de 5 contenedores, 3de 20 pies y 2 de 40 pies, los cuales fueron restaurados y adaptados para lasnecesidades del municipio en temas culturales. La biblioteca pública cuenta con paneles solares para su funcionamiento y elpróximo 6 de marzo será dotada de aproximadamente 1.400 libros, suministradospor las Bibliotecas Nacionales, con el objetivo de facilitar la circulación y el accesoa la información hacia un mayor conocimiento y fortalecer los procesos de lecturay escritura.",
       img_0: "assets/imgs/contenedores/biblioteca-0.jpg",
       img: "assets/imgs/contenedores/biblioteca-1.jpg",
       img_1: "assets/imgs/contenedores/biblioteca-2.jpg",
@@ -40,7 +42,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/contenedores/planos/cromantic.jpg",
       img_3: "assets/imgs/contenedores/cromantic-3.jpg",
       img_4: "assets/imgs/contenedores/cromantic-4.jpg",
-      tipo: "sala de venta"
+      tipo: "sala de venta",
+      linkId: "/cotizacion/5bd8fc05b71ca700131deca3"
     },
     {
       nombre: "Datacom",
@@ -52,7 +55,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/2.jpg",
       img_3: "assets/imgs/contenedores/dussan-3.jpg",
       img_4: "assets/imgs/contenedores/dussan-4.jpg",
-      tipo: "bodega"
+      tipo: "bodega",
+      linkId: "/cotizacion/5bd8f9c4b71ca700131dec9f"
 
     },
     {
@@ -65,7 +69,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/2.jpg",
       img_3: "assets/imgs/contenedores/bodega-3.jpg",
       img_4: "assets/imgs/contenedores/bodega-4.jpg",
-      tipo: "bodega"
+      tipo: "bodega",
+      linkId: "/cotizacion/5bd8f9c4b71ca700131dec9f"
 
     },
     {
@@ -78,7 +83,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/contenedores/planos/horizontes.jpg",
       img_3: "assets/imgs/contenedores/horizontes-3.jpg",
       img_4: "assets/imgs/contenedores/horizontes-4.jpg",
-      tipo: "sala de venta"
+      tipo: "sala de venta",
+      linkId: "/cotizacion/5bd8fc05b71ca700131deca3"
 
     },
     {
@@ -91,7 +97,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/contenedores/planos/naguara.jpg",
       img_3: "assets/imgs/contenedores/naguara-3.jpg",
       img_4: "assets/imgs/contenedores/naguara-4.jpg",
-      tipo: "arquitectonico"
+      tipo: "arquitectonico",
+      linkId: "/arquitectonicos"
 
     },
     {
@@ -104,7 +111,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/contenedores/planos/acqua.jpg",
       img_3: "assets/imgs/contenedores/acqua-3.jpg",
       img_4: "assets/imgs/contenedores/acqua-4.jpg",
-      tipo: "sala de venta"
+      tipo: "sala de venta",
+      linkId: "/cotizacion/5bd8fc05b71ca700131deca3"
 
 
     },
@@ -119,7 +127,8 @@ export class ContenedoresService {
       img_3: "assets/imgs/contenedores/refrigerado-3.jpg",
       img_4: "assets/imgs/contenedores/refrigerado-4.jpg",
       vinculo: "Más Información",
-      tipo: "refrigerado"
+      tipo: "refrigerado",
+      linkId: "/refrigerados"
 
     },
     {
@@ -132,7 +141,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/contenedores/planos/ilarco.jpg",
       img_3: "assets/imgs/contenedores/santamarta-4.jpg",
       img_4: "assets/imgs/contenedores/santamarta-5.jpg",
-      tipo: "arquitectonico"
+      tipo: "arquitectonico",
+      linkId: "/arquitectonicos"
 
     },
     {
@@ -145,7 +155,8 @@ export class ContenedoresService {
       img_2: "assets/imgs/contenedores/planos/javeriana.jpg",
       img_3: "assets/imgs/contenedores/bogota-0.jpg",
       img_4: "assets/imgs/contenedores/bogota-5.jpg",
-      tipo: "arquitectonico"
+      tipo: "arquitectonico",
+      linkId: "/arquitectonicos"
 
     }
   ];

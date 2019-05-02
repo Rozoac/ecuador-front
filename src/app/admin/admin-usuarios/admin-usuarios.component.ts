@@ -10,7 +10,7 @@ import { CrearUsuarioComponent } from '../crear-usuario/crear-usuario.component'
 })
 export class AdminUsuariosComponent implements OnInit {
 
-  usuarios:any;
+  usuarios: any;
 
   constructor(public _usuariosService: UsuarioService, public dialog: MatDialog) { }
 
@@ -19,7 +19,7 @@ export class AdminUsuariosComponent implements OnInit {
   }
 
   getUsuarios() {
-    this._usuariosService.getUsuarios().subscribe((data:any) => {
+    this._usuariosService.getUsuarios().subscribe((data: any) => {
       this.usuarios = data.usuarios;
       console.log(this.usuarios);
     });

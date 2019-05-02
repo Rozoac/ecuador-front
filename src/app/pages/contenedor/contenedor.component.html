@@ -4,7 +4,9 @@
       <h2 class="texto-1 wow bounce"> {{contenedor.nombre}} </h2>
       <h2 class="texto-2 wow pulse">{{contenedor.bio_1}}  </h2>
       <a href="https://econtainersreefer.com" class="vinculo wow pulse">{{contenedor.vinculo}}  </a>
-      <a pageScroll [routerLink]="['/home']" href="#2">Volver</a>
+      <div>
+        <button mat-button pageScroll class="btn-volver" [routerLink]="['/home']" href="#2">Volver</button>
+     </div>
     </div>
   </div>
   <div class="container" style="position: relative;">

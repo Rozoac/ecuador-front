@@ -13,7 +13,6 @@
   
   
   <div class="container-2">
-    
       <ngu-carousel myCarousel [inputs]="carouselOne" [dataSource]="contenedores">
           <div *nguCarouselDef="let item; let i = index" class="item" [ngStyle]= "{display: (item.tipo == tipo || tipo == null) ? 'inline-block' : 'none' }">
             <div class="" style="    margin: 10px;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);">
@@ -21,6 +20,10 @@
                   <div  (click)="verContenedor(i)" class="tile" [style.background]="'url(' + item.img + ')'">
                   </div>
                   <h4>{{item.nombre}}</h4>
+                </div>
+                <div class="card-action">
+                  <button class="card-btn margin-small" mat-button (click)="irLanding(item.linkId)">Compra</button>
+                  <button class="card-btn" mat-button (click)="irLanding(item.linkId)">Venta</button>
                 </div>
             </div>
           </div>
