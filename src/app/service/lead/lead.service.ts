@@ -62,9 +62,13 @@ export class LeadService {
 
   getComercial(fecha: any, pagina: any, pdf: string, excel: string) {
     const url = URL_LANDING_DEV + `lead/unico/personalizada`;
-    if (pdf === 'true' || excel === 'true') {
-      return this.http.post(url, fecha, { responseType: 'blob' });
-    } else {
+    const urlPdf = URL_LANDING_DEV + `lead/unico/personalizada/pdf`;
+    const urlExcell = URL_LANDING_DEV + `lead/unico/personalizada/excel`;
+    if (pdf === 'true') {
+      return this.http.post(urlPdf, fecha, { responseType: 'blob' });
+    } else if (excel === 'true') {
+      return this.http.post(urlExcell, fecha, { responseType: 'blob' });
+      } else {
       return this.http.post(url, fecha, ).pipe(
         map((res: any) => res.usuario)
       );
