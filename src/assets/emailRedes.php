@@ -267,7 +267,7 @@ if ( trim($from_name!='') || trim($from_email!='') || trim($from_celular!='') ||
 
 
 		// Correo enviado a lciente
-    	        $email_from2 = "E-Containers Colombia news@econtainerscolombia.com";
+    	        $email_from2 = "E-Containers news@econtainerscolombia.com";
 		$email_to2 =  $from_email;
 		$email_subject2 = "Pronto estaremos en contacto";
 
