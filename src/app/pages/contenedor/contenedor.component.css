@@ -14,6 +14,12 @@ a{
   padding-top: 70px;
 }
 
+.btn-volver {
+  color: white !important;
+  border: 1px solid white;
+  padding: 0px 0px 0px 0px !important;
+}
+
 .img-principal {
   position: relative;
   display: flex;

@@ -11,8 +11,8 @@ export class ContenedorComponent {
 
   contenedor:any = [];
 
-  constructor(private activateRoute:ActivatedRoute, private _contenedorService:ContenedoresService) {
-    this.activateRoute.params.subscribe(params =>{
+  constructor(private activateRoute: ActivatedRoute, private _contenedorService:ContenedoresService) {
+    this.activateRoute.params.subscribe(params => {
       this.contenedor = this._contenedorService.getContenedor(params['id']);
    })
  }

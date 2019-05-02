@@ -23,15 +23,16 @@
         </div>    
         <ngu-carousel #myCarousel [inputs]="carouselConfig" *ngIf="loading" [dataSource]="contenedores">
   <div *nguCarouselDef="let item;" class="item"> 
-      <div class="card pointer" style="" (click)="cotizacion(item._id)" >
-          <div class="imagen-contenedor mt-4">
-            <img class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{item.img}}" alt="Card image cap">
-          </div>
+      <div class="card pointer"  (click)="cotizacion(item._id)" >
+            <img mat-card-md-image class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{item.img}}" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">{{item.nombre}}</h2>
             <p class="card-text">{{item.descripcion}}</p>
-              <span class="cotiza">Cotiza ahora<i class="fas fa-angle-right"></i></span>
           </div>
+          <div class="btn-padre">
+            <button mat-raised-button color="primary" >Cotiza ahora<i class="fas icon fa-angle-right"></i></button>
+          </div>
+          
         </div>
   </div>
           <button NguCarouselPrev class='leftRs2'><i class="fas fa-angle-left"></i></button>

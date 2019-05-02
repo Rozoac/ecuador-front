@@ -83,6 +83,31 @@
     margin: 0 auto;
 }
 
+.card-action {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin: 0 auto !important;
+  margin-bottom: 10px !important;
+}
+
+.card-btn {
+  background-color: white !important;
+  color: #2b4d9a !important;
+  border: 1px solid #2b4d9a;
+  margin-bottom: 15px !important;
+  padding: 0px 0px 0px 0px !important;
+  text-transform: uppercase !important;
+}
+
+.margin-small {
+  margin-right: 5px !important;
+}
+
+.card-btn:hover {
+  color: #fff !important;
+  background-color: #2b4d9a !important;
+}
     .tile{
       min-height: 200px;
     background-color: #ccc;
