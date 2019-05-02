@@ -71,7 +71,7 @@ export interface IMessageT {
   celular?: any;
   correo?: string;
   cargo?: string;
-  archivo?: any;
+  // hoja?: File;
 }
 
 @Injectable()
@@ -79,7 +79,6 @@ export class CorreoService {
   private emailUrl = 'assets/email.php';
   private emailUrlRedes = 'assets/emailRedes.php';
   private emailUrlPQRS = 'assets/emailPQRS.php';
-  private emailUrlT = 'assets/emailT.php';
 
   constructor(private http: HttpClient) {}
 
@@ -118,16 +117,49 @@ export class CorreoService {
   }
 
   // Trabaja con nosotros
-  sendEmailT(message: IMessageT): Observable<IMessage> | any {
-    return this.http.post(this.emailUrlT, message).pipe(
-      map(response => {
-        console.log('Sending email was successfull', response);
-        return response;
-      }),
-      catchError(error => {
-        console.log('Sending email got error', error);
-        return Observable.throw(error);
-      })
-    );
+  sendEmailT(message: IMessageT, hoja: File) {
+
+  return new Promise((resolve, reject) => {
+    const formData = new FormData();
+    const xhr = new XMLHttpRequest();
+    formData.append('hoja', hoja, hoja.name);
+    formData.append('nombre', message.nombre);
+    formData.append('celular', message.celular);
+    formData.append('correo', message.correo);
+    formData.append('cargo', message.cargo);
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          console.log('pdf subido');
+          resolve(JSON.parse(xhr.response));
+        } else {
+          console.log('pdf fallido');
+          reject(xhr.response);
+        }
+      }
+    };
+
+    const url =
+    `${URL_LANDING_DEV}app/trabaja-con-nosotros`;
+
+    xhr.open('POST', url, true);
+    xhr.send(formData);
+  });
+    // return this.http.post(`${URL_LANDING_DEV}app/trabaja-con-nosotros`, message).pipe(
+    //   map(response => {
+    //     console.log('Sending email was successfull', response);
+    //     return response;
+    //   }),
+    //   catchError(error => {
+    //     console.log('Sending email got error', error);
+    //     return Observable.throw(error);
+    //   })
+    // );
   }
+
+
+
 }
+
+

@@ -61,6 +61,10 @@
             <option>Estrategias Comerciales</option>
           </select>
               </div>
+              <div class="form-group col-lg-6">
+                <label>Adjunta tu hoja de vida (PDF)</label> <br>
+                <input formControlName="hoja" (change)="seleccionPdf( $event.target.files[0] )" type="file">
+              </div>
             </div>
             <!-- <div class="form-group row">
               <div class=" col-lg-6">
@@ -73,7 +77,7 @@
             </div> -->
 
             <div class="submit-s9">
-              <button [disabled]="!forma.valid" type="submit" class="btn btn-primary submit-1">ENVIAR</button>
+              <button [disabled]="!forma.valid" type="submit" class="btn btn-primary submit-1"> <i *ngIf="carga" class="fas fa-sync fa-spin"></i>   ENVIAR</button>
             </div>
           </form>
         </div>

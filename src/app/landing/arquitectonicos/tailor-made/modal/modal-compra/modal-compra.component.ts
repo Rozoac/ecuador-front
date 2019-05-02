@@ -18,7 +18,7 @@ export class ModalCompraComponent implements OnInit {
   public prueba = 'https://checkout.payulatam.com/ppp-web-gateway-payu';
   public payuMessage: Payu = {};
 
-    cantidades = [
+  public  cantidades = [
       { nombre: '1 a 2 ', valor: 630000 },
       { nombre: '3 a 4 ', valor: 1890000 },
       { nombre: '5 a 6 ', valor: 3290000 },
@@ -73,7 +73,4 @@ export class ModalCompraComponent implements OnInit {
   seleccionCantidad( event ) {
     this.formulario.cantidad = event;
   }
-
-  
-
 }
