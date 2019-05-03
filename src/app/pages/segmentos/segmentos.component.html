@@ -1,0 +1,66 @@
+<div class="container ec-padding-top-xsmall">
+  <img class="logo" src="../../../assets/imgs/logo-nuevo-negro.png" alt="logo" />
+  <h5 class="ec-margin-top-medium fuente ec-color-default"> Seleccione un segmento para ver los detalles </h5>
+  <div>
+    <div class="row">
+      <div (click)="seleccionar('reefer')" class="col-xs-12 col-md-3">
+        <div class="reefer-segmento segmento">
+          <h4>Reefer</h4>
+        </div>
+      </div>
+      <div (click)="seleccionar('bodegas')" class="col-xs-12 col-md-3">
+        <div class="bodegas-segmento segmento">
+          <h4>Bodegas </h4>
+        </div>
+      </div>
+      <div (click)="seleccionar('proyectos arquitectonicos')" class="col-xs-12 col-md-3">
+        <div class="proyectos-segmento segmento">
+          <h4>Proyectos</h4>
+        </div>
+      </div>
+      <div (click)="seleccionar('salas de ventas')" class="col-xs-12 col-md-3">
+        <div class="salas-segemento segmento">
+          <h4>Salas de Venta</h4>
+        </div>
+      </div>
+    </div>
+    <div class="ec-margin-top-xsmall">
+      <form [formGroup]="firstFormGroup">
+        <h5 class="ec-margin-top-medium fuente ec-color-default"> Seleccione un tipo de {{segmentoSeleccionado.nombre}}</h5>
+        <mat-form-field class="mr-4" appearance="outline">
+            <mat-label>Tipo de {{segmentoSeleccionado.nombre}}</mat-label>
+            <mat-select (selectionChange)="onChanges($event)" ([ngModel])="tipo">
+              <mat-option  *ngFor="let item of segmentoSeleccionado.tipo" [value]="item.nombre">
+                {{item.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+    </div>
+  </div>
+  <div class="ec-margin-top-xsmall">
+    <h4 class="segmento-title fade-in"> {{segmentoSeleccionado.nombre}} </h4>
+    <div class="hr">
+      <hr/>
+    </div>
+    <div class="ec-margin-top-xsmall">
+      <div class="ec-margin-top-xsmall">
+        <h4 class="fuente-franklin display-inline-block ec-margin-right-xsmall ec-color-ec">Precio DESDE: </h4>
+        <h4 class="display-inline-block fuente ec-color-default">{{tipoS.precio}}</h4>
+      </div>
+      <div class="ec-margin-top-xsmall">
+        <h4 class="fuente-franklin display-inline-block ec-margin-right-xsmall ec-color-ec">Medidas: </h4>
+        <h4 class="display-inline-block fuente ec-color-default">{{tipoS.medidas}}</h4>
+      </div>
+      <div class="ec-margin-top-xsmall">
+        <h4 class="fuente-franklin ec-margin-right-xsmall ec-color-ec">Especificaciones: </h4>
+        <h4 class="display-inline-block fuente ec-color-default">{{tipoS.especificaciones}}</h4>
+      </div>
+    </div>
+    <div class="ec-margin-top-medium">
+      <button  color="primary" mat-raised-button >
+        Cotiza Aqui
+      </button>
+    </div>
+  </div>
+</div>
