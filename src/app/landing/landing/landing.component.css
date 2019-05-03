@@ -194,6 +194,10 @@ ul li:last-child {
   transform: rotateZ(-3deg);
 }
 
+.logo-landing {
+  max-width: 200px;
+}
+
 .rotate {
   font-size: 1.3em;
   font-family: "CenturyGothic";
@@ -205,7 +209,7 @@ ul li:last-child {
 .text-principal {
   font-size: 2.9em !important;
   font-family: "brandon";
-  margin-top: 30px;
+  margin-top: 20px;
   color: #ffff;
   font-style: normal !important;
 }
@@ -363,6 +367,11 @@ ul li:last-child {
 
   .container{
     height: inherit;
+  }
+
+  .logo-center-mobile {
+    text-align: center !important;
+    margin: 0 auto !important;
   }
 
 
