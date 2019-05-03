@@ -98,12 +98,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  public toast2(seleccionado:boolean) {
+  public toast2(seleccionado: boolean) {
     if (seleccionado === false) {
       this.toastr.info('Selecciona un segmento,', 'Info', {
         progressBar: true
       });
-    }else{
+    } else {
       this.toastr.clear(this.variable1);
     }
   }

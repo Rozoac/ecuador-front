@@ -19,9 +19,9 @@
       <div class="col-md-10 carrusel">
         <div class="carga" *ngIf="!loading">
           <mat-spinner ></mat-spinner>
-        </div>    
+        </div>
         <ngu-carousel #myCarousel [inputs]="carouselConfig" *ngIf="loading" [dataSource]="contenedores">
-  <div *nguCarouselDef="let item;" class="item"> 
+  <div *nguCarouselDef="let item;" class="item">
       <div class="card pointer"  (click)="cotizacion(item._id)" >
             <img mat-card-md-image class="card-img-top" src="https://econtainers-landing.herokuapp.com/imagen/{{item.img}}" alt="Card image cap">
           <div class="card-body">
@@ -31,7 +31,6 @@
           <div class="btn-padre">
             <button mat-raised-button color="primary" >Cotiza ahora<i class="fas icon fa-angle-right"></i></button>
           </div>
-          
         </div>
   </div>
           <button NguCarouselPrev class='leftRs2'><i class="fas fa-angle-left"></i></button>

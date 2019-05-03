@@ -362,18 +362,10 @@ ul li:last-child {
   height: 380px;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 576px) {
 
 
   .container{
-=======
-/* RESPONSIVE */
-/* CELULARES */
-@media screen and (max-width: 576px) {
-
-  .container {
->>>>>>> cd5323d... mas ediciones
     height: inherit;
   }
 
@@ -406,13 +398,13 @@ ul li:last-child {
     margin-top: 30px;
     color: #ffff;
   }
-  
+
   .text-principal-1 {
     font-size: 1.4em !important;
     font-family: "brandon";
     color: #ffff;
   }
-  
+
   .text-principal-2 {
     font-size: 0.9em !important;
     color: #ffff;
@@ -427,14 +419,11 @@ ul li:last-child {
     /* margin-left: 12%; */
   }
 
-<<<<<<< HEAD
   .icon {
     margin-left: 3px;
     font-size: 20px;
   }
 
-=======
->>>>>>> cd5323d... mas ediciones
   .leftRs {
     left: -40px !important;
   }
