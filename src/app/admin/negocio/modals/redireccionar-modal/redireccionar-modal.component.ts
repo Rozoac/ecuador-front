@@ -14,11 +14,9 @@ import { CiudadesTrasporteService } from '../../../../services/ciudades-trasport
 export class RedireccionarModalComponent implements OnInit {
   tipoarea: string[] = ['24/7', 'E-Containers', 'ShippingLine'];
   tipoTransporte;
-
   myForm: FormGroup;
-
   redireccion = {
-    idLead: '',
+    id_lead: '',
     area: {
       nombre: '',
       tipoDeTransporte: ''
@@ -47,7 +45,6 @@ export class RedireccionarModalComponent implements OnInit {
     this._TransporteService.getTransporte().subscribe((res: any) => {
       this.tipoTransporte = res;
       console.log(this.tipoTransporte);
-
     });
   }
   onNoClick(): void {
@@ -61,4 +58,5 @@ export class RedireccionarModalComponent implements OnInit {
       alert('bien');
     }
   }
+
 }

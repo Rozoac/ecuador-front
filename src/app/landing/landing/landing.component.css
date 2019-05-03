@@ -370,7 +370,6 @@ button{
   height: 380px;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 576px) {
 
   .principal {
@@ -383,13 +382,6 @@ button{
 
 
   .container{
-=======
-/* RESPONSIVE */
-/* CELULARES */
-@media screen and (max-width: 576px) {
-
-  .container {
->>>>>>> cd5323d... mas ediciones
     height: inherit;
   }
 
@@ -444,14 +436,11 @@ button{
     /* margin-left: 12%; */
   }
 
-<<<<<<< HEAD
   .icon {
     margin-left: 3px;
     font-size: 20px;
   }
 
-=======
->>>>>>> cd5323d... mas ediciones
   .leftRs {
     left: -40px !important;
   }
