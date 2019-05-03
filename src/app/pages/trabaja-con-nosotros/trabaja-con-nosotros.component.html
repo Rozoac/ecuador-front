@@ -53,12 +53,9 @@
               <div class="form-group col-lg-6">
                 <select name="cargo" formControlName="cargo" required class="form-control" [(ngModel)]="message.cargo">
             <option disabled selected >¿Cual cargo aplicas?</option>
-            <option>Comercial</option>
-            <option>Administrativa</option>
-            <option>Producción</option>
-            <option>Logística</option>
-            <option>Comercio Exterior</option>
-            <option>Estrategias Comerciales</option>
+            <ng-container *ngFor="let trabajo of trabajos">
+              <option>{{trabajo.nombre}}</option>
+            </ng-container>
           </select>
               </div>
               <div class="form-group col-lg-6">
