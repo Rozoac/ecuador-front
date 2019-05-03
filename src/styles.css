@@ -87,6 +87,10 @@ h6 {
     text-align: center;
 }
 
+.ec-margin-top-medium {
+   margin-top: 20px !important;
+}
+
 .font-bebas{
     font-family: 'bebas-bold'!important;
 }
@@ -96,10 +100,6 @@ h6 {
 
 input,label,select{
     font-family: 'Oswald'!important;
-}
-
-p {
-    /* font-family: 'bebas-regular'; */
 }
 
 .ec-padding-top-xsmall {

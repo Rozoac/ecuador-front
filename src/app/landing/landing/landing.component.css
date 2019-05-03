@@ -1,14 +1,19 @@
 h5{
   margin: 0;
 }
+
+p {
+  margin: 0px;
+}
 .barra-instagram{
   background: linear-gradient( to right, rgba(7, 67, 140, 1) 0%, rgba(60, 196, 220, 1) 100% );
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80px;
-  
 }
+
+
 .barra-instagram h3{
   color: white;
   margin: 0;
@@ -110,10 +115,7 @@ h5{
 
 
 .principal {
-  display: flex;
-  flex-direction: column;
   width: 100vw;
-  /* height: 100vh; */
   background: url("/../assets/imgs/info/background.jpg");
   background-size: cover;
 }
@@ -191,6 +193,11 @@ ul li:last-child {
   background: black;
   transform: rotateZ(-3deg);
 }
+
+.logo-landing {
+  max-width: 200px;
+}
+
 .rotate {
   font-size: 1.3em;
   font-family: "CenturyGothic";
@@ -199,13 +206,40 @@ ul li:last-child {
   font-style: italic;
 }
 
-ul li .text-principal {
-  font-size: 3.2em;
+.text-principal {
+  font-size: 2.9em !important;
   font-family: "brandon";
-  letter-spacing: 2px;
-  font-style: italic;
+  margin-top: 20px;
   color: #ffff;
-  margin: 0 15px;
+  font-style: normal !important;
+}
+
+.text-principal-1 {
+  font-size: 1.9em !important;
+  font-family: "brandon";
+  color: #ffff;
+}
+
+.text-principal-2 {
+  font-size: 1.2em !important;
+  color: #ffff;
+  margin-top: 15px;
+  font-weight: 200 !important;
+}
+
+.textos {
+  margin: 0 auto;
+}
+
+.margin-auto {
+  margin: 0 auto !important;
+}
+
+.btn-mas-info {
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  color: #1245f5 !important;
 }
 
 .mensaje-principal .text-font {
@@ -216,18 +250,18 @@ ul li .text-principal {
   /* position: absolute; */
   /* transition: ease; */
   top: 22px;
-  border-radius: 5%;
-  background: #f7f7f7;
+  border-radius: 2%;
+  background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0px 2px 10px rgba(0, 0, 0, 0.12);
-  max-height: 370px !important;
-  min-height: 370px !important;
+  max-height: 470px !important;
+  min-height: 470px !important;
   width: 92%;
   color: #294c99 !important;
   transition: background-color 0.2s ease;
 }
 
 .card:hover {
-  background: #2a4c99;
+  background: #3096f7;;
   color: white !important;
   transition-duration: 0.2s;
 }
@@ -268,6 +302,7 @@ ul li .text-principal {
   width: 90% !important;
   margin: 0 auto;
   height: 150px;
+  border-radius: 10%;
   margin-top: 10px;
 }
 
@@ -310,9 +345,12 @@ ul li .text-principal {
   right: -74px;
 }
 
+
 .imagen-derecha {
   width: 100%;
   position: absolute;
+  right: 60px;
+  top: 80px;
 }
 
 .carrusel {
@@ -327,16 +365,51 @@ ul li .text-principal {
 @media screen and (max-width: 576px) {
 
 
-
   .container{
     height: inherit;
   }
+
+  .logo-center-mobile {
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+
+  .imagen-derecha {
+    width: 100%;
+    position: relative;
+    top: 0px;
+    margin: 0 auto;
+    right: 25px;
+  }
+
   .principal {
     background-position-x: -370px;
   }
+
   #texto-principal {
-    font-size: 0.6em;
+    font-size: 2.9em;
     padding-left: 0;
+  }
+
+  .text-principal {
+    font-size: 1.9em !important;
+    font-family: "brandon";
+    margin-top: 30px;
+    color: #ffff;
+  }
+  
+  .text-principal-1 {
+    font-size: 1.4em !important;
+    font-family: "brandon";
+    color: #ffff;
+  }
+  
+  .text-principal-2 {
+    font-size: 0.9em !important;
+    color: #ffff;
+    margin-top: 15px;
+    font-weight: 200 !important;
   }
 
   .card {
@@ -358,13 +431,6 @@ ul li .text-principal {
     right: -40px !important;
   }
 
-  .imagen-derecha {
-    width: 60%;
-    position: relative;
-    left: 20%;
-    bottom: 0;
-    top: 0;
-  }
 }
 
 .popup{
@@ -435,6 +501,6 @@ ul li .text-principal {
   }
 
   .imagen-derecha {
-    width: 83%;
+    width: 80%;
   }
 }
