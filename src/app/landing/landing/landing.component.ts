@@ -21,7 +21,7 @@ export class LandingComponent implements OnInit , AfterViewInit {
   @ViewChild('myCarousel') myCarousel: NguCarousel<any>;
   @ViewChild('myCarousel2') myCarousel2: NguCarousel<any>;
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1, sm: 1, md: 4, lg: 4, all: 0 },
+    grid: { xs: 1, sm: 1, md: 4, lg: 6, all: 0 },
     load: 3,
     interval: {timing: 4000, initialDelay: 1000},
     loop: true,
@@ -74,7 +74,7 @@ export class LandingComponent implements OnInit , AfterViewInit {
 
   ngOnInit() {
     this.carouselBanner = {
-      grid: { xs: 1, sm: 1, md: 6, lg: 6, all: 0 },
+      grid: { xs: 1, sm: 4, md: 5, lg: 6, all: 0 },
       slide: 1,
       speed: 400,
       interval: {
