@@ -127,7 +127,6 @@ p {
 
 ::ng-deep .ngucarousel{
   position: initial!important;
-  
 }
 
 .container {
@@ -137,9 +136,6 @@ p {
   /* height: 1100px; */
 }
 
-.seccion-2 {
-  /* margin-bottom: 10px !important; */
-}
 
 ul {
   display: inline-block;
@@ -218,9 +214,6 @@ ul li:last-child {
   font-size: 2em !important;
   font-family: "brandon-medium";
   color: #ffff;
-}
-
-.boton-informacion {
 }
 
 .text-principal-2 {
@@ -370,7 +363,6 @@ button{
   height: 380px;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 576px) {
 
   .principal {
@@ -383,13 +375,6 @@ button{
 
 
   .container{
-=======
-/* RESPONSIVE */
-/* CELULARES */
-@media screen and (max-width: 576px) {
-
-  .container {
->>>>>>> cd5323d... mas ediciones
     height: inherit;
   }
 
@@ -422,14 +407,14 @@ button{
     /* margin-top: 30px; */
     line-height: 36px;
     color: #ffff;
-}
-  
+  }
+
   .text-principal-1 {
     font-size: 1.4em !important;
     font-family: "brandon";
     color: #ffff;
   }
-  
+
   .text-principal-2 {
     font-size: 0.9em !important;
     color: #ffff;
@@ -444,14 +429,11 @@ button{
     /* margin-left: 12%; */
   }
 
-<<<<<<< HEAD
   .icon {
     margin-left: 3px;
     font-size: 20px;
   }
 
-=======
->>>>>>> cd5323d... mas ediciones
   .leftRs {
     left: -40px !important;
   }

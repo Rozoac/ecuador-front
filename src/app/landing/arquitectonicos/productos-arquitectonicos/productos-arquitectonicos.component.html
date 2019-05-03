@@ -17,7 +17,7 @@
                 <img  src="assets/imgs/arquitectonicos/toilet.png" alt=""> <h4>{{contenedor.caracteristicas[0].a.banio}}</h4>
               </li>
               <li *ngIf="contenedor.caracteristicas[0].a.medida">
-                <img   src="assets/imgs/arquitectonicos/regla-icon.png" alt=""> <h4>{{contenedor.caracteristicas[0].a.medida}} <sup>2</sup>.</h4>
+                <img   src="assets/imgs/arquitectonicos/regla-icon.png" alt=""> <h4>{{contenedor.caracteristicas[0].a.medida}} <sup>{{(contenedor.nombre == 'Piscina Container' ) ? '3' : '2'}}</sup>.</h4>
               </li>
             </ul>
           </div>
