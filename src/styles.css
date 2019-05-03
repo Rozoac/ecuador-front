@@ -102,10 +102,6 @@ input,label,select{
     font-family: 'Oswald'!important;
 }
 
-p {
-    /* font-family: 'bebas-regular'; */
-}
-
 .ec-padding-top-xsmall {
    padding-top: 10px;
 }
