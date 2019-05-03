@@ -39,13 +39,16 @@ export class MapaComponent implements OnInit {
 
   ngOnInit() {
 
-
-    $('.asd').owlCarousel({
-      loop: false,
+    const owl = $('.asd');
+    owl.owlCarousel({
+      loop: true,
       margin: 10,
       dotsClass: 'prueba',
       dotClass: 'prueba-2',
       activeClass: 'activop',
+      autoplay: true,
+      autoplayTimeout: 2000,
+      autoplayHoverPause: true,
 
       responsive: {
         0: {
@@ -59,6 +62,12 @@ export class MapaComponent implements OnInit {
         }
       }
     });
+    $('.play').on('click', function() {
+      owl.trigger('play.owl.autoplay', [1000]);
+  });
+  $('.stop').on('click', function() {
+      owl.trigger('stop.owl.autoplay'); 
+  });
     $('.prueba').css({'height': '10px', 'width': '10px', 'position' : 'absolute', 'left': '91%', 'bottom': '74%'});
     // tslint:disable-next-line:max-line-length
     $('.prueba-2').css({'background' : '#34cdff', 'height': '15px', 'width': '10px', 'display' : 'inline-block', 'borderRadius': '50%', 'cursor': 'pointer'});

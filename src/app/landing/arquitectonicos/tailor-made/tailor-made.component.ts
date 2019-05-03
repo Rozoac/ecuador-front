@@ -146,7 +146,7 @@ export class TailorMadeComponent implements OnInit {
   }
 
   alcobas(cantidad) {
-    if (cantidad <= 0 ){
+    if (cantidad <= 0 ) {
       return;
     }
     if (cantidad > 0 && cantidad <= 1) {

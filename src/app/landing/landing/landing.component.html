@@ -1,22 +1,23 @@
 <div class="principal animated fadeIn">
-  <div class="container">
     <div class="row">
       <div class="col-md-5 col-xs-12 logo-center-mobile textos">
         <img class="logo-landing  ec-margin-top-medium" src="assets/imgs/logo-option.png" />
-        <p class="text-principal"> TRANSFORMAMOS TUS SUEÑOS EN REALIDADES </p>
-        <p class="text-principal-1"> Selecciona tu contenedor ideal!</p>
+        <p class="text-principal"> TRANSFORMAMOS </p>
+        <p class="text-principal"> TUS SUEÑOS EN </p>
+        <p class="text-principal">  REALIDADES </p>
+        <p class="text-principal-1"> Selecciona tu contenedor ideal !</p>
         <p class="text-principal-2">
-          Obten tu cotizacion de manera inmediata, estamos listo para
+          Obten tu cotizacion de manera inmediata, estamos<br> listos para
           cumplir tu requerimiento
         </p>
-        <button class="btn-mas-info" mat-button>MAS INFORMACION</button>
+        <button class="btn-mas-info"[routerLink]="[ '/home' ]" mat-button>MÁS INFORMACIÓN</button>
       </div>
       <div class="col-md-5 col-xs-12">
           <img src="assets/imgs/info/derecha.png" class="imagen-derecha margin-auto" alt="">
       </div>
     </div>
     <div class="row seccion-2">
-      <div class="col-md-10 carrusel">
+      <div class="col-md-11 carrusel">
         <div class="carga" *ngIf="!loading">
           <mat-spinner ></mat-spinner>
         </div>
@@ -62,5 +63,4 @@
   <!-- <div class="popup" [ngClass]="{active: active == true}">
     <img src="assets/imgs/popup.png" alt="" class="animated zoomInLeft" (click)="cambiarActive()">
   </div> -->
-</div>
 <app-footer-landing></app-footer-landing>
