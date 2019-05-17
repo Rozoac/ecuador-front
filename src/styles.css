@@ -71,6 +71,10 @@ h6 {
     font-family: 'bebas-bold'!important;
 }
 
+.pt-20{
+    padding-top: 100px;
+}
+
 .float-right {
     float: right!important;
 }

@@ -8,7 +8,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run econtainers:server:production"
   },
   "private": true,
   "dependencies": {
@@ -23,10 +27,13 @@
     "@angular/material": "^7.1.1",
     "@angular/platform-browser": "^7.1.3",
     "@angular/platform-browser-dynamic": "^7.1.3",
+    "@angular/platform-server": "^7.1.3",
     "@angular/router": "^7.1.3",
     "@fancyapps/fancybox": "3.5.6",
     "@ng-bootstrap/ng-bootstrap": "^4.0.1",
     "@ngu/carousel": "^1.5.4",
+    "@nguniversal/express-engine": "^7.0.2",
+    "@nguniversal/module-map-ngfactory-loader": "v7.0.2",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@swimlane/ngx-datatable": "^14.0.0",
@@ -44,6 +51,7 @@
     "countup.js-angular2": "6.0.2",
     "date-fns": "^1.30.1",
     "dragula": "^3.7.2",
+    "express": "^4.15.2",
     "express-fileupload": "^1.0.0",
     "file-saver": "^2.0.0",
     "gsap": "^2.1.2",
@@ -54,6 +62,7 @@
     "jquery": "^3.4.0",
     "md5-typescript": "^1.0.5",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.25",
     "mydatepicker": "^2.6.6",
     "ng-multiselect-dropdown": "^0.2.3",
     "ng2-charts": "^1.6.0",
@@ -81,8 +90,8 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13.8",
-    "@angular/cli": "^7.3.8",
+    "@angular-devkit/build-angular": "^0.13.9",
+    "@angular/cli": "^7.3.9",
     "@angular/compiler-cli": "^7.2.14",
     "@angular/language-service": "^7.1.3",
     "@types/express-fileupload": "^0.4.0",
@@ -104,8 +113,10 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "npm": "^6.9.0",
     "protractor": "^5.4.1",
+    "ts-loader": "^5.2.0",
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "webpack-cli": "^3.1.0"
   }
 }

@@ -70,8 +70,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { RolService } from './service/rol.service';
 import { SegmentoService } from './service/segmento.service';
 import { PaisService } from './service/pais.service';
-import moment from 'moment';
-
+import moment from 'moment-timezone';
 // Angular Material
 import {
   MatAutocompleteModule,
@@ -98,7 +97,7 @@ import { LoginGuardGuard } from './services/guards/login-guard.guard';
 // apis
 // import { SweetAlertService } from 'angular-sweetalert-service';
 import { AgmCoreModule } from '@agm/core';
-import 'hammerjs';
+// import 'hammerjs';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { ChartsModule } from 'ng2-charts';
 import { MyDatePickerModule } from 'mydatepicker';
@@ -114,8 +113,6 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { QuillModule } from 'ngx-quill';
-
-
 
 // pipes
 import { NombrePipe } from './pipes/nombre.pipe';
@@ -158,6 +155,11 @@ import { TransporteComponent } from './admin/transporte/transporte.component';
 import { ModalCompraComponent } from './landing/arquitectonicos/tailor-made/modal/modal-compra/modal-compra.component';
 import { RedireccionarModalComponent } from './admin/negocio/modals/redireccionar-modal/redireccionar-modal.component';
 import { SegmentosComponent } from './pages/segmentos/segmentos.component';
+import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
+import { TopBarComponent } from './shipping-line/shared/top-bar/top-bar.component';
+import { ShippingLineComponent } from './shipping-line/shipping-line.component';
+import { InicioShippingLineComponent } from './shipping-line/inicio-shipping-line/inicio-shipping-line.component';
+import { SideBarComponent } from './shipping-line/shared/side-bar/side-bar.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -243,7 +245,12 @@ export function momentAdapterFactory() {
     RechazoModalComponent,
     RedireccionarModalComponent,
     TransporteComponent,
-    SegmentosComponent
+    SegmentosComponent,
+    ExpoferiaComponent,
+    TopBarComponent,
+    ShippingLineComponent,
+    InicioShippingLineComponent,
+    SideBarComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -282,7 +289,7 @@ export function momentAdapterFactory() {
     MatDialogModule,
     MatProgressSpinnerModule,
     NgxImageZoomModule.forRoot(),
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     MatAutocompleteModule,
     ReactiveFormsModule,

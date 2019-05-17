@@ -1,7 +1,7 @@
 <header class="hero-image">
   <div class="header container">
-    <img class="logo pointer" [routerLink]="['/landing' ]" src="assets/imgs/logo-nuevo.png"/>
-    <ul>
+    <img class="logo-ar pointer" [routerLink]="['/landing' ]" src="assets/imgs/logo-nuevo.png"/>
+    <ul class="iconos">
       <li><a target="_blank" href="https://www.facebook.com/EContainers">
         <i class="fab fa-facebook"></i>
         </a>
@@ -21,15 +21,12 @@
     </ul>
   </div>
   <div class="container hero" >
-    
-    <div class="col-md-6 texto-principal">
-      <h1 >Construimos Espacios Únicos en Diseño y Confort.</h1>
+    <div class="col-sm-111 col-lg-7 texto-principal">
+      <h1 class="margin">Construimos Espacios Únicos en Diseño y Confort.</h1>
       <!-- <h1 typingAnimation [typeSpeed]="50" [startDelay]="1000">Arquitectura modular que reduce el impacto ambiental.</h1> -->
       <!-- <h1 typingAnimation [typeSpeed]="50" [startDelay]="1000">Arquitectura 100% Ecoamigable.</h1> -->
       <!-- <h1 typingAnimation [typeSpeed]="50" [startDelay]="1000">Construimos sueños en realidades.</h1> -->
-      <div class="fondo-degrade">
-        <p class="subtitulo">Conectamos tus ideas con la realidad reduciendo su impacto ambiental.</p>
-      </div>
+      <p class="subtitulo">Conectamos tus ideas con la realidad reduciendo su impacto ambiental.</p>
     </div>
   </div>
   <div class="buscador d-none .d-lg-*">
@@ -92,7 +89,7 @@
                 <b>Desde {{arquitectonico.precio.desde}} $COP</b>
             </p>  
               <span class="descripcion">
-                <p>{{(arquitectonico.caracteristicas[0].a.cocina == null) ? '' : 'Cocina |'}}  {{alcobas(arquitectonico.caracteristicas[0].a.alcoba)}}  {{(arquitectonico.caracteristicas[0].a.banio == null) ? '' : 'Baño |'}}  {{arquitectonico.caracteristicas[0].a.medida}} <sup>2</sup> </p>
+                <p>{{(arquitectonico.caracteristicas[0].a.cocina == null) ? '' : 'Cocina |'}}  {{alcobas(arquitectonico.caracteristicas[0].a.alcoba)}}  {{(arquitectonico.caracteristicas[0].a.banio == null) ? '' : 'Baño |'}}  {{arquitectonico.caracteristicas[0].a.medida}} <sup>{{(arquitectonico.nombre == 'Piscina Container' ) ? '3' : '2'}}</sup> </p>
             </span>  
           </div>
       </div>

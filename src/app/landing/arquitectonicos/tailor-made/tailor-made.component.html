@@ -145,7 +145,7 @@
                   <b>Desde {{arquitectonico.precio.desde}} $COP</b>
               </p>  
                 <span class="descripcion">
-                  <p>{{(arquitectonico.caracteristicas[0].a.cocina == null) ? '' : 'Cocina |'}}  {{alcobas(arquitectonico.caracteristicas[0].a.alcoba)}}  {{(arquitectonico.caracteristicas[0].a.banio == null) ? '' : 'Baño |'}}  {{arquitectonico.caracteristicas[0].a.medida}} <sup>2</sup> </p>
+                  <p>{{(arquitectonico.caracteristicas[0].a.cocina == null) ? '' : 'Cocina |'}}  {{(arquitectonico.caracteristicas[0].a.alcoba == 0) ? '' : arquitectonico.caracteristicas[0].a.alcoba }}  {{(arquitectonico.caracteristicas[0].a.banio == null) ? '' : 'Baño |'}}  {{arquitectonico.caracteristicas[0].a.medida}} <sup>{{(arquitectonico.nombre == 'Piscina Container' ) ? '3' : '2'}}</sup> </p>
               </span>  
             </div>
         </div>

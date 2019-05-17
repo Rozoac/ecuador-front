@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="myForm" #f="ngForm" (ngSubmit)="ingresar( f.value )">
   <h1 mat-dialog-title>Redireccionar Lead</h1>
   <hr>
   <div class="row">
@@ -8,7 +8,7 @@
       <br>
       <div class="conteendor-flex" formGroupName="area">
         <mat-radio-group required aria-labelledby="example-radio-group-label" formControlName="nombre" class="example-radio-group" >
-          <mat-radio-button class="example-radio-button" style="display:block;" *ngFor="let item of tipoarea" [value]="item">
+          <mat-radio-button class="example-radio-button" style="display:block;" *ngFor="let item of tipoarea" [value]="item" >
             {{item}}
           </mat-radio-button>
         </mat-radio-group>
@@ -36,8 +36,7 @@
         matInput maxlength="256"
         placeholder="Mensaje"
         formControlName="mensaje"
-        required
-      >
+        required>
       </textarea>
     </mat-form-field>
   </div>

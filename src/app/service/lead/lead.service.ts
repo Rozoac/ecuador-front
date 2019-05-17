@@ -223,5 +223,11 @@ export class LeadService {
     const url = URL_LANDING_DEV + `lead/rechazo/${id}`;
     return this.http.put(url, mensaje );
 }
+redireccionLead(mensaje) {
+    const url = URL_LANDING_DEV + `lead/redireccion/`;
+    return this.http.post(url, mensaje );
+}
+
+
 
 }

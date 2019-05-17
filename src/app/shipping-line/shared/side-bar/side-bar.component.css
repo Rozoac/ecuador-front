@@ -1,0 +1,151 @@
+
+/* colores */
+.color-principal{
+    color: #59bcf4!important;
+}
+.color-negro{
+    color: #000000!important;
+    stroke: #000000!important;
+}
+.color-blanco{
+    color: #ffffff!important;
+    stroke: #ffffff!important;
+
+}
+
+
+.hide{
+    display: none;
+}
+
+.principal-side-bar{
+    position: fixed;
+    height: 100vh;
+    width: 16.67%;;
+    left: 0;
+    background: #000000;
+    /* z-index: 5; */
+}
+
+p, i{
+    color: white!important;
+    margin-bottom: 0!important;
+}
+
+svg{
+    color: white;
+}
+
+
+
+ul{
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.hamburguer{
+    display: flex;
+    align-items: center;
+}
+
+.text-menu{
+    position: relative;
+    left: -20px;
+    color: inherit;
+    transition: 0.5s;
+}
+
+.hamburguer p:hover {
+    color: #59bcf4!important;
+}
+
+
+/* HAMBURGUER MENU */
+
+.ham {
+    /* transform: rotate(90deg); */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
+  
+  .line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke:#ffffff;
+    stroke-width: 3.2px;
+    stroke-linecap:round;
+  }
+  
+  .ham6 .top {
+    stroke-dasharray: 40 172;
+  }
+  .ham6 .middle {
+    stroke-dasharray: 40 111;
+  }
+  .ham6 .bottom {
+    stroke-dasharray: 40 172;
+  }
+  .ham6.active .top {
+    stroke-dashoffset: -132px;
+  }
+  .ham6.active .middle {
+    stroke-dashoffset: -71px;
+  }
+  .ham6.active .bottom {
+    stroke-dashoffset: -132px;
+  }
+
+
+  .redes-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 17px;
+    height: 112px;
+    justify-content: space-between;
+  }
+
+
+/* HAMBURGUER MENU FIN */
+
+.menu {
+  
+    position: fixed;
+    background: transparent;
+    width: 100vw;
+    /* height: 100vh; */
+    top: 0;
+    height: 100vh;
+}
+.menu div:nth-child(n+2) {
+  background: #ffffff;
+    border-left: 1px solid #ebebeb;
+    width: 16.67%;
+    height: 100%;
+    display: inline-block;
+}
+
+#side-bar-2{
+  background: #ffffff;
+  width: 16.67%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.bottom-especial{
+  bottom: 84.89%!important;
+  ;
+}

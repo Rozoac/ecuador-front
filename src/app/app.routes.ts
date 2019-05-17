@@ -39,6 +39,9 @@ import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.componen
 import { NegocioComponent } from './admin/negocio/negocio.component';
 import { TransporteComponent } from './admin/transporte/transporte.component';
 import { SegmentosComponent } from './pages/segmentos/segmentos.component';
+import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
+import { ShippingLineComponent } from './shipping-line/shipping-line.component';
+import { InicioShippingLineComponent } from './shipping-line/inicio-shipping-line/inicio-shipping-line.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -55,6 +58,12 @@ const APP_ROUTES: Routes = [
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
+  {
+          path: 'freight-forwarding',
+          component: ShippingLineComponent,
+          children: [
+            { path: '', component: InicioShippingLineComponent },
+        ] },
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
@@ -69,6 +78,7 @@ const APP_ROUTES: Routes = [
           { path: 'cotizacion/:nombre', component: CotizacionComponent },
           { path: 'gracias', component: GraciasComponent, canActivate: [GraciasGuard], },
           { path: 'login', component: LoginComponent },
+          { path: 'expoferia', component: ExpoferiaComponent },
           // { path: '**',  component: NotFoundComponent },
 
   {

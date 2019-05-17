@@ -86,6 +86,10 @@ export class CorreoService {
     const url = URL_LANDING_DEV + 'cliente';
     return this.http.post(url, message);
   }
+  sendEmailExpo(message) {
+    const url = URL_LANDING_DEV + 'expoferia';
+    return this.http.post(url, message);
+  }
 
 
   // REDES

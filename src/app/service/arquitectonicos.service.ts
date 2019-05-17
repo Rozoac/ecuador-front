@@ -37,8 +37,8 @@ export class ArquitectonicosService {
       ],
       imgs : {
         plano: 'asd',
-        img_1: 'assets/imgs/arquitectonicos/card-1.jpg',
-        img_2: 'assets/imgs/arquitectonicos/casa2-1.jpg',
+        img_1: 'assets/imgs/arquitectonicos/casa2.jpg',
+        img_2: 'assets/imgs/arquitectonicos/casa1.jpg',
         img_3: 'asd'
       },
       estado: true
@@ -72,8 +72,8 @@ export class ArquitectonicosService {
       ],
       imgs : {
         plano: 'asd',
-        img_1: 'assets/imgs/arquitectonicos/card-2.jpg',
-        img_2: 'assets/imgs/arquitectonicos/casa1-1.jpg',
+        img_1: 'assets/imgs/arquitectonicos/casa3.jpg',
+        img_2: 'assets/imgs/arquitectonicos/casa4.jpg',
         img_3: 'asd'
       },
       estado: true
@@ -108,8 +108,8 @@ export class ArquitectonicosService {
       ],
       imgs : {
         plano: 'asd',
-        img_1: 'assets/imgs/arquitectonicos/card-3.jpg',
-        img_2: 'assets/imgs/arquitectonicos/comercial2-1.jpg',
+        img_1: 'assets/imgs/arquitectonicos/unidad1.jpg',
+        img_2: 'assets/imgs/arquitectonicos/unidad2.jpg',
         img_3: 'asd'
       },
       estado: true

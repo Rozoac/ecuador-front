@@ -1,0 +1,22 @@
+
+  
+  .principal {
+    width: 100vw;
+    background: url("/../assets/imgs/info/background.jpg");
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .logo{
+      width: inherit;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+  }
+
+  img{
+      width: 277px;
+      height: 69px;
+  }
+
+  

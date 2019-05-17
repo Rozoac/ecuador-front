@@ -1,0 +1,19 @@
+.color-negro{
+    color: #000000!important;
+    stroke: #000000!important;
+}
+.color-blanco{
+    color: #ffffff!important;
+    stroke: #ffffff!important;
+
+}
+
+header{
+    position: fixed;
+    z-index: 6;
+}
+
+a{
+    color: white;
+}
+

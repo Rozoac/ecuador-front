@@ -4,7 +4,7 @@
         <h6 class="taskboard-header">Leads en proceso ( {{total}} )</h6>
         <div class="taskboard-cards" >
          
-          <div class="taskboard-task task-status-success wow flipInX" *ngFor="let lead of leads" (click)="getLead(lead._id)">
+          <div class="taskboard-task task-status-success" *ngFor="let lead of leads" (click)="getLead(lead._id)">
             <div class="taskboard-task-title">{{lead.id_cliente.nombre}} {{lead.id_cliente.apellido}}</div>
             <small class="card-text text-muted">{{lead.id_cliente.mensaje}}</small>
           </div>

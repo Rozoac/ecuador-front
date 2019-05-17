@@ -25,11 +25,11 @@
       </div>
     </div>
     <div class="ec-margin-top-xsmall">
-      <form [formGroup]="firstFormGroup">
+      <form >
         <h5 class="ec-margin-top-medium fuente ec-color-default"> Seleccione un tipo de {{segmentoSeleccionado.nombre}}</h5>
         <mat-form-field class="mr-4" appearance="outline">
             <mat-label>Tipo de {{segmentoSeleccionado.nombre}}</mat-label>
-            <mat-select (selectionChange)="onChanges($event)" ([ngModel])="tipo">
+            <mat-select (selectionChange)="onChanges($event)" >
               <mat-option  *ngFor="let item of segmentoSeleccionado.tipo" [value]="item.nombre">
                 {{item.nombre}}
               </mat-option>
