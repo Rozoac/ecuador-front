@@ -18,6 +18,28 @@ a {
     display: none;
 }
 
+.modal-principal{
+    position: fixed;
+    top: 0;
+    background: #0000007d;
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    z-index: 99;
+    align-items: center;
+  }
+
+  .modal-encuesta{
+  
+    background: url(/assets/imgs/popup/popup.jpg);
+    width: 70%;
+    height: 535px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
 button,
 a {
     font-family: 'bebas-bold';
@@ -161,6 +183,17 @@ h3 {
     opacity: 1!important;
 }
 
+.botonera{
+    position: relative;
+    color: white;
+    font-size: 1.5em;
+    
+    left: 23%;
+    right: 0;
+    top: 88%;
+  
+  }
+
 .menu-li h3 {
     opacity: 1!important;
 }
@@ -168,10 +201,8 @@ h3 {
 .nosotros h3 {
     position: absolute;
     bottom: 25%;
-    /* right: 50%; */
     margin-left: -30px;
     left: 50%;
-    /* height: 20px; */
     width: 60px;
 }
 

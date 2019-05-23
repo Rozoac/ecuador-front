@@ -75,19 +75,23 @@ export class PagesComponent implements OnInit {
       });
   }
 
-
-
-
-
+  cerrarModal() {
+    document.getElementById('modal').setAttribute('class', 'hide');
+  }
 
   ngOnInit() {
+
+    setTimeout(function() {
+      $('#modal').removeClass('hide');
+    }, 2000);
+
+
   this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return;
             }
             window.scrollTo( 0, 0 );
         });
-
 
     // scroll
     $('#nav-icon3').click(function() {

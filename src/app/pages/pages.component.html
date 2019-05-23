@@ -203,7 +203,15 @@
                     </div>
                 </div>
             </nav>
-            <router-outlet></router-outlet>
+            <router-outlet>
+                    <div class="modal-principal hide" id="modal" >
+                            <div class="modal-encuesta wow bounceIn" data-wow-duration="3s">
+                              <div class="botonera">
+                                <button (click)="cerrarModal()">Cerrar</button>
+                              </div>
+                            </div>
+                    </div>
+            </router-outlet>
             <app-footer></app-footer>
         </div>
     </div>

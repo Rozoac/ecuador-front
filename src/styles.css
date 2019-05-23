@@ -11,10 +11,14 @@
     font-family: 'bebas-bold';
     src: url('assets/fonts/bebas_neue/BebasNeueBold.otf');
 }
+@font-face {
+    font-family: 'bebas-bold';
+    src: url('assets/fonts/bebas_neue/BebasNeueBold.otf');
+}
 
 @font-face {
-    font-family: 'bebas-regular';
-    src: url('assets/fonts/bebas_neue/BebasNeueRegular.otf');
+    font-family: 'grotesk';
+    src: url('assets/fonts/grotesk/grotesk.ttf');
 }
 
 @font-face {

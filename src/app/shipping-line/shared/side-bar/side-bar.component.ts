@@ -23,6 +23,8 @@ export class SideBarComponent implements OnInit {
   }
   }
 
+
+
   abrirMenu() {
     this.estadoMenu = !this.estadoMenu;
 
@@ -30,6 +32,7 @@ export class SideBarComponent implements OnInit {
     let $svgs = document.querySelectorAll('svg');
     // tslint:disable-next-line:prefer-const
     const $logo = document.getElementById('logo');
+    const $black = document.getElementById('black');
     const $texto_menu = document.getElementById('text-1');
     let $path = document.querySelectorAll('path');
     const $menu_secciones = document.getElementById('menu-secciones');
@@ -42,23 +45,31 @@ export class SideBarComponent implements OnInit {
     if (this.estadoMenu === true) {
       $menu.classList.add('fadeInLeft');
       $menu.classList.remove('fadeOutLeft');
-      setTimeout(() => {
-      $logo.classList.remove('color-blanco');
-      $logo.classList.add('color-negro');
-      $texto_menu.classList.add('color-negro');
-      $texto_menu.classList.remove('color-blanco');
-      for (let i = 0; i < $svgs.length; i++) {
-        $svgs[i].classList.remove('color-blanco');
-        $svgs[i].classList.add('color-negro');
-      }
-      for (let i = 0; i < $path.length; i++) {
-        $path[i].classList.remove('color-blanco');
-        $path[i].classList.add('color-negro');
-      }
-    }, 500 );
+        setTimeout(() => {
+          $black.classList.remove('hide');
+          $black.classList.add('fadeIn');
+          $black.classList.remove('fadeOutLeft');
 
+            $logo.classList.remove('color-blanco');
+            $logo.classList.add('color-negro');
+            $texto_menu.classList.add('color-negro');
+            $texto_menu.classList.remove('color-blanco');
+            for (let i = 0; i < $svgs.length; i++) {
+              $svgs[i].classList.remove('color-blanco');
+              $svgs[i].classList.add('color-negro');
+            }
+            for (let i = 0; i < $path.length; i++) {
+              $path[i].classList.remove('color-blanco');
+              $path[i].classList.add('color-negro');
+            }
+        }, 500 );
     } else {
-      $menu.classList.remove('fadeInLeft');
+      $black.classList.remove('fadeIn');
+      // $black.classList.add('fadeOutLeft');
+      $black.classList.add('hide');
+
+      $menu.classList.remove('fadeIn');
+      $menu.classList.remove('fadeOut');
       $menu.classList.add('fadeOutLeft');
       $logo.classList.remove('color-negro');
       $logo.classList.add('color-blanco');
@@ -84,6 +95,7 @@ export class SideBarComponent implements OnInit {
         $sidebar.classList.add('bottom-especial');
       }, 700 );
     } else {setTimeout(() => {
+
       $contenedor2.appendChild($menu_secciones);
       $sidebar.classList.remove('bottom-especial');
     }, 300 );

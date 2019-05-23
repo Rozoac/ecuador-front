@@ -160,6 +160,11 @@ import { TopBarComponent } from './shipping-line/shared/top-bar/top-bar.componen
 import { ShippingLineComponent } from './shipping-line/shipping-line.component';
 import { InicioShippingLineComponent } from './shipping-line/inicio-shipping-line/inicio-shipping-line.component';
 import { SideBarComponent } from './shipping-line/shared/side-bar/side-bar.component';
+import { ConocenosComponent } from './shipping-line/conocenos/conocenos.component';
+import { ContactoComponent } from './shipping-line/contacto/contacto.component';
+import { TransporteMaritimoComponent } from './shipping-line/servicios/transporte-maritimo/transporte-maritimo.component';
+import { TransporteAereoComponent } from './shipping-line/servicios/transporte-aereo/transporte-aereo.component';
+import { ImportacionExportacionComponent } from './shipping-line/servicios/importacion-exportacion/importacion-exportacion.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -250,7 +255,12 @@ export function momentAdapterFactory() {
     TopBarComponent,
     ShippingLineComponent,
     InicioShippingLineComponent,
-    SideBarComponent
+    SideBarComponent,
+    ConocenosComponent,
+    ContactoComponent,
+    TransporteMaritimoComponent,
+    TransporteAereoComponent,
+    ImportacionExportacionComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),

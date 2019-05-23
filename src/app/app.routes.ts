@@ -42,6 +42,11 @@ import { SegmentosComponent } from './pages/segmentos/segmentos.component';
 import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
 import { ShippingLineComponent } from './shipping-line/shipping-line.component';
 import { InicioShippingLineComponent } from './shipping-line/inicio-shipping-line/inicio-shipping-line.component';
+import { ConocenosComponent } from './shipping-line/conocenos/conocenos.component';
+import { ContactoComponent } from './shipping-line/contacto/contacto.component';
+import { TransporteMaritimoComponent } from './shipping-line/servicios/transporte-maritimo/transporte-maritimo.component';
+import { TransporteAereoComponent } from './shipping-line/servicios/transporte-aereo/transporte-aereo.component';
+import { ImportacionExportacionComponent } from './shipping-line/servicios/importacion-exportacion/importacion-exportacion.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -62,7 +67,14 @@ const APP_ROUTES: Routes = [
           path: 'freight-forwarding',
           component: ShippingLineComponent,
           children: [
-            { path: '', component: InicioShippingLineComponent },
+            { path: 'inicio', component: InicioShippingLineComponent},
+            { path: 'conocenos', component: ConocenosComponent},
+            { path: 'contacto', component: ContactoComponent },
+            { path: 'transporte-maritimo', component: TransporteMaritimoComponent },
+            { path: 'transporte-aereo', component: TransporteAereoComponent },
+            { path: 'importacion-exportacion', component: ImportacionExportacionComponent },
+            { path: '', redirectTo: 'inicio' , pathMatch: 'full' },
+
         ] },
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },

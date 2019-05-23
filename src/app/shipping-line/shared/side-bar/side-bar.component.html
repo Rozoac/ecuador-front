@@ -28,12 +28,24 @@
 </div>
 
 <!-- MENU -->
-    <div id="menu-principal" class="menu hide wow" data-wow-duration="1.5s">
-        <div id="side-bar-2" class="">   
-        </div>
-        <div class="">
-        </div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=" "></div>
-    </div>
+<div id="black" class="black-background hide wow ">
+</div>
+  <div id="menu-principal" class="menu hide wow" data-wow-duration="1.5s">
+      <div id="side-bar-2" class=""></div>
+      <div class="menus">
+          <ul>
+            <li (click)="abrirMenu()"  routerLink="inicio" routerLinkActive="active-blue"  >Inicio</li>
+            <li (click)="abrirMenu()"  routerLink="conocenos" routerLinkActive="active-blue" class="wow fadeInLeft faster" data-wow-duration="1.5s "  >Conócenos</li>
+            <li (click)="abrirMenu()"  class="wow fadeInLeft faster"  data-wow-duration="1.8s "  >+ Información</li>
+            <li (click)="abrirMenu()"  class="wow fadeInLeft faster"  data-wow-duration="2s "> Que ofrecemos </li> 
+            <li (click)="abrirMenu()"  class="wow fadeInLeft faster"  data-wow-duration="2.2s " >Pagos en línea</li>
+            <li (click)="abrirMenu()"  class="wow fadeInLeft faster"  data-wow-duration="2.4s " >Alianzas</li>
+          </ul>
+          <p routerLink="contacto" routerLinkActive="contact-activo" class="contact">Contáctanos</p>
+      </div>
+      <div class=""></div>
+      <div class=""></div>
+      <div class="transportes-img">
+        <img src="assets/imgs/shipping-line/avion-3.png" alt="" class="wow fadeIn">
+      </div>
+  </div>
