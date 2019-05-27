@@ -1,10 +1,15 @@
+
+
 *{
     font-family: 'grotesk';
 }
 
-.
+ul{
+    padding: 0;
+}
 
-.main {
+.texto-mediano{
+    font-size: 3em;
 }
 
 .conocenos p, .resumen, .valores ul li{
@@ -13,31 +18,62 @@
 
 
 /* conocenos */
-.titulo{
+
+.valores-seccion h4{
+    color: white;
+    font-size: 3em;
+}
+.valores-seccion{
     text-align: center;
 }
 
-.vision svg , .mision svg, .valores svg {
+
+
+
+.valores-seccion ul li {
     color: white;
-}
-
-h2, h3 {
-    color: #fff;
-}
-
-.valores ul {
-    padding: 0;
-    margin: 0;
-}
-
-.valores ul li {
-    color: #fff;
     list-style: none;
+    font-size: 3em;
 }
 
-.photo-team{
-    background: url(/../assets/imgs/shipping-line/team.jpg);
-    background-size: cover;
+
+.conocenos .header{
+    /* height: 100vh; */
+    display: inline-block;
+}
+
+.conocenos .header img{
+    width: 70%;
+    position: relative;
+    top: -56px;
+    right: 0;
+    float: right;
+}
+
+.conocenos .header h2 {
+    position: absolute;
+    color: white;
+    font-size: 14em;
+    margin-top: 10%;
+    
+}
+
+.conocenos .row .col-md-6 h4{
+    color: white;
+    font-size: 3em;
+    text-transform: capitalize;
+}
+
+.conocenos .row .col-md-6 .borde {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.conocenos .row .col-md-6 p {
+    padding-top: 20px;
+}
+.conocenos .row .col-md-6 .borde h4 {
+    padding: 20px 0;
+    margin: 0;
 }
 
 /* fin conocenos */
