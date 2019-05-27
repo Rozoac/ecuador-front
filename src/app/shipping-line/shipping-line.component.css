@@ -1,24 +1,56 @@
 *{
-    font-family: 'grotesk'!important;
+    font-family: 'grotesk';
 }
+
+.
 
 .main {
 }
 
-.principal{
-    background: #000;
-}
-.pt-56{
-    padding-top: 56px;
+.conocenos p, .resumen, .valores ul li{
+    font-family: 'grotesk-ligth';
 }
 
-.row{
+
+/* conocenos */
+.titulo{
+    text-align: center;
+}
+
+.vision svg , .mision svg, .valores svg {
+    color: white;
+}
+
+h2, h3 {
+    color: #fff;
+}
+
+.valores ul {
+    padding: 0;
     margin: 0;
 }
 
-.col-md-5, .col-md-7 {
-    /* padding: 0; */
+.valores ul li {
+    color: #fff;
+    list-style: none;
 }
+
+.photo-team{
+    background: url(/../assets/imgs/shipping-line/team.jpg);
+    background-size: cover;
+}
+
+/* fin conocenos */
+    .principal{
+        background: #000;
+    }
+    .pt-56{
+        padding-top: 56px;
+    }
+    
+    .row{
+        margin: 0;
+    }
 
 .contenedor{
     padding-left: 16.67%;

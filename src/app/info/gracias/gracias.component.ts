@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { LeadService } from '../../service/lead/lead.service';
 import { LandingService } from '../../services/landing.service';
 import { Router } from '@angular/router';
@@ -21,13 +21,18 @@ export class GraciasComponent implements OnInit {
   public fabiano: string;
   public correo: string;
 
-  constructor(public _lead: LeadService, public _landingService: LandingService, public router: Router) {
+  constructor(public _lead: LeadService, public _landingService: LandingService, public router: Router, private zone: NgZone) {
+    
     _landingService.getPostBlog().subscribe( (res: any) => {
       this.posts = res.posts;
       this.loadImage = false;
       console.log(res.posts.date);
     });
   }
+
+  reloadPage() {
+       
+}
 
   abrirModal() {
     this.router.navigate([`/encuesta-satisfaccion/${this.comercial.lead._id}`]);
@@ -37,6 +42,7 @@ export class GraciasComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.reloadPage();
     this.encuesta = localStorage.getItem('encuesta');
     this.datosComercial();
     this.imagenComercial(this.comercial.lead.id_usuario.correo);

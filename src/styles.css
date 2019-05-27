@@ -20,6 +20,26 @@
     font-family: 'grotesk';
     src: url('assets/fonts/grotesk/grotesk.ttf');
 }
+@font-face {
+    font-family: 'grotesk-bold';
+    src: url('assets/fonts/grotesk/grotesk-bold.otf');
+}
+@font-face {
+    font-family: 'grotesk-ligth';
+    src: url('assets/fonts/grotesk/grotesk-ligth.otf');
+}
+@font-face {
+    font-family: 'grotesk-medium';
+    src: url('assets/fonts/grotesk/grotesk-medium.otf');
+}
+@font-face {
+    font-family: 'grotesk-regular';
+    src: url('assets/fonts/grotesk/grotesk-regular.otf');
+}
+@font-face {
+    font-family: 'grotesk-semi-bold';
+    src: url('assets/fonts/grotesk/grotesk-semi-bold.otf');
+}
 
 @font-face {
     font-family: 'bebas-book';
