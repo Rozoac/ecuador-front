@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 
 
@@ -9,13 +11,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
-  constructor() {
+  constructor(router: Router) {
+    const navEndEvents = router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    );
   }
-
- ngOnInit() {
-  //  init_plugins();
- }
 
 }

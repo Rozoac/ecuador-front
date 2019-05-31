@@ -47,6 +47,8 @@ import { ContactoComponent } from './shipping-line/contacto/contacto.component';
 import { TransporteMaritimoComponent } from './shipping-line/servicios/transporte-maritimo/transporte-maritimo.component';
 import { TransporteAereoComponent } from './shipping-line/servicios/transporte-aereo/transporte-aereo.component';
 import { ImportacionExportacionComponent } from './shipping-line/servicios/importacion-exportacion/importacion-exportacion.component';
+import { MasInformacionComponent } from './shipping-line/mas-informacion/mas-informacion.component';
+import { QueOfrecemosComponent } from './shipping-line/que-ofrecemos/que-ofrecemos.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -70,6 +72,8 @@ const APP_ROUTES: Routes = [
             { path: 'inicio', component: InicioShippingLineComponent},
             { path: 'conocenos', component: ConocenosComponent},
             { path: 'contacto', component: ContactoComponent },
+            { path: 'mas-informacion', component: MasInformacionComponent },
+            { path: 'que-ofrecemos', component: QueOfrecemosComponent },
             { path: 'transporte-maritimo', component: TransporteMaritimoComponent },
             { path: 'transporte-aereo', component: TransporteAereoComponent },
             { path: 'importacion-exportacion', component: ImportacionExportacionComponent },
