@@ -1,0 +1,99 @@
+p{
+    color: white;
+}
+
+.header{
+    width: 100%;
+}
+
+.valores-seccion h4{
+    color: white;
+    font-size: 4em;
+}
+.valores-seccion{
+    text-align: center;
+}
+
+
+
+
+.valores-seccion ul li {
+    color: white;
+    list-style: none;
+    font-size: 3em;
+}
+
+
+.conocenos .header{
+    /* height: 100vh; */
+    display: inline-block;
+}
+
+.conocenos .header img{
+    width: 70%;
+    position: relative;
+    top: -56px;
+    right: 10%;
+    float: right;
+}
+
+.conocenos .header h2 {
+    position: absolute;
+    color: white;
+    font-size: 10em;
+    margin-top: 10%;
+    
+}
+
+.conocenos .row .col-md-6 h4{
+    color: white;
+    font-size: 3em;
+    text-transform: capitalize;
+}
+
+.conocenos .row .col-md-6 .borde {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.conocenos .row .col-md-6 p {
+    padding-top: 20px;
+}
+.conocenos .row .col-md-6 .borde h4 {
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* fin conocenos */
+
+
+
+/* globo */
+
+  .map {
+   
+    /* margin: auto; */
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    box-shadow: inset -30px -20px 0 0 rgba(0, 0, 0, 0.1), inset -70px -30px 0 0 rgba(0, 0, 0, 0.1), inset 5px 5px 0 0 rgba(255, 255, 255, 0.2);
+    background: url("http://tirsolecointere.com.ve/palebluedot/img/map.png") lightblue;
+    background-size: cover;
+    animation: earth-rotation 10s linear infinite;
+  }
+
+  .conocenos .row .col-md-6 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  @keyframes earth-rotation {
+    from {
+      background-position: left center;
+    }
+    to {
+      background-position: -396px center;
+    }
+  }
+
+  

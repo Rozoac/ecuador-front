@@ -8,9 +8,9 @@ import { slider, transformer, fader, stepper } from './route-animations';
   styleUrls: ['./shipping-line.component.css'],
   animations: [
     // fader,
-    // slider,
+    slider
     // transformer,
-    stepper
+    // stepper
   ]
 })
 export class ShippingLineComponent  {

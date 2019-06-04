@@ -95,6 +95,10 @@ h6 {
     font-family: 'bebas-bold'!important;
 }
 
+.bg-black{
+    background: #0000;
+}
+
 .pt-20{
     padding-top: 100px;
 }

@@ -164,9 +164,9 @@ import { ConocenosComponent } from './shipping-line/conocenos/conocenos.componen
 import { ContactoComponent } from './shipping-line/contacto/contacto.component';
 import { TransporteMaritimoComponent } from './shipping-line/servicios/transporte-maritimo/transporte-maritimo.component';
 import { TransporteAereoComponent } from './shipping-line/servicios/transporte-aereo/transporte-aereo.component';
-import { ImportacionExportacionComponent } from './shipping-line/servicios/importacion-exportacion/importacion-exportacion.component';
 import { MasInformacionComponent } from './shipping-line/mas-informacion/mas-informacion.component';
 import { QueOfrecemosComponent } from './shipping-line/que-ofrecemos/que-ofrecemos.component';
+import { TransporteTerrestreComponent } from './shipping-line/servicios/transporte-terrestre/transporte-terrestre.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -262,7 +262,7 @@ export function momentAdapterFactory() {
     ContactoComponent,
     TransporteMaritimoComponent,
     TransporteAereoComponent,
-    ImportacionExportacionComponent,
+    TransporteTerrestreComponent,
     MasInformacionComponent,
     QueOfrecemosComponent
   ],

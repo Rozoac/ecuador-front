@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Power1, Bounce, Expo} from 'gsap/all';
-import * as THREE from 'three';
-
 declare var TweenMax: any;
 
 @Component({
@@ -11,22 +9,10 @@ declare var TweenMax: any;
 })
 export class InicioShippingLineComponent implements OnInit {
 
-  public scene = new THREE.Scene();
 
   constructor() {}
-  
+
   ngOnInit() {
-
-      this.generarRender();
-      this.generarSombras();
-
-      // const loader = new THREE.GLTFLoader();
-      // loader.load('scene.gltf', function(gltf) {
-      // const car = gltf.scene.children[0];
-      // car.scale.set(0.5,0.5,0.5);
-      // scene.add(gltf.scene);
-      // animate();
-      // });
 
 
 
@@ -124,37 +110,5 @@ TweenMax.from('.more', 2, {
       opacity: 0,
       ease: Expo.easeInOut
 });
-  }
-  generarRender() {
-      this.scene.background = new THREE.Color(0xdddddd);
-      const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight , 1 , 5000);
-      camera.rotation.y = 45 / 180 * Math.PI;
-      camera.position.x = 800;
-      camera.position.y = 100;
-      camera.position.z = 1000;
-      const renderer = new THREE.WebGLRenderer({antialias: true});
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-  }
-
-  generarSombras() {
-      const hlight = new THREE.AmbientLight (0x404040, 100);
-      this.scene.add(hlight);
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 100);
-      directionalLight.position.set(0, 1, 0);
-      directionalLight.castShadow = true;
-      this.scene.add(directionalLight);
-      const light = new THREE.PointLight(0xc4c4c4, 10);
-      light.position.set(0, 300, 500);
-      this.scene.add(light);
-      const light2 = new THREE.PointLight(0xc4c4c4, 10);
-      light2.position.set(500, 100, 0);
-      this.scene.add(light2);
-      const light3 = new THREE.PointLight(0xc4c4c4, 10);
-      light3.position.set(0, 100, -500);
-      this.scene.add(light3);
-      const light4 = new THREE.PointLight(0xc4c4c4, 10);
-      light4.position.set(-500, 300, 500);
-      this.scene.add(light4);
   }
 }
