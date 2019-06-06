@@ -167,6 +167,10 @@ import { TransporteAereoComponent } from './shipping-line/servicios/transporte-a
 import { MasInformacionComponent } from './shipping-line/mas-informacion/mas-informacion.component';
 import { QueOfrecemosComponent } from './shipping-line/que-ofrecemos/que-ofrecemos.component';
 import { TransporteTerrestreComponent } from './shipping-line/servicios/transporte-terrestre/transporte-terrestre.component';
+import { LogisticaIntegralComponent } from './shipping-line/servicios/logistica-integral/logistica-integral.component';
+import { IntermediacionAduaneraComponent } from './shipping-line/servicios/intermediacion-aduanera/intermediacion-aduanera.component';
+import { SegurosComponent } from './shipping-line/servicios/seguros/seguros.component';
+import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamientos/almacenamientos.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -264,7 +268,11 @@ export function momentAdapterFactory() {
     TransporteAereoComponent,
     TransporteTerrestreComponent,
     MasInformacionComponent,
-    QueOfrecemosComponent
+    QueOfrecemosComponent,
+    LogisticaIntegralComponent,
+    IntermediacionAduaneraComponent,
+    SegurosComponent,
+    AlmacenamientosComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),

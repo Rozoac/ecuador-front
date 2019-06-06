@@ -41,7 +41,8 @@
               "node_modules/wowjs/dist/wow.min.js",
               "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
               "node_modules/typed.js/lib/typed.min.js",
-              "node_modules/gsap/src/uncompressed/TweenMax.js"
+              "node_modules/gsap/src/uncompressed/TweenMax.js",
+              "node_modules/rellax/rellax.min.js"
             ]
           },
           "configurations": {

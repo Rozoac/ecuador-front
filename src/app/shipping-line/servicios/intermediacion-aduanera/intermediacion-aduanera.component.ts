@@ -1,12 +1,11 @@
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-transporte-terrestre',
-  templateUrl: './transporte-terrestre.component.html',
-  styleUrls: ['./transporte-terrestre.component.css']
+  selector: 'app-intermediacion-aduanera',
+  templateUrl: './intermediacion-aduanera.component.html',
+  styleUrls: ['./intermediacion-aduanera.component.css']
 })
-export class TransporteTerrestreComponent implements OnInit {
+export class IntermediacionAduaneraComponent implements OnInit {
 
   public rellax;
   public rellax_title;

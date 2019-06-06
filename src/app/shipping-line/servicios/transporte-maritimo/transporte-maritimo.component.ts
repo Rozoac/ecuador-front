@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-transporte-maritimo',
   templateUrl: './transporte-maritimo.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransporteMaritimoComponent implements OnInit {
 
-  constructor() { }
+  public rellax;
+  public rellax_title;
 
+  constructor() {  }
   ngOnInit() {
+    this.rellax = new Rellax('.rellax');
+    this.rellax = new Rellax('.rellax-title', {
+    });
+
   }
 
 }
