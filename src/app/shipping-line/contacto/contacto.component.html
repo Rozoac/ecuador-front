@@ -27,11 +27,12 @@
   </div>
   <div class="col-md-7">
     <div class="formulario">
-      <form action="">
-        <input type="text" placeholder="Nombre" >
-        <input type="text" placeholder="Correo">
-        <textarea placeholder="Mensaje" name="" id="" cols="30" rows="10"></textarea>
-        <button>Enviar</button>
+      <form ngValidate [formGroup]="forma" (submit)="sendEmail(message)" >
+        <input type="text" placeholder="Nombre" name="nombre" formControlName="nombre" [(ngModel)]="message.nombre">
+        <input type="text" placeholder="Telefono" name="cel" formControlName="cel" [(ngModel)]="message.cel">
+        <input type="email" placeholder="Correo" name="correo" formControlName="correo" [(ngModel)]="message.correo">
+        <textarea placeholder="Mensaje" name="" id="" cols="30" rows="10" [(ngModel)]="message.mensaje"></textarea>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   </div>

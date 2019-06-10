@@ -100,7 +100,7 @@ h2{
   .panel p, .project p {
     font-size: 1em;
     color: white;
-    display: block;
+    /* display: block; */
     margin: 11px 0 17px 0;
     line-height: 80px;
     font-family: 'bebas-bold';
@@ -118,7 +118,7 @@ h2{
 
 
   .sombra{
-    background: rgba(0, 0, 0, 0.2196078431372549);
+    background: rgba(0, 0, 0, 0.5);
   }
 
 
@@ -252,3 +252,52 @@ h2{
   }
   
 
+  @media screen and (max-width: 576px) { 
+    h2 {
+      font-size: 4em;
+      margin-top: 31px;
+    }
+    
+    .panel{
+      display: block;
+      margin-right: 0;
+    }
+
+  .panels{
+    display: inline;
+  }
+
+  #portfolio {
+    min-height: 43vh;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-template-rows: 1fr;
+
+  }
+
+  .este{
+    height: 130px;
+  }
+
+  .panel {
+    margin: 0;
+    width: 100%;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.panel .pointer {
+  display: none!important;
+}
+.project p {
+  letter-spacing: initial;
+}
+
+  }

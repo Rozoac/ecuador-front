@@ -201,3 +201,20 @@ svg{
 .contact-activo{
   border-bottom: 3px solid #3477d6;
 }
+
+@media screen and (max-width: 576px) {
+
+  .text-menu{
+      display: none!important;
+  }
+
+  .menus ul li {
+    font-size: 5vh;
+    line-height: 1.5;
+  }
+
+  .menus ul {
+    margin-top: 100%;
+  }
+
+}

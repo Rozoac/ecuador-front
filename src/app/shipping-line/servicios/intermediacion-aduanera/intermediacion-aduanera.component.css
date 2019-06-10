@@ -170,6 +170,38 @@ p{
   .volver span{
     color: #fff;
   }
+
+  @media screen and (max-width: 576px) {
+
+    .conocenos {
+      margin-top: 3em;
+    }
+    .conocenos .header h2 {
+      z-index: 2;
+      font-size: 3em;
+    }
+    .movil-bottom{
+      margin-top: 43em;
+    }
+  
+    .contacto h4 {
+      position: absolute;
+      font-size: 4rem;
+      bottom: -50px;
+    }
+  
+    .aliados{
+      margin-top: 200px;
+    }
+    p {
+      margin-top: 70px;
+  }
+
+  .contacto .col-md-12 .wrapper {
+    margin-top: 50px;
+  }
+  
+  }
   
 
   

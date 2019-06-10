@@ -151,17 +151,6 @@ height: 100vh;
     animation-delay: 4.2s;
 }
 
-@media(max-width: 900px) {
-    .left-col {
-          width: 100%;
-    }
-    .right-col {
-          top: 100%;
-          left: 0%;
-          width: 100%;
-    }
-
-}
 
 .logo {
     color: #fff;
@@ -202,7 +191,7 @@ height: 100vh;
     opacity: 0;
     animation: appear-text 0.0001s linear forwards;
     animation-delay: 2.6s;
-
+    
 }
 
 .data {
@@ -320,43 +309,43 @@ height: 100vh;
 }
 
 .block-cover::after {
-   content: '';
-   top: 0;
-   left: 0;
-   position: absolute;
-   width: 0%;
-   height: 100%;
-   background: #4f4538;
-   animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-   animation-delay: 2s;
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: #4f4538;
+    animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: 2s;
 }
 
 @keyframes rev-block {
-
-   0% {
+    
+    0% {
         left: 0;
         width: 0%;
-   }
-   50% {
+    }
+    50% {
         left: 0;
         width: 100%;
-   }
-   100% {
+    }
+    100% {
         left: 100%;
         width: 0%;
-   }
-
+    }
+    
 }
 
 @keyframes appear-text {
-
-   0% {
+    
+    0% {
         opacity: 0;
-   }
-   100% {
+    }
+    100% {
         opacity: 1;
-   }
-
+    }
+    
 }
 
 .upper-block {
@@ -366,15 +355,15 @@ height: 100vh;
 }
 
 .upper-block::after {
-   content: '';
-   top: 0;
-   left: 0;
-   position: absolute;
-   width: 0%;
-   height: 100%;
-   background: #9a8b78;
-   animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-   animation-delay: 2.4s;
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: #9a8b78;
+    animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: 2.4s;
 }
 
 .block-bottom {
@@ -385,15 +374,15 @@ height: 100vh;
 }
 
 .block-bottom::after {
-   content: '';
-   top: 0;
-   left: 0;
-   position: absolute;
-   width: 0%;
-   height: 100%;
-   background: antiquewhite;
-   animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-   animation-delay: 3.6s;
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: antiquewhite;
+    animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: 3.6s;
 }
 
 
@@ -451,8 +440,73 @@ button{
     display: flex;
     justify-content: left;
     font-size: 3em;
-
+    
 }    
 .contacto .col-md-5 ul li  {
     margin-right: 20px;
 }    
+
+@media screen and (max-width: 576px) {
+
+    .page{
+        margin-top: 10%;
+        height: initial;
+    }
+
+
+    .left-col{
+        width: 100%!important;
+        height: 200px;
+        margin-bottom: 2%;
+    }
+     .right-col{
+        padding: 0;
+    }
+     .upper {
+        height: 200px;
+    }
+    .upper-block {
+        height: 200px;
+    }
+    .about{
+        top: 72%;
+    }
+    
+.camion {
+    width: 120px;
+    bottom: 171px;
+    left: 78%;
+    top: 29.8%;
+}
+
+    .bottom, .block-bottom {
+        top: 29.8%;
+        height: 200px;
+    }
+
+    .conocenos .header h2 {
+        font-size: 5em;
+    }
+    .valores-seccion ul li {
+        font-size: 1em;
+    }
+
+    /* contactanos */
+    .contacto {
+        margin-top: 20%;
+    }
+    .formulario {
+        width: 55vw;
+        margin-bottom: 5%;    }
+}
+@media(max-width: 900px) {
+    .left-col {
+        width: 100%;
+    }
+    .right-col {
+        top: 100%;
+        left: 0%;
+        width: 100%;
+    }
+}
+    

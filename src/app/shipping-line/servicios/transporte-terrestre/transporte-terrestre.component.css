@@ -289,6 +289,43 @@ p{
       transform: translateX(-2000px);
     }
   }
+
+
+  @media screen and (max-width: 576px) {
+
+    .conocenos {
+      margin-top: 3em;
+    }
+    .conocenos .header h2 {
+      z-index: 2;
+      font-size: 2.5em;
+    }
+    .movil-bottom{
+      margin-top: 43em;
+    }
+  
+    .contacto h4 {
+      position: absolute;
+      font-size: 4rem;
+      bottom: 120px;
+    }
+  
+    .aliados{
+      margin-top: 200px;
+    }
+
+    .text-left {
+      font-size: 1em;
+  }
+
+  .contacto h4 {
+    bottom: -20px;
+}
+.contacto .col-md-12 .wrapper {
+  margin-top: 50px;
+}
+  
+  }
   
   
   

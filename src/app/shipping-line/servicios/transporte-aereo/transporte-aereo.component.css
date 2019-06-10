@@ -256,6 +256,45 @@ p{
   .volver span{
     color: #fff;
   }
+
+
+  @media screen and (max-width: 576px) {
+
+    .conocenos {
+      margin-top: 3em;
+    }
+    .conocenos .header h2 {
+      z-index: 2;
+      font-size: 4.5em;
+    }
+    .movil-bottom{
+      margin-top: 43em;
+    }
+  
+    .contacto h4 {
+      position: absolute;
+      font-size: 4rem;
+      bottom: -60px;
+  }
+  .wrapper {
+    margin-top: 90px;
+}
+  
+  
+    .aliados{
+      margin-top: 200px;
+    }
+
+    .contacto h4 {
+      font-size: 4rem;
+  }
+  .text-left {
+    margin-top: 90px;
+}
+  
+  }
+
+
   
   
 

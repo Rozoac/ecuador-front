@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SegurosComponent implements OnInit {
 
-  constructor() { }
+  public rellax;
+  public rellax_title;
 
+  constructor() {  }
   ngOnInit() {
-  }
+    this.rellax = new Rellax('.rellax');
+    this.rellax = new Rellax('.rellax-title', {
+    });
 
+  }
 }

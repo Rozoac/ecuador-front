@@ -21,49 +21,49 @@ export class InicioShippingLineComponent implements OnInit {
       ease: Expo.easeInOut
 });
 TweenMax.from('.logo', 2, {
-      delay: 2.5,
+      delay: 2,
       y: 20,
       opacity: 0,
       ease: Expo.easeInOut
 });
 TweenMax.from('.buy', 2, {
-      delay: 2.8,
+      delay: 2.3,
       y: 20,
       opacity: 0,
       ease: Expo.easeInOut
 });
 TweenMax.from('.year', 2, {
-      delay: 3.1,
-      y: 20,
-      opacity: 0,
-      ease: Expo.easeInOut
-});
-TweenMax.from('.album-name', 2, {
-      delay: 2.4,
-      y: 20,
-      opacity: 0,
-      ease: Expo.easeInOut
-});
-TweenMax.from('.album-artist', 2, {
       delay: 2.6,
       y: 20,
       opacity: 0,
       ease: Expo.easeInOut
 });
+TweenMax.from('.album-name', 2, {
+      delay: 2,
+      y: 20,
+      opacity: 0,
+      ease: Expo.easeInOut
+});
+TweenMax.from('.album-artist', 2, {
+      delay: 2.2,
+      y: 20,
+      opacity: 0,
+      ease: Expo.easeInOut
+});
 TweenMax.from('.about h1', 2, {
-      delay: 3,
+      delay: 2.7,
       y: 20,
       opacity: 0,
       ease: Expo.easeInOut
 });
 TweenMax.from('.album-name2', 2, {
-      delay: 3.2,
+      delay: 2.9,
       y: 20,
       opacity: 0,
       ease: Expo.easeInOut
 });
 TweenMax.from('.album-artist2', 2, {
-      delay: 3.4,
+      delay: 3.1,
       y: 20,
       opacity: 0,
       ease: Expo.easeInOut
