@@ -8,7 +8,7 @@ declare var $: any;
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
-
+  pais;
   title: string = 'My first AGM project';
   latCali: number = 3.4382475;
   lngCali: number = -76.5304554;
@@ -20,6 +20,14 @@ export class MapaComponent implements OnInit {
   lngManizales: number = -75.518285;
   latMedellin: number = 6.206960;
   lngMedellin: number = -75.564878;
+  latMapa: number = -2.892183;
+  lngMapa: number = -79.0243997;
+  latQuito: number = -0.2017126;
+  lngQuito: number = -78.4847716;
+  latQuito2: number = -0.1977709;
+  lngQuito2: number = -78.4813194;
+  latGuayaquil: number = -2.0884538;
+  lngGuayaquil: number = -79.944177;
   zoom: number = 6;
   // zoomControl = false;
   zoomControlOptions: ZoomControlOptions = {
@@ -35,6 +43,10 @@ export class MapaComponent implements OnInit {
 
 
   constructor() {
+    this.pais = localStorage.getItem('pais');
+    if (this.pais === 'Ecuador') {
+      this.zoom = 7;
+    }
   }
 
   ngOnInit() {

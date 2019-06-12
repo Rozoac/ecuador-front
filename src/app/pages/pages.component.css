@@ -18,6 +18,14 @@ a {
     display: none;
 }
 
+.bandera-pais{
+    padding: 0 12px;
+}
+
+.bandera-imagen {
+    width: 40px;
+}
+
 .modal-principal{
     position: fixed;
     top: 0;

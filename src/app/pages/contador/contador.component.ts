@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ContadorService } from '../../service/contador.service';
+import { GeolocalizacionService } from '../../service/geolocalizacion.service';
 
 declare var jQuery: any;
 declare var $: any;
@@ -11,13 +12,16 @@ declare var $: any;
 })
 
 export class ContadorComponent implements OnInit {
+  pais;
   nuestroEquipo: any ;
   clientesColombia: any ;
   entregasConcretadas: any ;
   proyectosTerminados: any ;
   loading: Boolean = false;
 
-  constructor( public _contadorService: ContadorService ) {}
+  constructor( public _contadorService: ContadorService) {
+    this.pais = localStorage.getItem('pais');
+  }
 
   ngOnInit() {
     this.nuestroEquipo = 78;

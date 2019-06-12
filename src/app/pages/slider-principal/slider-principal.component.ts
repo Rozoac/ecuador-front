@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TimerObservable } from "rxjs/observable/TimerObservable";
-import { Subscription } from "rxjs";
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { Subscription } from 'rxjs';
 declare var $: any;
 
 @Component({
@@ -10,8 +10,11 @@ declare var $: any;
 })
 export class SliderPrincipalComponent implements OnInit {
   private subscription: Subscription;
+  public pais;
 
-  constructor() { }
+  constructor( ) {
+    this.pais = localStorage.getItem('pais');
+   }
 
   ngOnInit() {
 

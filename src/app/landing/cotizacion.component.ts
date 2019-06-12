@@ -5,7 +5,6 @@ import { CorreoService, IMessage, Ciudad } from '../service/correo.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { LandingService } from '../services/landing.service';
 import { Payu } from '../models/payu.model';
 import { PayuService } from '../service/payu.service';

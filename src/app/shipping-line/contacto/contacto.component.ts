@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
+import { LandingService } from '../../services/landing.service';
+import { TipoCliente } from '../../models/tipoCliente.model';
+import { IMessage } from '../../service/correo.service';
+import { LeadService } from '../../service/lead/lead.service';
 
 
 @Component({
@@ -9,30 +13,92 @@ import swal from 'sweetalert2';
   styleUrls: ['../shipping-line.component.css']
 })
 export class ContactoComponent implements OnInit {
+  public ciudades;
+  public tiposDeCliente;
 
+  tipoId = 1;
+  tipoCliente: TipoCliente[] = [ {tipo: 'Natural' }, {tipo: 'Empresa', nombre: '' }, {tipo: 'Contratación estatal' , nombre: ''}];
   forma: FormGroup;
-  message = {
-    nombre: '',
-    cel: '',
-    correo: '',
-    mensaje: ''
+  message: IMessage = {
+    documento: {
+      tipo_documento: '',
+      numero: ''
+    },
+    id_ciudad: '¿Cual es tu ciudad mas cercana?',
+    tipo_cliente: {
+      tipo: 'Tipo de cliente',
+      nombre: ''
+    },
+    id_segmento: '¿En que estas interesado?',
+    modalidad: '¿Lo quieres para?',
+    id_pais: '5c3ce3835d14850017167207',
+    fuente: 'Landing'
   };
 
-  constructor() {
+  constructor(public _landingService: LandingService, public _leadService: LeadService) {
     this.forma = new FormGroup(
       {
         nombre: new FormControl('', Validators.required),
+        apellido: new FormControl('', Validators.required),
+        id_ciudad: new FormControl(
+          '¿Cual es tu ciudad mas cercana?',
+          Validators.required
+        ),
         cel: new FormControl('', [
           Validators.required,
           Validators.pattern('[0-9]{1,10}'),
           Validators.minLength(10)
         ]),
+        id_segmento: new FormControl(
+          '¿En que estas interesado?',
+          Validators.required
+        ),
         correo: new FormControl('', [
           Validators.required,
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')
         ]),
+        modalidad: new FormControl('¿Lo quieres para?', Validators.required),
+        tipo_cliente: new FormControl('Tipo de cliente', Validators.required),
+        autorizo: new FormControl(''),
         mensaje: new FormControl(),
-      });
+        cedula: new FormControl(),
+        nit: new FormControl()
+      },
+      {
+        validators: this.validacionCampos(
+          'id_ciudad',
+          'id_segmento',
+          'modalidad',
+          'tipo_cliente'
+        )
+      }
+    );
+  }
+
+  validacionCampos(
+    campo1: string,
+    campo2: string,
+    campo3: string,
+    campo4: string
+  ) {
+    return (group: FormGroup) => {
+      const id_ciudad = group.controls[campo1].value;
+      const id_segmento = group.controls[campo2].value;
+      const para = group.controls[campo3].value;
+      const cliente = group.controls[campo4].value;
+
+      if (
+        id_ciudad !== '¿Cual es tu ciudad mas cercana?' &&
+        id_segmento !== '¿En que estas interesado?' &&
+        para !== '¿Lo quieres para?' &&
+        cliente !== 'Tipo de cliente'
+      ) {
+        return null;
+      }
+      return {
+        validado: true
+      };
+    };
   }
 
   sendEmail(message) {
@@ -45,25 +111,44 @@ export class ContactoComponent implements OnInit {
       return;
     }
 
-    this.appService.sendEmail(message).subscribe(
-      res => {
-        console.log(res);
-        console.log(message);
-        console.log('AppComponent Success', res);
-        localStorage.setItem('comercial', JSON.stringify(res));
-        this.router.navigate(['gracias']);
-      },
-      error => {
-        swal({
-          type: 'error',
-          title: `error ${error.message}`,
-          showConfirmButton: true
-        });
-      }
-    );
+    // this.appService.sendEmail(message).subscribe(
+    //   res => {
+    //     console.log(res);
+    //     console.log(message);
+    //     console.log('AppComponent Success', res);
+    //     localStorage.setItem('comercial', JSON.stringify(res));
+    //     this.router.navigate(['gracias']);
+    //   },
+    //   error => {
+    //     swal({
+    //       type: 'error',
+    //       title: `error ${error.message}`,
+    //       showConfirmButton: true
+    //     });
+    //   }
+    // );
   }
 
+
+  onEvent(evento) {
+    if ((evento.source.value.tipo === 'Natural') && (evento.isUserInput = true)) {
+      this.message.documento.tipo_documento = 'Cedula';
+      console.log(this.message);
+    return;
+  } if ((evento.source.value.tipo !== 'Natural' && (evento.isUserInput = true)) ) {
+     this.message.documento.tipo_documento = 'NIT';
+  }
+  console.log(evento);
+  // return;
+}
+
   ngOnInit() {
+    this._landingService.getCiudades().subscribe((res: any) => {
+      this.ciudades = res.ciudades;
+     });
+     this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+      this.tiposDeCliente = res.tipoCliente;
+    });
   }
 
 }

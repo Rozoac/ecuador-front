@@ -144,7 +144,7 @@
 
                             </ul>
                         </a>
-                        <div ngbDropdown class="d-none d-lg-block">
+                        <!-- <div ngbDropdown class="d-none d-lg-block" *ngIf="pais === 'Colombia'">
                             <button class=" transparente pbx idioma-b btn dropdown-toggle"  id="dropdownBasic1" ngbDropdownToggle>
                                 PBX:
                             </button>
@@ -156,6 +156,15 @@
                                 <a class="dropdown-item" href="tel:0356939833">CARTAGENA: (5) 6939833</a>
                                 <a class="dropdown-item" href="tel:0353852330">BARRANQUILLA: (5) 3852330</a>
                             </div>
+                        </div> -->
+                        <div ngbDropdown class="d-none d-lg-block" >
+                            <button class=" transparente pbx idioma-b btn dropdown-toggle"  id="dropdownBasic1" ngbDropdownToggle>
+                                PBX:
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <a class="dropdown-item" href="tel:1700400407">QUITO: 1700400407</a>
+                                    <a class="dropdown-item" href="tel:1700400407">GUAYAQUIL: 1700400407</a>
+                                </div>
                         </div>
                     </div>
 
@@ -167,10 +176,10 @@
 
                     <div class="derecha ">
                         <div ngbDropdown class="dropdown d-md-none d-lg-none d-xl-none">
-                            <button class=" transparente pbx idioma-b btn dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>
+                            <button class=" transparente pbx idioma-b btn dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle >
                                 PBX:
                             </button>
-                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1" >
                                 <a class="dropdown-item" href="tel:0317462065">BOGOTÁ: (1) 7462065</a>
                                 <a class="dropdown-item" href="tel:0346049441">MEDELLÍN: (4) 6049441</a>
                                 <a class="dropdown-item" href="tel:0368918650">MANIZALES: (6) 8918650</a>
@@ -178,19 +187,22 @@
                                 <a class="dropdown-item" href="tel:0356939833">CARTAGENA: (5) 6939833</a>
                                 <a class="dropdown-item" href="tel:0353852330">BARRANQUILLA: (5) 3852330</a>
                             </div>
+
+                            
                         </div>
-                        <div class="dropdown ">
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">
-                                    <span class="hidden-sm-down">Español</span>
-                                    <img class="bandera" src="assets/imgs/colombia.png" alt="">
-                                </a>
-                                <a  class="dropdown-item">
-                                    <span class="hidden-sm-down">English</span>
-                                    <img class="bandera2" src="assets/imgs/united-states.png" alt="">
-                                </a>
-                            </div>
-                        </div>
+                        <!-- <div ngbDropdown class="dropdown d-md-none d-lg-none d-xl-none" *ngIf="pais === 'Ecuador'">
+                            <button class=" transparente pbx idioma-b btn dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle >
+                                PBX:
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <a class="dropdown-item" href="tel:1700400407">QUITO: 1700400407</a>
+                                    <a class="dropdown-item" href="tel:1700400407">GUAYAQUIL: 1700400407</a>
+                                   
+                                </div>
+
+                            
+                        </div> -->
+                
                         <a pageScroll [routerLink]="['/home']" href="#2" class="portafolio-a link-hover btn d-none d-lg-block">
                             Portafolio
                         </a>
@@ -200,6 +212,18 @@
                         <a pageScroll [pageScrollDuration]="1000" [routerLink]="['/home']" href="#9" class="idioma-a btn  d-none d-lg-block" id="dropdownMenuButton">
                             Contacto
                         </a>
+                        <!-- <div ngbDropdown class="d-none d-lg-block">
+                                <button class=" transparente bandera-pais idioma-b btn dropdown-toggle"  id="dropdownBasic1" ngbDropdownToggle>
+                                        <img class="bandera-imagen" src="assets/imgs/flags/{{pais}}.png" alt=""> {{(pais == 'Colombia')? 'COL' : 'ECU'}}                                </button>
+                                
+                                <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <ng-container *ngFor="let bandera of banderas">
+                                        <div *ngIf="bandera != pais">
+                                            <a (click)="cambiarPais(bandera)" class="dropdown-item pointer"><img  class="bandera-imagen pointer" src="assets/imgs/flags/{{bandera}}.png" alt=""> {{bandera}}</a>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div> -->
                     </div>
                 </div>
             </nav>
