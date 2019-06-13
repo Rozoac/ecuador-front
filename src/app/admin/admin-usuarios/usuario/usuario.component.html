@@ -68,7 +68,7 @@
       <div class="card " style=" min-height: 383px;">
         <div class="card-body" align="center">
           <h4 class="card-title">Foto del usuario</h4>
-          <img [ngStyle]="{'filter': estadoUsuario(usuario?.estado)}" *ngIf="imagenActual"[src]="imagenActual" class="foto mb-2 wow flipInY" data-wow-duration="1s" > 
+          <img [ngStyle]="{'filter': estadoUsuario(usuario?.estado)}" *ngIf="imagenActual" [src]="imagenActual" class="foto mb-2 wow flipInY" data-wow-duration="1s" > 
           <img [ngStyle]="{'filter': estadoUsuario(usuario?.estado)}"  *ngIf="!imagenActual" [src]="usuario?.imagen" class="foto mb-2 wow flipInY" data-wow-duration="1s"> 
           <input (change)="seleccionImagen( $event.target.files[0] )" type="file">
           <br>

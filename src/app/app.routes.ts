@@ -53,6 +53,7 @@ import { IntermediacionAduaneraComponent } from './shipping-line/servicios/inter
 import { SegurosComponent } from './shipping-line/servicios/seguros/seguros.component';
 import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamientos/almacenamientos.component';
 import { LogisticaIntegralComponent } from './shipping-line/servicios/logistica-integral/logistica-integral.component';
+import { ReeferComponent } from './reefer/reefer/reefer.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -86,8 +87,12 @@ const APP_ROUTES: Routes = [
             { path: 'seguros', component: SegurosComponent },
             { path: 'almacenamiento', component: AlmacenamientosComponent },
             { path: '', redirectTo: 'inicio' , pathMatch: 'full' },
+          ]},
+        {
+           path: 'reefer',
+           component: ReeferComponent
 
-        ] },
+        },
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
