@@ -214,7 +214,6 @@ input,label,select{
 
 
 /*movil*/
-
 .text__background-movil {
     position: absolute;
     left: 35px;
@@ -273,6 +272,38 @@ li {
     left: 27.5%;
     z-index: 3;
 }
+
+
+/*REEFER STYLES*/
+.reefer-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-content: center !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* iPhones(landscape) ----------- */
+@media only screen and (min-width: 375px) {
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Tablets small laptops ----------- */
+@media (min-width: 960px) {
+
+}
+
+/* Laptops ----------- */
+@media only screen and (min-width: 1200px) {
+
+}
+
 
 @media (max-width: 576px) {
     .owl-dots {
