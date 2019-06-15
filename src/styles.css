@@ -74,10 +74,150 @@
     font-family: 'CenturyGothic';
     src: url('assets/fonts/century-gothic/CenturyGothic.ttf');
 }
+
 @font-face {
     font-family: 'CenturyGothic-bold';
     src: url('assets/fonts/century-gothic/bold.ttf');
 }
+
+@font-face {
+    font-family: 'SupermolotNeue-bold';
+    src: url('assets/fonts/TTSupermolotNeue-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'SupermolotNeue-regular';
+    src: url('assets/fonts/TTSupermolotNeue-Regular.ttf');
+}
+
+.ec-font-supermolo-regular {
+    font-family: 'SupermolotNeue-regular' !important;
+}
+
+.ec-font-supermolo-bold {
+    font-family: 'SupermolotNeue-bold' !important;
+}
+
+/*COLOR*/
+.ec-reefer-color-blue-dark {
+    color: #37505D !important;
+}
+
+.ec-color-white {
+    color: white !important;
+}
+
+/*MARGIN*/
+.ec-margin-remove {
+	margin: 0px !important;
+}
+
+.ec-margin-center {
+	margin: 0 auto !important;
+}
+
+.ec-margin-small {
+	margin: 20px
+}
+
+.ec-margin-medium {
+	margin: 30px
+}
+
+.ec-margin-large {
+	margin: 40px
+}
+
+.ec-margin-top-zero {
+  margin-top: 0px !important;
+}
+
+.ec-margin-top-xsmall {
+	margin-top: 5px !important;
+}
+
+.ec-margin-top-small {
+	margin-top: 20px !important;
+}
+
+.ec-margin-top-medium {
+	margin-top: 30px !important;
+}
+
+.ec-margin-top-large {
+	margin-top: 40px !important;
+}
+
+.ec-margin-top-xlarge {
+	margin-top: 60px !important;
+}
+
+.ec-margin-right-xsmall {
+	margin-right: 5px !important;
+}
+
+.ec-margin-right-small {
+	margin-right: 20px !important;
+}
+
+.ec-margin-right-medium {
+	margin-right: 30px !important;
+}
+
+.ec-margin-right-large {
+	margin-right: 40px !important;
+}
+
+.ec-margin-bottom-xsmall {
+	margin-bottom: 5px !important;
+}
+
+.ec-margin-bottom-small {
+	margin-bottom: 20px !important;
+}
+
+.ec-margin-bottom-medium {
+	margin-bottom: 30px !important;
+}
+
+.ec-margin-bottom-large {
+	margin-bottom: 40px !important;
+}
+
+.ec-margin-bottom-xlarge {
+	margin-bottom: 60px !important;
+}
+
+.ec-margin-bottom-zero {
+	margin-bottom: 0px !important;
+}
+
+.ec-margin-left-xsmall {
+	margin-left: 5px !important;
+}
+
+.ec-margin-left-small {
+	margin-left: 20px !important;
+}
+
+.ec-margin-left-medium {
+	margin-left: 30px !important;
+}
+
+.ec-margin-left-large {
+	margin-left: 40px !important;
+}
+
+.ec-margin-left-zero {
+	margin-left: 0px !important;
+}
+
+.reefer-actions button {
+  background-color: #37505D !important;
+  color: white !important;
+  margin-right: 10px !important;
+}
+
 
   .ps .ps__scrollbar-y-rail {
     left: 3px;
@@ -123,6 +263,29 @@ h6 {
    margin-top: 20px !important;
 }
 
+.ec-margin-bottom-small {
+    margin-bottom: 10px !important;
+ }
+
+ /*REFFER PAGE*/
+
+ .reefer-banner img{
+    position: absolute;
+    right: -85px;
+ }
+
+/*TEXT ALIGN*/
+.ec-text-align-center {
+    text-align: center !important;
+}
+ /*TEXT ALIGN*/
+ .ec-text-align-right {
+     text-align: right !important;
+  }
+  /*LINE HEIGHT*/
+  .ec-line-height-normal {
+    line-height: 55px !important;
+  }
 .font-bebas{
     font-family: 'bebas-bold'!important;
 }
@@ -273,15 +436,36 @@ li {
     z-index: 3;
 }
 
+.ec-container {
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+}
+
 
 /*REEFER STYLES*/
 .reefer-header {
   display: flex !important;
   justify-content: space-between !important;
-  align-content: center !important;
-  padding-left: 20px;
-  padding-right: 20px;
+  align-items: center !important;
 }
+
+/*Responsive Hide*/
+.hide-on-mobile {
+	display: none !important;
+}
+
+.hide-on-desktop {
+	display: block !important;
+}
+
+  /*FONT SIZES*/
+  .ec-text-banner-title {
+    font-size: 50px !important;
+  }
+
+  .ec-text-banner-subtitle {
+    font-size: 25px !important;
+  }
 
 
 /* iPhones(landscape) ----------- */
@@ -292,15 +476,55 @@ li {
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 768px) {
 
+    /*REEFER BUTTON*/
+    .ec-container {
+        padding-left: 55px !important;
+        padding-right: 55px !important;
+        margin: 0 auto;
+        width: 7600px;
+    }
+
+    /*FONT SIZES*/
+    .ec-text-banner-title {
+      font-size: 60px !important;
+    }
+
+  .ec-text-banner-subtitle {
+    font-size: 30px !important;
+  }
+
+    .reefer-banner .titles {
+        margin-top: 100px !important;
+    }
+
+    /*Responsive Hide*/
+    .hide-on-mobile {
+	  display: block !important;
+    }
+
+       .hide-on-desktop {
+	    display: none!important;
+    }
+
 }
 
 /* Tablets small laptops ----------- */
 @media (min-width: 960px) {
+    .reefer-banner img {
+        width: 460px !important;
+    }
 
+    .reefer-banner img{
+      right: -105px !important;
+    }
 }
 
 /* Laptops ----------- */
 @media only screen and (min-width: 1200px) {
+
+    .reefer-banner img {
+        width: 560px !important;
+    }
 
 }
 

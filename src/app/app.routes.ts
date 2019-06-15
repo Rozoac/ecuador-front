@@ -55,6 +55,8 @@ import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamien
 import { LogisticaIntegralComponent } from './shipping-line/servicios/logistica-integral/logistica-integral.component';
 import { ReeferComponent } from './reefer/reefer/reefer.component';
 
+import { HomeComponent } from './reefer/home/home.component';
+
 const APP_ROUTES: Routes = [
   {
           path: '',
@@ -90,7 +92,14 @@ const APP_ROUTES: Routes = [
           ]},
         {
            path: 'reefer',
-           component: ReeferComponent
+           component: ReeferComponent,
+           children: [
+             {
+              path: 'inicio',
+              component: HomeComponent
+             },
+             { path: '', redirectTo: 'inicio' , pathMatch: 'full' }
+           ]
 
         },
           { path: 'tailor-made', component: TailorMadeComponent },

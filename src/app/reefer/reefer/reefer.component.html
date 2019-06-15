@@ -1,22 +1,35 @@
 
-<div class="degradado-homepage">
-<div class="reefer-header">
-  <div>
-    <img class="logo" src="../../../assets/images/logo-reefer.png" alt="">
-  </div>
-  <div class="reefer-nav">
-    <a class="link-1"> INICIO </a>
-    <a class="link-1"> PRODUCTOS Y SERVICIO</a>
-    <a class="link-1"> NOSOTROS</a>
-    <a class="link-1"> CONTACTO</a>
-  </div>
-  <div class="social-menu">
-    <a>instagram</a>
-    <a>facebook</a>
-    <a>twiter</a>
-  </div>
-</div>
-</div>
+<div class="degradado-homepage ec-container ec-font-supermolo-regular">
+  <div class="reefer-header ec-margin-bottom-small">
+    <div class="reefer-nav">
+      <img class="logo" src="../../../assets/images/logo-reefer.png" alt="" />
+    </div>
+    <div class="reefer-nav hide-on-mobile">
+      <a routerLinkActive="reefer-activo" routerLink="/" class="link-1"> INICIO </a>
+      <a routerLinkActive="reefer-activo" class="link-1">
+           PRODUCTOS Y SERVICIO
+          <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
+      </a>
 
-<router-outlet></router-outlet>
+      <a routerLinkActive="reefer-activo" class="link-1"> NOSOTROS</a>
+      <a routerLinkActive="reefer-activo" class="link-1"> CONTACTO</a>
+    </div>
+    <div  [matMenuTriggerFor]="menu" class="hide-on-desktop menu">
+      <a  class="menu ec-font-supermolo-regular ec-margin-right-xsmall">MENU</a>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <mat-menu #menu="matMenu" class="menu-mobile">
+      <button mat-menu-item class="ec-reefer-color-blue-dark">Inicio</button>
+      <button mat-menu-item class="ec-reefer-color-blue-dark ">Productos y servicios</button>
+      <button mat-menu-item class="ec-reefer-color-blue-dark ">Nosotros</button>
+      <button mat-menu-item class="ec-reefer-color-blue-dark ">Contacto</button>
+    </mat-menu>
+    <div class="social-menu hide-on-mobile">
+      <img class="logo" src="../../../assets/images/reefer-instagram.png" alt="">
+      <img class="logo" src="../../../assets/images/reefer-facebook.png" alt="">
+      <img class="logo" src="../../../assets/images/reefer-youtube.png" alt="">
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
 

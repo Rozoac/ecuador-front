@@ -10,6 +10,8 @@ import { TypingAnimationDirective } from 'angular-typing-animation';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxAutoScrollModule } from 'ngx-auto-scroll';
+import {MatMenuModule } from '@angular/material/menu';
+
 registerLocaleData(localeEs);
 
 import { APP_ROUTING } from './app.routes';
@@ -172,6 +174,7 @@ import { IntermediacionAduaneraComponent } from './shipping-line/servicios/inter
 import { SegurosComponent } from './shipping-line/servicios/seguros/seguros.component';
 import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamientos/almacenamientos.component';
 import { ReeferComponent } from './reefer/reefer/reefer.component';
+import { HomeComponent } from './reefer/home/home.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -274,7 +277,8 @@ export function momentAdapterFactory() {
     IntermediacionAduaneraComponent,
     SegurosComponent,
     AlmacenamientosComponent,
-    ReeferComponent
+    ReeferComponent,
+    HomeComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -283,6 +287,7 @@ export function momentAdapterFactory() {
     MatButtonModule,
     NgxAutoScrollModule,
     MatPaginatorModule,
+    MatMenuModule,
     HttpClientJsonpModule,
     MatButtonToggleModule,
     MatSelectModule,

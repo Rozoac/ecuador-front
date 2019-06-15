@@ -1,0 +1,47 @@
+
+
+.background-logo {
+    background: url('../../../assets/images/logo-grande.png');
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.scroll img {
+  width: 40px !important;
+  height: 40px !important;
+  margin:  0 auto !important;
+  text-align: center !important;
+}
+
+.contenedor {
+  margin-top: 20px !important;
+}
+
+.scroll {
+    margin-top: -90px !important;
+    text-align: center !important;
+    position: relative;
+    z-index: -1 !important;
+}
+
+
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 768px) {
+    .background-logo {
+        height: 700px;
+    }
+
+    .contenedor {
+        margin-top: 0px !important;
+      }
+
+}
+/* Tablets small laptops ----------- */
+@media (min-width: 960px) {
+}
+
+/* Laptops ----------- */
+@media only screen and (min-width: 1200px) {
+
+}
