@@ -24,19 +24,47 @@
     z-index: -1 !important;
 }
 
+.reefer-card-about-us img{
+  max-width: 80px !important;
+  text-align: center !important;
+}
 
+.reefer-card-about-us {
+  text-align: center !important;
+}
+
+.reefer-card-about-us h1 {
+  font-size: 18px !important;
+}
+
+.card-border-right {
+  border-right: none;
+}
+
+.section-our {
+  margin-top: 330px !important;
+}
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 768px) {
     .background-logo {
-        height: 700px;
+      height: 700px;
+    }
+
+    .card-border-right {
+        border-right: 1px solid #37505D !important;
+      }
+
+
+    .section-our {
+      margin-top: 50px !important;
     }
 
     .contenedor {
-        margin-top: 0px !important;
-      }
-
+      margin-top: 0px !important;
+    }
 }
+
 /* Tablets small laptops ----------- */
 @media (min-width: 960px) {
 }
