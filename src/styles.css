@@ -98,6 +98,18 @@
     font-family: 'SupermolotNeue-bold' !important;
 }
 
+.ec-display-flex {
+    display: flex !important;
+}
+
+.ec-padding-bottom-small {
+    padding-bottom: 20px !important;
+}
+
+.ec-background-dark {
+  background-color: #37505D !important;
+}
+
 /*COLOR*/
 .ec-reefer-color-blue-dark {
     color: #37505D !important;
@@ -105,6 +117,15 @@
 
 .ec-color-white {
     color: white !important;
+}
+
+.ec-color-reefer {
+    color: rgb(141, 194, 221) !important;
+}
+
+/*FLEX*/
+.ec-align-self-center {
+    align-self: center !important;
 }
 
 /*MARGIN*/
@@ -274,6 +295,11 @@ h6 {
     right: -85px;
  }
 
+
+ .ec-margin-bottom-small {
+   margin-bottom: 40px !important; 
+ }
+
 /*TEXT ALIGN*/
 .ec-text-align-center {
     text-align: center !important;
@@ -309,9 +335,6 @@ input,label,select{
    padding-top: 30px;
 }
 
-.ec-margin-right-xsmall {
-    margin-right: 10px !important;
-}
 
 .ec-margin-right-xsmall {
     margin-right: 5px;
@@ -386,6 +409,10 @@ input,label,select{
     font-weight: 700;
 }
 
+.ec-cursor-pointer {
+    cursor: pointer;
+}
+
 span,
 input,
 textarea,
@@ -437,10 +464,9 @@ li {
 }
 
 .ec-container {
-    padding-left: 35px !important;
-    padding-right: 35px !important;
+  padding-left: 35px !important;
+  padding-right: 35px !important;
 }
-
 
 /*REEFER STYLES*/
 .reefer-header {
@@ -454,9 +480,9 @@ li {
 	display: none !important;
 }
 
-.hide-on-desktop {
-	display: block !important;
-}
+   .hide-on-desktop {
+	 display: block !important;
+   }
 
   /*FONT SIZES*/
   .ec-text-banner-title {
@@ -467,21 +493,57 @@ li {
     font-size: 25px !important;
   }
 
+  .ec-background-color-white {
+      background-color: #fff !important;
+  }
+
+  .ec-reefer-franja {
+    background-color: #37505D;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .ec-reefer-franja h2 {
+    margin: 0px !important;
+    color: white !important;
+    font-family: 'SupermolotNeue-regular' !important;
+    font-size: 20px !important;
+  }
+
+  .banner-product img {
+    max-width: 200px !important;
+  }
 
 /* iPhones(landscape) ----------- */
 @media only screen and (min-width: 375px) {
+    .banner-product img {
+       max-width: 300px !important;
+    }
 
 }
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 768px) {
 
+    .ec-reefer-franja h2 {
+        margin: 0px !important;
+        color: white !important;
+        font-family: 'SupermolotNeue-regular' !important;
+        font-size: 2rem !important;
+      }
+    
+
+
+    /*REEFER SECTION PRODUCT IMAGE*/
+    .banner-product img {
+        max-width: 400px !important;
+      }
+
     /*REEFER BUTTON*/
     .ec-container {
-        padding-left: 55px !important;
-        padding-right: 55px !important;
+        padding-left: 60px !important;
+        padding-right: 60px !important;
         margin: 0 auto;
-        width: 7600px;
     }
 
     /*FONT SIZES*/
@@ -513,6 +575,11 @@ li {
     .reefer-banner img {
         width: 460px !important;
     }
+
+     /*REEFER SECTION PRODUCT IMAGE*/
+     .banner-product img {
+        max-width: 600px !important;
+      }
 
     .reefer-banner img{
       right: -105px !important;

@@ -35,20 +35,123 @@
 
 .reefer-card-about-us h1 {
   font-size: 18px !important;
+  line-height: 20px !important;
 }
 
 .card-border-right {
   border-right: none;
 }
 
+.section-padding {
+    padding-top: 140px !important;
+    padding-bottom: 140px !important;
+}
+
 .section-our {
   margin-top: 330px !important;
+}
+
+.reefer-temperaturas img {
+  max-width: 350px !important;
+  text-align: center !important;
+}
+
+.reefer-temperaturas h5 {
+    font-size: 20px !important;
+    letter-spacing: 12px !important;
+}
+
+.footer-linea {
+  width: 100% !important;
+  height: 272px !important;
+  background-color: white !important;
+  margin-bottom: -312px !important;
+}
+
+
+.letter-spacing {
+    font-size: 20px !important;
+   letter-spacing: 12px !important;
+}
+
+.grow:hover {
+  transform: scale(1.1) !important;
+}
+
+.reefer-card {
+  -webkit-box-shadow: 2px 3px 11px 1px rgba(141,194,221,0.26);
+  -moz-box-shadow: 2px 3px 11px 1px rgba(141,194,221,0.26);
+  box-shadow: 2px 3px 11px 1px rgba(141,194,221,0.26);
+  cursor: pointer !important;
+}
+
+
+.testimonial_subtitle{
+    color: #0aaa7a;
+    font-size: 12px;
+}
+  .testimonial_btn{
+    background-color: #373d4b !important;
+    color: #fff !important;
+ }
+ .seprator {
+    height: 2px;
+    width: 56px;
+    background-color: #0aaa7a;
+    margin: 7px 0 10px 0;
+}
+
+.testimonials-slider {
+    margin-bottom: 5px !important;
+}
+
+.testimonial {
+    height: 100% !important;
+}
+
+.testimonials h5 {
+    font-size: 18px !important;
+}
+
+.color-reefer {
+    color: #373d4b !important;
+}
+
+.degradado-footer {
+  background: rgb(141,194,221) !important  ;
+  background: linear-gradient(0deg, rgba(141,194,221,1) 0%, rgba(255,255,255,0.8589810924369747) 79%) !important;
+  padding: 0px !important;
+}
+
+.padding-remove {
+  padding: 0px !important;
+}
+
+.align-self-center {
+  align-self: center !important;
+}
+
+.color-arrow {
+  color: white !important;
+}
+
+
+.footer-degradado {
+  background: rgb(141,194,221) !important  ;
+  background: linear-gradient(0deg, rgba(141,194,221,1) 0%, rgba(255,255,255,0.8589810924369747) 79%) !important;
+  padding: 0px !important;
 }
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 768px) {
     .background-logo {
       height: 700px;
+    }
+
+    .reefer-temperaturas img {
+        max-width: 850px !important;
+        margin: 0 auto !important;
+        text-align: center !important;
     }
 
     .card-border-right {

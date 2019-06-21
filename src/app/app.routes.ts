@@ -57,6 +57,9 @@ import { ReeferComponent } from './reefer/reefer/reefer.component';
 
 import { HomeComponent } from './reefer/home/home.component';
 
+import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
+import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
+
 const APP_ROUTES: Routes = [
   {
           path: '',
@@ -98,7 +101,20 @@ const APP_ROUTES: Routes = [
               path: 'inicio',
               component: HomeComponent
              },
-             { path: '', redirectTo: 'inicio' , pathMatch: 'full' }
+             {
+               path: 'productos-y-servicios',
+               component: ProductosYServiciosComponent,
+               children: [
+                  {
+                   path: 'contenedores-de-20-y-40-pies',
+                   component: ContenedoresComponent
+                  }
+               ]
+              },
+              {
+               path: '',  redirectTo: 'inicio' , pathMatch: 'full'
+              }
+
            ]
 
         },

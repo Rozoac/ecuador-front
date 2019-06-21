@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reefer',
@@ -8,9 +9,8 @@ import { RouterLinkActive } from '@angular/router';
 })
 export class ReeferComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

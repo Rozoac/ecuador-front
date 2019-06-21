@@ -347,6 +347,7 @@ export class CotizacionComponent implements OnInit {
     // this.message.tipo = tipo;
     this.contenedor.tipo = tipo;
   }
+
   tipoContenedorVivienda() {
     this.estandar = false;
     this.casa = true;
@@ -363,7 +364,7 @@ export class CotizacionComponent implements OnInit {
       this.tipo_vivienda = tipo;
       this.casa = false;
     }
-  }
+  };
   seleccionEstandar(tipo) {
     this.contenedor.tipo = tipo;
     this.tipo_estandar = tipo;

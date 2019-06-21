@@ -175,6 +175,10 @@ import { SegurosComponent } from './shipping-line/servicios/seguros/seguros.comp
 import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamientos/almacenamientos.component';
 import { ReeferComponent } from './reefer/reefer/reefer.component';
 import { HomeComponent } from './reefer/home/home.component';
+import { ReeferFooterComponent } from './reefer/reefer-footer/reefer-footer.component';
+import { ReeferFormComponent } from './reefer/reefer-form/reefer-form.component';
+import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
+import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -278,7 +282,11 @@ export function momentAdapterFactory() {
     SegurosComponent,
     AlmacenamientosComponent,
     ReeferComponent,
-    HomeComponent
+    HomeComponent,
+    ReeferFooterComponent,
+    ReeferFormComponent,
+    ProductosYServiciosComponent,
+    ContenedoresComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),

@@ -1,20 +1,35 @@
 
-<div class="degradado-homepage ec-container ec-font-supermolo-regular">
-  <div class="reefer-header ec-margin-bottom-small">
+<div [ngClass]="{'degradado-homepage': router.url == '/reefer/inicio' }" class="ec-font-supermolo-regular">
+  <div class="reefer-header ec-container ec-margin-bottom-small">
     <div class="reefer-nav">
-      <img class="logo" src="../../../assets/images/logo-reefer.png" alt="" />
+      <img *ngIf="router.url == '/reefer/inicio'; else otro" class="logo" src="../../../assets/images/logo-reefer.png" alt="" />
+      <ng-template #otro>
+        <img class="logo" src="../../../assets/images/logo-reefer-azul.png" alt="" />
+      </ng-template>
     </div>
-    <div class="reefer-nav hide-on-mobile">
-      <a routerLinkActive="reefer-activo" routerLink="/" class="link-1"> INICIO </a>
-      <a routerLinkActive="reefer-activo" class="link-1">
-           PRODUCTOS Y SERVICIO
-          <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
+    <div *ngIf="router.url == '/reefer/inicio'; else menuOnMobile" class="reefer-nav hide-on-mobile">
+      <a routerLinkActive="reefer-activo" routerLink="/reefer/inicio" class="link-1"> INICIO </a>
+      <a routerLink="/reefer/productos-y-servicios" routerLinkActive="reefer-activo" class="link-1">
+        PRODUCTOS Y SERVICIO
+        <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
       </a>
-
-      <a routerLinkActive="reefer-activo" class="link-1"> NOSOTROS</a>
+      <a routerLinkActive="reefer-activo" class="link-1"> NOSOTROS </a>
       <a routerLinkActive="reefer-activo" class="link-1"> CONTACTO</a>
+
     </div>
-    <div  [matMenuTriggerFor]="menu" class="hide-on-desktop menu">
+    <ng-template #menuOnMobile>
+        <div class="reefer-nav hide-on-mobile">
+          <a routerLinkActive="reefer-activo" routerLink="/reefer/inicio" class="link-2"> INICIO </a>
+          <a routerLinkActive="reefer-activo" routerLink="/reefer/productos-y-servicios" class="link-2">
+            PRODUCTOS Y SERVICIO
+            <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
+          </a>
+          <a routerLinkActive="reefer-activo" class="link-2"> NOSOTROS </a>
+          <a routerLinkActive="reefer-activo" class="link-2"> CONTACTO</a>
+        </div>
+    </ng-template>
+
+    <div [matMenuTriggerFor]="menu" class="hide-on-desktop menu">
       <a  class="menu ec-font-supermolo-regular ec-margin-right-xsmall">MENU</a>
       <i class="fas fa-chevron-down"></i>
     </div>
@@ -31,11 +46,10 @@
       <a href="https://www.facebook.com/EContainers/" target="_blank">
         <img class="logo" src="../../../assets/images/reefer-facebook.png" alt="">
       </a>
-      <a  href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ" target="_blank">
+      <a href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ" target="_blank">
         <img class="logo" src="../../../assets/images/reefer-youtube.png" alt="">
       </a>
     </div>
   </div>
   <router-outlet></router-outlet>
 </div>
-

@@ -1,0 +1,15 @@
+.link-1 {
+    transition: 0.3s ease !important;
+    color: grey !important;
+    cursor: pointer !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    padding: 20px 0 !important;
+    margin: 0 20px !important;
+    font-family: 'SupermolotNeue-regular' !important;
+}
+
+.link-1:hover {
+    transition: 0.3s ease !important;
+    color: grey !important;
+}

@@ -1,5 +1,5 @@
 <div>
-  <div class="row reefer-banner">
+  <div class="row reefer-banner ec-container">
     <div class="col col-12 col-md-8 background-logo">
       <div class="titles">
         <h1 class="ec-font-supermolo-regular ec-text-align-right ec-reefer-color-blue-dark ec-text-banner-subtitle">
@@ -15,13 +15,15 @@
       </div>
 
       <div class="reefer-actions ec-margin-top-medium">
-        <button type="submit" class="btn color-azul" (click)="toast2(false)" >ALQUILAR</button>
-        <button type="submit" class="btn color-azul" (click)="toast2(false)" >COMPRAR</button>
+        <button type="submit" class="btn color-azul" (click)="toast2(false)">
+          ALQUILAR
+        </button>
+        <button type="submit" class="btn color-azul" (click)="toast2(false)">COMPRAR</button>
       </div>
 
     </div>
     <div class="col col-12  col-md-4 contenedor">
-      <img class="logo" src="../../../assets/images/reefer-container.png" alt="">
+      <img class="logo wow fadeInRight" src="../../../assets/images/reefer-container.png" alt="">
     </div>
   </div>
   <div class="scroll hide-on-mobile">
@@ -31,7 +33,7 @@
       SCROLL
     </span>
   </div>
-    <div class="row justify-content-md-center section-our">
+    <div class="row justify-content-md-center section-our ec-container">
       <div class="col col-12 col-md-2 card-border-right">
         <div class="reefer-card-about-us">
           <img class="logo" src="../../../assets/images/freezer.png" alt="">
@@ -42,15 +44,15 @@
       </div>
       <div class="col col-12  col-md-2 card-border-right">
         <div class="reefer-card-about-us">
-          <img class="logo" src="../../../assets/images/grua1.png" alt="">
+          <img class="logo" src="../../../assets/images/pig.png" alt="">
           <h1 class="ec-font-supermolo-regular ec-reefer-color-blue-dark">
             Bajo Costo
           </h1>
         </div>
       </div>
       <div class="col col-12 col-md-2 card-border-right">
-        <div class="reefer-card-about-us ">
-          <img class="logo" src="../../../assets/images/hands.png" alt="">
+        <div class="reefer-card-about-us">
+          <img class="logo" src="../../../assets/images/grua1.png" alt="">
           <h1 class="ec-font-supermolo-regular ec-reefer-color-blue-dark">
             Facil y rapida instalacion
           </h1>
@@ -58,7 +60,7 @@
       </div>
       <div class="col col-12 col-md-2">
         <div class="reefer-card-about-us">
-          <img class="logo" src="../../../assets/images/pig.png" alt="">
+          <img class="logo" src="../../../assets/images/hands.png" alt="">
           <h1 class="ec-font-supermolo-regular ec-reefer-color-blue-dark">
             Acompañamiento y servicio tecnico
           </h1>
@@ -67,9 +69,9 @@
     </div>
 
   <!-- NUESTROS SERVICIOS -->
-  <div class="row justify-content-md-center ec-margin-top-xlarge">
+  <div class="row justify-content-md-center section-padding ec-container">
     <div class="col col-12 col-sm-6 col-md-3">
-        <div class="card ec-margin-center" style="width: 18rem;">
+        <div class="card grow ec-margin-center reefer-card ec-margin-top-small">
             <img src="../../../assets/images/reefer-services1.jpg" class="card-img-top" alt="...">
             <div class="card-body ec-text-align-center">
               <h5 class="card-title ec-font-supermolo-bold ec-reefer-color-blue-dark">
@@ -80,7 +82,7 @@
     </div>
 
     <div class="col col-12 col-sm-6  col-md-3">
-        <div class="card ec-margin-center" style="width: 18rem;">
+        <div class="card ec-margin-center reefer-card grow ec-margin-top-small">
             <img src="../../../assets/images/reefer-services2.png" class="card-img-top" alt="...">
             <div class="card-body ec-text-align-center">
               <h5 class="card-title ec-font-supermolo-bold ec-reefer-color-blue-dark">
@@ -91,7 +93,7 @@
     </div>
 
     <div class="col col-12 col-sm-6 col-md-3">
-        <div class="card ec-margin-center" style="width: 18rem;">
+        <div class="ec-margin-center grow reefer-card card ec-margin-top-small">
           <img src="../../../assets/images/reefer-services3.png" class="card-img-top" alt="...">
           <div class="card-body ec-text-align-center">
             <h5 class="card-title ec-font-supermolo-bold ec-reefer-color-blue-dark">
@@ -101,4 +103,72 @@
         </div>
     </div>
   </div>
+
+  <div class="reefer-temperaturas ec-text-align-center">
+    <h5 class="ec-font-supermolo-regular ec-reefer-color-blue-dark">
+      TEMPERATURAS
+    </h5>
+    <img src="../../../assets/images/temperaturas.png" />
+  </div>
+
+
+  <!-- SLIDER -->
+  <div class="degradado-footer">
+  <div class="row justify-content-md-center section-padding ec-container">
+    <div class="col col-12">
+      <h5
+        class="ec-font-supermolo-regular ec-margin-bottom-small ec-reefer-color-blue-dark letter-spacing ec-text-align-center">
+          TESTIMONIOS DE NUESTROS CLIENTES
+      </h5>
+    </div>
+    <div class="align-self-center ec-margin-right-small ec-cursor-pointer" (click)="prevTestimonials()">
+      <i
+       class="fas fa-chevron-left fa-3x color-arrow"
+      >
+
+      </i>
+    </div>
+  <div class="card mb-3 col col-md-8 padding-remove ">
+    <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src="../../../assets/images/{{testimonios[index].img}}.png" class="card-img testimonial" alt="...">
+        </div>
+        <div class="col-md-6 align-self-center">
+          <div class="card-body testimonials align-self-center">
+            <div class="testimonials-slider ec-margin-bottom-small">
+              <i class="fas fa-star color-reefer ec-margin-right-xsmall"></i>
+              <i class="fas fa-star color-reefer ec-margin-right-xsmall"></i>
+              <i class="fas fa-star color-reefer ec-margin-right-xsmall"></i>
+              <i class="fas fa-star color-reefer ec-margin-right-xsmall"></i>
+              <i class="fas fa-star color-reefer ec-margin-right-xsmall"></i>
+            </div>
+
+            <h5 class="ec-font-supermolo-regular ec-reefer-color-blue-dark ec-margin-bottom-small">
+              {{testimonios[index].mensaje}}
+            </h5>
+
+            <h5 class="ec-font-supermolo-regular ec-reefer-color-blue-dark">
+              <span class="ec-font-supermolo-bold">
+                {{testimonios[index].name}}
+              </span>
+              \ {{testimonios[index].role}}.
+            </h5>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="align-self-center ec-margin-left-small" (click)="nextTestimonials()">
+    <i
+      class="fas fa-chevron-right fa-3x ec-cursor-pointer color-arrow"
+    >
+    </i>
+  </div>
+  </div>
+  <div class="footer-linea">
+  </div>
+  <div class="ec-padding-bottom-small">
+    <app-reefer-footer>
+    </app-reefer-footer>
+  </div>
+</div>
 </div>

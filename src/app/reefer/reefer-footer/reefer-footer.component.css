@@ -1,0 +1,17 @@
+.footer-reefer img {
+    max-width: 60px;
+}
+
+.contacto-detalles {
+  align-items: center !important;
+  align-content: center !important;
+}
+
+.footer-reefer {
+  padding: 10px 20px 10px 20px !important;
+  margin-top: 40px !important;
+}
+
+.reefer-form {
+  background-color: white;
+}
