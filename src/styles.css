@@ -106,6 +106,10 @@
     padding-bottom: 20px !important;
 }
 
+.ec-padding-top-small {
+    padding-top: 20px !important;
+}
+
 .ec-background-dark {
   background-color: #37505D !important;
 }
@@ -126,6 +130,10 @@
 /*FLEX*/
 .ec-align-self-center {
     align-self: center !important;
+}
+
+.img-galeria {
+  max-width: 300px !important;
 }
 
 /*MARGIN*/
@@ -239,13 +247,21 @@
   margin-right: 10px !important;
 }
 
+.ec-color-blue-dark {
+  color: rgb(141, 194, 221) !important;
+}
 
-  .ps .ps__scrollbar-y-rail {
-    left: 3px;
-    right: auto;
-   }
+.mat-tab-group.mat-primary
+.mat-ink-bar,
+.mat-tab-nav-bar.mat-primary
+.mat-ink-bar {
+  background-color: rgb(141, 194, 221) !important;
+}
 
-
+.ps .ps__scrollbar-y-rail {
+  left: 3px;
+  right: auto;
+}
 
 h1,
 h2,
@@ -253,10 +269,17 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'bebas-bold'!important;
+  font-family: 'bebas-bold'!important;
 }
 
-.bg-black{
+
+.mat-tab-label .mat-tab-label-content {
+  color: rgb(141, 194, 221) !important;
+  font-size: 16px !important;
+  font-family: 'SupermolotNeue-regular' !important;
+}
+
+.bg-black {
     background: #0000;
 }
 
@@ -364,6 +387,14 @@ input,label,select{
     width: 25px;
 }
 
+.reefer-line {
+    background-color: #37505D !important;
+    height: 2px !important;
+}
+
+.row-reefer-img {
+  max-width: 140px !important;
+}
 
 /* .fast {
   -webkit-animation-duration: 0.4s;
@@ -531,13 +562,16 @@ li {
         font-family: 'SupermolotNeue-regular' !important;
         font-size: 2rem !important;
       }
-    
+
+      .img-galeria {
+        max-width: 700px !important;
+      }
 
 
     /*REEFER SECTION PRODUCT IMAGE*/
     .banner-product img {
-        max-width: 400px !important;
-      }
+       max-width: 400px !important;
+    }
 
     /*REEFER BUTTON*/
     .ec-container {
@@ -551,9 +585,9 @@ li {
       font-size: 60px !important;
     }
 
-  .ec-text-banner-subtitle {
-    font-size: 30px !important;
-  }
+    .ec-text-banner-subtitle {
+      font-size: 30px !important;
+    }
 
     .reefer-banner .titles {
         margin-top: 100px !important;

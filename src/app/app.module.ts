@@ -10,7 +10,7 @@ import { TypingAnimationDirective } from 'angular-typing-animation';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxAutoScrollModule } from 'ngx-auto-scroll';
-import {MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 
 registerLocaleData(localeEs);
 
@@ -57,6 +57,8 @@ import {
   DateAdapter,
   MOMENT
 } from 'angular-calendar';
+
+import { MatTabsModule } from '@angular/material/tabs';
 
 // servicios
 import {ContenedoresService} from './service/contenedores.service';
@@ -179,6 +181,7 @@ import { ReeferFooterComponent } from './reefer/reefer-footer/reefer-footer.comp
 import { ReeferFormComponent } from './reefer/reefer-form/reefer-form.component';
 import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
 import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
+import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -286,7 +289,8 @@ export function momentAdapterFactory() {
     ReeferFooterComponent,
     ReeferFormComponent,
     ProductosYServiciosComponent,
-    ContenedoresComponent
+    ContenedoresComponent,
+    ComoFuncionaUnReeferComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -317,6 +321,7 @@ export function momentAdapterFactory() {
     MatInputModule,
     MatCardModule,
     MatRadioModule,
+    MatTabsModule,
     MatIconModule,
     DragDropModule,
     MatFormFieldModule,

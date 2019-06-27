@@ -1,0 +1,36 @@
+.colum {
+  background-color: rgb(141, 194, 221) !important;
+  padding: 5px 15px 5px 15px !important;
+  border: 1px solid white !important;
+}
+
+.reefer-size-table {
+    background-color: rgb(141, 194, 221) !important;
+}
+
+.colum > .td {
+    padding: 5px 15px 5px 15px !important;
+}
+
+.table-reefer-right {
+    border: 2px solid #37505D !important; 
+}
+
+.table-reefer-right td, .table-reefer-right th {
+    border-color: #37505D !important;
+}
+
+
+.degradado {
+    background: rgb(141,194,221) !important  ;
+    background: linear-gradient(0deg, rgba(141,194,221,1) 0%, rgba(255,255,255,0.8589810924369747) 79%) !important;
+    padding: 0px !important;
+}
+
+.footer-linea {
+    width: 100% !important;
+    height: 272px !important;
+    background-color: white !important;
+    margin-bottom: -312px !important;
+  }
+  

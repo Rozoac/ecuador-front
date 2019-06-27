@@ -60,6 +60,8 @@ import { HomeComponent } from './reefer/home/home.component';
 import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
 import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
 
+import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
+
 const APP_ROUTES: Routes = [
   {
           path: '',
@@ -75,7 +77,7 @@ const APP_ROUTES: Routes = [
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
-  {
+        {
           path: 'freight-forwarding',
           component: ShippingLineComponent,
           children: [
@@ -92,7 +94,8 @@ const APP_ROUTES: Routes = [
             { path: 'seguros', component: SegurosComponent },
             { path: 'almacenamiento', component: AlmacenamientosComponent },
             { path: '', redirectTo: 'inicio' , pathMatch: 'full' },
-          ]},
+          ]
+        },
         {
            path: 'reefer',
            component: ReeferComponent,
@@ -102,22 +105,29 @@ const APP_ROUTES: Routes = [
               component: HomeComponent
              },
              {
-               path: 'productos-y-servicios',
-               component: ProductosYServiciosComponent,
-               children: [
+              path: 'productos-y-servicios',
+              component: ProductosYServiciosComponent,
+              children: [
                   {
                    path: 'contenedores-de-20-y-40-pies',
                    component: ContenedoresComponent
+                  },
+                  {
+                    path: 'como-funciona-un-reefer',
+                    component: ComoFuncionaUnReeferComponent
+                  },
+                  {
+                    path: '',
+                    redirectTo: 'contenedores-de-20-y-40-pies',
+                    pathMatch: 'full'
                   }
-               ]
+              ]
               },
               {
                path: '',  redirectTo: 'inicio' , pathMatch: 'full'
               }
-
            ]
-
-        },
+          },
           { path: 'tailor-made', component: TailorMadeComponent },
           { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
           { path: 'arquitectonicos', component: ArquitectonicosComponent },
@@ -160,6 +170,6 @@ const APP_ROUTES: Routes = [
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {
-                                  useHash: false,
-                                  scrollPositionRestoration: 'enabled'
-                                });
+  useHash: false,
+  scrollPositionRestoration: 'enabled'
+});
