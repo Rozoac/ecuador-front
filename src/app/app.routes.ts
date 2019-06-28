@@ -62,6 +62,10 @@ import { ContenedoresComponent } from './reefer/contenedores/contenedores.compon
 
 import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
 
+import { ProyectosEspecialesComponent } from './reefer/proyectos-especiales/proyectos-especiales.component';
+
+import { AccesoriosAdicionalesComponent } from './reefer/accesorios-adicionales/accesorios-adicionales.component';
+
 const APP_ROUTES: Routes = [
   {
           path: '',
@@ -115,6 +119,14 @@ const APP_ROUTES: Routes = [
                   {
                     path: 'como-funciona-un-reefer',
                     component: ComoFuncionaUnReeferComponent
+                  },
+                  {
+                    path: 'proyectos-especiales',
+                    component: ProyectosEspecialesComponent
+                  },
+                  {
+                    path: 'accesorios-adicionales',
+                    component: AccesoriosAdicionalesComponent
                   },
                   {
                     path: '',

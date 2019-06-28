@@ -1,0 +1,8 @@
+.accesorios-card img{
+  max-width: 250px !important;
+}
+
+
+.selected-item img {
+    max-width: 400px !important;
+}

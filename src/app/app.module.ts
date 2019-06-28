@@ -182,6 +182,9 @@ import { ReeferFormComponent } from './reefer/reefer-form/reefer-form.component'
 import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
 import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
 import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
+import { ProyectosEspecialesComponent } from './reefer/proyectos-especiales/proyectos-especiales.component';
+import { AccesoriosAdicionalesComponent } from './reefer/accesorios-adicionales/accesorios-adicionales.component';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -290,7 +293,9 @@ export function momentAdapterFactory() {
     ReeferFormComponent,
     ProductosYServiciosComponent,
     ContenedoresComponent,
-    ComoFuncionaUnReeferComponent
+    ComoFuncionaUnReeferComponent,
+    ProyectosEspecialesComponent,
+    AccesoriosAdicionalesComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),

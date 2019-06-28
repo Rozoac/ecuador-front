@@ -9,36 +9,59 @@
     </div>
     <div *ngIf="router.url == '/reefer/inicio'; else menuOnMobile" class="reefer-nav hide-on-mobile">
       <a routerLinkActive="reefer-activo" routerLink="/reefer/inicio" class="link-1"> INICIO </a>
-      <a routerLink="/reefer/productos-y-servicios" routerLinkActive="reefer-activo" class="link-1">
-        PRODUCTOS Y SERVICIO
+      <a [matMenuTriggerFor]="menuc" routerLinkActive="reefer-activo" class="link-1">
+        PRODUCTOS Y SERVICIOS
         <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
       </a>
       <a routerLinkActive="reefer-activo" class="link-1"> NOSOTROS </a>
       <a routerLinkActive="reefer-activo" class="link-1"> CONTACTO</a>
-
     </div>
     <ng-template #menuOnMobile>
         <div class="reefer-nav hide-on-mobile">
           <a routerLinkActive="reefer-activo" routerLink="/reefer/inicio" class="link-2"> INICIO </a>
-          <a routerLinkActive="reefer-activo" routerLink="/reefer/productos-y-servicios" class="link-2">
+          <a [matMenuTriggerFor]="menuc" routerLinkActive="reefer-activo" routerLink="/reefer/productos-y-servicios" class="link-2">
             PRODUCTOS Y SERVICIO
-            <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
+            <i class="fas fa-chevron-down ec-reefer-color-blue-dark  ec-margin-left-xsmall"></i>
           </a>
           <a routerLinkActive="reefer-activo" class="link-2"> NOSOTROS </a>
           <a routerLinkActive="reefer-activo" class="link-2"> CONTACTO</a>
         </div>
     </ng-template>
 
-    <div [matMenuTriggerFor]="menu" class="hide-on-desktop menu">
-      <a class="menu ec-font-supermolo-regular ec-margin-right-xsmall">MENU</a>
-      <i class="fas fa-chevron-down"></i>
+    <div [matMenuTriggerFor]="menum" class="hide-on-desktop menu">
+      <a [ngClass]="{'ec-color-white': router.url == '/reefer/inicio', 'ec-color-reefer': router.url !== '/reefer/inicio'}"
+       class="menu ec-font-supermolo-regular ec-margin-right-xsmall">
+        MENU
+      </a>
+      <i [ngClass]="{'ec-color-white': router.url == '/reefer/inicio', 'ec-color-reefer': router.url !== '/reefer/inicio'}" class="fas fa-chevron-down"></i>
     </div>
-    <mat-menu #menu="matMenu" class="menu-mobile">
+
+    <mat-menu #menum="matMenu" class="menu-mobile">
       <button mat-menu-item class="ec-reefer-color-blue-dark">Inicio</button>
       <button mat-menu-item class="ec-reefer-color-blue-dark ">Productos y servicios</button>
       <button mat-menu-item class="ec-reefer-color-blue-dark ">Nosotros</button>
       <button mat-menu-item class="ec-reefer-color-blue-dark ">Contacto</button>
     </mat-menu>
+
+    <mat-menu #menuc="matMenu" class="menu-mobile">
+      <button routerLink="/reefer/productos-y-servicios/contenedores-de-20-y-40-pies" mat-menu-item class="ec-reefer-color-blue-dark">
+        Contenedores de 20 y 40 pies
+      </button>
+      <button routerLink="/reefer/productos-y-servicios/como-funciona-un-reefer" mat-menu-item class="ec-reefer-color-blue-dark ">
+        Como funciona un reefer
+      </button>
+      <button routerLink="/reefer/productos-y-servicios/accesorios-adicionales" mat-menu-item class="ec-reefer-color-blue-dark ">
+        Accesorios adicionales
+      </button>
+      <button
+        routerLink="/reefer/productos-y-servicios/proyectos-especiales"
+        mat-menu-item
+        class="ec-reefer-color-blue-dark"
+      >
+        Proyectos especiales
+      </button>
+    </mat-menu>
+
     <div class="social-menu hide-on-mobile">
       <a href="https://www.instagram.com/econtainers/" target="_blank">
         <img class="logo" src="../../../assets/images/reefer-instagram.png" alt="">
