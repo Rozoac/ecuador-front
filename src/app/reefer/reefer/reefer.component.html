@@ -13,18 +13,18 @@
         PRODUCTOS Y SERVICIOS
         <i class="fas fa-chevron-down ec-color-white ec-margin-left-xsmall"></i>
       </a>
-      <a routerLinkActive="reefer-activo" class="link-1"> NOSOTROS </a>
-      <a routerLinkActive="reefer-activo" class="link-1"> CONTACTO</a>
+      <a routerLinkActive="reefer-activo" routerLink="/reefer/nosotros" class="link-1"> NOSOTROS </a>
+      <a routerLinkActive="reefer-activo" routerLink="/reefer/contacto" class="link-1"> CONTACTO</a>
     </div>
     <ng-template #menuOnMobile>
         <div class="reefer-nav hide-on-mobile">
           <a routerLinkActive="reefer-activo" routerLink="/reefer/inicio" class="link-2"> INICIO </a>
           <a [matMenuTriggerFor]="menuc" routerLinkActive="reefer-activo" routerLink="/reefer/productos-y-servicios" class="link-2">
-            PRODUCTOS Y SERVICIO
+            PRODUCTOS Y SERVICIOS
             <i class="fas fa-chevron-down ec-reefer-color-blue-dark  ec-margin-left-xsmall"></i>
           </a>
-          <a routerLinkActive="reefer-activo" class="link-2"> NOSOTROS </a>
-          <a routerLinkActive="reefer-activo" class="link-2"> CONTACTO</a>
+          <a routerLinkActive="reefer-activo"  routerLink="/reefer/nosotros" class="link-2"> NOSOTROS </a>
+          <a routerLinkActive="reefer-activo" routerLink="/reefer/contacto" class="link-2"> CONTACTO</a>
         </div>
     </ng-template>
 
@@ -48,10 +48,16 @@
         Contenedores de 20 y 40 pies
       </button>
       <button routerLink="/reefer/productos-y-servicios/como-funciona-un-reefer" mat-menu-item class="ec-reefer-color-blue-dark ">
-        Como funciona un reefer
+        ¿Porqué es mejor un reefer?
       </button>
       <button routerLink="/reefer/productos-y-servicios/accesorios-adicionales" mat-menu-item class="ec-reefer-color-blue-dark ">
         Accesorios adicionales
+      </button>
+      <button routerLink="/reefer/productos-y-servicios/servicio-tecnico" mat-menu-item class="ec-reefer-color-blue-dark ">
+        Servicio técnico
+      </button>
+      <button routerLink="/reefer/productos-y-servicios/transporte" mat-menu-item class="ec-reefer-color-blue-dark ">
+        Transporte
       </button>
       <button
         routerLink="/reefer/productos-y-servicios/proyectos-especiales"

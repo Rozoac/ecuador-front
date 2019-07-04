@@ -1,0 +1,39 @@
+.img-mapa {
+  max-width: 350px !important;
+}
+
+.contacto-linea {
+  padding: 10px 20px 10px 20px !important;
+  margin-bottom: 5px !important;
+}
+
+.contacto-linea h3 {
+  color: white !important;
+}
+
+.degradado {
+    background: rgb(21,86,118);
+background: linear-gradient(0deg, rgba(21,86,118,1) 1%, rgba(255,255,255,0.06346288515406162) 67%);
+    padding: 0px !important;
+}
+
+.footer-linea {
+    width: 100% !important;
+    height: 272px !important;
+    background-color: white !important;
+    margin-bottom: -312px !important;
+  }
+
+
+@media only screen and (min-width: 375px) {
+  .img-mapa {
+    max-width: 290px !important;
+  }
+}
+
+/* Tablets small laptops ----------- */
+@media (min-width: 960px) {
+    .img-mapa {
+        max-width: 530px !important;
+    }
+}

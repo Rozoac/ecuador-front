@@ -184,6 +184,10 @@ import { ContenedoresComponent } from './reefer/contenedores/contenedores.compon
 import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
 import { ProyectosEspecialesComponent } from './reefer/proyectos-especiales/proyectos-especiales.component';
 import { AccesoriosAdicionalesComponent } from './reefer/accesorios-adicionales/accesorios-adicionales.component';
+import { NosotrosComponent } from './reefer/nosotros/nosotros.component';
+import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-transporte.component';
+import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
+import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -194,10 +198,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -295,7 +295,11 @@ export function momentAdapterFactory() {
     ContenedoresComponent,
     ComoFuncionaUnReeferComponent,
     ProyectosEspecialesComponent,
-    AccesoriosAdicionalesComponent
+    AccesoriosAdicionalesComponent,
+    NosotrosComponent,
+    ReeferTransporteComponent,
+    ReeferContactoComponent,
+    ReeferServicioComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),

@@ -65,6 +65,12 @@ import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/
 import { ProyectosEspecialesComponent } from './reefer/proyectos-especiales/proyectos-especiales.component';
 
 import { AccesoriosAdicionalesComponent } from './reefer/accesorios-adicionales/accesorios-adicionales.component';
+import { NosotrosComponent } from './reefer/nosotros/nosotros.component';
+
+import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-transporte.component';
+
+import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
+import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -109,12 +115,32 @@ const APP_ROUTES: Routes = [
               component: HomeComponent
              },
              {
+               path: 'nosotros',
+               component: NosotrosComponent
+             },
+             {
+               path: 'contacto',
+               component: ReeferContactoComponent
+             },
+             {
+               path: 'transporte',
+               component: ReeferTransporteComponent
+             },
+             {
               path: 'productos-y-servicios',
               component: ProductosYServiciosComponent,
               children: [
                   {
                    path: 'contenedores-de-20-y-40-pies',
                    component: ContenedoresComponent
+                  },
+                  {
+                    path: 'transporte',
+                    component: ReeferTransporteComponent,
+                  },
+                  {
+                    path: 'servicio-tecnico',
+                    component: ReeferServicioComponent
                   },
                   {
                     path: 'como-funciona-un-reefer',

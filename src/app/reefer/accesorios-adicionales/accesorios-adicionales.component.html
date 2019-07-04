@@ -6,56 +6,50 @@
 
 <div class="ec-margin-top-medium">
   <div class="row justify-content-center">
-    <div class="col col-md-12 selected-item">
-      <h5
-        class="ec-font-supermolo-regular ec-color-reefer ec-padding-bottom-small ec-text-align-center ec-margin-bottom-xsmall">
-        TRANSFORMADORES DE 220V A 4440V
+    <div class="col-12 col-md-12 selected-item">
+      <h5 class="ec-font-supermolo-bold ec-reefer-color-blue-dark ec-padding-bottom-small ec-text-align-center ec-margin-bottom-xsmall">
+        {{accesorioSelecionado.titulo}}
       </h5>
       <img
-        src="../../../assets/images/reefer-01.jpg"
+        src="../../../assets/images/Accesorios/{{accesorioSelecionado.image}}.png"
         class="img-fluid mx-auto d-block img-galeria"
         alt="Responsive image"
       />
     </div>
-    <div class="col col-md-7">
+    <div class="col-12 col-md-7">
       <p class="ec-reefer-color-blue-dark ec-text-align-center ec-margin-top-medium">
-        Los Reefer trabajan con energía trifásica y con voltajes de 220V, 380V, 440V.
-        Contamos con transformadores que convierten la energía de 220V a 440V, adaptandonos a la potencia eléctrica de su planta.
+        {{accesorioSelecionado.descripcion}}
       </p>
     </div>
   </div>
 </div>
-<div class="ec-margin-top-small">
-    <div class="ec-container ec-margin-bottom-large">
-        <hr class="reefer-line">
-      </div>
+<div class="degradado">
+<div class="ec-margin-top-small ec-padding-bottom-small">
+  <div class="ec-container ec-margin-bottom-large">
+    <hr class="reefer-line">
+  </div>
   <div class="row justify-content-center">
-    <div class="col col-md-3">
-      <div class="accesorios-card">
+    <div *ngFor="let item of accesoriosAdicionales" class="col col-md-3">
+      <div class="accesorios-card ec-text-align-center">
         <img
-          src="../../../assets/images/reefer-01.jpg"
+          src="../../../assets/images/Accesorios/{{item.image}}.png"
           alt="Responsive image"
+          (click)="seleccionar(item.id)"
         />
-      </div>
-    </div>
-    <div class="col col-md-3">
-      <div class="accesorios-card">
-        <img
-          src="../../../assets/images/reefer-01.jpg"
-          alt="Responsive image"
-        />
-      </div>
-    </div>
-    <div class="col col-md-3">
-      <div class="accesorios-card">
-        <img
-          src="../../../assets/images/reefer-01.jpg"
-          alt="Responsive image"
-        />
+        <h5 class="ec-font-supermolo-bold ec-reefer-color-blue-dark ec-padding-bottom-small ec-text-align-center ec-margin-top-small">
+          {{item.titulo}}
+        </h5>
       </div>
     </div>
   </div>
   <div class="ec-container ec-margin-bottom-large">
-      <hr class="reefer-line">
-    </div>
+    <hr class="reefer-line">
+  </div>
+</div>
+<div class="footer-linea">
+</div>
+  <div class="ec-padding-bottom-small">
+    <app-reefer-footer>
+    </app-reefer-footer>
+  </div>
 </div>
