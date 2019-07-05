@@ -40,19 +40,6 @@ import { NegocioComponent } from './admin/negocio/negocio.component';
 import { TransporteComponent } from './admin/transporte/transporte.component';
 import { SegmentosComponent } from './pages/segmentos/segmentos.component';
 import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
-import { ShippingLineComponent } from './shipping-line/shipping-line.component';
-import { InicioShippingLineComponent } from './shipping-line/inicio-shipping-line/inicio-shipping-line.component';
-import { ConocenosComponent } from './shipping-line/conocenos/conocenos.component';
-import { ContactoComponent } from './shipping-line/contacto/contacto.component';
-import { TransporteMaritimoComponent } from './shipping-line/servicios/transporte-maritimo/transporte-maritimo.component';
-import { TransporteAereoComponent } from './shipping-line/servicios/transporte-aereo/transporte-aereo.component';
-import { MasInformacionComponent } from './shipping-line/mas-informacion/mas-informacion.component';
-import { QueOfrecemosComponent } from './shipping-line/que-ofrecemos/que-ofrecemos.component';
-import { TransporteTerrestreComponent } from './shipping-line/servicios/transporte-terrestre/transporte-terrestre.component';
-import { IntermediacionAduaneraComponent } from './shipping-line/servicios/intermediacion-aduanera/intermediacion-aduanera.component';
-import { SegurosComponent } from './shipping-line/servicios/seguros/seguros.component';
-import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamientos/almacenamientos.component';
-import { LogisticaIntegralComponent } from './shipping-line/servicios/logistica-integral/logistica-integral.component';
 import { ReeferComponent } from './reefer/reefer/reefer.component';
 
 import { HomeComponent } from './reefer/home/home.component';
@@ -71,6 +58,7 @@ import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-tra
 
 import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
 import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
+import { ShippingLineComponent } from './shipping-line/shipping-line.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -87,24 +75,10 @@ const APP_ROUTES: Routes = [
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
-        {
-          path: 'freight-forwarding',
-          component: ShippingLineComponent,
-          children: [
-            { path: 'inicio', component: InicioShippingLineComponent},
-            { path: 'conocenos', component: ConocenosComponent},
-            { path: 'contacto', component: ContactoComponent },
-            { path: 'mas-informacion', component: MasInformacionComponent },
-            { path: 'que-ofrecemos', component: QueOfrecemosComponent },
-            { path: 'transporte-maritimo', component: TransporteMaritimoComponent },
-            { path: 'transporte-aereo', component: TransporteAereoComponent },
-            { path: 'transporte-terrestre', component: TransporteTerrestreComponent },
-            { path: 'logistica-integral', component: LogisticaIntegralComponent },
-            { path: 'intermediacion-aduanera', component: IntermediacionAduaneraComponent },
-            { path: 'seguros', component: SegurosComponent },
-            { path: 'almacenamiento', component: AlmacenamientosComponent },
-            { path: '', redirectTo: 'inicio' , pathMatch: 'full' },
-          ]
+          {
+            path: 'freight-forwarding',
+            component: ShippingLineComponent,
+            loadChildren: './shipping-line/shipping-line.module#ShippingLineModule'
         },
         {
            path: 'reefer',

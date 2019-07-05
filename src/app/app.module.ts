@@ -6,7 +6,6 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { TypingAnimationDirective } from 'angular-typing-animation';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxAutoScrollModule } from 'ngx-auto-scroll';
@@ -99,9 +98,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
 // apis
-// import { SweetAlertService } from 'angular-sweetalert-service';
 import { AgmCoreModule } from '@agm/core';
-// import 'hammerjs';
+  import 'hammerjs';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { ChartsModule } from 'ng2-charts';
 import { MyDatePickerModule } from 'mydatepicker';
@@ -117,13 +115,11 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { QuillModule } from 'ngx-quill';
-
 // pipes
 import { NombrePipe } from './pipes/nombre.pipe';
 import { CiudadPipe } from './pipes/ciudad.pipe';
 import { HoraPipe } from './pipes/hora.pipe';
 import { ImagenPipe } from './pipes/imagen.pipe';
-
 import { ComercialPipe } from './pipes/comercial.pipe';
 import { GraciasComponent } from './info/gracias/gracias.component';
 import { LandingComponent } from './landing/landing/landing.component';
@@ -160,21 +156,6 @@ import { ModalCompraComponent } from './landing/arquitectonicos/tailor-made/moda
 import { RedireccionarModalComponent } from './admin/negocio/modals/redireccionar-modal/redireccionar-modal.component';
 import { SegmentosComponent } from './pages/segmentos/segmentos.component';
 import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
-import { TopBarComponent } from './shipping-line/shared/top-bar/top-bar.component';
-import { ShippingLineComponent } from './shipping-line/shipping-line.component';
-import { InicioShippingLineComponent } from './shipping-line/inicio-shipping-line/inicio-shipping-line.component';
-import { SideBarComponent } from './shipping-line/shared/side-bar/side-bar.component';
-import { ConocenosComponent } from './shipping-line/conocenos/conocenos.component';
-import { ContactoComponent } from './shipping-line/contacto/contacto.component';
-import { TransporteMaritimoComponent } from './shipping-line/servicios/transporte-maritimo/transporte-maritimo.component';
-import { TransporteAereoComponent } from './shipping-line/servicios/transporte-aereo/transporte-aereo.component';
-import { MasInformacionComponent } from './shipping-line/mas-informacion/mas-informacion.component';
-import { QueOfrecemosComponent } from './shipping-line/que-ofrecemos/que-ofrecemos.component';
-import { TransporteTerrestreComponent } from './shipping-line/servicios/transporte-terrestre/transporte-terrestre.component';
-import { LogisticaIntegralComponent } from './shipping-line/servicios/logistica-integral/logistica-integral.component';
-import { IntermediacionAduaneraComponent } from './shipping-line/servicios/intermediacion-aduanera/intermediacion-aduanera.component';
-import { SegurosComponent } from './shipping-line/servicios/seguros/seguros.component';
-import { AlmacenamientosComponent } from './shipping-line/servicios/almacenamientos/almacenamientos.component';
 import { ReeferComponent } from './reefer/reefer/reefer.component';
 import { HomeComponent } from './reefer/home/home.component';
 import { ReeferFooterComponent } from './reefer/reefer-footer/reefer-footer.component';
@@ -188,6 +169,9 @@ import { NosotrosComponent } from './reefer/nosotros/nosotros.component';
 import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-transporte.component';
 import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
 import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
+import { ShippingLineComponent } from './shipping-line/shipping-line.component';
+import { TopBarComponent } from './shipping-line/shared/top-bar/top-bar.component';
+import { SideBarComponent } from './shipping-line/shared/side-bar/side-bar.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -202,9 +186,12 @@ export function momentAdapterFactory() {
 @NgModule({
   declarations: [
     AppComponent,
+    ShippingLineComponent,
     ImagenPipe,
+    SideBarComponent,
     HomepageComponent,
     FooterComponent,
+    TopBarComponent,
     HeaderLandingComponent,
     FooterLandingComponent,
     QuienesSomosComponent,
@@ -215,6 +202,7 @@ export function momentAdapterFactory() {
     TrayectoriaComponent,
     VentajasComponent,
     ClientesComponent,
+    SidebarComponent,
     FormularioComponent,
     MapaComponent,
     Formulario2Component,
@@ -272,21 +260,6 @@ export function momentAdapterFactory() {
     TransporteComponent,
     SegmentosComponent,
     ExpoferiaComponent,
-    TopBarComponent,
-    ShippingLineComponent,
-    InicioShippingLineComponent,
-    SideBarComponent,
-    ConocenosComponent,
-    ContactoComponent,
-    TransporteMaritimoComponent,
-    TransporteAereoComponent,
-    TransporteTerrestreComponent,
-    MasInformacionComponent,
-    QueOfrecemosComponent,
-    LogisticaIntegralComponent,
-    IntermediacionAduaneraComponent,
-    SegurosComponent,
-    AlmacenamientosComponent,
     ReeferComponent,
     HomeComponent,
     ReeferFooterComponent,
@@ -380,7 +353,6 @@ export function momentAdapterFactory() {
     TrabajosService,
     PortafolioService,
     CorreoService,
-    // SweetAlertService,
     InboxService,
     SidebarService,
     UsuarioService,
