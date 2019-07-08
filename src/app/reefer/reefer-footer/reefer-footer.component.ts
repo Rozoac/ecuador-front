@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReeferFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 

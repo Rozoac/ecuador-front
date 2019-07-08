@@ -12,7 +12,7 @@
               <span class="texto-2 animated fadeIn">
                   Somos expertos en la cadena de frío, brindamos soluciones rápidas y portables de almacenamiento en contenedores refrigerados para conservar sus productos. 
               </span>
-              <a class="pagina-refrigerados" href="https://econtainersreefer.com">Más información</a>
+              <a class="pagina-refrigerados" [routerLink]="['/reefer']">Más información</a>
             </div>
           </div>
           <div class="col-md-6">
@@ -33,7 +33,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <!-- ============================================================== -->
-                      <!-- NOMBRE
+                      <!-- NOMBRE 
                       <!-- ============================================================== -->
                       <mat-form-field class="mr-4" appearance="outline">
                         <mat-label>Nombre</mat-label>
@@ -84,9 +84,8 @@
                     <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
                   </div>
                 </form>
-               
               </mat-step>
-             
+
               <mat-step [stepControl]="secondFormGroup">
                 <form [formGroup]="secondFormGroup">
                   <ng-template matStepLabel>¿Que estas buscando?</ng-template>

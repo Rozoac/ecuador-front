@@ -2,9 +2,9 @@
 <div [ngClass]="{'degradado-homepage': router.url == '/reefer/inicio' }" class="ec-font-supermolo-regular">
   <div class="reefer-header ec-container ec-margin-bottom-small">
     <div class="reefer-nav">
-      <img *ngIf="router.url == '/reefer/inicio'; else otro" class="logo" src="../../../assets/images/logo-reefer.png" alt="" />
+      <img *ngIf="router.url == '/reefer/inicio'; else otro" [routerLink]="['/reefer/inicio']" class="log-r" src="../../../assets/images/logo-reefer.png" alt="" />
       <ng-template #otro>
-        <img class="logo" src="../../../assets/images/logo-reefer-azul.png" alt="" />
+        <img class="log-r" [routerLink]="['/reefer/inicio']"  src="../../../assets/images/logo-reefer-azul.png" alt="" />
       </ng-template>
     </div>
     <div *ngIf="router.url == '/reefer/inicio'; else menuOnMobile" class="reefer-nav hide-on-mobile">
@@ -36,11 +36,23 @@
       <i [ngClass]="{'ec-color-white': router.url == '/reefer/inicio', 'ec-color-reefer': router.url !== '/reefer/inicio'}" class="fas fa-chevron-down"></i>
     </div>
 
-    <mat-menu #menum="matMenu" class="menu-mobile">
-      <button mat-menu-item class="ec-reefer-color-blue-dark">Inicio</button>
-      <button mat-menu-item class="ec-reefer-color-blue-dark ">Productos y servicios</button>
-      <button mat-menu-item class="ec-reefer-color-blue-dark ">Nosotros</button>
-      <button mat-menu-item class="ec-reefer-color-blue-dark ">Contacto</button>
+    <div class="social-menu hide-on-mobile">
+      <a href="https://www.instagram.com/econtainers/" target="_blank">
+        <img class="logo" src="../../../assets/images/reefer-instagram.png" alt="">
+      </a>
+      <a href="https://www.facebook.com/EContainers/" target="_blank">
+        <img class="logo" src="../../../assets/images/reefer-facebook.png" alt="">
+      </a>
+      <a href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ" target="_blank">
+        <img class="logo" src="../../../assets/images/reefer-youtube.png" alt="">
+      </a>
+    </div>
+  </div>
+  <mat-menu #menum="matMenu" class="menu-mobile">
+      <button mat-menu-item routerLink="/reefer/inicio"  class="ec-reefer-color-blue-dark">Inicio</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuc" class="ec-reefer-color-blue-dark ">Productos y servicios</button>
+      <button mat-menu-item routerLink="/reefer/nosotros" class="ec-reefer-color-blue-dark">Nosotros</button>
+      <button mat-menu-item routerLink="/reefer/contacto" class="ec-reefer-color-blue-dark">Contacto</button>
     </mat-menu>
 
     <mat-menu #menuc="matMenu" class="menu-mobile">
@@ -67,18 +79,5 @@
         Proyectos especiales
       </button>
     </mat-menu>
-
-    <div class="social-menu hide-on-mobile">
-      <a href="https://www.instagram.com/econtainers/" target="_blank">
-        <img class="logo" src="../../../assets/images/reefer-instagram.png" alt="">
-      </a>
-      <a href="https://www.facebook.com/EContainers/" target="_blank">
-        <img class="logo" src="../../../assets/images/reefer-facebook.png" alt="">
-      </a>
-      <a href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ" target="_blank">
-        <img class="logo" src="../../../assets/images/reefer-youtube.png" alt="">
-      </a>
-    </div>
-  </div>
   <router-outlet></router-outlet>
 </div>

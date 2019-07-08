@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proyectos-especiales.component.css']
 })
 export class ProyectosEspecialesComponent implements OnInit {
-
+  index = 1;
+  testimonios = 4;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public nextTestimonials() {
+    this.index++;
+    this.index = this.index % this.testimonios;
+  }
+
+  public prevTestimonials() {
+    if (this.index === 0) {
+      this.index = this.testimonios;
+    }
+    this.index = this.index - 1;
   }
 
 }

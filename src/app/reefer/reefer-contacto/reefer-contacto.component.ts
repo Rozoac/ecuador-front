@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reefer-contacto.component.css']
 })
 export class ReeferContactoComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

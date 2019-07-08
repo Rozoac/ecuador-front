@@ -15,16 +15,16 @@
       </div>
 
       <div class="reefer-actions ec-margin-top-medium">
-        <button type="submit" class="btn color-azul" (click)="toast2(false)">
+        <button type="submit" routerLink="/refrigerados" class="btn color-azul">
           ALQUILAR
         </button>
-        <button type="submit" class="btn color-azul" (click)="toast2(false)">
+        <button type="submit" routerLink="/refrigerados" class="btn color-azul">
           COMPRAR
         </button>
       </div>
 
     </div>
-    <div class="col col-12  col-md-4 contenedor">
+    <div class="col col-12 col-md-4 contenedor">
       <img class="logo wow fadeInRight" src="../../../assets/images/reefer-container.png" alt="">
     </div>
   </div>
@@ -73,7 +73,7 @@
   <!-- NUESTROS SERVICIOS -->
   <div class="row justify-content-md-center section-padding ec-container">
     <div class="col col-12 col-sm-6 col-md-3">
-        <div class="card grow ec-margin-center reefer-card ec-margin-top-small">
+        <div class="card grow ec-margin-center reefer-card ec-margin-top-small" routerLink="/reefer/productos-y-servicios/como-funciona-un-reefer">
             <img src="../../../assets/images/reefer-services1.jpg" class="card-img-top" alt="...">
             <div class="card-body ec-text-align-center">
               <h5 class="card-title ec-font-supermolo-bold ec-reefer-color-blue-dark">
@@ -84,7 +84,7 @@
     </div>
 
     <div class="col col-12 col-sm-6  col-md-3">
-        <div class="card ec-margin-center reefer-card grow ec-margin-top-small">
+        <div routerLink="/refrigerados" class="card ec-margin-center reefer-card grow ec-margin-top-small">
             <img src="../../../assets/images/reefer-services2.png" class="card-img-top" alt="...">
             <div class="card-body ec-text-align-center">
               <h5 class="card-title ec-font-supermolo-bold ec-reefer-color-blue-dark">
@@ -95,7 +95,7 @@
     </div>
 
     <div class="col col-12 col-sm-6 col-md-3">
-        <div class="ec-margin-center grow reefer-card card ec-margin-top-small">
+        <div routerLink="/reefer/productos-y-servicios/servicio-tecnico" class="ec-margin-center grow reefer-card card ec-margin-top-small">
           <img src="../../../assets/images/reefer-services3.png" class="card-img-top" alt="...">
           <div class="card-body ec-text-align-center">
             <h5 class="card-title ec-font-supermolo-bold ec-reefer-color-blue-dark">

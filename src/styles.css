@@ -321,7 +321,7 @@ h6 {
 
  .reefer-banner img{
     position: absolute;
-    right: -85px;
+    right: -20px;
  }
 
 
@@ -582,6 +582,7 @@ li {
     /*REEFER SECTION PRODUCT IMAGE*/
     .banner-product img {
        max-width: 400px !important;
+       right: -85px;
     }
 
     /*REEFER BUTTON*/

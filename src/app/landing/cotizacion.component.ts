@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { TipoCliente } from '../models/tipoCliente.model';
 import { CorreoService, IMessage, Ciudad } from '../service/correo.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormsModule, Validators } from '@angular/forms';
+
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
 import { LandingService } from '../services/landing.service';
@@ -16,7 +18,6 @@ import { LeadService } from '../service/lead/lead.service';
   templateUrl: './cotizacion.component.html',
   styleUrls: ['./cotizacion.component.css']
 })
-
 export class CotizacionComponent implements OnInit {
   public tiposDeCliente: any;
   public ciudades: Ciudad[];
@@ -42,15 +43,20 @@ export class CotizacionComponent implements OnInit {
   // -----------------------------
   precio;
   nombre_producto;
+
   seasons = [
-    { nombre: '1 a 2 ', valor: 630000 },
-    { nombre: '3 a 4 ', valor: 1890000 },
+    {
+      nombre: '1 a 2',
+      valor: 630000
+    },
+    { nombre: '3 a 4', valor: 1890000 },
     { nombre: '5 a 6 ', valor: 3290000 },
     { nombre: '7 a 8 ', valor: 4590000 },
     { nombre: '9 a 12 ', valor: 6890000 },
     { nombre: '13 a 15', valor: 8890000 },
     { nombre: '16 a 20', valor: 11890000 }
   ];
+
   carga = true;
   ciudad_control = new FormControl();
   datos_control = new FormControl();
@@ -58,18 +64,20 @@ export class CotizacionComponent implements OnInit {
   tipoCliente;
   tipoCliente2: TipoCliente[];
   displayedColumns: string[] = ['Nombre', 'Celular', 'Correo', 'Ciudad'];
+
   message: IMessage = {
     documento: {
       tipo_documento: '',
       numero: ''
     },
     tipo_cliente: {
-      tipo: '',
+      tipo: '5ca53c81c2ba0b0017eccd87',
       nombre: ''
     },
     id_pais: '5c3ce3835d14850017167207',
     fuente: 'Landing'
   };
+
   public active = false;
   interes: TipoCliente[];
   interes2: string[];
@@ -142,6 +150,7 @@ export class CotizacionComponent implements OnInit {
       correo: new FormControl('', [Validators.required, Validators.email]),
       ciudad: new FormControl('', [Validators.required])
     });
+
     this.secondFormGroup = new FormGroup({
       tipo_cliente: new FormControl('', [Validators.required]),
       mensaje: new FormControl(''),
@@ -196,11 +205,12 @@ export class CotizacionComponent implements OnInit {
     //   { Id: 2, name: 'Contratación estatal' }
     // ];
 
-    this._landingService.getCiudades().subscribe( (res: any) => {
+    this._landingService.getCiudades().subscribe((res: any) => {
       this.ciudades = res.ciudades;
       console.log(res);
     });
-    this._leadService.getTiposDeCliente().subscribe( (res: any) => {
+
+    this._leadService.getTiposDeCliente().subscribe((res: any) => {
       this.tiposDeCliente = res.tipoCliente;
       console.log(this.tiposDeCliente);
     });
@@ -364,7 +374,8 @@ export class CotizacionComponent implements OnInit {
       this.tipo_vivienda = tipo;
       this.casa = false;
     }
-  };
+  }
+
   seleccionEstandar(tipo) {
     this.contenedor.tipo = tipo;
     this.tipo_estandar = tipo;
@@ -377,6 +388,7 @@ export class CotizacionComponent implements OnInit {
       this.estandar = true;
     }
   }
+
   // botonHallowen(mensaje) {
   //   this.halloween = mensaje;
   //   this.halloweenActivo = true;

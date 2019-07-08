@@ -105,6 +105,11 @@
     margin-bottom: 5px !important;
 }
 
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
 .testimonial {
     height: 100% !important;
 }

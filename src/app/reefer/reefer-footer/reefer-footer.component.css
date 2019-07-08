@@ -15,3 +15,8 @@
 .reefer-form {
   background-color: white;
 }
+
+
+.cursor-pointer {
+  cursor: pointer !important;
+}

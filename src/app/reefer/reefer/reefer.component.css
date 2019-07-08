@@ -9,12 +9,11 @@
   margin-bottom: 30px !important;
 }
 
-
 .link-1 {
     transition: 0.3s ease !important;
     color: #ffffff !important;
     cursor: pointer !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     text-decoration: none !important;
     border-top: 4px solid  rgb(141, 194, 221) !important;
     border-bottom: 4px solid rgb(141, 194, 221) !important;
@@ -28,7 +27,7 @@
     transition: 0.3s ease !important;
     color: rgb(141, 194, 221) !important;
     cursor: pointer !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     text-decoration: none !important;
     border-top: 4px solid  white !important;
     border-bottom: 4px solid white !important;
@@ -41,7 +40,11 @@
     margin-top: 15px !important;
   }
 
-  .menu{
+  .log-r {
+    width: 200px;
+  }
+
+  .menu {
     font-size: 13px !important;
     margin-top: 25px !important;
   }
@@ -81,6 +84,9 @@
   }
 
 /* iPads (landscape) ----------- */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 928px) {
+  .log-r  {
+    width: 240px;
+  }
 
 }

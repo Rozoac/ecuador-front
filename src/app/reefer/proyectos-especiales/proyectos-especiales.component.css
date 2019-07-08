@@ -17,6 +17,7 @@
 
   @media only screen and (min-width: 768px) {
     .banner {
-        height: 540px;
+      height: 640px !important;
       }
   }
+  

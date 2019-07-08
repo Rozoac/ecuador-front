@@ -88,16 +88,15 @@
                   <button (click)="activarModal()" mat-raised-button color="primary" matStepperNext>Siguiente</button>
                 </div>
               </form>
-             
             </mat-step>
-           
+
             <mat-step [stepControl]="secondFormGroup">
               <form [formGroup]="secondFormGroup">
                 <ng-template matStepLabel>¿Que estas buscando?</ng-template>
                 <!-- ============================================================== -->
                 <!-- TIPO DE CLIENTE
                 <!-- ============================================================== -->
-                <mat-form-field class="mr-5" appearance="outline" >
+                <mat-form-field class="mr-5" appearance="outline">
                   <mat-label>Tipo de cliente</mat-label>
                   <mat-select placeholder="Tipo de cliente" formControlName="tipo_cliente" [(ngModel)]="message.tipo_cliente.tipo">
                     <mat-option *ngFor="let tipo_cliente of tiposDeCliente" [value]="tipo_cliente._id" (onSelectionChange) = "onEvent($event)" >
@@ -151,6 +150,7 @@
           </mat-horizontal-stepper>
         </mat-card>
       </div>
+
     </section>
   </div>
   <!-- ---------------------- -->
