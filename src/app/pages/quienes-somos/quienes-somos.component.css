@@ -35,7 +35,6 @@ p, li{
 }
 
 .texto-1 {
-
   color: white;
   font-size: 3em;
 }
@@ -52,7 +51,6 @@ p, li{
 background: #021e29;
 height: 500px;
 }
-
 
 .designe-1 img{
   position: absolute;
@@ -84,7 +82,6 @@ height: 500px;
     width: 488px;
       text-align: center;
 }
-
 .designe-1 .mision{
   position: absolute;
       color: grey;
@@ -95,13 +92,20 @@ height: 500px;
       letter-spacing: 37px;
       margin-bottom: 5rem;
 }
-.designe-2{
+.banner{
 position: relative;
-background: url('/assets/imgs/trabaja/seccion-5.jpg');
+background: url('/assets/imgs/trabaja/politica.png');
 background-size: cover;
-background-attachment: fixed;
 height: 600px;
 }
+
+.designe-2{
+  position: relative;
+  background: url('/assets/imgs/trabaja/seccion-5.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 600px;
+  }
 
 
 .designe-2 img{
