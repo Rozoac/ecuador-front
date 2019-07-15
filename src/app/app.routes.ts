@@ -59,6 +59,7 @@ import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-tra
 import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
 import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
 import { ShippingLineComponent } from './shipping-line/shipping-line.component';
+import { ReferidosComponent } from './admin/referidos/referidos.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -174,6 +175,7 @@ const APP_ROUTES: Routes = [
             { path: 'encuestas', component: EncuestasComponent, data: { titulo: 'Encuestas'} },
             { path: 'encuestas/id', component: RespuestaComponent, data: { titulo: 'Clientes'} },
             { path: 'lista', component: ListaComponent },
+            { path: 'referidos', component: ReferidosComponent },
             { path: 'lead/:id', component: LeadComponent },
             { path: 'comercial/:id/:inicio/:fin', component: ComercialComponent },
             { path: '', redirectTo: 'dashboard' , pathMatch: 'full' },

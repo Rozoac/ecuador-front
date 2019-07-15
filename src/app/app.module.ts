@@ -174,6 +174,7 @@ import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servici
 import { ShippingLineComponent } from './shipping-line/shipping-line.component';
 import { TopBarComponent } from './shipping-line/shared/top-bar/top-bar.component';
 import { SideBarComponent } from './shipping-line/shared/side-bar/side-bar.component';
+import { ReferidosComponent } from './admin/referidos/referidos.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -274,7 +275,8 @@ export function momentAdapterFactory() {
     NosotrosComponent,
     ReeferTransporteComponent,
     ReeferContactoComponent,
-    ReeferServicioComponent
+    ReeferServicioComponent,
+    ReferidosComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
