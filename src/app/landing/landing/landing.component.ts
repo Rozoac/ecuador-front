@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { LandingService } from '../../services/landing.service';
-import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -58,6 +58,10 @@ export class LandingComponent implements OnInit , AfterViewInit {
     }
     if (id === '5bd8fa35b71ca700131decb0') {
       this.router.navigate(['tailor-made']);
+      return ;
+    }
+    if (id === '5bd8fa35b71ca700131decb1') {
+      this.router.navigate(['freight-forwarding/contacto']);
       return ;
     }
   }
