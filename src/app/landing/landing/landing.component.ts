@@ -23,10 +23,10 @@ export class LandingComponent implements OnInit , AfterViewInit {
   carouselConfig: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 4, lg: 6, all: 0 },
     load: 3,
-    interval: {timing: 4000, initialDelay: 1000},
+    interval: {timing: 2000, initialDelay: 1000},
     loop: true,
     touch: true,
-    velocity: 0.2,
+    velocity: 1,
     slide: 1,
     point: { visible: true }
   };

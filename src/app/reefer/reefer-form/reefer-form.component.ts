@@ -19,6 +19,13 @@ export class ReeferFormComponent implements OnInit {
   tiposDeCliente = [];
 
   message = {
+    nombre: '',
+    apellido: '',
+    correo: '',
+    celular: '',
+    id_ciudad: '',
+    mensaje: '',
+    modalidad: '',
     documento: {
       tipo_documento: 'NIT',
       numero: ''

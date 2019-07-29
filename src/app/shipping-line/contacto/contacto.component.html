@@ -1,9 +1,7 @@
 <div class="row contacto wow fadeInUpBig" data-wow-duration=".8s ">
   <div class="col-md-5">
     <h3>Estamos listos para atender <br> tu requerimiento </h3>
-    <p>
-      Direccion: Calle 114a #47a-21
-    </p>
+   
     <p>
      +57(1) Telefono: 746-2065
     </p>
@@ -12,16 +10,16 @@
     </p>
     <ul>
       <li>
-          <i class="fab fa-instagram"></i>
+         <a href="https://instagram.com/econtainers/?hl=es-la"><i class="fab fa-instagram"></i> </a> 
       </li>
       <li>
-          <i class="fab fa-facebook"></i>
+         <a href="https://www.facebook.com/EContainers/"><i class="fab fa-facebook"></i> </a> 
       </li>
       <li>
-          <i class="fab fa-twitter"></i>
+         <a href="https://twitter.com/econtainerscol?lang=es"><i class="fab fa-twitter"></i> </a> 
       </li>
       <li>
-          <i class="fab fa-youtube"></i>
+         <a href="https://www.youtube.com/channel/UCc9_pDkvmipTo5aXavS9inQ"><i class="fab fa-youtube"></i> </a> 
       </li>
     </ul>
   </div>
@@ -82,9 +80,9 @@
                     <div class="col-lg-6" [ngClass]="{'has-danger': ((forma.get('id_segmento').value) == '¿En que estas interesado?') && forma.get('id_segmento').touched}">
                         <select class="form-control color-cool" name="tipo" formControlName="id_segmento" required [(ngModel)]="message.id_segmento">
                             <option>¿En que estas interesado?</option>
-                            <ng-container class="t" *ngFor="let segmento of segmentos">
+                            <!-- <ng-container class="t" *ngFor="let segmento of segmentos">
                                     <option [value]="segmento._id">{{segmento.nombre}}</option>
-                                </ng-container>
+                                </ng-container> -->
                         </select>
                         <div *ngIf="((forma.get('id_segmento').value) == '¿En que estas interesado?') && forma.get('id_segmento').touched" class="form-control-feedback text-danger">
                             Elige una opción.
