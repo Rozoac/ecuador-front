@@ -21,20 +21,21 @@ export class LandingComponent implements OnInit , AfterViewInit {
   @ViewChild('myCarousel') myCarousel: NguCarousel<any>;
   @ViewChild('myCarousel2') myCarousel2: NguCarousel<any>;
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1, sm: 1, md: 4, lg: 6, all: 0 },
+    grid: { xs: 1, sm: 1, md: 1, lg: 3, all: 0 },
     load: 3,
-    interval: {timing: 2000, initialDelay: 1000},
-    loop: true,
+    // interval: {timing: 2000, initialDelay: 1000},
+    // loop: true,
     touch: true,
     velocity: 1,
     slide: 1,
-    point: { visible: true }
+    point: { visible: false }
   };
 
   constructor(public _landingService: LandingService, private cdr: ChangeDetectorRef, public router: Router) {
     this.loading = false;
     this.loading2 = false;
     _landingService.getContenedores().subscribe( (elberry: any) => {
+      console.log(elberry)
       this.contenedores = elberry.contenedores;
       this.ruta_imagen = elberry.contenedores.img;
       this.loading = true;
@@ -42,6 +43,19 @@ export class LandingComponent implements OnInit , AfterViewInit {
     });
     this.getPostInstagram();
 
+  }
+
+  ecuadorCondicion(nombre) {
+    switch (nombre) {
+      case 'Contenedores Marítimos':
+         console.log('entro'+ nombre.nombre);
+        return true;
+        break;
+      
+      default:
+        return false;
+        break;
+    }
   }
 
 

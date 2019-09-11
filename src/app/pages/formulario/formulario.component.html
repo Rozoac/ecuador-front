@@ -82,7 +82,7 @@
                             <select class="form-control color-cool" name="tipo" formControlName="id_segmento" required [(ngModel)]="message.id_segmento">
                                 <option>¿En que estas interesado?</option>
                                 <ng-container class="t" *ngFor="let segmento of segmentos">
-                                        <option [value]="segmento._id">{{segmento.nombre}}</option>
+                                        <option *ngIf="segmento.nombre == 'Contenedores Maritimos'" [value]="segmento._id">{{segmento.nombre}}</option>
                                     </ng-container>
                             </select>
                             <div *ngIf="((forma.get('id_segmento').value) == '¿En que estas interesado?') && forma.get('id_segmento').touched" class="form-control-feedback text-danger">
@@ -129,9 +129,9 @@
                         </div>
                         <div *ngIf="message.tipo_cliente.tipo == '5ca53c8ac2ba0b0017eccd89' || message.tipo_cliente.tipo == '5ca53ca4c2ba0b0017eccd8a'" class=" col-sm-12 col-lg-6 " [ngClass]="{'has-danger': (!forma.get('nit').valid)&& forma.get('nit').touched}">
                             <input [ngClass]="{'margin-bottom-cero': (!forma.get('nit').valid)&& forma.get('nit').touched}" type="number" class="form-control color-cool"
-                                name="nit" formControlName="nit" required placeholder="Numero de NIT" [(ngModel)]="message.documento.numero">
+                                name="nit" formControlName="nit" required placeholder="Numero de RUC" [(ngModel)]="message.documento.numero">
                             <div *ngIf="(forma.controls['nit'].errors?.required)&& forma.get('nit').touched" class="form-control-feedback">
-                                Escribe tu numero de NIT
+                                Escribe tu numero de RUC
                             </div>
                         </div>
                         <!-- ============================================================== -->

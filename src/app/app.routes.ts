@@ -7,59 +7,14 @@ import {ContenedorComponent} from './pages/contenedor/contenedor.component';
 import {CompromisoEmpresarialPComponent} from './pages/compromiso-empresarial-p/compromiso-empresarial-p.component';
 import {PqrsComponent} from './pages/pqrs/pqrs.component';
 import {LoginComponent} from './login/login.component';
-import {DashboardComponent} from './admin/dashboard/dashboard.component';
-import {GraficasComponent} from './admin/graficas/graficas.component';
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
-import { LeadComponent } from './admin/lead/lead.component';
-import { ComercialComponent } from './admin/comercial/comercial.component';
-import { ListaComponent } from './admin/lista/lista.component';
-import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
 import { GraciasComponent } from './info/gracias/gracias.component';
 import { LandingComponent } from './landing/landing/landing.component';
 import { CotizacionComponent } from './landing/cotizacion.component';
-import { PayuComponent } from './landing/payu.component';
-import { PayuResponseComponent } from './landing/payu-response.component';
 import { RefrigeradosComponent } from './landing/landing/refrigerados.component';
-import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arquitectonicos.component';
-import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
-import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
-import { NotFoundComponent } from './pages/shared/not-found/not-found.component';
-import { TailorMadeComponent } from './landing/arquitectonicos/tailor-made/tailor-made.component';
 import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/encuesta-satisfaccion.component';
-import { EncuestasComponent } from './admin/encuestas/encuestas.component';
-import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
 import { GraciasGuard } from './services/guards/gracias.guard';
-import { TerminosYCondicionesComponent } from './landing/pagos/terminos-y-condiciones/terminos-y-condiciones.component';
-import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y-reembolsos/devoluciones-y-reembolsos.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
-import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
-import { InboxComponent } from './admin/inbox/inbox.component';
-import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
-import { NegocioComponent } from './admin/negocio/negocio.component';
-import { TransporteComponent } from './admin/transporte/transporte.component';
 import { SegmentosComponent } from './pages/segmentos/segmentos.component';
-import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
-import { ReeferComponent } from './reefer/reefer/reefer.component';
-
-import { HomeComponent } from './reefer/home/home.component';
-
-import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
-import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
-
-import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
-
-import { ProyectosEspecialesComponent } from './reefer/proyectos-especiales/proyectos-especiales.component';
-
-import { AccesoriosAdicionalesComponent } from './reefer/accesorios-adicionales/accesorios-adicionales.component';
-import { NosotrosComponent } from './reefer/nosotros/nosotros.component';
-
-import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-transporte.component';
-
-import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
-import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
-import { ShippingLineComponent } from './shipping-line/shipping-line.component';
-import { ReferidosComponent } from './admin/referidos/referidos.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -76,111 +31,12 @@ const APP_ROUTES: Routes = [
             { path: '', redirectTo: 'home' , pathMatch: 'full' },
             // { path: '**',  component: NotFoundComponent }
           ] },
-          {
-            path: 'freight-forwarding',
-            component: ShippingLineComponent,
-            loadChildren: './shipping-line/shipping-line.module#ShippingLineModule'
-        },
-        {
-           path: 'reefer',
-           component: ReeferComponent,
-           children: [
-             {
-              path: 'inicio',
-              component: HomeComponent
-             },
-             {
-               path: 'nosotros',
-               component: NosotrosComponent
-             },
-             {
-               path: 'contacto',
-               component: ReeferContactoComponent
-             },
-             {
-               path: 'transporte',
-               component: ReeferTransporteComponent
-             },
-             {
-              path: 'productos-y-servicios',
-              component: ProductosYServiciosComponent,
-              children: [
-                  {
-                   path: 'contenedores-de-20-y-40-pies',
-                   component: ContenedoresComponent
-                  },
-                  {
-                    path: 'transporte',
-                    component: ReeferTransporteComponent,
-                  },
-                  {
-                    path: 'servicio-tecnico',
-                    component: ReeferServicioComponent
-                  },
-                  {
-                    path: 'como-funciona-un-reefer',
-                    component: ComoFuncionaUnReeferComponent
-                  },
-                  {
-                    path: 'proyectos-especiales',
-                    component: ProyectosEspecialesComponent
-                  },
-                  {
-                    path: 'accesorios-adicionales',
-                    component: AccesoriosAdicionalesComponent
-                  },
-                  {
-                    path: '',
-                    redirectTo: 'contenedores-de-20-y-40-pies',
-                    pathMatch: 'full'
-                  }
-              ]
-              },
-              {
-               path: '',  redirectTo: 'inicio' , pathMatch: 'full'
-              }
-           ]
-          },
-          { path: 'tailor-made', component: TailorMadeComponent },
-          { path: 'arquitectonicos/:id', component: ProductosArquitectonicosComponent },
-          { path: 'arquitectonicos', component: ArquitectonicosComponent },
+          
           { path: 'detalles', component: SegmentosComponent},
           { path: 'landing', component: LandingComponent },
           { path: 'refrigerados', component: RefrigeradosComponent },
-          { path: 'payu', component: PayuComponent },
-          { path: 'pagos-online', component: PagosOnlineComponent },
-          { path: 'pagos-online/terminos-y-condiciones', component: TerminosYCondicionesComponent },
-          { path: 'pagos-online/devolucion-y-reembolsos', component: DevolucionesYReembolsosComponent },
-          { path: 'payu-response', component: PayuResponseComponent },
           { path: 'cotizacion/:nombre', component: CotizacionComponent },
           { path: 'gracias', component: GraciasComponent, canActivate: [GraciasGuard], },
-          { path: 'login', component: LoginComponent },
-          { path: 'expoferia', component: ExpoferiaComponent },
-          // { path: '**',  component: NotFoundComponent },
-
-  {
-          path: 'admin',
-          component: AdminComponent ,
-          canActivate: [LoginGuardGuard],
-          children: [
-            { path: 'comerciales', component: GraficasComponent, data: { titulo: 'Leads'} },
-            { path: 'usuarios', component: AdminUsuariosComponent, data: { titulo: 'Usuarios'} },
-            { path: 'transporte', component: TransporteComponent, data: { titulo: 'Cotización de transporte'} },
-            { path: 'inbox', component: InboxComponent, data: { titulo: 'Inbox'} },
-            { path: 'mis-negocios', component: MisNegociosComponent, data: { titulo: 'Mis Negocios'} },
-            { path: 'negocio/:id', component: NegocioComponent, data: { titulo: 'Negocio'} },
-            { path: 'usuarios/usuario/:id', component: UsuarioComponent, data: { titulo: 'Usuario'} },
-            { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard'} },
-            { path: 'redes-sociales', component: DashboardRedesComponent, data: { titulo: 'Redes-Sociales'} },
-            { path: 'encuestas', component: EncuestasComponent, data: { titulo: 'Encuestas'} },
-            { path: 'encuestas/id', component: RespuestaComponent, data: { titulo: 'Clientes'} },
-            { path: 'lista', component: ListaComponent },
-            { path: 'referidos', component: ReferidosComponent },
-            { path: 'lead/:id', component: LeadComponent },
-            { path: 'comercial/:id/:inicio/:fin', component: ComercialComponent },
-            { path: '', redirectTo: 'dashboard' , pathMatch: 'full' },
-            // { path: '**',  component: NotFoundComponent },
-          ] }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {

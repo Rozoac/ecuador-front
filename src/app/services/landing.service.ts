@@ -29,7 +29,7 @@ export class LandingService {
     return this.http.jsonp(url, '');
   }
   getCiudades() {
-    const url = `${URL_LANDING_DEV}ciudad/5c3ce3835d14850017167207`;
+    const url = `${URL_LANDING_DEV}ciudad/5c3ce38e5d14850017167208`;
     return this.http.get(url);
   }
   getSegmentos() {

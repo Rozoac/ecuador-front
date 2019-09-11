@@ -1,6 +1,15 @@
 /*colores*/
 
 button{
+  transition: 600ms;
+}
+
+button:hover {
+  background: white;
+  color: #0077dd;
+}
+
+button{
 cursor: pointer;
 }
 

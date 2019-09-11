@@ -12,10 +12,6 @@
             <span class="texto-2 animated fadeIn">
               {{contenedor?.descripcion}}
             </span>
-            <div class="mt-4" *ngIf="contenedor?.tipo == 'Contenedores Maritimos'">
-             <a href="https://econtainers.co/shop" ><button class="btn"> Pagar con <img src="assets/imgs/images/payu.png" class="imagen-s" alt="" ></button></a> 
-              <span style="display: block; font-family: 'CenturyGothic' !important; color: white; ">Obten tu contenedor a tan solo un click</span> 
-            </div>
           </div>
         </div>
         <div class="col-md-6">
@@ -110,7 +106,7 @@
                 <!-- ============================================================== -->
                  <mat-form-field *ngIf="message?.tipo_cliente.tipo === '5ca53c8ac2ba0b0017eccd89' || message?.tipo_cliente.tipo  === '5ca53ca4c2ba0b0017eccd8a'" class="mr-4"
                   appearance="outline">
-                  <mat-label>Nit</mat-label>
+                  <mat-label>RUC</mat-label>
                   <input matInput placeholder="" type="number" required formControlName="documento" [(ngModel)]="message.documento.numero">
                   <mat-error *ngIf="secondFormGroup.get('documento').invalid">{{getErrorMessage2("documento")}}</mat-error>
                 </mat-form-field>
@@ -128,8 +124,8 @@
                 <mat-form-field class="mr-5" appearance="outline">
                   <mat-label>¿Lo quieres para?</mat-label>
                   <mat-select placeholder="¿Lo quieres para?" formControlName="modalidad" [(ngModel)]="message.modalidad">
-                    <mat-option value="Compra" *ngIf="message.tipo_cliente.tipo == '5ca53c81c2ba0b0017eccd87' || message.tipo_cliente.tipo == '5ca53c8ac2ba0b0017eccd89' || message.tipo_cliente.tipo == '5ca53ca4c2ba0b0017eccd8a'">Compra</mat-option>
-                    <mat-option value="Alquiler" *ngIf="message.tipo_cliente.tipo != 'Tipo de cliente' && message.tipo_cliente.tipo != '5ca53c81c2ba0b0017eccd87'">Alquiler</mat-option>
+                    <mat-option value="Compra" >Compra</mat-option>
+                    <mat-option value="Alquiler" >Alquiler</mat-option>
                   </mat-select>
                   <mat-error *ngIf="secondFormGroup.get('modalidad').invalid">{{getErrorMessage2("modalidad")}}</mat-error>
                 </mat-form-field>

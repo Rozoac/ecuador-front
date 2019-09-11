@@ -25,9 +25,9 @@ export class ContadorComponent implements OnInit {
 
   ngOnInit() {
     this.nuestroEquipo = 78;
-    this.clientesColombia = 4450;
-    this.entregasConcretadas = 1800;
-    this.proyectosTerminados = 1334;
+    this.clientesColombia = 1353;
+    this.entregasConcretadas = 1644;
+    this.proyectosTerminados = 387;
     this.loading = true;
   }
 }

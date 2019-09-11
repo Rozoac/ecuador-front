@@ -37,17 +37,8 @@ import { TestimoniosComponent } from './pages/testimonios/testimonios.component'
 import { PlaneacionComponent } from './pages/planeacion/planeacion.component';
 import { PqrsComponent } from './pages/pqrs/pqrs.component';
 import { ContadorComponent } from './pages/contador/contador.component';
-import { ComercialComponent } from './admin/comercial/comercial.component';
 import { PagesComponent } from './pages/pages.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { GraficasComponent } from './admin/graficas/graficas.component';
-import { HeaderComponent } from './admin/shared/header/header.component';
-import { SidebarComponent } from './admin/shared/sidebar/sidebar.component';
-import { BreadcrumbsComponent } from './admin/shared/breadcrumbs/breadcrumbs.component';
-import { AdminComponent } from './admin/admin.component';
-import { ListaComponent } from './admin/lista/lista.component';
-import { DashboardRedesComponent } from './admin/dashboard-redes/dashboard-redes.component';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import {
   CalendarDateFormatter,
@@ -105,8 +96,7 @@ import { AgmCoreModule } from '@agm/core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { ChartsModule } from 'ng2-charts';
 import { MyDatePickerModule } from 'mydatepicker';
-import { GraficaDonaComponent } from './admin/grafica-dona/grafica-dona.component';
-import { LeadComponent } from './admin/lead/lead.component';
+
 import { NguCarouselModule } from '@ngu/carousel';
 import { ToastrModule } from 'ngx-toastr';
 import { CounterModule } from 'angular-circle-counter';
@@ -127,55 +117,14 @@ import { GraciasComponent } from './info/gracias/gracias.component';
 import { LandingComponent } from './landing/landing/landing.component';
 import { CotizacionComponent } from './landing/cotizacion.component';
 import { RmEtiquetasPipe } from './pipes/rm-etiquetas.pipe';
-import { PayuComponent } from './landing/payu.component';
-import { PayuResponseComponent } from './landing/payu-response.component';
 import { RefrigeradosComponent } from './landing/landing/refrigerados.component';
-import { ArquitectonicosComponent } from './landing/landing/arquitectonicos/arquitectonicos.component';
-import { ProductosArquitectonicosComponent } from './landing/arquitectonicos/productos-arquitectonicos/productos-arquitectonicos.component';
-import { PagosOnlineComponent } from './landing/pagos/pagos-online/pagos-online.component';
-import { NotFoundComponent } from './pages/shared/not-found/not-found.component';
-import { TailorMadeComponent } from './landing/arquitectonicos/tailor-made/tailor-made.component';
 import { EncuestaSatisfaccionComponent } from './pages/encuesta-satisfaccion/encuesta-satisfaccion.component';
-import { EncuestasComponent } from './admin/encuestas/encuestas.component';
-import { RespuestaComponent } from './admin/encuestas/respuesta/respuesta.component';
-import { TerminosYCondicionesComponent } from './landing/pagos/terminos-y-condiciones/terminos-y-condiciones.component';
-import { DevolucionesYReembolsosComponent } from './landing/pagos/devoluciones-y-reembolsos/devoluciones-y-reembolsos.component';
-import { CrearUsuarioComponent } from './admin/crear-usuario/crear-usuario.component';
-import { AdminUsuariosComponent } from './admin/admin-usuarios/admin-usuarios.component';
-import { UsuarioComponent } from './admin/admin-usuarios/usuario/usuario.component';
-import { InboxComponent } from './admin/inbox/inbox.component';
 import { InboxService } from './service/inbox.service';
 import { environment } from '../environments/environment.prod';
 import { SharedService } from './service/shared.service';
-import { MisNegociosComponent } from './admin/mis-negocios/mis-negocios.component';
-import { NegocioComponent } from './admin/negocio/negocio.component';
 import { HeaderLandingComponent } from './landing/shared/header-landing/header-landing.component';
 import { FooterLandingComponent } from './landing/shared/footer-landing/footer-landing.component';
-import { InfoClienteModalComponent } from './admin/comercial/modals/info-cliente-modal/info-cliente-modal.component';
-import { RechazoModalComponent } from './admin/negocio/modals/rechazo-modal/rechazo-modal.component';
-import { TransporteComponent } from './admin/transporte/transporte.component';
-import { ModalCompraComponent } from './landing/arquitectonicos/tailor-made/modal/modal-compra/modal-compra.component';
-import { RedireccionarModalComponent } from './admin/negocio/modals/redireccionar-modal/redireccionar-modal.component';
 import { SegmentosComponent } from './pages/segmentos/segmentos.component';
-import { ExpoferiaComponent } from './landing/expoferia/expoferia.component';
-import { ReeferComponent } from './reefer/reefer/reefer.component';
-import { HomeComponent } from './reefer/home/home.component';
-import { ReeferFooterComponent } from './reefer/reefer-footer/reefer-footer.component';
-import { ReeferFormComponent } from './reefer/reefer-form/reefer-form.component';
-import { ProductosYServiciosComponent } from './reefer/productos-y-servicios/productos-y-servicios.component';
-import { ContenedoresComponent } from './reefer/contenedores/contenedores.component';
-import { ComoFuncionaUnReeferComponent } from './reefer/como-funciona-un-reefer/como-funciona-un-reefer.component';
-import { ProyectosEspecialesComponent } from './reefer/proyectos-especiales/proyectos-especiales.component';
-import { AccesoriosAdicionalesComponent } from './reefer/accesorios-adicionales/accesorios-adicionales.component';
-import { NosotrosComponent } from './reefer/nosotros/nosotros.component';
-import { ReeferTransporteComponent } from './reefer/reefer-transporte/reefer-transporte.component';
-import { ReeferContactoComponent } from './reefer/reefer-contacto/reefer-contacto.component';
-import { ReeferServicioComponent } from './reefer/reefer-servicio/reefer-servicio.component';
-import { ShippingLineComponent } from './shipping-line/shipping-line.component';
-import { TopBarComponent } from './shipping-line/shared/top-bar/top-bar.component';
-import { SideBarComponent } from './shipping-line/shared/side-bar/side-bar.component';
-import { ReferidosComponent } from './admin/referidos/referidos.component';
-
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -189,12 +138,9 @@ export function momentAdapterFactory() {
 @NgModule({
   declarations: [
     AppComponent,
-    ShippingLineComponent,
     ImagenPipe,
-    SideBarComponent,
     HomepageComponent,
     FooterComponent,
-    TopBarComponent,
     HeaderLandingComponent,
     FooterLandingComponent,
     QuienesSomosComponent,
@@ -205,7 +151,6 @@ export function momentAdapterFactory() {
     TrayectoriaComponent,
     VentajasComponent,
     ClientesComponent,
-    SidebarComponent,
     FormularioComponent,
     MapaComponent,
     Formulario2Component,
@@ -217,66 +162,24 @@ export function momentAdapterFactory() {
     CarrouselComponent,
     PagesComponent,
     LoginComponent,
-    DashboardComponent,
-    GraficasComponent,
-    HeaderComponent,
-    SidebarComponent,
-    BreadcrumbsComponent,
-    AdminComponent,
+
     NombrePipe,
     CiudadPipe,
-    GraficaDonaComponent,
-    LeadComponent,
+
     HoraPipe,
-    ComercialComponent,
     ComercialPipe,
-    ListaComponent,
-    DashboardRedesComponent,
+
     GraciasComponent,
     LandingComponent,
-    ModalCompraComponent,
     CotizacionComponent,
     RmEtiquetasPipe,
-    PayuComponent,
-    PayuResponseComponent,
+
     RefrigeradosComponent,
-    ArquitectonicosComponent,
-    ProductosArquitectonicosComponent,
-    PagosOnlineComponent,
-    NotFoundComponent,
-    TailorMadeComponent,
     EncuestaSatisfaccionComponent,
-    EncuestasComponent,
-    RespuestaComponent,
-    TerminosYCondicionesComponent,
-    DevolucionesYReembolsosComponent,
-    CrearUsuarioComponent,
-    AdminUsuariosComponent,
-    UsuarioComponent,
+  
     ImagenPipe,
-    InboxComponent,
-    MisNegociosComponent,
-    NegocioComponent,
-    InfoClienteModalComponent,
-    RechazoModalComponent,
-    RedireccionarModalComponent,
-    TransporteComponent,
+  
     SegmentosComponent,
-    ExpoferiaComponent,
-    ReeferComponent,
-    HomeComponent,
-    ReeferFooterComponent,
-    ReeferFormComponent,
-    ProductosYServiciosComponent,
-    ContenedoresComponent,
-    ComoFuncionaUnReeferComponent,
-    ProyectosEspecialesComponent,
-    AccesoriosAdicionalesComponent,
-    NosotrosComponent,
-    ReeferTransporteComponent,
-    ReeferContactoComponent,
-    ReeferServicioComponent,
-    ReferidosComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
@@ -335,10 +238,6 @@ export function momentAdapterFactory() {
     }),
     ChartsModule,
     MyDatePickerModule
-  ],
-  entryComponents: [
-    CrearUsuarioComponent, InfoClienteModalComponent,
-    RechazoModalComponent, RedireccionarModalComponent, ModalCompraComponent
   ],
   providers: [
     {
