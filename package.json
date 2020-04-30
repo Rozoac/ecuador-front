@@ -60,7 +60,7 @@
     "hover.css": "^2.3.2",
     "howler": "^2.1.1",
     "http-server": "^0.11.1",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "md5-typescript": "^1.0.5",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.25",
