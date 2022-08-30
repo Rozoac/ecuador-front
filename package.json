@@ -63,7 +63,7 @@
     "jquery": "^3.4.0",
     "md5-typescript": "^1.0.5",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.25",
+    "moment-timezone": "^0.5.35",
     "mydatepicker": "^2.6.6",
     "ng-multiselect-dropdown": "^0.2.3",
     "ng2-charts": "^1.6.0",
